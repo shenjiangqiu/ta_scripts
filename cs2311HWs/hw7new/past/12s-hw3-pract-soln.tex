@@ -1,0 +1,379 @@
+\documentclass[12pt,addpoints]{exam}
+% can include option [answers] to print out solutions, or command \printanswers
+%  can turn addpoint on and off with commands, \addpoints and \noaddpoints
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage[top=0.75in,bottom=0.75in,left=0.9in,right=0.9in]{geometry}
+
+\setlength{\itemsep}{0pt} \setlength{\topsep}{0pt}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\xor}{\oplus}
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Spring 2012}}{\textbf{HW
+3 - Practice Problems Solutions}}{} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\noindent \textbf{Instructions:} The following practice problems are
+not due and are not graded.  The solutions will be provided to allow
+for extra practice.
+
+\begin{questions}
+\printanswers
+
+\question Rosen Ch 1.6 \#14 (a,b), p. 79
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item[(a):] Let $c(x)$ be ``$x$ is in this class", $r(x)$ be ``$x$ owns a red convertible", $t(x)$ be ``$x$ has gotten a speeding ticket."  The premises are:
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[1.] $c(Linda)$
+        \item[2.] $r(Linda)$
+        \item[3.] $\forall x\; (r(x) \rightarrow t(x))$
+    \end{itemize}
+    To conclude: $\exists x\; (c(x) \wedge t(x))$
+
+    \smallskip
+    \begin{tabular}{lll}
+        Step        & \hspace{0.2in} & Reason \\
+        1. $\forall x\; (r(x) \rightarrow t(x))$    &   & Hypothesis \\
+        2. $r(Linda) \rightarrow t(Linda)$          &   & Universal Instantiation \\
+        3. $r(Linda)$                               &   & Hypothesis \\
+        4. $t(Linda)$                               &   & Modus ponens using (2) and (3) \\
+        5. $c(Linda)$                               &   & Hypothesis \\
+        6. $c(Linda) \wedge t(Linda)$               &   & Conjunction with (4) and (5) \\
+        7. $\exists x\; (c(x) \wedge t(x))$         &   & Existential generalizaion \\
+    \end{tabular}
+
+    \item[(b):] Let $r(x)$ be ``$x$ is one of the five roommates", $d(x)$ be ``$x$ has taken a course in discrete math", and $a(x)$ be ``$x$ can take a course in algorithms." The premises are:
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[1.] $\forall x\;(r(x) \rightarrow d(x))$
+        \item[2.] $\forall x\;(d(x) \rightarrow a(x))$
+    \end{itemize}
+    The conclusion is: $\forall x\;(r(x) \rightarrow a(x))$.  Let $y$ be an arbitrary person.
+
+    \smallskip
+    \begin{tabular}{lll}
+        Step        & \hspace{0.2in} & Reason \\
+        1. $\forall x\;(r(x) \rightarrow d(x))$     &   & Hypothesis \\
+        2. $r(y) \rightarrow d(y)$                  & & Univ. Inst. with (1) \\
+        3. $\forall x\; (d(x) \rightarrow a(x))$    &   & Hypothesis \\
+        4. $d(u) \rightarrow a(y)$                  &   & Univ. Inst. with (3) \\
+        5. $r(y) \rightarrow a(y)$                  &   & Hyp. syl. with (2) and (4) \\
+        6. $\forall x\;(r(x) \rightarrow a(x))$     &   & Univ. Generalization with (5) \\
+    \end{tabular}
+    \end{itemize}
+\end{solution}
+
+
+\question Rosen Ch 1.6 \# 16(a,b,c), p. 79
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[(a)] Correct, using universal instantiation and modus tollens.
+        \item[(b)] Incorrect, after applying universal instantiation it uses the fallacy of denying the hypothesis.
+        \item[(c)] Incorrect, after applying universal instantiation it uses the fallacy of denying the hypothesis.
+%        \item[(d)] Correct, using universal instantiation and modus ponens.
+    \end{itemize}
+\end{solution}
+
+
+\question Rosen Ch 1.6 \# 18, p. 79
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    It is true that there is some $s$ in the domain s.t. $S(s,Max)$; however, there is no guarantee that Max is the $s$.  This first step of the proof is invalid.
+\end{solution}
+
+
+\question Rosen Ch 1.6 \# 24, p. 79
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    The incorrect steps are 3 and 5.  The simplification rule can not be applied to disjunctions.  Also, step 7 the conjunction rule should ``AND" terms together.
+\end{solution}
+
+
+\question Rosen Ch 1.6 \# 26, p. 80
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    This is to show that the conditional statement is true for all elements in the domain, that is $\forall x\; P(x) \ra R(x)$.  Show if $P(x)$ is true for a particular $x$ then $R(x)$ is also true.  For an item in the domain $x$, universal modus ponens with the first hypothesis gives $Q(x)$.  Then, apply universal modus ponens with the second hypothesis to get $R(x)$.
+\end{solution}
+
+
+\question  Match the term in the left column with the definition
+from the right column that best matches the word.  Put the letter
+associated with a word's definition in the space next to the word.
+
+\footnotesize
+\begin{tabular}{p{1.8in}p{3.9in}}
+\rule{0.7in}{.01in} Argument    & (a) A declarative statement that
+is either true of false, but not both.\\
+&\\[9pt]
+\rule{0.7in}{.01in} Axiom       & (b) A form of incorrect reasoning\\
+&\\[9pt]
+\rule{0.7in}{.01in} Conjecture  & (c) A proposition that can be
+established directly from a theorem that has been proved\\
+&\\[9pt]
+\rule{0.7in}{.01in} Contingency & (d) A proposition that is always false\\
+&\\[9pt]
+\rule{0.7in}{.01in} Contradiction & (e) A proposition that is always true\\
+&\\[9pt]
+\rule{0.7in}{.01in} Corollary   & (f) A proposition that is neither
+always true nor always false\\
+&\\[9pt]
+\rule{0.7in}{.01in} Fallacy     & (g) A sequence of propositions.\\
+&\\[9pt]
+\rule{0.7in}{.01in} Lemma       & (h) A simple theorem used in proof of another theorem\\
+&\\[9pt]
+\rule{0.7in}{.01in} Proposition & (i) A statement accepted as true
+as the basis for argument or inference\\
+&\\[9pt]
+\rule{0.7in}{.01in} Tautology   & (j) A statement proposed to be
+true.\\
+&\\[9pt]
+\rule{0.7in}{.01in} Theorem     & (k) A statement that can be shown to be true\\
+\end{tabular}
+\normalsize
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    The following matches are correct:
+
+    \begin{tabular}{ll}
+        (g) - Argument      & (b) - Fallacy \\
+        (i) - Axiom         & (h) - Lemma  \\
+        (j) - Conjecture    & (a) - Proposition \\
+        (f) - Contingency   & (e) - Tautology \\
+        (d) - Contradiction & (k) - Theorem \\
+        (c) - Corollary     & \\
+    \end{tabular}
+\end{solution}
+
+
+\question Rosen Ch 1.7 \# 2, p. 91
+%Use a direct proof to show that the sum of two even integers is even.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution} \textbf{Proof:} Assume you have two even integers $a$ and $b$.  By definition of even numbers, then there exists integers $k_a$ and $k_b$ such that $a=2k_a$ and $b=2k_b$.  Computer $a+b$:
+    $$a+b = 2k_a + 2k_b = 2(k_a + k_b).$$
+    The sum of the two even numbers is also in the form of a even number.
+    Therefore, the sum of two even integers is even.
+\end{solution}
+
+
+\question Give a direct proof that for all real numbers $x$ and $y$,
+if $x$ and $y$ are rational, then $x-y$ is rational.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution} \textbf{Proof:} If $x$ and $y$ are rational, then there are
+    integers $p, q\neq 0, r$, and $s\neq 0$ such that
+    $x = \frac{p}{q}$ and $y = \frac{r}{s}$ using the definition of rational.  Then,
+    \[ x - y = \frac{p}{q} - \frac{r}{s} = \frac{ps - qr}{qs} \]
+    Since $ps - qr$ and $qs \neq 0$ are integers, it follows
+    that $x - y$ is rational.  We have proved the difference of
+    two rational numbers is rational.
+\end{solution}
+
+
+\question For all natural numbers $n$, if $n$ is divisible by 5,
+then $5n+5$ is divisible by 5.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution} \textbf{Proof:} Assume $n$ is divisible by 5.
+    Then by definition of divisible there exists a natural number
+    $k$ s.t. $n=5k$. Compute $5n+5$:
+    \[ 5n + 5 = 5(5k) + 5 = 5(5k + 1) \]
+    It follows that $5n+5$ is divisible by 5. Therefore, for all
+    natural numbers $n$, if $n$ is divisible by 5, then $5n+5$ is
+    divisible by 5.
+\end{solution}
+
+
+\question Give a proof by contradiction that if $n$ is a natural
+number and $3n+3$ is odd, then $n$ is even.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \textbf{Proof by contradiction:} Assume $3n+3$ is odd and $n$ is
+    odd.  Then $n=2k + 1$ for some natural number $k$.  Compute
+    $3n+3$:
+    \[ 3n + 3 = 3(2k+1) + 3 = 6k + 6 = 2(3k + 3)\]
+    showing $3n+3$ is even. This contradicts the assumption that $3n
+    + 3$ is odd. Consequently, if $n$ is a natural number and $3n + 3$ is odd, then $n$ is even.
+\end{solution}
+
+
+\question Prove for all natural numbers $n$ and $m$, $nm$ is odd if
+and only if $n$ and $m$ are both odd.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+     This proof is for a theorem using ``if and only if" therefore,
+     it must be proved in both directions.  \\
+    \textbf{Prove ``if p, then q" by contradiction:} Assume $nm$ is
+    odd and $n$ and $m$ are not both odd.  Then at least one of $n$
+    and $m$ are even.  Suppose $n$ is the one that is even. Then
+    $n=2k$ for some natural number $k$.  Then $nm = 2km$ and so $nm$
+    is even.  This contradicts the assumption that $nm$ is odd.
+    Similarly, if we assume instead that $m$ is the one that is even,
+    we reach the same contradiction.   If both $m$ and $n$ are both
+    even we reach the same result.  Thus, it must be that $n$ and
+    $m$ are both odd.
+
+    \smallskip
+    \textbf{Prove ``if q then p" directly:} Assume $n$ and $m$ are
+    both odd.  Then, there are natural numbers $k$ and $j$ such
+    that $n = 2k+1$ and $m=2j+1$.  Then,
+    \[ nm = (2k+1)(2j+1) = 4kj + 2(k+j) +1 = 2(2kj +k + j) +1 \]
+    So, $nm$ is odd by definition. Therefore, if $n$ and $m$ are
+    odd, $nm$ is odd.
+\end{solution}
+
+
+\question Use a proof by cases to show that $min(a, min(b,c)) =
+min(min(a,b),c)$ whenever $a$, $b$, and $c$ are real numbers.
+% SEE Jean Mayo hw5
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    There are 6 cases for the values of $a$,$b$, $c$. \\
+    \textbf{case 1:} $a \leq b \leq c$, then \\
+        $min(a, min(b,c)) = min(a,c) = a$ \\
+        $min(min(a,b),c)) = min(a,c) = a$ \\
+    \textbf{case 2:} $a \leq c \leq b$, then \\
+        $min(a, min(b,c)) = min(a,c,) = a$ \\
+        $min(min(a,b),c) = min(a,c) = a$ \\
+    \textbf{case 3:} $b \leq a \leq c$, then \\
+        $min(a, min(b,c)) = min(a,b) = b$\\
+        $min(min(a,b),c) = min(b,c) = b$ \\
+    \textbf{case 4:} $b \leq c \leq a$, then \\
+        $min(a, min(b,c)) = min(a,b) = b$ \\
+        $min(min(a,b),c) = min(b,c) = b$ \\
+    \textbf{case 5:} $c \leq a \leq b$, then \\
+        $min(a, min(b,c)) = min(a,c) = c$\\
+        $min(min(a,b),c) = min(a,c) = c$ \\
+    \textbf{case 6:} $c \leq b \leq a$, then \\
+        $min(a, min(b,c)) = min(a,c) = c$ \\
+        $min(min(a,b),c) = min(b,c) = c$ \\
+    We have shown it to be true, in all cases.
+\end{solution}
+
+
+\question Prove the following proposition, ``For any integer $n \geq 2$, $n^2-3$ is never divisible by 4.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    Consider two cases:
+    \begin{itemize}
+        \item[Case 1]: If $n$ is even, then by definition $n^2$is also even and $n^2-3$ will be odd.  Therefore, $n^2-3$ is not divisible by 4.
+        \item[Case 2]: If $n$ is odd, there are 4 cases to consider. $n$ can be written as $4k$, $4k+1$, $4k+2$, and $4k+3$ for an integer $k$.  The forms of $4k$ and $4k+2$ are even, not matching the condition $n$ is odd, and will not be considered further.
+            \begin{itemize}
+                \item[Case a]:
+                \begin{align*}
+                    n &= 4k + 1 \\
+                    n^2 - 3 &= (4k + 1)^2 - 3 \\
+                        &= 16k^2 + 8k + 1 - 3 \\
+                        &= 16k^2 +8k - 2
+                \end{align*}
+                The number $n^2-3$ is not divisible by 4.
+                \item[Case b]:
+                \begin{align*}
+                    n &= 4k+3 \\
+                    n^2 - 3 &= (4k + 3)^2 - 3 \\
+                     &= 16k^2 + 24k + 9 - 3 \\
+                     &= 16k^2 + 24k + 6
+                \end{align*}
+                The number $n^2-3$ is not divisible by 4.
+                Therefore, if $n$ is odd, $n^2-3$ is not divisible by 4.
+            \end{itemize}
+        \end{itemize}
+        Therefore, we have shown in all cases that for any integer $n \geq 2$, $n^2 - 3$ is not divisible by 4.
+\end{solution}
+
+
+%\question Prove that if $n$ is a perfect square, then $n+2$ is not a perfect square.
+%    \ifprintanswers
+%        \vspace{-10pt}
+%    \fi
+%\begin{solution}
+%    Assume $n$ is a perfect square then by definition there exists an integer $a$ s.t. $n=a^2$.  Also, assume $n+2$ is a perfect square, then there exists an integer $b$ s.t. $n+2 = b^2$.  Plug $n=a^2$ into the equation $n + 2 = b^2$.  Thus,
+%    \[ a^2 + 2 = b^2 \;\text{or}\; 2 = b^2 - a^2 \]
+%    This can be written as $2 = (b-a)(b+a)$. In this expression, we know that both $b-a$ and $b+a$ are integers because $a$ and $b$ are integers.  The only two integers that when multiplied together equal 2 are 2,1 or -2,-1.  Consider the cases:
+%    \begin{itemize}
+%        \item[Case 1]:
+%        \[ \text{Solve:}\;\;\;
+%            \begin{matrix}
+%                b & -a \\
+%                b & +a
+%            \end{matrix}
+%            =
+%            \begin{matrix}
+%                2 \\
+%                1
+%            \end{matrix}
+%            \hspace*{0.5in} Solution:  b=1.5, a=-0.5 \]
+%        \item[Case 2]:
+%        \[ \text{Solve:}\;\;\;
+%            \begin{matrix}
+%                b & -a \\
+%                b & +a
+%            \end{matrix}
+%            =
+%            \begin{matrix}
+%                1 \\
+%                2
+%            \end{matrix}
+%            \hspace*{0.5in} Solution: b=1.5, a=0.5 \]
+%        \item[Case 3]:
+%        \[ \text{Solve:}\;\;\;
+%            \begin{matrix}
+%                b & -a \\
+%                b & +a
+%            \end{matrix}
+%            =
+%            \begin{matrix}
+%                -2 \\
+%                -1
+%            \end{matrix}
+%            \hspace*{0.5in} Solution: b=-1.5, a=0.5 \]
+%        \item[Case 4]:
+%        \[ \text{Solve:}\;\;\;
+%            \begin{matrix}
+%                b & -a \\
+%                b & +a
+%            \end{matrix}
+%            =
+%            \begin{matrix}
+%                -1 \\
+%                -2
+%            \end{matrix}
+%            \hspace*{0.5in} Solution: b=-1.5, a=-0.5 \]
+%    \end{itemize}
+%    In all cases, the only solutions for $b$ and $a$ in each case are not integers which breaks the assumption.  Thus a contradiction.  Therefore using a proof by contradiction, if $n$ is a perfect square, then $n+2$ is not a perfect square.
+%\end{solution}
+
+\end{questions}
+\end{document}

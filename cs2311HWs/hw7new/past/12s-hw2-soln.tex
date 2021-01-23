@@ -1,0 +1,400 @@
+\documentclass[12pt,addpoints]{exam}
+% can include option [answers] to print out solutions, or command \printanswers
+%  can turn addpoint on and off with commands, \addpoints and \noaddpoints
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage[top=0.75in,bottom=0.75in,left=0.9in,right=0.9in]{geometry}
+
+\setlength{\itemsep}{0pt} \setlength{\topsep}{0pt}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\xor}{\oplus}
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Spring 2012}}{\textbf{HW
+2 Solutions - \numpoints$\;$ points}}{\textbf{Due: Wed. 1/25/12}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\noindent \textbf{Instructions:} All assignments are due \underline{by 5pm on the due date} specified.  There will be a box in the CS department office where assignments may be turned in.  Solutions will be handed out (or posted on-line) shortly thereafter.  Every student
+must write up their own solutions in their own manner.
+
+\smallskip
+\noindent Please present your solutions in a clean, understandable
+manner; pages should be stapled before class, no ragged edges of
+paper.
+
+\begin{questions}
+\printanswers
+
+\question[5] Let $P(x,y)$ be $x + y = x - y$, with the domain of $x$ and $y$ be the set of all real numbers.  Determine the truth value of:
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item $P(8,3)$
+    \item $P(-3.2, 4.7)$
+    \item $P(\frac{5}{2}, 0)$
+    \item (2pt) Determine the set of all pairs of numbers, $x$ and $y$ where $P(x,y)$ is true.
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item False
+        \item False
+        \item True
+        \item $P(x,y)$ is true iff $x + 2y = x$, which is only true if $y=0$.  Therefore, $x$ may be any real number and $y$ must be zero.
+    \end{enumerate}
+\end{solution}
+
+
+\question[6]\label{probb} Translate the following statements to logical expressions where $P(x)$ is ``$x$ is a prime number", $E(x)$ is ``$x$ is even", and $I(x)$ is ``$x$ is an integer"; the domain of $x$ and $y$ is real numbers
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item ``All integers are even."
+    \item ``Some prime numbers are odd."
+    \item ``If a integer is even, then it is not prime."
+%    \item (3pt) ``Some prime number plus an even number is an odd number."
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item $\forall x\; (I(x) \ra E(x))$
+        \item $\exists x\; (P(x) \wedge \neg E(x))$
+        \item $\forall x\; ((I(x) \wedge E(x)) \ra \neg P(x))$
+%        \item $\exists x\; \exists y\; (P(x) \wedge Q(x) \wedge R(x,y))$
+    \end{enumerate}
+\end{solution}
+
+
+\question[4] Translate the following logical expressions into sentences using the same predicates as problem \ref{probb}.
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item $\exists x\; (I(x) \wedge E(x))$
+    \item $\forall x\; (I(x) \ra (E(x) \vee \neg E(x)))$
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item There exists a number $x$ which is an integer and is even. Or, conversationally \\
+            Some integers are even.
+        \item For every $x$, if $x$ is an integer then it is either even or odd. \\
+            Every integer is either even or odd.
+    \end{enumerate}
+\end{solution}
+
+\question[6]\label{proba} For this problem, use the predicates: $F(x)$ is ``$x$ is a Freshman", $S(x)$ is ``$x$ is a student at this college", $C(y)$ is ``$y$ is a CS course", and $T(x,y)$ is ``$x$ is taking $y$", where $x$ has the domain of all students at the college and $y$ has the domain of all CS courses.
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item Translate the logical expression into English: $\exists x\; (F(x) \wedge T(x,Calc2))$.
+    \item Translate the English statement into logic: ``Every freshman at the College is taking CS 1121."
+    \item Translate the English statement into logic: ``Every freshman at the College is taking some CS course."
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item Literally, ``There is a student at this college $x$, where $x$ is a freshman and $x$ is taking Calc2."
+
+            Conversationally, ``Some freshman at this college is taking Calc 2."
+        \item $\forall x\; (F(x) \ra T(x,CS 1121))$
+        \item $\forall x\; (F(x) \ra \exists y T(x,y))$ or $\forall x\; \exists y\; (F(x) \ra T(x,y))$
+    \end{enumerate}
+\end{solution}
+
+\question[9] Repeat problem \ref{proba} where $x$ has the domain of all people and $y$ has the domain of all courses.
+%\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%    \item Translate the logical expression into English: $\exists x\; (F(x) \wedge S(x) \wedge T(x,Calc2))$.
+%    \item Translate the English statement into logic: ``Every freshman at the College is taking CS 1121."
+%    \item Translate the English statement into logic: ``Every freshman at the College is taking some CS course.". where $C(x)$ is ``$x$ is a CS course."
+%\end{enumerate}
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item Literally, ``There is a person $x$, where $x$ is a freshman and $x$ is taking Calc2."
+
+            Conversationally, ``Some freshman is taking Calc 2."
+        \item $\forall x\; ((S(x) \wedge F(x)) \ra T(x,CS 1121))$
+        \item $\forall x\; ((S(x) \wedge F(x)) \ra \exists y (C(y) \wedge T(x,y)))$ or $\forall x\; \exists y\; ((S(x) \wedge F(x)) \ra (C(y) \wedge T(x,y)))$
+    \end{enumerate}
+\end{solution}
+
+
+\question[8] First express the English statement in logic (using the predicates given) then show the negation of that sentence.
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item ``Everyone in the class has a laptop computer." where $C(x)$ is ``$x$ is in the class" and $L(x)$ is ``$x$ has a laptop computer."
+    \item ``There is a student who came late to class and there is a student who is absent from class." Use the predicates, $L(x)$ as ``$x$ is late to class" and $A(x)$ is ``$x$ is absent from class."
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item The statement is $\forall x\; (C(x) \ra L(x))$.
+        \begin{align*}
+            \neg (\forall x\; (C(x) \ra L(x))) & \equiv \exists x\; \neg (C(x) \ra L(x)) \\
+            & \equiv \exists x\; \neg (\neg C(x) \vee L(x)) \\
+            & \equiv \exists x\; (\neg \neg C(x) \wedge \neg L(x)) \\
+            & \equiv \exists x\; (C(x) \wedge \neg L(x))
+        \end{align*}
+        \item The statement is $\exists x\; L(x) \wedge \exists y\; A(y)$.
+        \begin{align*}
+          \neg (\exists x; L(x) \wedge \exists y\; A(y)) &\equiv \neg \exists x\; L(x) \vee \neg \exists y\; A(y) \\
+          & \equiv \forall x\; \neg L(x) \vee \forall y\; \neg A(y)
+        \end{align*}
+    \end{enumerate}
+\end{solution}
+
+
+\question[8] Rosen Ch 1.5 \#10(a,b,d,i), p. 65
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[(a)] $\forall x\; F(x,Fred)$
+        \item[(b)] $\forall y\; F(Evelyn, y)$
+%        \item[(c)] $\forall x\; \exists y\; F(x,y)$
+        \item[(d)] $\neg \exists x\; \forall y\; F(x,y)$
+%        \item[(e)] $ \forall y\; \exists x\; F(x,y)$
+%        \item[(f)] $\neg \exists x\; (F(x, Fred) \wedge F(x,Jerry))$
+%        \item[(g)] $\exists x\; \exists y; (F(Nancy, x) \wedge F(Nancy, y) \wedge x \neq y \wedge \forall z\; (F(Nancy,z) \ra (x = z \vee y = z)))$
+%        \item[(h)] $\exists y\; (\forall x\; F(x,y) \wedge \forall z\; (\forall x\; F(x,z) \ra z = y))$
+        \item[(i)] $\neg \exists x F(x,x)$
+%        \item[(j)] $\exists x\; \exists y\; (x \neq y \wedge F(x,y) \wedge \forall z\; ((F(x,z) \wedge z \neq x) \ra z = y))$
+    \end{itemize}
+\end{solution}
+
+
+
+\question[8] Rosen Ch 1.5 \#12(b,d,f,j), p. 65
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%        \item[(a)] $\neg I(Jerry)$
+        \item[(b)] $\neg C(Rachel, Chelsea)$
+%        \item[(c)] $\neg C(Jan, Sharon)$
+        \item[(d)] $\neg \exists x\; C(x,Bob) \equiv \forall x\; \neg C(x,Bob)$
+%        \item[(e)] $\forall x\; (x \neq Joseph \lra C(x, Sanjay))$
+        \item[(f)] $\exists x\; \neg I(x)$
+%        \item[(g)] $\neg \forall x\; I(x)$
+%        \item[(h)] $\exists x\; \forall y\; (x=y \lra I(y))$
+%        \item[(i)] $\exists x\; \forall y\l (x\neq y \lra I(y))$
+        \item[(j)] $\forall x\; (I(x) \ra \exists y\; (x \neq y \wedge C(x,y)))$
+%        \item[(k)] $\exists x\; (I(x) \wedge \forall y\; (x \neq y \ra \neg C(x,y)))$
+%        \item[(l)] $\exists x\; \exists y\; (x \neq y \wedge \neg C(x,y))$
+%        \item[(m)] $\exists x\; \forall y\; C(x,y)$
+%        \item[(n)] $\exists x\; \exists y\; (x \neq y \wedge \forall z\; \neg (C(x,z) \wedge C(y,z)))$
+%        \item[(o)] $\exists x\; \exists y\; (x \neq y \wedge \forall z\; C(x,z) \vee C(y,z))$
+    \end{itemize}
+\end{solution}
+
+
+\bonusquestion[2] Rosen Ch 1.5 \#12(k,o), p. 65
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[(k)] $\exists x\; (I(x) \wedge \forall y\; (x \neq y \ra \neg C(x,y)))$
+        \item[(o)] $\exists x\; \exists y\; (x \neq y \wedge \forall z\; C(x,z) \vee C(y,z))$
+    \end{itemize}
+\end{solution}
+
+
+\question[6] Let $S(x,y)$ be ``$x$ shops in $y$" were the domain of $x$ is all people and the domain of $y$ be all stores.  Write the following in English.
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item $\exists x\; S(Sam, x)$
+%    \item $\forall y\; S(y, Walmart)$
+    \item $\exists x\; \forall y\; S(x,y)$
+    \item $\exists x\; \exists y\; \forall z\; ((x \neq y) \wedge (S(x,z) \lra \neg S(y,z)))$
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item There exists a store $x$, Sam shops in $x$.  \\
+        Sam shops in a store.
+%        \item For every person $y$, $y$ shops in Walmart. \\
+%        Everyone shops in Walmart.
+        \item There exists a person $x$ such that for every store $y$, $x$ shops in $y$. \\
+            There is a person who shops in every store.
+        \item There exists a person $x$, there exists a person $y$ and for all stores $z$, where $x$ and $y$ are different people and if $x$ shops in store $z$ then $y$ does not shop in store $z$ and vice versa. \\
+            There exist two different people, for every store if person $x$ shops in the store person $y$ does not and vice versa.
+    \end{enumerate}
+\end{solution}
+
+
+\question[4] Translate the following expressions in the needed direction using the predicates, $S(x,y)$ be ``$x$ shops in $y$" were the domain of $x$ is all people and the domain of $y$ be all stores and $T(x)$ is ``$x$ is a student."
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item $\exists y\; \forall x\; (T(x) \ra \neg S(x,y))$
+    \item Every store has at least one student who shops in it.
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item There is a store where every student does not shop in the store. \\
+        There is a store where no students shops.
+        \item $\forall y\; \exists x\; (T(x) \wedge S(x,y))$
+    \end{enumerate}
+\end{solution}
+
+
+\question[8] Determine the truth value of each statement, with the domain of each variable is all real numbers.
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item[(a)] $\forall x\; \forall y\; (xy = 2)$
+    \item[(b)] $\forall x\; \exists y\; (xy = 2)$
+    \item[(c)] $\exists x\; \forall y\; (xy = 2)$
+    \item[(d)] $\exists x\; \exists y\; (xy = 2)$
+    \item[(e)] Answer $\forall x\; \exists y\; (xy=2)$ for the domain of $x$ is all positive real numbers.
+    \item[(f)-(h)] Rosen Ch 1.5 \# 28 (a,e,f), p. 67
+%    \item Rosen Ch 1.5 \# 28e, p. 67
+%    \item Rosen Ch 1.5 \# 28f, p. 67
+\end{itemize}
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item False, e.g., $x = y = 1$.
+        \item False, e.g., $x = 0$ no value of $y$ makes the statement true.
+        \item False, e.g., no matter what $x$ chosen if $y=0$ then the $(xy \neq 2)$.
+        \item True, e.g., $x = 2$ and $y=1$.
+        \item True, e.g., no matter what $x>0$ is chosen, there is some $y = \frac{1}{x}$ s.t. $(xy=2)$.
+        \item True, let $y = x^2$.
+        \item True, let $y = 1/x$.
+        \item False, the reciprocal depends on $y$.
+    \end{enumerate}
+\end{solution}
+
+
+\question[6] Rosen Ch 1.5 \# 30(b,d,e), p. 67
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%        \item[(a)]
+%        \begin{align*}
+%          \neg \exists y\; \exists x\; P(x,y) & \equiv \forall y\; \neg \exists x\; P(x,y) \\
+%          & \equiv \forall y\; \forall x\; \neg P(x,y)
+%        \end{align*}
+        \item[(b)]
+        \begin{align*}
+          \neg \forall x\; \exists y\; P(x,y) & \equiv \exists x\; \neg \exists y\; P(x,y) \\
+          & \equiv \exists x\; \forall y\; \neg P(x,y)
+        \end{align*}
+%        \item[(c)]
+%        \vspace{-15pt}
+%        \begin{align*}
+%          \neg \exists y\; (Q(y) \wedge \forall x\; \neg R(x,y)) & \equiv \forall y\; \neg(Q(y) \wedge \forall x\; \neg R(x,y)) \\
+%          & \equiv \forall y\; (\neg Q(y) \vee \neg \forall x\; \neg R(x,y)) \\
+%          & \equiv \forall y\; (\neg Q(y) \vee \exists x\; \neg \neg R(x,y))\\
+%          & \equiv \forall y\; (\neg Q(y) \vee \exists x\; R(x,y))
+%        \end{align*}
+        \item[(d)]
+        \begin{align*}
+          \neg \exists y\; (\exists x\; R(x,y) \vee \forall x\; S(x,y)) & \equiv \forall y\; \neg (\exists x\; R(x,y) \vee \forall x\; S(x,y)) \\
+          & \equiv \forall y\; (\neg \exists x\; R(x,y) \wedge \neg \forall x\; S(x,y)) \\
+          & \equiv \forall y\; (\forall x\; \neg R(x,y) \wedge \exists x\; \neg S(x,y))
+        \end{align*}
+        \item[(e)] \small
+        \vspace{-15pt}
+        \begin{align*}
+          \neg \exists y\; (\forall x\; \exists z\; T(x,y,z) \vee \exists x\; \forall z\; U(x,y,z)) & \equiv \forall y\; \neg (\forall x; \exists z\; T(x,y,z) \vee \exists x\; \forall z\; U(x,y,z)) \\
+          & \equiv \forall y\; (\neg \forall x; \exists z\; T(x,y,z) \wedge \neg \exists x\; \forall z\; U(x,y,z)) \\
+          & \equiv \forall y\; (\exists x\; \neg \exists z\; T(x,y,z) \wedge \forall x\; \neg \forall z\; U(x,y,z)) \\
+          & \equiv \forall y\; (\exists x\; \forall z\; \neg T(x,y,z) \wedge \forall x\; \exists z\; \neg U(x,y,z))
+        \end{align*}
+        \end{itemize}
+\end{solution}
+
+\question[6] Rosen Ch 1.6, \#10(a,b), p.79
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[(a)] Use modus tollens to conclude that ``I am not sore."  With this, you can use modus tollens again to conclude that ``I did not play hockey."
+        \item[(b)] There is nothing to conclude here.
+%        \item[(c)]
+    \end{itemize}
+\end{solution}
+
+
+% Ross and Wright, Example 1, p. 96
+\question[8]\label{probc} Use the rules of inference to show that the hypotheses imply the conclusion:
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item ``If I study or if I am a genius, then I will pass the course", and
+    \item ``If I pass the course, then I will be allowed to take the next course."
+\end{itemize}
+Conclusion: ``If I am not allowed to take the next course, then I am not a genius."
+Let
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item[$s = $] ``I study",
+    \item[$g = $] ``I am a genius",
+    \item[$p = $] ``I will pass the course", and
+    \item[$n = $] ``I will be allowed to take the next course."
+\end{itemize}
+First, translate the hypotheses and conclusion in to logical statements (3 points).  Then, show the valid argument (5 points).
+
+\textit{Hint: Remember you can also use the logical equivalences as a step in the argument.}
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    The hypotheses are: $(s \vee g) \ra p$ and $p \ra n$.
+    The conclusion to reach is: $\neg n \ra \neg g$.
+
+    \begin{tabular}{lll}
+        Step    & \hspace{0.2in} & Reason \\
+        1. $(s \vee g) \ra p$           & & hypothesis \\
+        2. $p \ra n$                    & & hypothesis \\
+        3. $(s \vee g) \ra n$           & & hypothetical syll. with (1) and (2) \\
+        4. $(s \ra n) \wedge (g \ra n)$ & & Table 7, rule 7, with (3) \\
+        5. $g \ra n$                    & & Simplification, with (4) \\
+        6. $\neg n \ra \neg g$          & & Table 7, rule 2 with (5) \\
+    \end{tabular}
+\end{solution}
+
+\question[8] Use the same propositional variables of problem \ref{probc} and the rules of inference to show the hypotheses imply the conclusion:
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item ``If I study or if I am a genius, then I will pass the course",
+    \item ``I will not be allowed to take the next course.", and
+    \item ``If I pass the course, then I will be allowed to take the next course."
+\end{itemize}
+Conclusion:  ``I did not study."
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    The hypotheses are: $(s \vee g) \ra p$, $\neg n$ and $p \ra n$.
+    The conclusion to reach is: $\neg s$.
+
+        \begin{tabular}{lll}
+        Step    & \hspace{0.2in} & Reason \\
+        1. $(s \vee g) \ra p$           & & hypothesis \\
+        2. $p \ra n$                    & & hypothesis \\
+        3. $\neg n$                     & & hypothesis \\
+        4. $\neg p$                     & & modus tollens with (2) and (3) \\
+        5. $\neg (s \vee g)$            & & modus tollens with (1) and (4) \\
+        6. $\neg s \wedge \neg g$       & & DeMorgans with (5) \\
+        7. $\neg s$                     & & Simplification with (6)
+        \end{tabular}
+\end{solution}
+
+
+\end{questions}
+\end{document} 

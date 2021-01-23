@@ -1,0 +1,456 @@
+\documentclass[10pt,addpoints]{exam}
+% can include option [answers] to print out solutions, or command \printanswers
+%  can turn addpoint on and off with commands, \addpoints and \noaddpoints
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage[top=0.75in,bottom=0.75in,left=0.9in,right=0.9in]{geometry}
+
+\setlength{\itemsep}{0pt} \setlength{\topsep}{0pt}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\xor}{\oplus}
+
+
+\renewcommand{\solutiontitle}{\noindent\textbf{Soln:}\enspace}
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule 
+\header{\textbf{cs2311 - Fall 2013}}{\textbf{HW 5 - \numpoints$\;$ points - Solutions}}{\textbf{Due: Wed. 10/16/13}} \footrule 
+\footer{}{Page \thepage\ of \numpages}{}
+
+\noindent \textbf{Instructions:} All assignments are due \underline{by 5pm on the due date} specified.  There will be a box in the CS department office where assignments may be turned in.  Solutions will be handed out (or posted on-line) shortly thereafter.  Every student
+must write up their own solutions in their own manner.
+
+% \smallskip
+% \noindent Please present your solutions in a clean, understandable
+% manner; pages should be stapled before class, no ragged edges of
+% paper.
+
+\begin{questions}
+\printanswers
+
+
+\question Prove the following logical equivalence using the
+equivalence laws from Table 6-8 (model the solutions in the style of
+book Examples 6-8, pp. 29-30).  Justify each step with laws.
+\begin{parts}
+	\part[4] $(p \wedge \neg(q \vee \neg p)) \equiv p \wedge \neg q$
+	\part[9] $\neg [ r \vee (q \wedge (\neg r \ra \neg p))] \equiv \neg r \wedge (p \vee \neg q) $
+\end{parts}
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+    \begin{solution}
+    \small
+    \begin{parts}
+    \part  $(p \wedge \neg(q \vee \neg p)) \equiv p \wedge \neg q$
+    \begin{align*}
+      (p &\wedge \neg(q \vee \neg p)) \\
+      & \equiv p \wedge (\neg q \wedge \neg \neg p) \tag{DeMorgan's} \\
+      & \equiv p \wedge \neg q \wedge p \tag{Double Negation} \\
+      & \equiv p \wedge p \wedge \neg q \tag{Commutative} \\
+      & \equiv p \wedge \neg q \tag{Idempotent}
+    \end{align*}
+
+    \part $\neg [ r \vee (q \wedge (\neg r \ra \neg p))] \equiv \neg r \wedge (p \vee \neg q) $
+    \begin{align*}
+      \neg [ r \vee (q & \wedge (\neg r \ra \neg p))] \equiv \neg r \wedge (p \vee \neg q) \\
+        & \equiv \neg [r \vee (q \wedge (p \ra r))] \tag{Table 7, rule 2} \\
+        & \equiv \neg [r \vee (q \wedge (\neg p \vee r))] \tag{Table 7, rule 1} \\
+        & \equiv \neg [r \vee (q \wedge \neg p) \vee (q \wedge r)] \tag{Distributive} \\
+        & \equiv \neg [r \vee (q \wedge r) \vee (q \wedge \neg p)] \tag{Commutative} \\
+        & \equiv \neg [r \vee (r \wedge q) \vee (q \wedge \neg p)] \tag{Commutative} \\
+        & \equiv \neg [r \vee (q \wedge \neg p)] \tag{Absorption} \\
+        & \equiv \neg [r \vee (\neg p \wedge q)] \tag{Commutative} \\
+        & \equiv \neg r \wedge \neg (\neg p \wedge q) \tag{DeMorgan's} \\
+        & \equiv \neg r \wedge (\neg \neg p \vee \neg q) \tag{DeMorgan's} \\
+        & \equiv \neg r \wedge (p \vee \neg q) \tag{Double Negation}
+    \end{align*}
+   	\end{parts}
+	\end{solution}
+
+
+\question[3] Express the following statement using only the connectives $\neg$ and $\wedge$:
+$ p \ra (\neg q \wedge r) $
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+	\begin{solution}
+		$p \ra (\neg q \wedge r) \equiv \neg p \vee (\neg q \wedge r) \equiv \neg (p \wedge \neg (\neg q \wedge r))$
+	\end{solution}
+
+
+\question[6] Let $P(x)$ be $x - 1 < 8$ and $Q(y,z)$ be $y + 3z = 4y - z$, with the domain of $x$, $y$, and $z$ be the set of all real numbers.  Determine the truth value of:
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+	topsep=0pt,partopsep=0pt]
+    \item $P(5)$, \hspace{0.2in} (b) $P(2)$, \hspace{0.2in} (c) $Q(2, \frac{2}{3})$, 
+    	\hspace{0.2in} (d) $Q(1, 2)$, \hspace{0.2in} (e) $\exists x\; P(x)$, \hspace{0.2in} (f) $\forall x\; P(x)$
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+	\begin{solution}
+		\begin{tabular}{ll}
+			(a) True, $5 - 1 < 8$  & (b) True,  $2 - 1 < 8$ \\
+			(c) False, $ 2 + \frac{9}{3} \neq 8 - \frac{2}{3}$ & (d) False, $1 + 6 \neq 4 - 2$ \\ 
+			(e) True, $P(2)$ is a positive example & (f) False, $P(10)$ is a counterexample 
+		\end{tabular}
+	\end{solution}
+
+
+\question[6]\label{probA} Rosen Ch 1.4 \# 28(a,b,d), p. 54. \\
+Use the following notation.  Let  $R(x)$ be ``x is in the correct place", $E(x)$ be ``x is in excellent condition",	$T(x)$ be ``x is a [or your] tool".
+Also, let the domain of discourse be all things.
+\ifprintanswers
+        \vspace{-12pt}
+    \fi
+	\begin{solution}
+	\begin{tabular}{l}
+		(a) $\exists x\; \neg R(x)$ \\
+		(b) $\forall x\; (T(x) \ra (R(x) \wedge E(x)))$ \\
+		% \item[(c)] $\forall x\; (R(x) \wedge E(x))$
+		(d) $\forall x\; \neg (R(x) \wedge E(x))$ \\
+	\end{tabular}
+	\end{solution}
+
+
+\question[4] Translate the logical expressions into sentences using the same predicates as problem \ref{probA}.
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+	topsep=0pt,partopsep=0pt]
+    \item $\forall x\; (E(x) \ra R(x))$ \hfill (b) $\exists x\; (T(x) \wedge \neg E(x) \wedge \neg R(x))$ \hfill
+    %\item $\forall x\; (P(x) \ra (I(x) \wedge \neg E(x)))$
+\end{enumerate}
+	\ifprintanswers
+        \vspace{-12pt}
+    \fi
+	\begin{solution}
+	\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+	topsep=0pt,partopsep=0pt]
+    	\item Everything that is in excellent condition, is in its correct place.
+    	\item There exists a tool that is not in excellent condition and is not in the correct place.
+    \end{enumerate}
+	\end{solution}
+
+
+
+\question[6]\label{proba} For this problem, use the predicates: $F(x)$ is ``$x$ is a Freshman", $S(x)$ be ``$x$ is a student at MTU", $C(y)$ is ``$y$ is a CS course", and $T(x,y)$ is ``$x$ is taking $y$", where $x$ has the domain of all students at MTU and $y$ has the domain of all CS courses.
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+	topsep=0pt,partopsep=0pt]
+    \item Translate the logical expression into English: $\forall x\; (F(x) \ra T(x,CS1000))$.
+    \item Translate English into logic: ``Some freshman at MTU are taking CS1121."
+    \item Translate English into logic: ``Every freshman at MTU is taking a CS course."
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    	topsep=0pt,partopsep=0pt]
+        \item ``For every student $x$ at MTU, if $x$ is a freshman, then $x$ is taking CS1000."
+
+            Conversationally, ``All freshman at MTU take CS1000."
+        \item $\exists x\; (F(x) \wedge T(x,CS 1121))$
+        \item $\forall x\; (F(x) \ra \exists y\; T(x,y))$ or $\forall x\; \exists y\; (F(x) \ra T(x,y))$
+    \end{enumerate}
+\end{solution}
+
+
+\question[6] Repeat problem \ref{proba} where $x$ has the domain of all people and $y$ has the domain of all courses.
+%\item Translate the logical expression into English: $\forall x\; (F(x) \ra T(x,CS1000))$.
+%    \item Translate the English statement into logic: ``Some freshman at the College are taking CS1121."
+%    \item Translate the English statement into logic: ``Every freshman at the College is taking some CS course."
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    	topsep=0pt,partopsep=0pt]
+        \item  ``For every person $x$, if $x$ is a freshman then $x$ is taking CS1000."
+
+            Conversationally, ``All freshman take CS1000."
+        \item $\exists x\; (S(x) \wedge F(x) \wedge T(x,CS 1121))$
+        \item $\forall x\; ((S(x) \wedge F(x)) \ra \exists y (C(y) \wedge T(x,y)))$ or \\
+        $\forall x\; \exists y\; ((S(x) \wedge F(x)) \ra (C(y) \wedge T(x,y)))$
+    \end{enumerate}
+\end{solution}
+
+
+\bonusquestion[2] Using the same predicates as problem \ref{proba}, translate the following statement into logic assuming the domain of $x$ is all students at MTU and the domain of $y$ is all CS courses.
+``Some freshman at MTU is taking two CS courses."
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+	$\exists x\; \exists y\; \exists z\;(F(x) \wedge T(x,y) \wedge T(x,z) \wedge (y \neq z))$
+\end{solution}
+
+
+
+\question[6] Rosen Ch 1.5 \#4(c,d,f), p. 64
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%        \item[(a)] There is a student in your class who has taken some computer science class at your school.
+       % \item[(b)] There is a student in your class who has taken every computer science class at your school.
+       \item[(c)] Every student in your class has taken a computer science class at your school.
+       \item[(d)] There is a computer science class at your school that every student in your class has taken.
+        % \item[(e)] Every computer science class at your school has been taken by a student in your class.
+       \item[(f)] Every student in your class has taken every computer science class at your school.
+    \end{itemize}
+\end{solution}
+
+
+
+\question[6] Rosen Ch 1.5 \#10(b,c,f), p. 65
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+%    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%        \item[(a)] $\forall x\; F(x,Fred)$
+%        \item[(b)] $\forall y\; F(Evelyn, y)$
+%        \item[(c)] $\forall x\; \exists y\; F(x,y)$
+%        \item[(d)] $\neg \exists x\; \forall y\; F(x,y)$
+%        \item[(e)] $ \forall y\; \exists x\; F(x,y)$
+%        \item[(f)] $\neg \exists x\; (F(x, Fred) \wedge F(x,Jerry))$
+%        \item[(g)] $\exists x\; \exists y; (F(Nancy, x) \wedge F(Nancy, y) \wedge x \neq y \wedge \forall z\; (F(Nancy,z) \ra (x = z \vee y = z)))$
+%        \item[(h)] $\exists y\; (\forall x\; F(x,y) \wedge \forall z\; (\forall x\; F(x,z) \ra z = y))$
+%        \item[(i)] $\neg \exists x F(x,x)$
+%        \item[(j)] $\exists x\; \exists y\; (x \neq y \wedge F(x,y) \wedge \forall z\; ((F(x,z) \wedge z \neq x) \ra z = y))$
+%    \end{itemize}
+	\begin{tabular}{lll} 
+		(b) $\forall y\; F(Evelyn, y)$ & (c) $\forall x\; \exists y\; F(x,y)$ & (f) $\neg \exists x\; (F(x, Fred) \wedge F(x,Jerry))$
+	\end{tabular}
+\end{solution}
+
+
+
+\question[6] Rosen Ch 1.5 \#12(b,d,k), p. 65
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+%    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%        \item[(a)] $\neg I(Jerry)$
+%        \item[(b)] $\neg C(Rachel, Chelsea)$
+%        \item[(c)] $\neg C(Jan, Sharon)$
+%        \item[(d)] $\neg \exists x\; C(x,Bob) \equiv \forall x\; \neg C(x,Bob)$
+%        \item[(e)] $\forall x\; (x \neq Joseph \lra C(x, Sanjay))$
+%        \item[(f)] $\exists x\; \neg I(x)$
+%        \item[(g)] $\neg \forall x\; I(x)$
+%        \item[(h)] $\exists x\; \forall y\; (x=y \lra I(y))$
+%        \item[(i)] $\exists x\; \forall y\l (x\neq y \lra I(y))$
+%        \item[(j)] $\forall x\; (I(x) \ra \exists y\; (x \neq y \wedge C(x,y)))$
+%        \item[(k)] $\exists x\; (I(x) \wedge \forall y\; (x \neq y \ra \neg C(x,y)))$
+%        \item[(l)] $\exists x\; \exists y\; (x \neq y \wedge \neg C(x,y))$
+%        \item[(m)] $\exists x\; \forall y\; C(x,y)$
+%        \item[(n)] $\exists x\; \exists y\; (x \neq y \wedge \forall z\; \neg (C(x,z) \wedge C(y,z)))$
+%        \item[(o)] $\exists x\; \exists y\; (x \neq y \wedge \forall z\; C(x,z) \vee C(y,z))$
+%    \end{itemize}
+    \begin{tabular}{ll}
+    	(b) $\neg C(Rachel, Chelsea)$ & (d) $\neg \exists x\; C(x,Bob) \equiv \forall x\; \neg C(x,Bob)$ \\
+    	% (g) $\neg \forall x\; I(x)$ & (k) $\exists x\; (I(x) \wedge \forall y\; (x \neq y \ra \neg C(x,y)))$
+    	(k) $\exists x\; (I(x) \wedge \forall y\; (x \neq y \ra \neg C(x,y)))$ \\
+    \end{tabular}
+\end{solution}
+
+
+
+\question[4] Rosen Ch 1.5 \# 16 (a,d), p. 66. \\
+Let the predicate, $P(s,c,m)$ be student $s$ has class standing $c$ and is majoring in $m$.  The domains of discourses are for $s$ all students in the class, $c$ the four class standings, and $m$ all possible majors.
+	\ifprintanswers
+        \vspace{-12pt}
+    \fi
+	\begin{solution}
+	\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+		\item[(a)] $\exists s\; \exists m\; P(s, \text{junior}, m)$, True
+		% \item[(b)] $\forall s\; \exists c\; P(s,c, computer science)$, False
+		\item[(d)] $\forall s\; (\exists c\; P(s,c, \text{computer science}) \vee \exists m\; P(s, \text{sophomore}, m))$, False
+	\end{itemize}
+	\end{solution}
+
+
+
+\question[3] Rosen Ch 1.5 \# 28 (a,d,f), p. 67
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+    \begin{tabular}{lll}
+    	(a) True (let $y=x^2$) & (d) False & (f) False 
+    \end{tabular}
+\end{solution}
+
+
+
+\question[4] Rosen Ch 1.5, \#30(b,c), p. 67
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        % \item[(a)]
+        % \vspace{-25pt}
+        % \begin{align*}
+        %   \neg \exists y\; \exists x\; P(x,y) & \equiv \forall y\; \neg \exists x\; P(x,y) \\
+        %   & \equiv \forall y\; \forall x\; \neg P(x,y)
+        % \end{align*}
+       \item[(b)]
+       \vspace{-10pt}
+       \begin{align*}
+         \neg \forall x\; \exists y\; P(x,y) & \equiv \exists x\; \neg \exists y\; P(x,y) \\
+         & \equiv \exists x\; \forall y\; \neg P(x,y)
+       \end{align*}
+        \item[(c)]
+        \vspace{-25pt}
+        \begin{align*}
+          \neg \exists y\; (Q(y) \wedge \forall x\; \neg R(x,y)) & \equiv \forall y\; \neg(Q(y) \wedge \forall x\; \neg R(x,y)) \\
+          & \equiv \forall y\; (\neg Q(y) \vee \neg \forall x\; \neg R(x,y)) \\
+          & \equiv \forall y\; (\neg Q(y) \vee \exists x\; \neg \neg R(x,y))\\
+          & \equiv \forall y\; (\neg Q(y) \vee \exists x\; R(x,y))
+        \end{align*}
+       % \item[(d)]
+       % \begin{align*}
+       %   \neg \exists y\; (\exists x\; R(x,y) \vee \forall x\; S(x,y)) & \equiv \forall y\; \neg (\exists x\; R(x,y) \vee \forall x\; S(x,y)) \\
+       %   & \equiv \forall y\; (\neg \exists x\; R(x,y) \wedge \neg \forall x\; S(x,y)) \\
+       %   & \equiv \forall y\; (\forall x\; \neg R(x,y) \wedge \exists x\; \neg S(x,y))
+       % \end{align*}
+%        \item[(e)] \small
+%        \vspace{-15pt}
+%        \begin{align*}
+%          \neg \exists y\; (\forall x\; \exists z\; T(x,y,z) \vee \exists x\; \forall z\; U(x,y,z)) & \equiv \forall y\; \neg (\forall x; \exists z\; T(x,y,z) \vee \exists x\; \forall z\; U(x,y,z)) \\
+%          & \equiv \forall y\; (\neg \forall x; \exists z\; T(x,y,z) \wedge \neg \exists x\; \forall z\; U(x,y,z)) \\
+%          & \equiv \forall y\; (\exists x\; \neg \exists z\; T(x,y,z) \wedge \forall x\; \neg \forall z\; U(x,y,z)) \\
+%          & \equiv \forall y\; (\exists x\; \forall z\; \neg T(x,y,z) \wedge \forall x\; \exists z\; \neg U(x,y,z))
+%        \end{align*}
+        \end{itemize}
+\end{solution}
+
+
+
+\question[6] Rosen Ch 1.6 \#6, p. 78.\\
+Let $r$ be the proposition ``It rains", let $f$ be ``It is foggy",
+    let $s$ be ``The sailing race will be held", let $l$ be ``The life
+    saving demonstration will go on", and let $t$ be ``The trophy will
+    be awarded".
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    The premises are: $(\neg r \vee \neg f) \rightarrow (s \wedge l)$, $s \rightarrow t$, $\neg t$. \\
+    The conclusion we want is: $r$.
+
+    \begin{tabular}{lll}
+        Step    & \hspace{0.2in} & Reason \\
+        \hline
+        1. $\neg t$                 &       & Hypothesis (Premise, Given) \\
+        2. $s \rightarrow t$        &       & Hypothesis (Premise, Given) \\
+        3. $\neg s$                 &       & Modus tollens with (1) and (2) \\
+        4. $(\neg r \vee \neg f) \rightarrow (s \wedge l)$  &   & Hypothesis (Premise, Given)  \\
+        5. $(\neg(s \wedge l)) \rightarrow \neg(\neg r \vee \neg f)$    & & Contrapositive with (4) \\
+        6. $(\neg s \vee \neg l) \rightarrow (\neg \neg r \wedge \neg \neg f)$ & & De Morgans law with (5) (x2) \\
+        7. $(\neg s \vee \neg l) \rightarrow (r \wedge f)$  & & Double negation with (6) (x2) \\
+        8. $\neg s \vee \neg l$     &       & Addition with (3) \\
+        9. $r \wedge f$             &       & Modus ponens with (7) and (8) \\
+        10. $r$                     &       & Simplification with (9)
+    \end{tabular}
+
+    \begin{tabular}{lll}
+        Step   & \hspace{0.2in}     & Reason \\
+        \hline
+        1. $\neg t$                 &   & Hypothesis \\
+        2. $s \ra t$                &   & Hypothesis \\
+        3. $(\neg r \vee \neg f) \ra (s \wedge l)$  &   & Hypothesis \\
+        4. $\neg s$                 &   & Modus tollens, (1), (2) \\
+        5. $\neg (\neg r \vee \neg f) \vee (s \wedge l) $  & & Table 7, rule 1, (3) \\
+        6. $(\neg \neg r \wedge \neg \neg f) \vee (s \wedge l)$  & & DeMorgans,  (5) \\
+        7. $(r \wedge f) \vee (s \wedge l)$     & & Double Negation (x2), (6) \\
+        8. $\neg s \vee \neg l$     &   & Additiona with (4) \\
+        9. $\neg (s \wedge l)$      &   & DeMorgans, (8) \\
+        10. $r \wedge f$            &   & Disjunctive Syllogism, (7), (9) \\
+        11. $r$                     &   & Simplification, (10)
+    \end{tabular}
+\end{solution}
+
+
+
+\question[9]\label{probc} Use the rules of inference to show that the hypotheses imply the conclusion:
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item ``If I graduate in four years, then I will have completed the CS courses", and
+    \item ``If I do not work on CS for 10 hours a week, then I will not complete the CS courses", and
+    \item ``If I work on CS for 10 hours a week, then I can not procrastinate."
+\end{itemize}
+Conclusion: ``If I procrastinate, then I will not graduate in four years."
+Let
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item[$w = $] ``I work on CS for 10 hours a week",
+    \item[$g = $] ``I graduate in four years",
+    \item[$c = $] ``I will complete the CS courses", and
+    \item[$p = $] ``I procrastinate."
+\end{itemize}
+First, translate the hypotheses and conclusion in to logical statements (4 points).  Then, show the valid argument (5 points).
+
+\textit{Hint: Remember you can also use the logical equivalences as a step in the argument.}
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+    The hypotheses are: $g \ra c$, $\neg w \ra \neg c$ and $w \ra \neg p$.
+    The conclusion to reach is: $p \ra \neg g$.
+
+    \begin{tabular}{lll}
+        Step    & \hspace{0.2in} & Reason \\
+        1. $g \ra c$           			& & hypothesis \\
+        2. $\neg w \ra \neg c$          & & hypothesis \\
+        3. $w \ra \neg p$           	& & hypothesis \\
+        4. $\neg \neg p \ra \neg w$ 	& & Table 7, rule 2, with (3) \\
+        5. $p \ra \neg w$				& & Double Negation with (4) \\
+        6. $p \ra \neg c$               & & Hyp. syl., with (2) \& (5) \\
+        7. $\neg c \ra \neg g$          & & Table 7, rule 2 with (1) \\
+        8. $p \ra \neg g$				& & Hyp. syl. with (6) \& (7)
+    \end{tabular}
+    
+    \emph{Note, this is one possible valid argument; many others exists.}
+\end{solution}
+
+
+\question[12] Use the same propositional variables of problem \ref{probc} and the rules of inference to show the hypotheses imply the conclusion:
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item ``If I work on CS for 10 hours a week and I don't procrastinate, then I will complete the CS courses",
+    \item ``I will not graduate in four years and I worked on CS for 10 hours a week.", and
+    \item ``If I complete the CS courses, then I graduate in four years."
+\end{itemize}
+Conclusion:  ``I procrastinated."
+
+First, translate the hypotheses and conclusion in to logical statements (4 points).  Then, show the valid argument (8 points).
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+    The hypotheses are: $(w \wedge \neg p) \ra c$, $\neg g \wedge w$ and $c \ra g$.
+    The conclusion is: $p$.
+
+        \begin{tabular}{lll}
+        Step    & \hspace{0.2in} & Reason \\
+        1. $(w \wedge \neg p) \ra c$        & & hypothesis \\
+        2. $\neg g \wedge w$                & & hypothesis \\
+        3. $c \ra g$                     	& & hypothesis \\
+        4. $\neg g$							& & Simplification with (2) \\
+        5. $\neg c$							& & modus tollens with (3) \& (4) \\
+        6. $\neg (w \wedge \neg p)$			& & modus tollens with (1) \& (5) \\
+        7. $\neg w \vee \neg \neg p$			& & DeMorgans with (6) \\
+        8. $\neg w \vee p$					& & Double neg. with (7) \\
+        9.  $w$								& & Simplifiation with (2) \\
+        10. $p$								& & Disj. syl. with (8) \& (9) \\
+        \end{tabular}
+\end{solution}
+    		
+\end{questions}
+\end{document}

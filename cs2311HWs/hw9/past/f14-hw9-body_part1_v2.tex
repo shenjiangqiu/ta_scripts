@@ -1,0 +1,267 @@
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Fall 2014}}{\textbf{HW
+ 9 (Part 1) \ifprintanswers - Solutions \fi}}{\textbf{Due: Fri. 11/21/14}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\ifprintanswers
+% \noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\else
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{4pm} on the due date} specified.  There will be a box in the CS department office (Rekhi 221) where assignments may be turned in.  Solutions will be posted on-line at the following lecture.  Every student
+must write up their own solutions in their own manner.
+
+\medskip
+\noindent Please present your solutions in a clean, understandable
+manner; pages should be stapled before being turned in, no ragged edges of
+paper.
+
+% \medskip
+% \noindent Be clear with you penmanship to distinguish set brackets and parentheses.
+%   For example, $\{1, 2\}$ is a set where $(1,2)$ is an ordered pair.  Also,
+% differentiate the empty set $\emptyset$ and the number zero 0.
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\fi
+
+\begin{questions}
+
+\uplevel{{\bf Induction}}
+
+% cs2311 - summer 2012 Assignment 4, Chuck
+\ugquestion{10} The Fibonacci numbers are defined as $F(0) = 0$, $F(1) = 1$, and $F(n) = F(n-1) + F(n-2)$ for $n \geq 2$.   Use induction to prove the following for natural numbers $n$:
+\[ F(0) + F(1) + \cdots + F(n) = F(n+2) - 1.  \]
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+  \textit{Proof:}
+  Let the $P(n)$ be the statement $F(0) + F(1) + \cdots + F(n) = F(n+2) -1$.
+
+  \smallskip
+  \begin{tabular}{lp{4in}}
+    \textit{Basis Step:} & Show $P(0)$ is true, $F(0) = 0 = 1 - 1 = F(0+2) - 1$ \\
+     & \\
+   \textit{Inductive Step:} &  \\
+  \end{tabular}
+
+  Assume $P(k)$ is true for an arbitrary, fixed integer $k \geq 0$, that is,
+  \begin{align*}
+    F(0) + F(1) + \cdots + F(k) &= F(k+2) - 1  \tag{IH} \\
+    \sum_{i=0}^k F(i) &= F(k+2) - 1
+  \end{align*}
+
+  Show $P(k+1)$ is true, that is
+  \begin{align*}
+    F(0) + F(1) + \cdots + F(k) + F(k+1) &= F(k+1+2) - 1 = F(k+3) - 1 \\
+    \sum_{i=0}^{k+1} F(k) &= F(k+3) - 1
+  \end{align*}
+
+  Start with $P(k+1)$:
+  \begin{align*}
+    F(0) + F(1) + \cdots + F(k) + F(k+1) &= F(k+3) - 1  \\
+    F(k+2) - 1 + F(k+1) &= \tag{IH} \\
+    F(k+2) + F(k+1) - 1 &= \\
+    F(k+3) - 1
+  \end{align*}
+  This shows $P(k+1)$ is true, assuming $P(k)$ is true, completing the inductive step. 
+
+  \smallskip
+  Therefore, by mathematical induction, $P(n)$ is true for all $n \geq 0$.
+
+  \smallskip
+  Note, the inductive step could also be shown by, starting with $P(k)$ and adding $F(k+1)$ to both sides:
+  \begin{align*}
+    F(0) + F(1) + \cdots + F(k) &= F(k+2) - 1 \tag{IH} \\
+    F(0) + F(1) + \cdots + F(k) + F(k+1) &= F(k+2) - 1 + F(k+1) \\
+     &= F(k+2) + F(k+1) - 1 \\
+     &= F(k+3) -1 
+  \end{align*}
+\end{solution}
+
+
+% Rosen Ch 5.3, \# 12, p. 358.
+\gquestion{10}{10}{}  Also, with the Fibonacci numbers, use induction to prove for the positive integers $n$: 
+\[ F(1)^2 + F(2)^2 + \cdots + F(n)^2 = F(n)F(n+1). \]
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+  \textit{Proof:}
+  Let the $P(n)$ be the statement $F(1)^2 + F(2)^2 + \cdots + F(n)^2 = F(n)F(n+1)$.
+
+  \smallskip
+  \begin{tabular}{lp{4in}}
+    \textit{Basis Step:} & Show $P(1)$ is true, $F(1) = 1 = 1\cdot1 = F(1)F(1+1)$ \\
+     & \\
+   \textit{Inductive Step:} &  \\
+  \end{tabular}
+
+  Assume $P(k)$ is true for an arbitrary, fixed integer $k \geq 1$, that is,
+  \begin{align*}
+    F(1)^2 + F(2)^2 + \cdots + F(k)^2  = F(k)F(k+1)  \tag{IH} \\
+    \sum_{i=1}^k F(i)^2 = F(k)F(k+1)
+  \end{align*}
+
+  Show $P(k+1)$ is true, that is
+  \begin{align*}
+    F(1)^2 + F(2)^2 + \cdots + F(k)^2 + F(k+1)^2 = F(k+1)F(k+2) \\
+    \sum_{i=1}^{k+1} F(k)^2 = F(k+1)F(k+2) 
+  \end{align*}
+
+  Start with $P(k+1)$:
+  \begin{align*}
+    F(1)^2 + F(2)^2 + \cdots + F(k)^2 + F(k+1)^2 &= F(k+1)F(k+2) \\
+    F(k)F(k+1) + F(k+1)^2 &= \tag{IH} \\
+    F(k+1)\left[ F(k) + F(k+1) \right] &= \\
+    F(k+1)F(k+2) 
+  \end{align*}
+  This shows $P(k+1)$ is true, assuming $P(k)$ is true, completing the inductive step. 
+
+  Therefore, by mathematical induction, $P(n)$ is true for all $n \geq 1$.
+\end{solution}
+
+
+% Ferland, p. 188, Ex. 4.19
+\gquestion{10}{10}{} Show for all integers $n \geq 4$, $n^2 \geq 3n + 4$. 
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+  \textit{Proof:}
+  Let $P(n)$ be $n^2 \geq 3n + 4$ for all integers $n \geq 4$.
+
+  \smallskip
+  \begin{tabular}{lp{4in}}
+    \textit{Basis Step:} & Show $P(4)$ is true, $4^2 = 16 \geq 16 = 3\cdot 4 + 4$ \\
+     & \\
+   \textit{Inductive Step:} &  \\
+  \end{tabular}
+
+  Assume $P(k)$ is true for an arbitrary, fixed integer $k \geq 4$, that is, 
+  \begin{align*}
+    k^2 \geq 3k + 4 \tag{IH} 
+  \end{align*}
+
+  Show $P(k+1)$ is true, that is, 
+  \[ (k+1)^2 \geq 3(k+1) + 4 = 3k + 7 \]
+
+  Start with \textit{lhs} of $P(k+1)$
+  \begin{align*}
+    (k+1)^2 &= k^2 + 2k + 1 \\
+     &\geq (3k + 4) + 2k + 1 \tag{IH} \\
+     &= 3k + (2k + 5) \\
+     &\geq 3k + 7 = 3(k+1) + 4
+  \end{align*}
+  This shows $P(k+1)$ is true, assuming $P(k)$ is true, completing the inductive step. 
+
+  Therefore, by mathematical induction, $n^2 \geq 3n + 4$ for all $n \geq 4$.
+\end{solution}
+
+
+% Ferland p. 206, Example 4.28
+\gquestion{12}{12}{} Consider the game of rugby.  Let's assume teams can either score via trys, 5 pts, or drop goals, 3 pts.   Ignore conversions and penalty goals for this problem.  
+
+Show that it is then possible (assuming no time constraints) for a team to score any number of points from 16 on up. 
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+  \textit{Proof:}
+  Let $P(n)$ be that it is possible for a team to score $n$ points, for $n \geq 16$.
+  
+  \smallskip
+  \begin{tabular}{lp{4in}}
+    \textit{Basis Step:}  & Show $P(16)$ is true, 2 trys and 2 drop goals \\
+                & Show $P(17)$ is true, 1 try and 4 drop goals, and \\
+                & Show $P(18)$ is true, 3 trys and 1 drop goals \\
+     & \\
+   \textit{Inductive Step:} &  \\
+  \end{tabular}
+
+  Assume $P(j)$ is true where $16 \leq j \leq k$ and an arbitrary, fixed integer $k \geq 18$, that is, a team can score $j$ points. 
+
+  Show $P(k+1)$ is true, that is, a team can score $k+1$ points through trys and drop goals.
+
+  We know a team can score $P(k-2)$ and $k -2 \geq 16$ from the inductive hypothesis. A team can score one additional drop goal (3 points) to reach $k+1$ points, competing the inductive step. 
+
+  Therefore, by mathematical induction, $P(n)$ for integers $n \geq 12$. 
+\end{solution}
+
+
+% Ferland, p. 207, Exercise #1.
+\ugquestion{12} Let $\{s_n\}$ be the sequence defined as, 
+\[ s_0 = 0, \quad s_1 = 1,  \quad \text{and} \quad s_n = 3s_{n-1} - 2s_{n-2}, \forall n \geq 2. \]
+Show $\forall n \geq 0, s_n = 2^n - 1 .$
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+  \textit{Proof:}
+  Let $P(n)$ be that the $n$th term of the sequence is determine as $s_n = 2^n - 1$ for $n \geq 0$.
+
+  \smallskip
+  \begin{tabular}{lp{4in}}
+    \textit{Basis Step:}  & Show $P(0)$ is true, $2^0 - 1 = 0 = s_0$ \\
+                & Show $P(1)$ is true, $2^1 - 1 = 1 = s_1$ \\
+     & \\
+   \textit{Inductive Step:} &  \\
+  \end{tabular}
+
+  Assume $P(j)$ is true $0 \leq j \leq k$ with $k \geq 1$, that is, 
+  \begin{align*}
+    s_j = 2^j - 1 \quad \forall 0 \geq j \geq k \tag{IH}
+  \end{align*}
+
+  Show that $P(k+1)$ is true, that is,
+  \[ s_{k+1} = 2^{k+1} - 1 \] 
+
+  Consider the definition of the sequence, 
+  \begin{align*}
+    s_{k+1} &= 3s_{k} - 2s_{k-1} \\
+    &= 3(2^k - 1) - 2(2^{k-1} - 1) \\
+    &= 3\cdot 2^k - 3 - 2^k + 2 \\
+    &= 2\cdot 2^k - 1 \\
+    &= 2^{k+1} - 1
+  \end{align*}
+  When the inductive hypothesis is true, then $P(k+1)$ is true, completing the inductive step. 
+
+  Then, by strong mathmatical induction, we conclude $P(n)$ for $n \geq 0$.
+\end{solution}
+
+
+\ugquestion{6} Rosen Ch 5.3 \# 24(a,b), p. 358.
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+  \begin{itemize}
+    \item[(a)] Odd integers are obtained from other odds, by adding 2. Thus, $O$, the set of odd integers, can be defined as:  $1 \in O$;  and if $n \in O$, then $n+2  \in O$.
+    \item[(b)] Powers of 3 are obtained from other powers of 3 by multiplying by 3.  The set $S$ of powers of three is:  $3 \in S$; and if $n \in S$, then $3n \in S$.
+  \end{itemize}
+\end{solution}
+
+\gquestion{6}{6}{} Rosen Ch 5.3 \# 26a, p. 358. (See book examples and \#
+27 to help with this problem)
+\begin{solution}
+Let $S$ be the subset of the set of ordered pairs of integers defined recursively by \\
+\textit{Basis Step}: $(0,0) \in S$. \\
+\textit{Recursive Step}: If $(a,b) \in S$, then $(a+2,b+3)\in S$ and $(a+3,b+2) \in S$. \\
+\begin{enumerate}
+    \item List the elements of $S$ produced by the first five applications of the recursive definition.
+\end{enumerate}
+\begin{quote}
+    From the basis step $(0,0) \in S$.  Each application of the recursive definition will be given:
+
+    \begin{tabular}{rllllll}
+    1 & (2,3), & (3,2) \\
+    2 & (4,6), & (5,5), & (6,4) \\
+    3 & (6,9), & (7,8), & (8,7), & (9,6) \\
+    4 & (8,12), & (9,11), & (10,10), & (11,9), & (12,8) \\
+    5 & (10,15), & (11,14), & (12,13), & (13,12), & (14,11), & (15,10) \\
+    \end{tabular}
+\end{quote}
+\end{solution}
+
+\end{questions}
+\end{document}

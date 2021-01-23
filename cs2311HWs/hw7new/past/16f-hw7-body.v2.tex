@@ -1,0 +1,448 @@
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Fall 2016}}{\textbf{HW
+ 7 \ifprintanswers - Solutions \fi}}{\textbf{Due: Fri. 10/21/16}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\ifprintanswers
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  Assignments should be typed and submitted as a PDF.  Every student must write up their own solutions in their own manner.
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\else
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  Every student must write up their own solutions in their own manner.
+
+\noindent Please present your solutions in a clean, understandable
+manner.  Use the provided files that give mathematical notation in Word, Open Office, Google Docs, and \LaTeX. 
+
+\noindent Assignments should be typed and submitted as a PDF.   
+
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\fi
+
+\begin{questions}
+
+\gquestion{13}{10}{a (cat, dog, duck),b,d,e,f}  Consider the domain of discourse to be the following set $ \{ cat, dog, duck, horse, snow monkey \}$.  Let $F(x)$ be true when $x$ can fly, let $H(x)$ be true when $x$ has hair/fur, let $L(x)$ be true when $x$ has four legs, and let $S(x)$ be true if $x$ can swim. 
+
+\begin{enumerate}[label=(\alph*)]
+  \item (6 pt) Complete the following truth table
+
+  \ifprintanswers
+  \else
+  \hspace*{0.5in}\begin{tabular}{|c|c|c|c|c|}
+    \hline
+      $x$ & $F(x)$ & $H(x)$ & $L(x)$ & \hspace*{0.1in}$S(x)$ \hspace*{0.1in}\\
+    \hline
+      cat   &  F & \hspace*{0.5in} & \hspace*{0.5in} & T \\
+    \hline
+      dog   & \hspace*{0.5in}  & & & T \\
+    \hline
+      duck  &  & F & & T \\
+    \hline
+      horse &  & &  & T \\
+    \hline
+      snow monkey &  & & F & T \\
+    \hline
+  \end{tabular}
+  \fi
+    \begin{solution}
+      \begin{tabular}{|c|c|c|c|c|}
+        \hline
+          $x$ & $F(x)$ & $H(x)$ & $L(x)$ & \hspace*{0.15in} $S(x)$ \hspace*{0.15in} \\
+        \hline
+          cat   & \textbf{F} & T & \textbf{T} & T \\
+        \hline
+          dog   & F & \textbf{T} & T & T \\
+        \hline
+          duck  & \textbf{T} & F & \textbf{F} & T \\
+        \hline
+          horse & \textbf{F} & T & T & T \\
+        \hline
+          snow monkey & \textbf{F} & \textbf{T} & F & T \\
+        \hline
+      \end{tabular}
+    \end{solution}
+
+  \vspace{-10pt}
+\uplevel{ Express the following predicates, (b-d), using the universal quantifier:}
+  \item (1 pt)  \hspace*{0.15in}$F(cat) \wedge F(dog) \wedge F(duck) \wedge F(horse) \wedge F(snow\, monkey)$
+  \item (1 pt)  \hspace*{0.15in}$\neg L(cat) \wedge \neg L(dog) \wedge \neg L(duck) \wedge \neg L(horse) \wedge \neg L(snow\, monkey) $
+  \item (1 pt)  \hspace*{0.15in}$S(cat) \vee S(dog) \vee S(duck) \vee S(horse) \vee S(snow\, monkey)$
+    % \begin{align*}
+    %   (i)  & F(cat) \wedge F(dog) \wedge F(duck) \wedge F(horse) \\
+    %   (ii) & \neg L(cat) \wedge \neg L(dog) \wedge \neg L(duck) \wedge \neg L(horse) \\
+    %   (iii) & S(cat) \vee S(dog) \vee S(duck) \vee S(horse) 
+    % \end{align*}
+      \begin{solution}
+        (b) $\forall x\, F(x)$
+        \hspace*{0.5in} (c) $\forall x\, \neg L(x)$
+        \hspace*{0.5in} (d) $\neg \forall x\, \neg S(x)$ 
+      \end{solution}
+
+  \vspace{-10pt}
+  \uplevel{ Determine the truth values of the following expressions }    
+  \item (1 pt) \hspace*{0.15in}  $\forall x\, S(x)$ 
+  \item (1 pt) \hspace*{0.15in} $\forall x\, (L(x) \ra H(x))$
+  \item (1 pt) \hspace*{0.15in} $\exists x\, (\neg L(x) \wedge F(x)) $
+  \item (1 pt) \hspace*{0.15in} $\exists x\, (F(x) \wedge L(x) \wedge (\exists y\, ((x \neq y)  \ra (\neg H(x) \vee \neg L(x)))))$
+    \begin{solution}
+      (e) True 
+      \hspace*{0.15in} (f) True 
+      \hspace*{0.15in} (g) True
+      \hspace*{0.15in} (h) False
+    \end{solution}
+
+\end{enumerate}
+
+
+
+\ugquestion{4} Rosen Ch 1.4 \#8(b,c)  p. 53 
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+  \begin{solution}
+      \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+         % \item[(a)] ``For every animal, if it is a rabbit then then that animal hops."  \\Or, ``Every rabbit hops."
+          \item[(b)] ``For every animal, it is a rabbit and it hops." \\Or, ``Every animal is a rabbit and hops."
+          \item[(c)] ``There exists an animal such that if it is a rabbit then it hops."
+          % \item[(d)] ``There exists an animal that is a rabbit and it hops." \\Or, ``Some rabbits hop." \\Or, ``Some hopping animals are rabbits."
+      \end{itemize}
+  \end{solution}
+
+
+
+\gquestion{5}{3}{c-e} Rosen Ch 1.4 \#24, p. 54 \\
+Use the following predicates:
+
+\begin{minipage}{0.5\textwidth}
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+  \item $C(x)$ be ``$x$ in your class''
+  \item $P(x)$ be ``$x$ has a cell phone''
+  \item $M(x)$ be ``$x$ has seen a foreign movie''
+  % \item $S(x)$ be ``$x$ can swim''
+  % \item $Q(x)$ be ``$x$ can solve quadratic equations''
+  % \item $R(x)$ be ``$x$ wants to be rich''
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+  \item $S(x)$ be ``$x$ can swim''
+  \item $Q(x)$ be ``$x$ can solve quadratic equations''
+  \item $R(x)$ be ``$x$ wants to be rich''
+\end{itemize}
+\end{minipage}
+  \begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[(a)] Everyone in your class has a cell phone.\\
+        $\qquad \forall x\; P(x) \hspace{2in} \forall x\; (C(x) \ra P(x))$
+       \item[(b)] Somebody in your class has seen a foreign movie. \\
+       $\qquad \exists x\; M(x) \hspace{2in} \exists x\; (C(x) \wedge M(x))$
+       \item[(c)] There is a person in your class who cannot swim. \\
+       $\qquad \exists x\; \neg S(x) \hspace{2in} \exists x\; (C(x) \wedge \neg S(x))$
+       \item[(d)] All students in your class can solve quadratic equations \\
+        $\qquad \forall x\; Q(x) \hspace{2in} \forall x\; (C(x) \ra Q(x))$       
+       \item[(e)] Some student in your class does not want to be rich. \\
+        $\qquad \exists x\; \neg R(x) \hspace{2in} \exists x\; (C(x) \wedge \neg R(x))$
+    \end{itemize}
+
+  \end{solution}
+
+
+
+
+\gquestion{3}{2}{b-c}\label{proba} For this problem, use the predicates: $F(x)$ is ``$x$ is a Freshman", $S(x)$ be ``$x$ is a student at MTU", $C(y)$ is ``$y$ is a CS course", and $T(x,y)$ is ``$x$ is taking $y$", where $x$ has the domain of all students at MTU and $y$ has the domain of all CS courses.
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+	topsep=0pt,partopsep=0pt]
+    \item Translate the logical expression into English: $\forall x\; (F(x) \ra T(x,CS1000))$.
+    \item Translate English into logic: ``Some freshman at MTU are taking CS1121."
+    \item Translate English into logic: ``Every freshman at MTU is taking a CS course."
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    	topsep=0pt,partopsep=0pt]
+        \item ``For every student $x$ at MTU, if $x$ is a freshman, then $x$ is taking CS1000."
+
+            Conversationally, ``All freshman at MTU take CS1000."
+        \item $\exists x\; (F(x) \wedge T(x,CS 1121))$
+        \item $\forall x\; (F(x) \ra \exists y\; T(x,y))$ or $\forall x\; \exists y\; (F(x) \ra T(x,y))$
+    \end{enumerate}
+\end{solution}
+
+
+\ugquestion{6} Repeat problem \ref{proba} with the domain of $x$ is all people and $y$ is all courses.
+%\item Translate the logical expression into English: $\forall x\; (F(x) \ra T(x,CS1000))$.
+%    \item Translate the English statement into logic: ``Some freshman at the College are taking CS1121."
+%    \item Translate the English statement into logic: ``Every freshman at the College is taking some CS course."
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    	topsep=0pt,partopsep=0pt]
+        \item  ``For every person $x$, if $x$ is a freshman then $x$ is taking CS1000."
+
+            Conversationally, ``All freshman take CS1000."
+        \item $\exists x\; (S(x) \wedge F(x) \wedge T(x,CS 1121))$
+        \item $\forall x\; ((S(x) \wedge F(x)) \ra \exists y (C(y) \wedge T(x,y)))$ or \\
+        $\forall x\; \exists y\; ((S(x) \wedge F(x)) \ra (C(y) \wedge T(x,y)))$
+    \end{enumerate}
+\end{solution}
+
+
+
+\ugquestion{6} Rosen Ch 1.5 \#4(b,d,e), p. 64
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+  \begin{solution}
+      \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+  %        \item[(a)] There is a student in your class who has taken some computer science class at your school.
+         \item[(b)] There is a student in your class who has taken every computer science class at your school.
+  %        \item[(c)] Every student in your class has taken a computer science class at your school.
+          \item[(d)] There is a computer science class at your school that every student in your class has taken.
+          \item[(e)] Every computer science class at your school has been taken by a student in your class.
+  %        \item[(f)] Every student in your class has taken every computer science class at your school.
+      \end{itemize}
+  \end{solution}
+
+
+
+
+\gquestion{8}{4}{c,f} Rosen Ch 1.5 \#10(a,b,c,f), p. 65
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+  \begin{solution}
+      \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+         \item[(a)] $\forall x\; F(x,Fred)$
+         \item[(b)] $\forall y\; F(Evelyn, y)$
+          \item[(c)] $\forall x\; \exists y\; F(x,y)$
+  %        \item[(d)] $\neg \exists x\; \forall y\; F(x,y)$
+         \item[(e)] $ \forall y\; \exists x\; F(x,y)$
+          \item[(f)] $\neg \exists x\; (F(x, Fred) \wedge F(x,Jerry))$
+  %        \item[(g)] $\exists x\; \exists y; (F(Nancy, x) \wedge F(Nancy, y) \wedge x \neq y \wedge \forall z\; (F(Nancy,z) \ra (x = z \vee y = z)))$
+  %        \item[(h)] $\exists y\; (\forall x\; F(x,y) \wedge \forall z\; (\forall x\; F(x,z) \ra z = y))$
+  %        \item[(i)] $\neg \exists x F(x,x)$
+  %        \item[(j)] $\exists x\; \exists y\; (x \neq y \wedge F(x,y) \wedge \forall z\; ((F(x,z) \wedge z \neq x) \ra z = y))$
+      \end{itemize}
+  \end{solution}
+
+
+
+% \gquestion{8}{4}{(d,e)} Rosen Ch 1.5 \#12(b,d,e,k), p. 65
+%     \ifprintanswers
+%         \vspace{-12pt}
+%     \fi
+%   \begin{solution}
+%   %    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%   %        \item[(a)] $\neg I(Jerry)$
+%   %        \item[(b)] $\neg C(Rachel, Chelsea)$
+%   %        \item[(c)] $\neg C(Jan, Sharon)$
+%   %        \item[(d)] $\neg \exists x\; C(x,Bob) \equiv \forall x\; \neg C(x,Bob)$
+%   %        \item[(e)] $\forall x\; (x \neq Joseph \lra C(x, Sanjay))$
+%   %        \item[(f)] $\exists x\; \neg I(x)$
+%   %        \item[(g)] $\neg \forall x\; I(x)$
+%   %        \item[(h)] $\exists x\; \forall y\; (x=y \lra I(y))$
+%   %        \item[(i)] $\exists x\; \forall y\l (x\neq y \lra I(y))$
+%   %        \item[(j)] $\forall x\; (I(x) \ra \exists y\; (x \neq y \wedge C(x,y)))$
+%   %        \item[(k)] $\exists x\; (I(x) \wedge \forall y\; (x \neq y \ra \neg C(x,y)))$
+%   %        \item[(l)] $\exists x\; \exists y\; (x \neq y \wedge \neg C(x,y))$
+%   %        \item[(m)] $\exists x\; \forall y\; C(x,y)$
+%   %        \item[(n)] $\exists x\; \exists y\; (x \neq y \wedge \forall z\; \neg (C(x,z) \wedge C(y,z)))$
+%   %        \item[(o)] $\exists x\; \exists y\; (x \neq y \wedge \forall z\; C(x,z) \vee C(y,z))$
+%   %    \end{itemize}
+%       \begin{tabular}{l}
+%         %(b) $\neg C(Rachel, Chelsea)$ & 
+%         (d) $\neg \exists x\; C(x,Bob) \equiv \forall x\; \neg C(x,Bob)$ \\
+%         (e) $\forall x\; (x \neq Joseph \lra C(x, Sanjay))$
+%         % (g) $\neg \forall x\; I(x)$ & (k) $\exists x\; (I(x) \wedge \forall y\; (x \neq y \ra \neg C(x,y)))$
+%         % (k) $\exists x\; (I(x) \wedge \forall y\; (x \neq y \ra \neg C(x,y)))$ \\
+%       \end{tabular}
+%   \end{solution}
+
+
+
+\gquestion{5}{3}{b} Rewrite the statements so that the negations appear only on predicates (that is, so that no negation is outside a quantifier or an expression involving logical connectives).
+  \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+      topsep=0pt,partopsep=0pt]
+      % \item $\neg \forall x\; \exists y\; P(x,y)$
+      \item $\neg \exists x\; (Q(x) \vee \exists y\; \neg P(x,y))$
+      \item $\neg \forall x\; (\exists y\; \forall z\; T(x,y,z) \ra \forall y\; \forall z\; U(x,y,z))$
+    \end{enumerate}
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+  \begin{solution} Repeatedly apply DeMorgans law of quantifiers, DeMorgans law, Double Negation, and other logical equivalence laws.
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+        topsep=0pt,partopsep=0pt]
+        % \item $\neg \forall x\; \exists y\; P(x,y)$ \\
+        %   $ \equiv \exists x\; \neg \exists y\; P(x,y)$ \\
+        %   $ \equiv \exists x\; \forall y\; \neg P(x,y)$ 
+          
+        \item $\neg \exists x\; (Q(x) \vee \exists y\; \neg P(x,y))$ \\
+          $ \equiv \forall x\; \neg (Q(x) \vee \exists y\; \neg P(x,y))$ \\
+          $ \equiv \forall x\; (\neg Q(x) \wedge \neg \exists y\; \neg P(x,y))$ \\
+          $\equiv \forall x\; (\neg Q(x) \wedge \forall y\; \neg \neg P(x,y))$ \\
+          $ \equiv \forall x\; (\neg Q(x) \wedge \forall y\; P(x,y))$ 
+          
+        \item $\neg \forall x\; (\exists y\; \forall z\; T(x,y,z) \ra \forall y\; \forall z\; U(x,y,z))$ \\
+          $ \equiv \exists x\; \neg (\exists y\; \forall z\; T(x,y,z) \ra \forall y\; \forall z\; U(x,y,z))$ \\
+          $ \equiv \exists x\; (\exists y\; \forall z\; T(x,y,z) \wedge \neg \forall y\; \forall z\; U(x,y,z))$ \\
+          $ \equiv \exists x\; (\exists y\; \forall z\; T(x,y,z) \wedge \exists y\; \neg \forall z\; U(x,y,z))$ \\
+          $ \equiv \exists x\; (\exists y\; \forall z\; T(x,y,z) \wedge \exists y\; \exists z\; \neg U(x,y,z))$ \\
+      \end{enumerate}
+  \end{solution}
+
+
+
+\gquestion{16}{8}{b} Rosen Ch 1.6 \#14 (a,b), p. 79 \\
+Let $C(x)$ be ``$x$ is in this class'', $R(x)$ be ``$x$ owns a red convertible'', and $T(x)$ be ``$x$ has gotten a ticket''. \\
+Let $M(x)$ be ``$x$ is one of the five roommates'', $D(x)$ be ``$x$ has taken a course in discrete math'', and $A(x)$ be ``$x$ can take a course in algorithms''.
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+  \begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item[(a):] The premises are:
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[1.] $C(Linda)$
+        \item[2.] $R(Linda)$
+        \item[3.] $\forall x\; (R(x) \rightarrow T(x))$
+    \end{itemize}
+    To conclude: $\exists x\; (C(x) \wedge T(x))$
+
+    \smallskip
+    \begin{tabular}{lll}
+        Step        & \hspace{0.2in} & Reason \\
+        1. $\forall x\; (R(x) \rightarrow T(x))$    &   & Hypothesis \\
+        2. $R(Linda) \rightarrow T(Linda)$          &   & Universal Instantiation \\
+        3. $R(Linda)$                               &   & Hypothesis \\
+        4. $T(Linda)$                               &   & Modus ponens using (2) and (3) \\
+        5. $C(Linda)$                               &   & Hypothesis \\
+        6. $C(Linda) \wedge T(Linda)$               &   & Conjunction with (4) and (5) \\
+        7. $\exists x\; (C(x) \wedge T(x))$         &   & Existential generalizaion \\
+    \end{tabular}
+
+    \item[(b):] The premises are:
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[1.] $\forall x\;(M(x) \rightarrow D(x))$
+        \item[2.] $\forall x\;(D(x) \rightarrow A(x))$
+    \end{itemize}
+    The conclusion is: $\forall x\;(M(x) \rightarrow A(x))$.  Let $y$ be an arbitrary person.
+
+    \smallskip
+    \begin{tabular}{lll}
+        Step        & \hspace{0.2in} & Reason \\
+        1. $\forall x\;(M(x) \rightarrow D(x))$     &   & Hypothesis \\
+        2. $M(y) \rightarrow D(y)$                  & & Univ. Inst. with (1) \\
+        3. $\forall x\; (D(x) \rightarrow A(x))$    &   & Hypothesis \\
+        4. $D(y) \rightarrow A(y)$                  &   & Univ. Inst. with (3) \\
+        5. $R(y) \rightarrow A(y)$                  &   & Hyp. syl. with (2) and (4) \\
+        6. $\forall x\;(R(x) \rightarrow A(x))$     &   & Univ. Generalization with (5) \\
+    \end{tabular}
+    \end{itemize}
+  \end{solution}
+
+
+
+\ugquestion{6} For each argument determine whether it is valid or not and explain why (in a sentence).
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item[(a)] From  ``all healthy people eat an apple a day" and  ``Samantha eats an apple a day" conclude ``Samantha is a healthy person."  
+    \item[(b)] ``Some math majors left the campus for the weekend" and ``All seniors left the campus for the weekend" implies the conclusion ``Some seniors are math majors."
+    \item[(c)] ``Everyone who left campus for the weekend is a senior" and ``All math majors left campus for the weekend"  implies the conclusion ``All math majors are seniors." 
+    % \item[(d)] ``No juniors left campus for the weekend" and ``Some math majors are not juniors" implies the conclusion ``Some math majors left campus for the weekend."
+    \end{itemize}
+   \ifprintanswers
+        \vspace{-20pt}
+    \fi
+\begin{solution}
+    \begin{itemize}
+        \item[(a)] Not Valid argument.  Fallacy of affirming the conclusion
+        \item[(b)] Not Valid argument.  The two premises do not imply the conclusion.
+        \item[(c)] Valid argument. The argument uses Univ. instantiation (x2), hyp. syllogism, followed by Univ. generalization.
+        % \item[(d)] Not Valid argument.  The two premises do not imply the conclusion.
+    \end{itemize}
+\end{solution}
+
+
+
+\ugquestion{4} Rosen Ch 1.6 \# 16(a,b), p. 79
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[(a)] Correct, using universal instantiation and modus tollens.
+        \item[(b)] Incorrect, first apply universal instantiation then fallacy of denying the hypothesis.
+        % \item[(c)] Incorrect, first apply universal instantiation then fallacy of denying the hypothesis.
+%        \item[(d)] Correct, using universal instantiation and modus ponens.
+    \end{itemize}
+\end{solution}
+
+
+
+\gquestion{10}{10}{all} Consider the statements of Rosen Example 27, Ch 1.4, p. 51.  Show from the premises a valid argument that leads to the conclusion.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    For the problem, the domain description and translation into logical expression has already been performed.
+
+    \begin{tabular}{lll}
+            Step                    & \hspace{0.15in} & Reason \\
+            1. $\forall x\; (P(x) \ra S(x))$            & & Given \\
+            2. $\neg \exists x\; (Q(x) \wedge R(x))$    & & Given \\
+            3. $\forall x\; (\neg R(x) \ra \neg S(x))$  & & Given \\
+            4. $\forall x\; \neg (Q(x) \wedge R(x))$    & & DeMorgan's with Quantifiers with (2) \\
+            5. $P(a) \ra S(a)$                          & & Univ. instantiation with (1) \\
+            6. $\neg R(a) \ra \neg S(a)$                & & Univ. instantiation with (3) \\
+            7. $\neg (Q(a) \wedge R(a))$                & & Univ. instantiation with (4) \\
+            8. $\neg Q(a) \vee \neg R(a)$               & & DeMorgan's with (7) \\
+            9. $\neg R(a) \vee \neg Q(a)$               & & Commutative with (8) \\
+            10. $\neg \neg R(a) \ra \neg Q(a)$          & & Table 7, rule 3 with (9) \\
+            11. $R(a) \ra \neg Q(a)$                    & & Double negation with (10) \\
+            12. $S(a) \ra R(a)$                         & & Table 7, rule 2 with (6) \\
+            13. $P(a) \ra R(a)$                         & & Hyp. syllogism with (5) and (12) \\
+            14. $P(a) \ra \neg Q(a)$                    & & Hyp. syllogism with (13) and (11) \\
+            15. $\forall x\; (P(x) \ra \neg Q(x))$      & & Univ. generalization with (14)
+    \end{tabular}
+\end{solution}
+
+\section*{Bonus Questions}
+
+\bonusquestion[2] Using the same predicates as problem \ref{proba}, translate the following statement into logic assuming the domain of $x$ is all students at MTU and the domain of $y$ is all CS courses.
+``Some freshman at MTU is taking two CS courses."
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+	$\exists x\; \exists y\; \exists z\;(F(x) \wedge T(x,y) \wedge T(x,z) \wedge (y \neq z))$
+\end{solution}
+
+
+\bonusquestion[1] Rosen Ch 1.5 \#10(j), p. 65
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+  \begin{solution}
+      \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+         % \item[(h)] $\exists y\; (\forall x\; F(x,y) \wedge \forall z\; (\forall x\; F(x,z) \ra z = y))$
+         \item[(j)] $\exists x\; \exists y\; (x \neq y \wedge F(x,y) \wedge \forall z\; ((F(x,z) \wedge z \neq x) \ra z = y))$
+      \end{itemize}
+  \end{solution}
+
+
+\bonusquestion[1] Rosen Ch 1.6 \# 24, p. 80
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+\begin{solution}
+    The incorrect steps are 3 and 5.  The simplification rule can not be applied to disjunctions.  Also, step 7 the conjunction rule should ``AND" terms together.
+\end{solution}
+
+
+\end{questions}
+\end{document}

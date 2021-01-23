@@ -1,0 +1,586 @@
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Fall 2016}}{\textbf{HW
+ 10 \ifprintanswers - Solutions \fi}}{\textbf{Due: Fri. 11/18/16}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\ifprintanswers
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  Assignments should be typed and submitted as a PDF.  Every student must write up their own solutions in their own manner.
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\else
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  Every student must write up their own solutions in their own manner.
+
+\noindent Please present your solutions in a clean, understandable
+manner.  Use the provided files that give mathematical notation in Word, Open Office, Google Docs, and \LaTeX. 
+
+\noindent Assignments should be typed and submitted as a PDF.   
+
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\fi
+
+\begin{questions}
+
+
+\section*{Mathematical Induction and Recursion}
+
+% \gquestion{8}{8}{all}
+\ugquestion{8} Prove that $1^3 + 2^3 + \cdots + n^3 = \left( \frac{n(n+1)}{2} \right)^2$ for the positive integers $n$.
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+  \textbf{Proof}: Let $P(n)$ be the statement that $1^3 + 2^3 + \cdots + n^3 = \left( \frac{n(n+1)}{2} \right)^2$ for the positive integers $n$.
+
+  \textit{Basis Step:} Show that P(1) is true, completing the basis step of the proof.
+        \[ \left[ \frac{1 \cdot (1+1) }{2} \right]^2 = 1^2 = 1 = 1^3 \]
+
+  \textit{Inductive Step:}  \\
+    Assume $P(k)$ is true for an arbitrary, fixed integer $k \geq 1$, that is
+        \[ 1^3 + 2^3 + \cdots + k^3 = \left( \frac{k(k+1)}{2} \right)^2 \]
+
+    
+    Show that $P(k+1)$ holds, that is,
+        \[ 1^3 + 2^3 + \cdots + k^3 + (k+1)^3 = \left( \frac{(k+1)(k+2)}{2} \right)^2 \]
+    
+    Since, $P(k)$ holds,
+        \begin{align*}
+            1^3 + 2^3 + \cdots + k^3 &= \left( \frac{k(k+1)}{2} \right)^2 \tag{Ind. Hyp.} \\
+            1^3 + 2^3 + \cdots + k^3 + (k+1)^3 &=  \left( \frac{k(k+1)}{2} \right)^2 + (k+1)^3   \\
+              &= \left(\frac{k^2(k+1)^2}{2^2} \right) + (k+1)^3 \\
+              &= (k+1)^2 \left( \frac{k^2}{4} + (k + 1) \right) \\
+              &= (k+1)^2 \left( \frac{k^2 + 4k + 4}{4} \right) \\
+              &= \frac{(k+1)^2(k+2)^2}{2^2} =  \left( \frac{(k+1)(k+2)}{2} \right)^2\\
+        \end{align*}
+    That is, $1^3 + 2^3 + \cdots +(k+1)^3 = \left( \frac{(k+1)(k+2)}{2} \right)^2 $, or the statement $P(k+1)$ is true.  This completes the inductive step.
+
+    Therefore, by principle of mathematical induction, the statement $P(n)$ is true for every positive integer $n$.
+\end{solution}
+
+
+\begin{solution} 
+Alternative solution using summations: 
+
+  \textbf{Proof}: Let $P(n)$ be the statement that $\sum_{i=1}^n i^3 = \left( \frac{n(n+1)}{2} \right)^2$ for the positive integers $n$.
+
+  \textit{Basis Step:} Show that P(1) is true, completing the basis step of the proof.
+        \[ \sum_{i=1}^1 i^3 = 1^3 = 1 = \left[ \frac{1 \cdot (1+1) }{2} \right]^2 = 1^2 = 1  \]
+
+  \textit{Inductive Step:}  \\
+    Assume $P(k)$ is true for an arbitrary, fixed integer $k \geq 1$, that is
+        \[\sum_{i=1}^k i^3 = \left( \frac{k(k+1)}{2} \right)^2 \]
+
+    
+    Show that $P(k+1)$ holds, that is,
+        \[ \sum_{i=1}^{k+1} i^3 = \left( \frac{(k+1)(k+2)}{2} \right)^2 \]
+    
+    Since, $P(k)$ holds,
+        \begin{align*}
+            \sum_{i=1}^k i^3 &= \left( \frac{k(k+1)}{2} \right)^2 \tag{Ind. Hyp.} \\
+            \sum_{i=1}^k i^3 + (k+1)^3 &=  \left( \frac{k(k+1)}{2} \right)^2 + (k+1)^3   \\
+            \sum_{i=1}^{k+1} i^3  &= \left(\frac{k^2(k+1)^2}{2^2} \right) + (k+1)^3 \\
+              &= (k+1)^2 \left( \frac{k^2}{4} + (k + 1) \right) \\
+              &= (k+1)^2 \left( \frac{k^2 + 4k + 4}{4} \right) \\
+              &= \frac{(k+1)^2(k+2)^2}{2^2} =  \left( \frac{(k+1)(k+2)}{2} \right)^2\\
+        \end{align*}
+    That is, $\sum_{i=1}^{k+1} i^3 = \left( \frac{(k+1)(k+2)}{2} \right)^2 $, or the statement $P(k+1)$ is true.  This completes the inductive step.
+
+    Therefore, by principle of mathematical induction, the statement $P(n)$ is true for every positive integer $n$.
+\end{solution}
+
+
+
+
+\newpage
+\gquest{8}{8}  Prove for the positive integers $n$, $2 + 8 + 24 + \ldots + n\cdot 2^n = (n-1)2^{n+1} + 2$. 
+
+\begin{solution}
+  \textit{Proof:} Let $P(n)$, for all positive integers $n$, be the expression 
+  \[ 2 + 8 + 24 + \ldots + n\cdot 2^n = (n-1)2^{n+1} + 2. \]
+
+  \textit{Basis Step:}  Show $P(1)$ is true.  
+  \[ 2 = (1-1)2^{1+1} + 2 = 0 + 2 = 2  \]
+
+  \textit{Inductive Step:}  Assume $P(k)$ is true for an arbitrary, fixed integer $k \geq 1$, that is, 
+    \[ 2 + 8 + 24 + \ldots + k\cdot 2^k = (k-1)2^{k+1} + 2 \]
+
+  Show that $P(k+1)$ is true, that is, 
+    \[ 2 + 8 + 24 + \ldots + k\cdot 2^k  + (k+1)\cdot 2^{k+1} = (k)2^{k+2} + 2   \]
+
+  Start with the expression for $P(k)$ 
+
+  \begin{align*}
+    2 + 8 + 24 + \ldots + k\cdot 2^k &=  (k-1)2^{k+1} + 2 \tag{add $(k+1)2^{k+1}$ to both sides} \\
+    2 + 8 + 24 + \ldots + k\cdot 2^k  + (k+1)\cdot 2^{k+1}  &=  (k-1)2^{k+1} + 2 + (k+1)2^{k+1}  \\
+     &= (2k)2^{k+1} + 2 \\
+     &= k2^{k+2} + 2 
+  \end{align*}
+  This shows $P(k+1)$ is true assuming $P(k)$, completing the inductive step.
+
+  Therefore, by mathematical induction, the statement $P(n)$ hold for every positive integer.
+\end{solution}
+
+
+\newpage
+\gquest{8}{8} Use induction to prove that for any integer $n \geq 0$, that $3 \,|\, (5^{2n} -1)$.
+  
+\begin{solution}
+  Let $P(n)$ be the statement ``3 divides $5^{2n} - 1$'' for the integers $n \geq 0$. 
+
+  \textit{Basis Step:} Show $P(0)$ is true.  \\
+    3 divides $5^{2n} -1$ where $n=0$: $3 \,|\, 5^{0} - 1 = 1 - 1 = 0$ because there exists an integer $x$ such that $0 = 4x$. 
+
+  \textit{Inductive Step:} \\
+  Assume $P(k)$ is true for some arbitrary, fixed integer $k \geq 0$, that is, there exists an integer $a$ such that $5^{2k} - 1 = 4a$. 
+
+  Show that $P(k+1)$ is true, that is, there exists an integer $b$ such that $5^{2(k+1)} - 1 = 4b$. 
+
+  Start with the expression for $P(k+1)$: 
+
+  \begin{align*}
+    5^{2k} - 1 &= 4b \\
+    5^2\cdot 5^{2k} - 5^2\cdot 1 &= 5^2\cdot 4b \\
+    5^{2k+2} - 5^2 &= 25\cdot4b \\
+    5^{2(k+1)} - 1 &= 25\cdot4b + 24 \\
+     &= 4(25b + 6) \\
+     &= 4a 
+  \end{align*}
+  This shows $P(k+1)$ is true assuming $P(k)$, completing the inductive step. 
+
+  Therefore, by mathematical induction, the statement $P(n)$ is true for integers $n \geq 0$.
+\end{solution}
+
+
+% \ugquestion{8} Use induction to prove the following statement:
+%     \[\forall n \geq 0, \;\; 4 \,|\, (5^{n} - 1)\]
+% That is, for the natural numbers, 4 divides $5^n - 1$.
+%     \ifprintanswers
+%         \vspace{-10pt}
+%    \fi
+% \begin{solution}
+% Let $P(n)$ be the statement ``4 divides $5^n - 1$" for the natural numbers $n$. 
+
+% \textit{Basis Step:} Show $P(0)$ is true. 
+%     4 does divide $5^n - 1$ where $n=0$;  $4 \,|\, 5^0 - 1 = 1 - 1 = 0$ because there exists an integer $k$ such that $4k = 0$.
+
+% \textit{Inductive Step:} \\
+% Assume $P(n)$ holds for some $k \geq 0$, that is, there exists an integer $a$ such that $4a = 5^k - 1$ \textit{(IH)}. 
+
+% Show that $P(k+1)$ holds, that is, there exists an integer $b$ such that $4b = 5^{k+1} - 1$. 
+
+% \begin{align*}
+%     5^{k+1} - 1 &= 5\cdot 5^{k} - 1 \\
+%      &= (4 + 1)5^{k} - 1 \\
+%      &= 4\cdot 5^{k} + 5^{k} - 1 \\
+%      &= 4\cdot 5^{k} + 4a \tag{Ind. Hyp.} \\
+%      &= 4(5^{k} + a)
+%      = 4b
+% \end{align*}
+% This shows that assuming $P(k)$, $P(k+1)$ holds. \\
+% Therefore, by completing the basis and inductive step and principle of mathematical induction, the statement $P(n)$ is true for every natural number.
+% \end{solution}
+
+
+% Ferland, p. 191, Exercise #17.
+\ugquestion{8} Let $\{s_n\}$ be the sequence defined as, 
+\[ s_1 = 4 \quad \text{and} \quad s_n = 3s_{n-1} - 2, \forall n \geq 2. \]
+Show $\forall n \geq 1, s_n = 3^n + 1.$
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+  \textit{Proof:}
+  Let $P(n)$ be that the $n$th term of the sequence is found as $s_n = 3^n + 1$ for $n \geq 1$
+
+  \smallskip
+  \begin{tabular}{lp{4in}}
+    \textit{Basis Step:} & Show $P(1)$ is true, $s_1 = 3^1 + 1 = 4$ \\
+     & \\
+   \textit{Inductive Step:} &  \\
+  \end{tabular}
+
+  Assume $P(k)$ is ture for an arbitrary fixed integer $k \geq 1$, that is, 
+  \begin{align*}
+    s_k &= 3^k + 1 \tag{IH} \\
+  \end{align*}
+
+  Show $P(k+1)$ is true, that is,
+  \[ s_{k+1} = 3^{k+1} + 1 \]
+
+  Start with $P(k+1)$ and the definition of the sequence, 
+  \begin{align*}
+    s_{k+1} &= 3s_{k} - 2 \\
+    &= 3(3^k + 1) - 2 \tag{IH}\\
+    &= 3^{k+1} + 3 - 2 = 3^{k+1} + 1
+  \end{align*}
+  This shows $P(k+1)$ is true, assuming $P(k)$, completing the inductive step.
+
+  \smallskip
+  Therefore, we have shown by mathematical induction, $P(n)$ is true for all $n \geq 1$.
+\end{solution}
+
+
+
+
+% Ferland, p. 188, Ex. 4.19
+% \gquestion{8}{8}{all} 
+\ugquestion{8} Show for all integers $n \geq 4$, $n^2 \geq 3n + 4$. 
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+  \textit{Proof:}
+  Let $P(n)$ be $n^2 \geq 3n + 4$ for all integers $n \geq 4$.
+
+  \smallskip
+  \begin{tabular}{lp{4in}}
+    \textit{Basis Step:} & Show $P(4)$ is true, $4^2 = 16 \geq 16 = 3\cdot 4 + 4$ \\
+     & \\
+   \textit{Inductive Step:} &  \\
+  \end{tabular}
+
+  Assume $P(k)$ is true for an arbitrary, fixed integer $k \geq 4$, that is, 
+  \begin{align*}
+    k^2 \geq 3k + 4 \tag{IH} 
+  \end{align*}
+
+  Show $P(k+1)$ is true, that is, 
+  \[ (k+1)^2 \geq 3(k+1) + 4 = 3k + 7 \]
+
+  Start with \textit{lhs} of $P(k+1)$
+  \begin{align*}
+    (k+1)^2 &= k^2 + 2k + 1 \\
+     &\geq (3k + 4) + 2k + 1 \tag{IH} \\
+     &= 3k + (2k + 5) \\
+     &\geq 3k + 7 \tag{2k +5 $\geq 7$ or k $\geq$ 1, for all k $\geq$ 4} \\
+     &= 3(k+1) + 4 \\
+  \end{align*}
+  This shows $P(k+1)$ is true, assuming $P(k)$ is true, completing the inductive step. 
+
+  Therefore, by mathematical induction, $n^2 \geq 3n + 4$ for all $n \geq 4$.
+\end{solution}
+
+
+
+\gquest{8}{8} Consider the game of rugby.  Let's assume teams can either score via trys, 5 pts, or drop goals, 3 pts.   Ignore conversions and penalty goals for this problem.  
+
+Show that it is then possible (assuming no time constraints) for a team to score any number of points from 16 on up. 
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+  \textit{Proof:}
+  Let $P(n)$ be that it is possible for a team to score $n$ points, for $n \geq 16$.
+  
+  \smallskip
+  \begin{tabular}{lp{4in}}
+    \textit{Basis Step:}  & Show $P(16)$ is true, 2 trys and 2 drop goals \\
+                & Show $P(17)$ is true, 1 try and 4 drop goals, and \\
+                & Show $P(18)$ is true, 3 trys and 1 drop goals \\
+     & \\
+   \textit{Inductive Step:} &  \\
+  \end{tabular}
+
+  Assume $P(j)$ is true where $16 \leq j \leq k$ and an arbitrary, fixed integer $k \geq 18$, that is, a team can score $j$ points. 
+
+  Show $P(k+1)$ is true, that is, a team can score $k+1$ points through trys and drop goals.
+
+  We know a team can score $P(k-2)$ and $k -2 \geq 16$ from the inductive hypothesis. A team can score one additional drop goal (3 points) to reach $k+1$ points, competing the inductive step. 
+
+  Therefore, by mathematical induction, $P(n)$ for integers $n \geq 12$. 
+\end{solution}
+
+
+
+\newpage
+% Ferland, p. 207, Exercise #1.
+\ugquestion{8} Let $\{s_n\}$ be the sequence defined as, 
+\[ s_0 = 0, \quad s_1 = 1,  \quad \text{and} \quad s_n = 3s_{n-1} - 2s_{n-2}, \forall n \geq 2. \]
+Show $\forall n \geq 0, s_n = 2^n - 1 .$
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+  \textit{Proof:}
+  Let $P(n)$ be that the $n$th term of the sequence is determine as $s_n = 2^n - 1$ for $n \geq 0$.
+
+  \smallskip
+  \begin{tabular}{lp{4in}}
+    \textit{Basis Step:}  & Show $P(0)$ is true, $2^0 - 1 = 0 = s_0$ \\
+                & Show $P(1)$ is true, $2^1 - 1 = 1 = s_1$ \\
+     & \\
+   \textit{Inductive Step:} &  \\
+  \end{tabular}
+
+  Assume $P(j)$ is true $0 \leq j \leq k$ with $k \geq 1$, that is, 
+  \begin{align*}
+    s_j = 2^j - 1 \quad \forall 0 \geq j \geq k \tag{IH}
+  \end{align*}
+
+  Show that $P(k+1)$ is true, that is,
+  \[ s_{k+1} = 2^{k+1} - 1 \] 
+
+  Consider the definition of the sequence, 
+  \begin{align*}
+    s_{k+1} &= 3s_{k} - 2s_{k-1} \\
+    &= 3(2^k - 1) - 2(2^{k-1} - 1) \\
+    &= 3\cdot 2^k - 3 - 2^k + 2 \\
+    &= 2\cdot 2^k - 1 \\
+    &= 2^{k+1} - 1
+  \end{align*}
+  When the inductive hypothesis is true, then $P(k+1)$ is true, completing the inductive step. 
+
+  Then, by strong mathmatical induction, we conclude $P(n)$ for $n \geq 0$.
+\end{solution}
+
+
+\ugquestion{4} Rosen Ch 5.3 \# 24(a,b), p. 358.
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+  \begin{itemize}
+    \item[(a)] Odd integers are obtained from other odds, by adding 2. Thus, $O$, the set of odd integers, can be defined as:  $1 \in O$;  and if $n \in O$, then $n+2  \in O$.
+    \item[(b)] Powers of 3 are obtained from other powers of 3 by multiplying by 3.  The set $S$ of powers of three is:  $3 \in S$; and if $n \in S$, then $3n \in S$.
+  \end{itemize}
+\end{solution}
+
+\gquest{4}{4} Rosen Ch 5.3 \# 26a, p. 358. (See book examples and \#
+27 to help with this problem)
+\begin{solution}
+% Let $S$ be the subset of the set of ordered pairs of integers defined recursively by \\
+% \textit{Basis Step}: $(0,0) \in S$. \\
+% \textit{Recursive Step}: If $(a,b) \in S$, then $(a+2,b+3)\in S$ and $(a+3,b+2) \in S$. \\
+% \begin{enumerate}
+%     \item List the elements of $S$ produced by the first five applications of the recursive definition.
+% \end{enumerate}
+\begin{quote}
+    From the basis step $(0,0) \in S$.  Each application of the recursive definition will be given:
+
+    \begin{tabular}{rllllll}
+    1 & (2,3), & (3,2) \\
+    2 & (4,6), & (5,5), & (6,4) \\
+    3 & (6,9), & (7,8), & (8,7), & (9,6) \\
+    4 & (8,12), & (9,11), & (10,10), & (11,9), & (12,8) \\
+    5 & (10,15), & (11,14), & (12,13), & (13,12), & (14,11), & (15,10) \\
+    \end{tabular}
+\end{quote}
+\end{solution}
+
+
+\section*{Counting}
+
+\gquest{2}{2} Adam goes to his favorite BBQ restuarant and orders the pulled pork sandwich.  Adam has a choice of sauce: mild, medium, hot, extra hot, or blazin'.  Adam also has a choice of bread: white bread, kaiser roll, potato bread roll.  How many different single sandwichs (single type of sauce, single bread) may Adam order?
+\ifprintanswers
+    \vspace{-10pt}
+  \fi
+  \begin{solution}
+  Use product rule: $\Sole{ \us{\text{sauce}}{\uls{5}} \cdot \us{\text{bread}}{\uls{3}} = 15} $
+  \end{solution}
+
+
+\ugquestion{2} Sarah goes to the same BBQ restuarant that serves a meat and three for lunch, where there is a choice of meats and 3 side items.  The meat options are: pulled pork, chicken, brisket, smoked sausage, or ribs.  The side options are: mac-n-cheese, collard greens, sweet potatoes, fried green tomatoes, cornbread, green beans, coleslaw, or baked potato.  Sarah can order each side item more than once.  How many different orders can be Sarah make?  
+  \ifprintanswers
+    \vspace{-10pt}
+  \fi
+  \begin{solution}
+  Use product rule: $\Sole{ \us{\text{protein}}{\uls{5}} \cdot 
+    \us{\text{side1}}{\uls{8}} \cdot \us{\text{side2}}{\uls{8}} \cdot
+    \us{\text{side3}}{\uls{8}} = 5\cdot8^3 = 2560} $
+  \end{solution}
+
+
+\gquest{2}{2} Sarah wants to sample from the sides, that is, not order a side more than once.  How many different orders can Sarah make? 
+  \ifprintanswers
+    \vspace{-10pt}
+  \fi
+  \begin{solution}
+  Use product rule: $\Sole{ \us{\text{protein}}{\uls{5}} \cdot 
+    \us{\text{side1}}{\uls{8}} \cdot \us{\text{side2}}{\uls{7}} \cdot
+    \us{\text{side3}}{\uls{6}} = 5\cdot8\cdot7\cdot6 = 1680} $
+  \end{solution}
+
+
+
+\uplevel{For the next several problems, consider strings representing the sequence of hexadecimals where the 16 symbols in the sequence represent the 16 hexadecimal values: 0-9, A, B, C, D, E, and F.  A length 4 hexadecimal sequence, would then be four of the symbols in a string, e.g., 0000, 4B1D, 8F32, FADE, etc.}
+
+
+% like Rosen Ch 6.1, \# 10
+\ugquestion{2} How many hexadecimal sequences are there of length 10?
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+    \begin{solution}
+    For each of the 8 positions in the string there are 16 options (0-9,A-F), \\
+    $\uls{16} \cdot \uls{16} \cdot \uls{16} \cdot \uls{16} \cdot 
+      \uls{16} \cdot \uls{16} \cdot \uls{16} \cdot \uls{16}  = 
+      \Sole{  16^{8}= 4.295 \times 10^{9} }$ sequences.
+    \end{solution}
+
+
+\gquest{2}{2} How many hexadecimal sequences of length 8 only contain letter symbols (A-F)?
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+    \begin{solution}
+    $ \uls{6} \cdot \uls{6} \cdot \uls{6} \cdot \uls{6} \cdot 
+      \uls{6} \cdot \uls{6} \cdot \uls{6} \cdot \uls{6} = 
+      \Sole{  6^{8} = 1,679,616}$ sequences
+    \end{solution}
+
+
+
+% like Rosen, Ch 6.1 \# 11, p. 396
+\gquest{2}{2} How many hexadecimal sequences are there of length 8 that begin with a 01 and end with a F?
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+    \begin{solution}
+    The sequence starts with 01 and ends with F, but the middle five positions can be any of the 16 options,
+    $ \nuls{0}\, \nuls{1}\, \uls{16} \cdot \uls{16} \cdot 
+      \uls{16} \cdot \uls{16} \cdot \uls{16}, \nuls{F} =  
+      \Sole{ 16^{5} = 1,048,576 } $ sequences
+    \end{solution}
+
+
+
+\ugquestion{2} How many hexadecimal sequences of length 8 begin with OFOF or begin with OOFF?
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution}
+    The num. that start with OFOF: 
+    $ \nuls{O} \nuls{F} \nuls{O} \nuls{F} 
+      \uls{16} \cdot \uls{16} \cdot \uls{16} \cdot \uls{16} = 
+      \Sole{ 16^4 = 65,536 }$ \\
+    The num. that start with 00FF: 
+    $\nuls{O} \nuls{O} \nuls{F} \nuls{F} 
+      \uls{16} \cdot \uls{16} \cdot \uls{16} \cdot \uls{16} = 
+      \Sole{  16^4 = 65,536 }$ \\[3pt]
+    The number that start with TATA or TAGC: 
+    $ \Sole{ 16^4 + 16^4 = 131,072 }$
+    \end{solution}
+
+
+
+\gquest{2}{2} How many hexadecimal sequences of length 8 begin with 842 or end with AB13?
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+    \begin{solution}
+    The num. that start with 842: 
+    $ \nuls{8} \nuls{4} \nuls{2} \uls{16} \cdot 
+      \uls{16} \cdot \uls{16} \cdot \uls{16} \cdot \uls{16}
+       = \Sole{ 16^5 = 1,048,576 }$ \\
+    The num. that end with AB3: 
+    $\uls{16} \cdot \uls{16} \cdot \uls{16} \cdot \uls{16} \cdot
+     \uls{16} \nuls{A} \nuls{B} \nuls{3} 
+       = \Sole{ 16^5 = 1,048,576 }$ \\
+    The num. start and end with the patterns: 
+    $ \nuls{8} \nuls{4} \nuls{2} \uls{16} \cdot 
+      \uls{16} \nuls{A} \nuls{B} \nuls{3} 
+      = \Sole{ 16^2 = 256}$ \\[3pt]
+    The number that start with 842 or end with AB3: $ \Sole{ 16^5 + 16^5 - 16^2 = 2,096,896}$
+    \end{solution}
+
+
+\gquest{2}{2} How many hexadecimal sequences are there of length 6 or less, not counting the empty string?
+    \ifprintanswers
+        \vspace{-15pt}
+   \fi
+    \begin{solution}
+    $\Sole{ 16^1 + 16^2 + 16^3 + 16^4 + 16^5 + 16^6 = 17,895,696 }$
+    \end{solution}
+
+
+\section*{Bonus questions}
+
+\bonusquestion[4] The Fibonacci numbers are defined as $F(0) = 0$, $F(1) = 1$, and $F(n) = F(n-1) + F(n-2)$ for $n \geq 2$.   Use induction to prove the following for natural numbers $n$:
+\[ F(0) + F(1) + \cdots + F(n) = F(n+2) - 1.  \]
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+  \textit{Proof:}
+  Let the $P(n)$ be the statement $F(0) + F(1) + \cdots + F(n) = F(n+2) -1$.
+
+  \smallskip
+  \begin{tabular}{lp{4in}}
+    \textit{Basis Step:} & Show $P(0)$ is true, $F(0) = 0 = 1 - 1 = F(0+2) - 1$ \\
+     & \\
+   \textit{Inductive Step:} &  \\
+  \end{tabular}
+
+  Assume $P(k)$ is true for an arbitrary, fixed integer $k \geq 0$, that is,
+  \begin{align*}
+    F(0) + F(1) + \cdots + F(k) &= F(k+2) - 1  \tag{IH} \\
+    \sum_{i=0}^k F(i) &= F(k+2) - 1
+  \end{align*}
+
+  Show $P(k+1)$ is true, that is
+  \begin{align*}
+    F(0) + F(1) + \cdots + F(k) + F(k+1) &= F(k+1+2) - 1 = F(k+3) - 1 \\
+    \sum_{i=0}^{k+1} F(k) &= F(k+3) - 1
+  \end{align*}
+
+  Start with $P(k+1)$:
+  \begin{align*}
+    F(0) + F(1) + \cdots + F(k) + F(k+1) &= F(k+3) - 1  \\
+    F(k+2) - 1 + F(k+1) &= \tag{IH} \\
+    F(k+2) + F(k+1) - 1 &= \\
+    F(k+3) - 1
+  \end{align*}
+  This shows $P(k+1)$ is true, assuming $P(k)$ is true, completing the inductive step. 
+
+  \smallskip
+  Therefore, by mathematical induction, $P(n)$ is true for all $n \geq 0$.
+
+  \smallskip
+  Note, the inductive step could also be shown by, starting with $P(k)$ and adding $F(k+1)$ to both sides:
+  \begin{align*}
+    F(0) + F(1) + \cdots + F(k) &= F(k+2) - 1 \tag{IH} \\
+    F(0) + F(1) + \cdots + F(k) + F(k+1) &= F(k+2) - 1 + F(k+1) \\
+     &= F(k+2) + F(k+1) - 1 \\
+     &= F(k+3) -1 
+  \end{align*}
+\end{solution}
+
+
+
+
+\bonusquestion[4] Induction can also be used to prove properties on Sets, Graphs, Trees, etc. 
+
+% Use induction to prove the following clain for every finite set, $S$, $|P(S)| = 2^{|S|}$, where $P(S)$ is the power set of $S$. 
+
+Use induction to prove that if $A_1, A_2, \ldots, A_n$ and $B_1, B_2, \ldots, B_n$ are sets such that $A_j \s B_j$ for $j =1, 2, \ldots, n$ then 
+  \[ \cup_{j=1}^n A_j \s \cup_{j=1}^n B_j. \] 
+
+\begin{solution}
+  \textbf{Proof:} Let $P(n)$ be that for sets $A_1, A_2, \ldots, A_n$ and $B_1, B_2, \ldots, B_n$ with $A_j \s B_j$ that for $j =1, 2, \ldots, n$ then 
+  \[ \cup_{j=1}^n A_j \s \cup_{j=1}^n B_j. \]
+
+  \textit{Basis Step:}  Show $P(1)$ is true. 
+   \[ \cup_{j=1}^1 A_j  = A_1 \s \cup_{j=1}^1 B_j = B_1, \]
+   which is true from the definition of the statement. 
+
+  \textit{Inductive Step:}  Assume $P(k)$ is true for an arbitrary, fixed integer $k \geq 1$, that is, if $A_j \s B_j$ for $j=1, 2, \ldots, k$ then, 
+  \[ \cup_{j=1}^k A_j \s \cup_{j=1}^k B_j. \]
+
+  Show $P(k+1)$ is true, that is, if $A_j \s B_j$ for $j=1, 2, \ldots, k, k+1$ then, 
+  \[ \cup_{j=1}^{k+1} A_j \s \cup_{j=1}^{k+1} B_j. \]
+
+  To show that one set is a subset of another, we show that an arbitrary element of the first set must be an element of the second set.  So let $x \in \cup_{j=1}^{k+1} A_j = \left( \cup_{j=1}^k A_j \right) \cup A_{k+1}$.  
+
+  Either $x \in \cup_{j=1}^{k} A_j$ of $x \in A_{k+1}$.
+
+  If it is the first case, we know by the inductive hypothesis that $x \in \cup_{j=1}^k B_j$. In the second case, we know from the fact that $A_{k+1} \s B_{k+1}$ that $x \in B_{k+1}$.  Therefore, in either case $x \in \left( \cup_{j=1}^k B_j \right) \cup B_{k+1} = \cup_{j=1}^{k+1} B_j$. 
+
+  This shows that $P(k+1)$ is true, assuming $P(k)$ is true, completing the inductive step. 
+
+  Therefore, by mathematical induction, $P(n)$ is true for $n \geq 1$.  
+\end{solution}
+
+
+\end{questions}
+\end{document}

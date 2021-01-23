@@ -1,0 +1,289 @@
+\documentclass[11pt]{exam}
+
+\usepackage[top=0.75in,bottom=0.75in,left=1in,right=1in]{geometry}
+%\usepackage{fancyhdr}
+%\usepackage{mdwlist}
+\usepackage{epsfig,graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{enumerate}
+
+%\usepackage[normalmargins,normalsections,normalindent,normalleading]{savetrees}
+
+%\pagestyle{fancy} \lhead{\textbf{cs2311} - Fall 2010}
+%\chead{\textbf{HW 4}} \rhead{\textbf{Due: Fri. 10/1/10}}
+%%\rfoot{\thepage}
+
+\newcommand{\es}{\emptyset}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Zp}{\mathbb{Z}^+}
+\newcommand{\Zn}{\mathbb{Z}^-}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\begin{document}
+\extrawidth{0.5in}%
+%\extrafootheight{-0.5in}%
+\pagestyle{headandfoot}%
+ \headrule
+ \header{\textbf{cs2311 - Fall 2011}}{\textbf{HW 6} - Practice Problems Solutions}{}%
+  \footrule \footer{}{Page \thepage\ of \numpages}{}
+
+\addpoints
+
+\noindent \textbf{Instructions:} All assignments are due at the
+beginning of class on the due date specified.  Solutions will be
+handed out (or posted on-line) shortly thereafter.  Every student
+must write up their own solutions in their own manner.
+
+\begin{questions}
+\printanswers
+
+% 8(a,b,c,d)
+\question Rosen, Ch 2.3, \# 8(e,f,g,h), p. 153.
+\begin{solution}
+Find the values.
+
+\begin{tabular}{ll}
+%    a) $\lfloor 1.1 \rfloor = 1$ \hspace*{0.5in} & b) $\lceil 1.1 \rceil = 2$\\
+%    c) $\lfloor -0.1 \rfloor = -1$ & d) $\lceil -0.1 \rceil = 0$ \\
+    e) $\lceil 2.99 \rceil = 3$ &     f) $\lceil-2.99 \rceil = -2$\\
+    \multicolumn{1}{l}{g) $\lfloor \frac{1}{2} + \lceil \frac{1}{2} \rceil \rfloor = \lfloor \frac{1}{2} + 1 \rfloor = \lfloor \frac{3}{2} \rfloor = 1$ } \\
+    \multicolumn{1}{l}{h) $\lceil \lfloor \frac{1}{2} \rfloor + \lceil \frac{1}{2} \rceil + \frac{1}{2} \rceil = \lceil 0 + 1 + \frac{1}{2} \rceil = \lceil \frac{3}{2} \rceil = 2$} \\
+\end{tabular}
+\end{solution}
+
+
+% 12(a,b),
+\question Rosen Ch 2.3 \# 12(c,d), p.153. %(determine if function is one-to-one)
+\begin{solution}
+Determine whether each of these functions from $\mathbf{Z}$ to $\mathbf{Z}$ is \textbf{one-to-one}.
+
+\begin{tabular}{l}
+% a) $f(n) = n-1$, \textbf{one-to-one} \\
+% b) $f(n) = n^2 + 1$, \textbf{not one-to-one}, $f(n) = f(-n)$\\
+ c) $f(n) = n^3$, \textbf{one-to-one} \\
+ d) $f(n) = \lceil \frac{n}{2} \rceil$, \textbf{not one-to-one}, $f(1) = f(2) = 1$ \\
+\end{tabular}
+\end{solution}
+
+
+% 14(a,c,e)
+\question Rosen Ch 2.3 \# 14(b,d), p. 153.
+\begin{solution}
+Determine whether $f: \mathbf{Z} \times \mathbf{Z} \rightarrow \mathbf{Z}$ is \textbf{onto}
+
+\begin{tabular}{p{5in}}
+%  a) $f(m,n) = 2m - n$, \textbf{onto}, $f(0,-n) = n$, for $\forall\;n \in \mathbf{Z}$ \\
+  b) $f(m,n) = m^2 - n^2$, \textbf{not onto}, there does not exist a pair of integers $m$ and $n$ such that $m^2 - n^2$ = 2. \\
+%  c) $f(m,n) = m + n + 1$, \textbf{onto}, $f(n-1,0) = n$, for $\forall\;n \in \mathbf{Z}$ \\
+  d) $f(m,n) = |m| - |n|$, \textbf{onto}, for $\forall\; n \in \mathbf{Z}$, if $n\geq 0$, $f(n,0) = n$; if $n < 0$, $f(0,n) = n$. \\
+%  e) $f(m,n) = m^2 - 4.$, \textbf{not onto}, for the same reason as part (b) \\
+\end{tabular}
+\end{solution}
+
+% 22(a,d)
+\question Rosen Ch. 2.3 \# 22(b) p. 153.
+\begin{solution}
+Determine whether each of these functions is a bijection from $\mathbf{R}$ to $\mathbf{R}$.
+
+\begin{tabular}{l}
+% a) $ f(x) = -3x + 4$, \textbf{Yes} \\
+ b) $f(x) = -3x^2 + 7$, \textbf{No}, neither one-to-one nor onto. \\
+% d) $f(x) = x^5 + 1$ \textbf{Yes} \\
+\end{tabular}
+\end{solution}
+
+
+% 30(a,b)
+\question Rosen Ch 2.3 \# 30(c) p. 154.
+\begin{solution}
+Find $f(S)$ for the given functions.
+
+\begin{tabular}{l}
+%  a) $f(S) = \{ 1, 1, 1, 1, 1 \} = \{ 1 \}$ \\
+%  b) $f(S) = \{ -1, 1, 5, 9, 15 \}$ \\
+  c) $f(S) = \{ 0, 0, 1, 1, 2 \} = \{0, 1, 2\}$ \\
+\end{tabular}
+\end{solution}
+
+% 32(a,b)
+\question Rosen Ch 2.3 \# 32(c) p. 154. 
+\begin{solution}
+Let $f(x) = 2x$ where the domain is the set of real numbers. What is:
+
+\begin{tabular}{l}
+%  a) $f(\Z) =$ set of positive integers \\
+%  b) $f(\N) =$ set of even positive integers \\
+  c) $f(\R) =$ set of real numbers \\
+\end{tabular}
+\end{solution}
+
+
+
+\uplevel{In the following problems recall that $\N = \{0, 1, 2, \ldots \}$, we will define a set $\N_i$ for each $i \in \N$ so the set $\N_i = \{ 0, 1, 2, \ldots, i-1 \}$.  For example, $\N_3 = \{ 0, 1, 2 \}$ and $\N_8 = \{0, 1, 2, 3, 4, 5, 6, 7 \}$. }
+
+\question Let $f$ be the function $f: \N_5 \rightarrow \N_5$ defined by the formula $f(n) = (7n) \mod 5$.  For example, $f(4) = (7 \times 4) \mod 5 = 28 \mod 5 = 3$.
+
+\begin{parts}
+    \part What is the domain of $f$?
+    \part What is the codomain of $f$?
+    \part What is the range of $f$?
+    \part Is $f$ one-to-one? If not, say why.
+    \part is $f$ onto? If not, say why.
+    \part \label{ref-q} Find a simple formula for each of the following function compositions: \\
+    $f \circ f$, $f^3$, $f^4$, and $f^5$, \\
+    where, the notation : $f \circ f$ is the same as $f^2$; $f \circ f \circ f$ is the same as $f^3$, etc. \\
+    \textit{Hint:} Try creating a table for values of $n$ and the values of each function compositions, to understand the relationships (and help answering the next questions.  Simple formulas to consider are of the form $g(n) = (\alpha n) \mod 5$ for the lowest values of $\alpha$ possible, i.e., $\alpha = 1, 2, \ldots$.
+    \part Which of the functions from part (\ref{ref-q}) is the same as the identity function (the identity function    is the function $I$ such that $I(n) = n$ for all $n$)?
+    \part Which of the functions from part (\ref{ref-q}) is the same as $f^{-1}$?
+    \part Which one of the functions from part (\ref{ref-q}) is the same as $f$?
+\end{parts}
+
+
+\begin{solution}
+\begin{parts}
+    \part The domain of $f$ is $\N_5 = \{0, 1, 2, 3, 4\}$
+    \part The codomain of $f$ is $\N_5 = \{0, 1, 2, 3, 4\}$
+    \part The range of $f$ is $\N_5 = \{0, 1, 2, 3, 4\}$
+    \part $f$ is one-to-one.
+    \part $f$ is onto.
+    \part The table below shows the relationship between the various function compositions \\
+    \begin{tabular}{c|c|c|c|c|c}
+        $n$ & $f$ & $f \circ f$ & $f^3$ & $f^4$ & $f^5$ \\
+        \hline
+        0   & 0 & 0 & 0 & 0 & 0\\
+        1   & 2 & 4 & 3 & 1 & 2\\
+        2   & 4 & 3 & 1 & 2 & 4\\
+        3   & 1 & 2 & 4 & 3 & 1\\
+        4   & 3 & 1 & 2 & 4 & 3\\
+        n   & $(2n) \mod 5$ & $(4n) \mod 5$ & $(3n) \mod 5$ & $n$ & $(2n) \mod 5$ \\
+    \end{tabular}
+    \part $f^4(n) = n$ for all $n \in \N_5$, so it is the identity function.
+    \part $f^3(n) = f^{-1}(n)$
+    \part $f^5(n) = f(n)$
+\end{parts}
+\end{solution}
+
+
+\uplevel{\textbf{Sequences and Summations}}
+
+% 4(a,d)
+\question  Rosen, Ch 2.4, \# 4(b,c), p. 167.
+\begin{solution}
+What are the term $a_0, a_1, a_2$, and $a_3$ of the sequence $\{a_n\}$, where $a_n$ equals \\
+
+\begin{tabular}{l}
+%  (a) $(-2)^n$, $a_0 = 1, a_1 = -2, a_2 = 4, a_3 = -8$ \\
+  (b) 3, $a_0, a_1, a_2, a_3 = 3$  \\
+  (c) $7 + 4^n$, $a_0 = 8, a_1 = 11, a_2 = 23, a_3 = 71$ \\
+%  (d) $2^n + (-2)^n$, $a_0 = 2, a_1 = 0, a_2 = 8, a_3 = 0$ \\
+\end{tabular}
+\end{solution}
+
+% 10(a,b)
+\question Rosen Ch 2.4 \# 10(c), p. 168.
+\begin{solution}
+Find the terms or recurrence relations.
+\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+%    \item[a)] $a_0 = -1$, $a_1 = -2a_0 = 2$, $a_2 = -2a_1 = -4$, $a_3 = -2a_2 = 8$, $a_4 = -2a_3 = -16$, $a_5 = -2a_4 = 32$
+%    \item[b)] $a_0 = 2$, $a_1 = -1$, $a_2 = a_1 - a_0 = -3$, $a_3 = a_2 - a_1 = -2$, $a_4 = a_3 - a_2 = 1$, $a_5 = a_4 - a_3 = -3$
+    \item[c)] $a_0 = 1$, $a_1 = 3a_0^2 = 3$, $a_2 = 3a_1^2 = 27 = 3^3$, $a_3 = 3a_2^2 = 2187 = 3^7$, $a_4 = 3a_3^2 = 14348907 = 3^{15}$, $a_5 = 3a_4^2 = 6.17 \times 10^{14} = 3^{31}$
+\end{itemize}
+\end{solution}
+
+% 16(a,c)
+\question Rosen Ch 2.4 \# 16(b), p. 168.
+\begin{solution}
+Find the solution to the recurrence relations using an iterative approach.
+\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+%    \item[a)]
+%    \vskip -0.1in \begin{align*}
+%        a_n &= -a_{n-1} = -1\cdot a_{n-1} \\
+%          &= -(-a_{n-2}) = (-1)^2a_{n-2} \\
+%          &= -(-(-a_{n-3})) = (-1)^3a_{n-3} \\
+%          &= \cdots \\
+%          &= (-1)^n\cdot a_{n-n} = (-1)^n\cdot a_{0} = 5\cdot(-1)^n
+%    \end{align*}
+    \item[b)]
+    \begin{align*}
+        a_n &= a_{n-1} + 3 \\
+         &= a_{n-2} + 3 + 3 = a_{n-2} + 2\cdot 3 \\
+         &= a_{n-3} + 3 + 2\cdot 3 = a_{n-3} + 3\cdot 3 \\
+         &= \cdots \\
+         &= a_{n-n} + 3 + (n-1)\cdot 3 = a_{0} + n\cdot 3 = 1 + 3\cdot n
+    \end{align*}
+%    \item[c)]
+%    \vskip -0.1in \begin{align*}
+%        a_n &= a_{n-1} - n \\
+%         &= a_{n-2} -(n-1) - n = a_{n-1} - (n + (n-1)) \\
+%         &= a_{n-3} -(n-2) - (n + (n-1)) = a_{n-2} - (n + (n-1) + (n-2)) \\
+%         &= \cdots \\
+%         &= a_{n-n} -(n - (n-1) + \ldots + (n-1) + (n-1) + n) \\
+%         &= -\frac{n(n+1)}{2} + 4
+%    \end{align*}
+\end{itemize}
+\end{solution}
+
+
+% 10(a,c,e,f,h)
+\question Rosen Ch 2.4, \# 26(b,d,g), p. 169
+\begin{solution}
+For each of these lists of integers, provide a simple formula or rule that generates the terms of an integer sequence that begins with the given list.  Assuming that your formula or rule is correct, determine the next three terms of the sequence. \\
+\begin{parts}
+    \part 3, 6, 11, 18, 27, 38, 51, 66, 83, 102, \ldots
+    \part 7, 11, 15, 19, 23, 27, 31, 35, 39, 43, \ldots
+    \part 1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010, 1011, \ldots
+    \part 1, 2, 2, 2, 3, 3, 3, 3, 3, 5, 5, 5, 5, 5, 5, 5, \ldots
+    \part 0, 2, 8, 26, 80, 242, 728, 2186, 6560, 19682, \ldots
+    \part 1, 3, 15, 105, 945, 10395, 135135, 2027025, 34459425, \ldots
+    \part 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, \ldots
+    \part 2, 4, 16, 256, 65536, 4294967296, \ldots
+\end{parts}
+
+\begin{parts}
+    \part Look at the difference between terms $3, 5, 7, 11, 13, ...$.  The $n$th term is obtained by adding $2n-1$ to the previous term.  One could also observe that starting with $n=1$ then, $a_n = n^2 + 2$.  \\
+    Using this formula the next three terms will be: \\
+    3, 6, 11, 18, 27, 38, 51, 66, 83, 102, \textbf{123, 146, 171,} \ldots \\
+    \part This is an arithmetic progression with an initial term of 7 and common difference of 4.  The $n$th term is $a_n = 7 + 4(n-1) = 4n + 3$ starting from $n=1$.  The next three terms will be: \\
+    7, 11, 15, 19, 23, 27, 31, 35, 39, 43, \textbf{47, 51, 55,} \ldots \\
+    \part Here the pattern is the sequence of increasing integers if counting in binary starting from 1. The $n$th term is then $a_n = binary(a_n)$ where binary(x) is the number $x$ expressed in base 2.  The next three terms will be: \\
+    1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010, 1011, \textbf{1100, 1101, 1110,} \ldots \\
+    \part This sequence has two patterns to recognize what number is listed, and how many times it appears.  The number of times a number appears is increasing odd, 1, 3, 5, 7, \ldots.  The number itself is the sum of the two previous numbers 3 = 1+2, 5 =2+3.   The next three terms will be:
+    1, 2, 2, 2, 3, 3, 3, 3, 3, 5, 5, 5, 5, 5, 5, 5, \textbf{8, 8, 8,} \ldots \\
+    \part  This sequence is close to the expression $3^n$.  In fact, the $n$th term is $a_n = 3^n - 1$, where $n=0, 1, 2, \ldots$.  The next three terms will be: \\
+    0, 2, 8, 26, 80, 242, 728, 2186, 6560, 19682, \textbf{56048, 177146, 531440,}\ldots \\
+    \part In this sequence, the ratio of a term divided by the previous term starts with 3 then increases by two as the terms increase.  That is, $\frac{3}{1} = 3$, $\frac{15}{3} = 5$, $\frac{105}{15} = 7$, $\frac{945}{105} = 9$, \ldots.  The general form is $a_n = a_{n-1} \cdot (2n -1)$.  The next three terms will be:
+    1, 3, 15, 105, 945, 10395, 135135, 2027025, 34459425, \textbf{585810225, 11130394275, 233738279775,} \ldots \\
+
+    \part The pattern is 1 appears once, the next number 0 appears twice, the next number 1 appears three times, then 0 four times, etc.  The next three terms will be: \\
+    1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, \textbf{0, 0, 0,} \ldots \\
+    \part Every term is the square of the previous term. The next three terms are:
+    2, 4, 16, 256, 65536, 4294967296, \textbf{ 18446744073709551616,}\\ \textbf{340282366920938463463374607431768211456,}\\ \footnotesize\textbf{115792089237316195423570985008687907853269984665640564039457584007913129639936}, \normalsize\ldots \\
+
+\end{parts}
+\end{solution}
+
+% 14(a,b)
+\question Rosen Ch. 2.4 \# 30(c,d) p. 169
+\begin{solution}
+What are the values of these sums, where $S = \{1, 3, 5, 7\}$ ?
+
+\begin{tabular}{l}
+%  (a) $\displaystyle \sum_{j \in S} j = 16$ \\
+%  (b) $\displaystyle \sum_{j \in S} j^2 = 84$ \\
+  (c) $\displaystyle \sum_{j \in S} \frac{1}{j} = \frac{176}{105}$ \\
+  (d) $\displaystyle \sum_{j \in S} 1 = 4$ \\
+\end{tabular}
+\end{solution}
+
+
+\end{questions}
+\end{document}

@@ -1,0 +1,69 @@
+\vspace{-15pt}
+\begin{center}
+\begin{minipage}[m]{0.2\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    fill = black,
+                                    inner sep = 0.5pt,
+                                    minimum size = 4pt,
+                                    font=\scriptsize\sffamily,
+                                    radius=0.1
+                                    draw}}
+    \SetGraphUnit{1}
+    \SetVertexNoLabel
+    \Vertex{A}
+    \EA(A){B}
+\end{tikzpicture}
+\end{minipage}
+%
+\begin{minipage}[m]{0.2\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    fill = black,
+                                    inner sep = 0.5pt,
+                                    minimum size = 4pt,
+                                    font=\scriptsize\sffamily,
+                                    radius=0.1
+                                    draw}}
+    %\grEmptyGrid[RA=1.5,RB=1.5]{3}{3}
+    \SetGraphUnit{1}
+    \SetVertexNoLabel
+    %\GraphInit[vstyle=Hasse]
+
+    \Vertex{A}
+    \EA(A){B}
+    \Edge[style={->,bend right}](A)(B)
+    \Edge[style={->,bend right}](B)(A)
+\end{tikzpicture}
+\end{minipage}
+%
+\begin{minipage}[m]{0.2\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    fill = black,
+                                    inner sep = 0.5pt,
+                                    minimum size = 4pt,
+                                    font=\scriptsize\sffamily,
+                                    radius=0.1
+                                    draw}}
+    %\grEmptyGrid[RA=1.5,RB=1.5]{3}{3}
+    \SetGraphUnit{1}
+    \SetVertexNoLabel
+    %\GraphInit[vstyle=Hasse]
+
+    \Vertex{A}
+    \EA(A){B}
+    \Edge[style={->}](A)(B)
+\end{tikzpicture}
+\end{minipage}
+%
+\end{center}

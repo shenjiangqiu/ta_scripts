@@ -1,0 +1,504 @@
+\documentclass[12pt,addpoints]{exam}
+% can include option [answers] to print out solutions, or command \printanswers
+%  can turn addpoint on and off with commands, \addpoints and \noaddpoints
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{epsfig,graphicx}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage[top=0.75in,bottom=0.75in,left=0.9in,right=0.9in]{geometry}
+
+\setlength{\itemsep}{0pt} \setlength{\topsep}{0pt}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\xor}{\oplus}
+\newcommand{\es}{\emptyset}
+\newcommand{\s}{\subseteq}
+\newcommand{\pss}{\subset}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\Zp}{\mathbb{Z}^+}
+\newcommand{\Zn}{\mathbb{Z}^-}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\ds}{\displaystyle}
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Fall 2012}}{\textbf{HW
+ 6 - \numpoints$\;$ points - Solutions}}{\textbf{Due: Fri. 10/19/12}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{5pm} on the due date} specified.  There will be a box in the CS department office (Rekhi 221) where assignments may be turned in.  Solutions will be handed out (or posted on-line) shortly thereafter.  Every student
+must write up their own solutions in their own manner.
+
+\smallskip
+\noindent Please present your solutions in a clean, understandable
+manner; pages should be stapled before class, no ragged edges of
+paper.
+
+\begin{questions}
+\printanswers
+
+\question[11]\label{prob1} For each list of integers, (i) provide a simple formula or rule that generates the terms of the sequence given and (ii) determine the next three terms of the sequence.  Assume the sequence starts with $n=0, 1, 2, 3, \ldots$.
+	\begin{enumerate}[label=(\alph*),topsep=0pt,itemsep=0pt,parsep=0pt]
+		\item (3 pt) $4, 15, 26, 37, 48, 59, \ldots $
+		\item (3 pt) $2, 6, 18, 54, 162, 486, 1458, \ldots $
+		\item (3 pt) $7, 10, 15, 22, 31, 42, 55, 70, \ldots $
+		\item (1 pt) What is $a_{300}$ for the sequence in (a)?
+		\item (1 pt) What is $a_{58}$ for the sequence in (b)?  (scientific notation is fine, e.g.  $3.14159 \times 10^{0}$)
+	\end{enumerate}
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+	\begin{enumerate}[label=(\alph*),topsep=0pt,itemsep=0pt,parsep=0pt]
+		\item  $4, 15, 26, 37, 48, \ldots $, is an arithmetic sequence with a initial term of 4, and a common difference of 11.  The rule is $\mathbf{a_n = 4 + 11n}$.  The next three terms are: \textbf{70, 81, 92}.
+		\item $2, 6, 18, 54, 162, 486, 1458, \ldots $, is a geometric sequence with a initial term of 2, and a common ratio of 3.  The rule is $\mathbf{a_n = 2\cdot3^n}$.  The next three terms are: \textbf{4374, 13122, 39366}.
+		\item $7, 10, 15, 22, 31, 42, 55, 70, \ldots $, sequence adds 2n+1 to the previous term.  The rule is $\mathbf{a_0 = 7, \quad a_n = a_{n-1} + 2n + 1}$ or $\mathbf{a_n = (n+1)^2 + 6}$.  The next three terms are: \textbf{ 87, 106, 127 }. 
+		\item $a_{300} = 4 + 11*300 = \mathbf{3304}$
+		\item $a_{58} = 2\cdot3^{58} = \mathbf{9.4203 \times 10^{27}}$
+	\end{enumerate}
+\end{solution}
+
+ 
+
+\question[6] Determine whether each answer is a solution to the recurrence relation, 
+$$ a_n = a_{n-1} + 2a_{n-2} + 2n - 9 $$
+	\begin{enumerate}[label=(\alph*),topsep=0pt,itemsep=0pt,parsep=0pt]
+		\item $a_n = 0$
+		\item $a_n = -n +2$
+	\end{enumerate}
+    \ifprintanswers
+        \vspace{-10pt}
+   	\fi
+\begin{solution}
+	\begin{enumerate}[label=(\alph*),topsep=0pt,itemsep=0pt,parsep=0pt]
+		\item Not a solution.
+		\begin{align*}
+			a_n &= a_{n-1} + 2a_{n-2} + 2n - 9 \\
+			&= (0) + 2\cdot0 + 2n - 9 \\
+			&= 2n - 9 \\
+			0 &\neq 2n - 9
+		\end{align*}
+		\item Yes, $a_n = -n + 2$ is a solution.
+		\begin{align*}
+			a_n &= a_{n-1} + 2a_{n-2} + 2n - 9 \\
+			&= (-(n-1) + 2) + 2(-(n-2) + 2) + 2n -9 \\
+			&= -n + 1 + 2 -2n + 4 + 4 + 2n -9 \\
+			&= -n +2 \\
+		\end{align*}
+	\end{enumerate}
+\end{solution}
+		
+
+\question[3] Write out in sigma notation the sum of the first 50 terms of the series: $1 - \frac{1}{2} + \frac{1}{4} - \frac{1}{8} + \frac{1}{16} - \ldots$
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+    The sum can take many form depending on index of summation and limits.  Here are three samples
+    
+    \begin{center}
+    \begin{tabular}{ccc}
+		$\ds \sum_{i=1}^{50} (-1)^{n+1}\cdot\frac{1}{2^{n-1}}$ \hspace{0.25in}
+		& $\ds \sum_{i=0}^{49} (-1)^{n}\cdot\frac{1}{2^{n}}$ \hspace{0.2in}
+		& $\ds \sum_{i=0}^{49} \left(\frac{-1}{2}\right)^n$
+	\end{tabular}
+	\end{center}
+\end{solution}
+
+
+
+\question[10] A \textit{closed form} of a summation is an equation
+in which no summation symbol appears.  The classic example is
+$\displaystyle \sum_{i=1}^n i = \frac{n(n+1)}{2}$.  The fraction on
+the right is the \textit{closed form} of the summation.  For this
+problem you will determine closed forms for summation, $\displaystyle \sum_{i=1}^n \sum_{j=1}^n (6i^2 - 2j)$.  Justify each step using the four facts on the arithmetic properties of summations and Table 2, p. 166 in the book.
+
+\small
+\begin{tabular}{lll}
+    \multicolumn{2}{l}{Fact} & Example: \\
+  Fact 1: & $\displaystyle \sum_{i=1}^n c  = nc$     & $\displaystyle \sum_{i=1}^n 7 = 7n$ \\
+    & when $c$ is a constant \\
+  Fact 2: & $\displaystyle \sum_{i=j}^n c  = (n-j+1)c$  & $\displaystyle \sum_{i=0}^n = 7(n+1) $ \\
+    & when $c$ is a constant \\
+  Fact 3: & $\displaystyle \sum_{i=j}^n (f(i) \pm g(i)) = \sum_{i=j}^n f(i) \pm \sum_{i=j}^n g(i)$ \hspace{0.2in} &  $\displaystyle \sum_{i=j}^n (2n - n^2) = \sum_{i=j}^n 2n - \sum_{i=j}^n n^2 $ \\
+    & \\
+  Fact 4: & $\displaystyle \sum_{i=j}^n cf(i) = c \sum_{i=j}^n f(i)$  & $\displaystyle \sum_{i=j}^n (3 \times 2^i) = 3 \sum_{i=j}^n 2^i $ \\
+   & when $c$ is a constant \\
+\end{tabular}
+
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+	\begin{align*}
+		\sum_{i=1}^n \sum_{j=1}^n (6i^2 - 2j) 
+		&= \sum_{i=1}^n ( \sum_{j=1}^n (6i^2 - 2j) ) \tag{implied parentheses} \\
+		&= \sum_{i=1}^n (\sum_{j=1}^n 6i^2 - \sum_{j=1}^n 2j) \tag{Fact 3} \\
+		&= \sum_{i=1}^n (6i^2 \sum_{j=1}^n 1 - 2 \sum_{j=1}^n j) \tag{Fact 4, twice} \\
+		&= \sum_{i=1}^n (6i^2n - 2 \sum_{j=1}^n j) \tag{Fact 1} \\
+		&= \sum_{i=1}^n (6i^2n - 2 \frac{n(n+1)}{2}) \tag{Table 2} \\
+		&= \sum_{i=1}^n 6i^2n - \sum_{i=1}^n  n(n+1) \tag{Fact 3} \\
+		&= 6n \sum_{i=1}^n i^2 - n(n+1) \sum_{i=1}^n 1 \tag{Fact 4, twice} \\
+		&= 6n (\frac{n(n+1)(2n+1)}{6}) - n(n+1) \sum_{i=1}^n 1 \tag{Table 2} \\
+		&= n^2(n+1)(2n+1) - n^2(n+1) \tag{algebra} \\
+		&= n^2(n+1)(2n + 1  - 1) \\
+		&= 2n^3(n+1) 
+	\end{align*}
+\end{solution}
+
+
+\question[2] Rosen Ch 2.4 \#30(a), p. 169
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+\begin{tabular}{ll}
+ (a) $1 + 3 + 5 + 7 = 16$ \hspace{0.5in} & %(c) $\frac{1}{1} + \frac{1}{3} + \frac{1}{5} + \frac{1}{7} = \frac{176}{105}$
+\end{tabular} 
+\end{solution}
+
+
+\question[2] Rosen Ch 2.4 \#34 (d), p. 169
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+\begin{tabular}{l}
+% (a) $(1-1) + (1-2) + (2-1) + (2-2) + (3-1) + (3-2) = 3$ \\
+ (d) $(0+0+0+0)+(0+1+8+27)+(0+4+32+108) = 180$
+\end{tabular}
+\end{solution}
+
+
+\question[4] Rosen Ch 2.4 \#40, p. 169
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+ We can find $\ds \sum_{k=1}^{200} k^3 = \frac{200^2(201)^2}{4}$.
+ Also, $\ds \sum_{k=1}^{98} k^3 = \frac{98^2(99)^2}{4}$.
+
+ Therefore,
+$$ \sum_{k=99}^{200} = \sum_{k=1}^{200} k^3 - \sum_{k=1}^{98} k^3
+   = \frac{200^2(201)^2}{4} - \frac{98^2(99)^2}{4} 
+   = 380,477,799 $$
+\end{solution}
+
+
+\uplevel{\textbf{Ch 5 Induction and Recursion}}
+
+\question[9] Prove that $\ds \frac{1}{1\cdot 3} + \frac{1}{3\cdot 5} + \frac{1}{5\cdot 7} + \cdots + \frac{1}{(2n-1)(2n+1)} = \frac{n}{2n+1}$ for the positive integers.
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+Let $P(n)$ be $\frac{1}{1\cdot 3} + \frac{1}{3\cdot 5} + \frac{1}{5\cdot 7} + \cdots + \frac{1}{(2n-1)(2n+1)} = \frac{n}{2n+1}$ for $n \geq 1$
+
+\smallskip
+\begin{tabular}{lp{4in}}
+  \textit{Basis Step:} & Show $P(1)$ is true, $\frac{1}{1\cdot 3}= \frac{1}{3} = \frac{1}{2\cdot1 +1} = \frac{1}{3}$ \\
+   & \\
+ \textit{Inductive Step:} &  \\
+\end{tabular}
+
+Assume $P(k)$ is true for an arbitrary, fixed integer $k \geq 0$, that is,
+\begin{align*}
+	\frac{1}{1\cdot 3} + \frac{1}{3\cdot 5} + \frac{1}{5\cdot 7} + \cdots + \frac{1}{(2k-1)(2k+1)} = \frac{k}{2k+1} \tag{IH}
+\end{align*}
+
+Show $P(k+1)$ is true, that is, 
+\[ \frac{1}{1\cdot 3} + \frac{1}{3\cdot 5} + \frac{1}{5\cdot 7} + \cdots + \frac{1}{(2k+1)(2k+3)} = \frac{k+1}{2(k+1)+1} = \frac{k+1}{2k+3} \]
+
+Start with $P(k)$ and add the next term of the sequence $\frac{1}{(2k+1)(2k+3)}$ to both sides:
+\begin{align*}
+	\frac{1}{1\cdot 3} + \frac{1}{3\cdot 5} + \frac{1}{5\cdot 7} + \cdots + \frac{1}{(2k+1)(2k+3)} &\overset{IH}{=} \frac{k}{2k+1} + \frac{1}{(2k+1)(2k+3)} \\
+	&= \frac{2k+3}{2k+3}\cdot\frac{k}{2k+1} + \frac{1}{(2k+1)(2k+3)} \\
+	&= \frac{2k^2 + 3k + 1}{(2k+1)(2k+3)} \\
+	&= \frac{(2k+1)(k+1)}{(2k+1)(2k+3)} \\
+	&= \frac{k+1}{2k+3}
+\end{align*}
+This shows $P(k+1)$ is true, assuming $P(k)$ is true, completing the inductive step.
+
+\smallskip
+Consequently, we have shown the basis step and inductive step, by mathematical induction, $P(n)$ is true for all $n \geq 1$.
+\end{solution}
+
+
+%\question[9] Prove that $\ds \sum_{i=0}^n (2i-2) = (n-2)(n+1)$ for natural numbers using induction.
+%    \ifprintanswers
+%        \vspace{-10pt}
+%   \fi
+%\begin{solution}
+%	Let $P(n)$ be $\ds \sum_{i=0}^n (2i-2) = (n-2)(n+1)$  for every natural number $n \geq 0$.
+%	
+%\smallskip
+%\begin{tabular}{lp{4in}}
+%  \textit{Basis Step:} & Show $P(0)$ is true, $\sum_{i=0}^0 (2i-2) = 2\cdot0 -2 = -2 = (0-2)(0+1) = -2$ \\
+%   & \\
+% \textit{Inductive Step:} &  \\
+%\end{tabular}
+%
+%Assume $P(k)$ is true for an arbitrary, fixed integer $k \geq 0$, that is,
+%\begin{align*}
+%	\sum_{i=0}^k (2i-2) = (k-2)(k+1) \tag{IH} \\
+%\end{align*}
+%
+%Show $P(k+1)$ is true, that is,
+%\[ \sum_{i=0}^{k+1} (2i-2) = ((k+1)-2)((k+1)+1) = (k-1)(k+2) = k^2 + k - 2\]
+%
+%Start with equation for $P(k)$ add $2(k+1)-2$ to both sides (the next term in the summation),
+%\begin{align*}
+%	\sum_{i=0}^k (2i-2) + 2(k+1)-2 &\overset{IH}{=} (k-2)(k+1) + 2(k+1)-2 \\
+%	\sum_{i=0}^{k+1} (2i-2) &= (k-2)(k+1) + 2k \\
+%	&= k^2 -k -2 +2k \\
+%	&= k^2 +k -2 \\
+%\end{align*}
+%
+%This shows $P(k+1)$ is true, assuming $P(k)$ is true, completing the inductive step.
+%
+%\smallskip
+%Consequently, we have shown the basis step and inductive step, by mathematical induction, $P(n)$ is true for all $n \geq 0$.
+%\end{solution}
+
+
+\question[9] Rosen Ch 5.1 \# 22, p. 330
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+$n^2 \leq n!$ hold for $n=0$, $1$, and $n \geq 4$.  Prove $n^2 \leq n!$ for all $n \geq 4$.
+
+\smallskip 
+Let $P(n)$ be the proposition $n^2 \leq n!$.
+
+\smallskip
+\begin{tabular}{lp{4in}}
+  \textit{Basis Step:} & Show $P(4)$ is true, $4^2 = 16 \leq 24 = 4!$ holds \\
+   & \\
+ \textit{Inductive Step:} &  \\
+\end{tabular}
+
+Assume $P(k)$ is true for an arbitrary, fixed integer $k \geq 4$, that is,
+\begin{align*}
+	k^2 \leq k! \tag{IH} \\
+\end{align*}
+
+Show $P(k+1)$ is true, that is,
+\[  (k+1)^2 \leq (k+1)! \]
+
+Start by expanding the \textit{lhs} of the expression $P(k+1)$
+\begin{align*}
+	(k+1)^2 = k^2 + 2k + 1 &\overset{IH}{\leq} k! + 2k +1 \\
+	 &\leq k! + 2k + k = k! + 3k  \tag{$k \geq 1$} \\
+	 &\leq k! + k\cdot k \tag{$k \geq 3$} \\
+	 &\leq k! + k\cdot k! = (k+1)k! = (k+1)! 
+\end{align*}
+
+This shows $P(k+1)$ is true, assuming $P(k)$ is true, completing the inductive step.
+
+\smallskip
+Consequently, we have shown the basis step and inductive step, by mathematical induction, $P(n)$ is true for all $n \geq 4$.
+\end{solution}
+
+
+%\question[9] Rosen Ch 5.1 \# 18, p. 330
+%    \ifprintanswers
+%        \vspace{-10pt}
+%   \fi
+%\begin{solution}
+%\begin{enumerate}[label=(\alph*), itemsep=0pt, topsep=0pt, parsep=0pt]
+%    \item (1 point) $P(2) \;:\;  2! < 2^2$.
+%    \item (1 point) $P(2) \;:\; 2 = 2! < 2^2 = 4$
+%    \item (2 points) The inductive hypothesis is that $P(k)$ is true for an arbitrary, fixed integer $k \geq 2$, that is $k! < k^k.$
+%    \item (2 points) The inductive step should show for any $k \geq 2$ if $P(k)$ is true then $P(k+1)$ is true. That is prove, $(k+1)! < (k+1)^{k+1}$ given the inductive hypothesis.
+%    \item (4 points)
+%    \begin{align*}
+%        k! &< k^k \tag{mult. both sides by (k+1)} \\
+%        (k+1)\cdot k! &< k^k \cdot (k+1) \\
+%        (k+1)! &< (k+1)\cdot k^k \\
+%        (k+1)! &< (k+1)\cdot (k+1)^k  \tag{ $k < k+1$ } \\
+%        (k+1)! &< (k+1)^{k+1} \\
+%    \end{align*}
+%    This completes the inductive step.
+%    \item (2 points) By completing the basis and inductive step, by the principle of mathematical induction, the statement $P(n) \;:\; n! < n^n$ must hold for integers $n \geq 2$.
+%\end{enumerate}
+%\end{solution}
+
+
+
+
+\question[8] Rosen Ch 5.1 \# 32, p. 330
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+Let $P(n)$ be the proposition is $3 \;|\; n^3 + 2n$.
+
+\smallskip
+\begin{tabular}{ll}
+  \textit{Basis Step:} & Show $P(1)$ is true, $3 \;|\; n^3 + 2n$ or $3 \;|\; 1 + 2$ or $3 \;|\; 3$ which is true. \\
+   & \\
+ \textit{Inductive Step:} &  \\
+\end{tabular}
+
+Assume $P(k)$ is true for an arbitrary, fixed
+ integer $k \geq 1$, that is,
+\begin{align*}
+	3 \;|\; k^3 + 2k \tag{IH} 
+\end{align*}
+
+Show $P(k+1)$ is true, that is,
+\[ 3 \;|\; (k+1)^3 + 2(k+1) \]
+
+Start with the expression used in $P(k+1)$, we want to show this is divisible by 3.
+\begin{align*}
+	(k+1)^3 + 2(k+1) &=  k^3 + 3k^2 + 3k + 1 + 2k + 2 \\
+	 &= (k^3 + 2k) + (3k^2 + 3k + 3) \\
+\end{align*}
+Each of the terms in parenthesis are divisible by 3.  The first term $k^3 + 2k$ is divisible by 3 using the Inductive Hypothesis, the second term has a 3 pulled from the expression, $3\cdot(k^2 + k + 1)$ so it is also divisible by 3. 
+
+This shows $P(k+1)$ is true when $P(k)$ is true, completing the
+inductive step.
+
+\smallskip
+Hence, the basis step and inductive step are completed, by mathematical induction $P(n)$ is true for all $n$ such
+that $n\geq 1$.
+\end{solution}
+
+
+
+\question[9] Rosen Ch 5.2 \# 4, p. 341-342
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+\begin{parts}
+    \part (1 points) Show $P(18)$, $P(19)$, $P(20)$, $P(21)$ are true.
+
+        \begin{tabular}{l}
+           $7 + 7 + 4 = 18$ \\
+           $7 + 4 + 4 + 4 = 19$\\
+           $4 + 4 + 4 + 4 + 4 = 20$\\
+           $7 + 7 + 7 = 21$
+        \end{tabular}
+    \part (2 points) What is the inductive hypothesis? \\
+        Using just 4-cent and 7-cent stamps we can form $j$ cents of postage, $P(j)$ for all $j$ with $ 18 \leq j \leq k$, assuming $k \geq 21$.
+    \part (2 points) What do you need to prove in the inductive step? \\
+        Show, assuming the inductive hypothesis, that we can form $k+1$ cents using only 4-cent and 7-cent stamps, $P(k+1)$.
+    \part (2 points) Complete the inductive step. \\
+        From the hypothesis, we can assume $P(k-3)$ is true, that is we can form $k-3$ cents of postage.  To form $k+1$ cents, add another 4-cent stamp.
+    \part (2 points) Explain why this statement is true for $n \geq 18$. \\
+        We have completed both the basis step and inductive step, therefore, by strong induction, the statement is true for all $n \geq 18$.
+\end{parts}
+\end{solution}
+
+
+
+\question[4] Rosen Ch 5.3 \# 4c, p. 357
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+Find $f(2)$, $f(3)$, $f(4)$, and $f(5)$ if $f$ is defined
+recursively by $f(0) = f(1) = 1$ and for $n=1,2,\ldots$
+\begin{itemize}
+%    \item[(a)] $f(n+1) = f(n) - f(n-1)$
+%    \begin{align*}
+%        f(2) &= f(1) - f(0) = 1 - 1 = 0 \\
+%        f(3) &= f(2) - f(1) = 0 - 1 = -1 \\
+%        f(4) &= f(3) - f(2) = -1 - 0 = -1 \\
+%        f(5) &= f(4) - f(3) = -1 - -1 = 0 \\
+%    \end{align*}
+%    \item $f(n+1) = f(n)f(n-1)$
+%    \begin{quote}
+%    \begin{align*}
+%        f(2) &= f(1)f(0) = 1 \\
+%        f(3) &= f(2)f(1) = 1 \\
+%        f(4) &= f(3)f(2) = 1 \\
+%        f(5) &= f(4)f(3) = 1 \\
+%    \end{align*}
+%    \end{quote}
+    \item[(c)] $f(n+1) = f(n)^2 + f(n-1)^3$.
+    \begin{align*}
+        f(2) &= f(1)^2 + f(0)^3 = 1^2 + 1^3 = 2 \\
+        f(3) &= f(2)^2 + f(1)^3 = 2^2 + 1^3 = 5 \\
+        f(4) &= f(3)^2 + f(2)^3 = 5^2 + 2^3 = 33 \\
+        f(5) &= f(4)^2 + f(3)^2 = 33^2 + 5^3 = 1214 \\
+    \end{align*}
+\end{itemize}
+\end{solution}
+
+
+\question[6] Rosen Ch 5.3 \# 26a, p. 358. (See book examples and \#
+27 to help with this problem)
+\begin{solution}
+Let $S$ be the subset of the set of ordered pairs of integers defined recursively by \\
+\textit{Basis Step}: $(0,0) \in S$. \\
+\textit{Recursive Step}: If $(a,b) \in S$, then $(a+2,b+3)\in S$ and $(a+3,b+2) \in S$. \\
+\begin{enumerate}
+    \item List the elements of $S$ produced by the first five applications of the recursive definition.
+\end{enumerate}
+\begin{quote}
+    From the basis step $(0,0) \in S$.  Each application of the recursive definition will be given:
+
+    \begin{tabular}{rllllll}
+    1 & (2,3), & (3,2) \\
+    2 & (4,6), & (5,5), & (6,4) \\
+    3 & (6,9), & (7,8), & (8,7), & (9,6) \\
+    4 & (8,12), & (9,11), & (10,10), & (11,9), & (12,8) \\
+    5 & (10,15), & (11,14), & (12,13), & (13,12), & (14,11), & (15,10) \\
+    \end{tabular}
+\end{quote}
+\end{solution}
+
+
+\question[5] Rosen Ch 5.3 \# 28a, p. 358
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+	The basis step for the set are $(1,2)$ and $(2,1)$.  
+	
+	The parity of the sum of $(a,b), a + b$ must remain constant, therefore, either $a$ may be increased by 2, $b$ may be increased by 2, or $a$ and $b$ are increased by 1.  The recursive step is: if $(a,b) \in S$, then $(a+2,b) \in S$, $(a,b+2) \in S$, and $(a+1,b+1)\in S$.
+\end{solution}
+
+
+\bonusquestion[3] The sequence in \ref{prob1}(a) starts with a term 4, that is a perfect square --- an integer of the form $k^2$, where $k$ is also an integer.  Find the next three perfect squares in this sequence.
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+	The terms of the sequence that are perfect squares are: $4, 81, 169, 400, 576$.
+	Each term can be tested by asking $\sqrt{a_i} \; \text{mod}\; 1 == 0$
+\end{solution}
+
+
+\bonusquestion[4] Rosen Ch 2.4, \# 22, p. 168-169. \\
+Let $a_n$ be the salary in thousands of dollars, $n$ years after 2009.
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+\begin{enumerate}[label=(\alph*),topsep=0pt,itemsep=0pt,parsep=0pt]
+	\item (1 pt) $a_0 = 50$, $a_n = 1 + 1.05a_{n-1}$ 
+	\item (1 pt) $a_8 =  83.4$
+	\item (2 pt) Use the iterative approach with the answer to (a) 
+	\begin{align*} 
+		a_n &= 1 + 1.05a_{n-1} \\
+		&= 1 + 1.05(1 + 1.05a_{n-2})  = 1 + 1.05 + 1.05^2a_{n-2}\\
+		&= 1 + 1.05 + 1.05^2(1 + 1.05a_{n-3})) = 1 + 1.05 + 1.05^2 + 1.05^3a_{n-3} \\
+		&= \cdots \\
+		&= 1 + 1.05 + 1.05^2 + \cdots + 1.05^{n-1} + 1.05^na_0 \\
+		&= \frac{1.05^n - 1}{1.05 - 1} + 50 \cdot 1.05^n \\
+		&= 70 \cdot 1.05^n - 20 
+	\end{align*}
+\end{enumerate} 
+\end{solution}
+
+\end{questions}
+\end{document} 

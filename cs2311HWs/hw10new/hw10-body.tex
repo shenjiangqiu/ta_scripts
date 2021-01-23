@@ -1,0 +1,605 @@
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{CS2311 - Spring 2020}}{\textbf{HW
+ 10 \ifprintanswers - Solutions \fi}}{\textbf{Due: Mon. 04/13/20}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\ifprintanswers
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  Assignments should be typed and submitted as a PDF.  Every student must write up their own solutions in their own manner.
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\else
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  Every student must write up their own solutions in their own manner.
+
+\noindent Please present your solutions in a clean, understandable
+manner.  Use the provided files that give mathematical notation in Word, Open Office, Google Docs, and \LaTeX. 
+
+\noindent Assignments should be typed and submitted as a PDF.   
+
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\fi
+
+\begin{questions}
+
+
+\section*{Induction and Recursion}
+
+\uplevel{Follow the template for inductive proofs given on p. 329 of the book.}
+
+% \gquestion{10}{10}{all} Let $P(n)$ be the statement $\sum_{j=1}^n 2j = n + n^2$ for $n \geq 1$.
+% \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+%     topsep=0pt,partopsep=0pt]
+%   \item (1 pt) What is the statement $P(1)$? 
+%   \item (1 pt) Show that P(1) is true, completing the basis step of the proof.
+%   \item (1.5 pts) What is the inductive hypothesis? 
+%   \item (1.5 pts) What do you need to prove in the inductive step? 
+%   \item (4 pts) Complete the inductive step.
+%   \item (1 pt) Explain why these steps show that this formula is true whenever $n$ is a positive integer. 
+% \end{enumerate}
+%     \ifprintanswers
+%         \vspace{-10pt}
+%    \fi
+% \begin{solution}
+% \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+%     topsep=0pt,partopsep=0pt]
+%   \item (1 pt) What is the statement $P(1)$? \\
+%     $P(1)$ is the statement $\sum_{j=1}^1 2j = 1 + 1^2 $.
+%   \item (1 pt) Show that P(1) is true, completing the basis step of the proof. \\
+%     $\sum_{j=1}^1 2j = 2\cdot 1 = 2 = 1 + 1^2 $.
+%   \item (1.5 pts) What is the inductive hypothesis? \\
+%     The inductive hypothesis is to assume $P(k)$ is true for an arbitrary, fixed integer $k \geq 1$, that is
+%     \[ \sum_{j=1}^k 2j = k + k^2 \]
+%   \item (1.5 pts) What do you need to prove in the inductive step? \\
+%     For the inductive step, show for each $k \geq 1$ that $P(k)$ implies $P(k+1)$. \\
+%     That is, show $P(k+1)$:
+%     \[ \sum_{j=1}^{k+1} 2j = (k+1) + (k+1)^2  = k^2 + 3k + 2\]
+%   \item (4 pts) Complete the inductive step.
+%     Start with $P(k+1)$ 
+%       \begin{align*}
+%         \sum_{j=1}^{k+1} 2j = \sum_{j=1}^k 2j + 2(k+1) \\
+%         &= k + k^2 +  2(k+1) \tag{IH} \\
+%         &= k^2 + k + 2k + 2 \\
+%         &= k^2 + 3k + 2 
+%       \end{align*}
+%       This shows $P(k+1)$ is true, assuming $P(k)$ is true, completing the inductive step.
+%   \item (1 pt) Explain why these steps show that this formula is true whenever $n$ is a positive integer. \\
+%     The basis step and inductive step are completed.  Therefore by principle of mathematical induction, the statement, $P(n)$, is true for every positive integer $n$.
+% \end{enumerate}
+% \end{solution}
+  
+
+% \ugquestion{8} Prove using mathematical induction that
+% \[ 1 + 5 + 5^2 + 5^3 + \cdots + 5^n = \frac{5^{n+1} - 1}{4} \text{ for all } n\geq 0. \]
+%     \ifprintanswers
+%         \vspace{-10pt}
+%    \fi
+% \begin{solution}
+%     Let $P(n)$ be $1 + 5 + 5^2 + 5^3 + \cdots + 5^n = \frac{5^{n+1} - 1}{4}$.
+
+%     \smallskip
+%     Show, for all $n\geq 0, P(n)$.
+
+%     \smallskip
+%     \textit{Basis Step:}\\ Show $n=0$, $1 = \frac{5^{0+1} - 1}{4} = \frac{5-1}{4} = 1.$ \\
+%     Therefore, $P(0)$ is true.
+
+%     \smallskip
+%     \textit{Inductive Step:} \\
+%     Assume $P(k)$ is true, for some arbitrary, fixed integer $k \geq 0$,
+%        \[ 1 + 5 + 5^2 + 5^3 + \cdots + 5^k = \frac{5^{k+1} - 1}{4} \]
+%     Show $P(k+1)$ is true,
+%       \[ 1 + 5 + 5^2 + 5^3 + \cdots + 5^{k+1} = \frac{5^{k+2} - 1}{4} \]
+%     Begin with $P(k)$ and add the next term, $5^{k+1}$ to both sides.
+%     \begin{align*}
+%         1 + 5 + 5^2 + 5^3 + \cdots + 5^k &= \frac{5^{k+1} - 1}{4} \\
+%         1 + 5 + 5^2 + 5^3 + \cdots + 5^k  + 5^{k+1} &= \frac{5^{k+1} - 1}{4} + 5^{k+1} \\
+%           &= \frac{5^{k+1} - 1 + 4\cdot 5^{k+1}}{4} \\
+%           &= \frac{5\cdot 5^{k+1} - 1}{4} = \frac{5^{k+2} - 1}{4} \\
+%     \end{align*}
+%     This is the form of $P(k+1)$, thus completing the inductive step.
+
+%     Therefore, by mathematical induction $P(n)$ is true for all $n \geq 0$.
+% \end{solution}
+
+
+
+% \gquestion{8}{8}{all} Rosen Ch 5.1 \# 32, p. 330
+%     \ifprintanswers
+%         \vspace{-10pt}
+%    \fi
+% \begin{solution}
+% Let $P(n)$ be the proposition that $3 \;|\; n^3 + 2n$ for positive integers $n$.
+
+% \smallskip
+% \begin{tabular}{ll}
+%   \textit{Basis Step:} & Show $P(1)$ is true, $3 \;|\; n^3 + 2n$ or $3 \;|\; 1 + 2$ or $3 \;|\; 3$ which is true. \\
+%    & \\
+%  \textit{Inductive Step:} &  \\
+% \end{tabular}
+
+% Assume $P(k)$ is true for an arbitrary, fixed
+%  integer $k \geq 1$, that is,
+% \begin{align*}
+%   3 \;|\; k^3 + 2k \tag{IH} 
+% \end{align*}
+
+% Show $P(k+1)$ is true, that is,
+% \[ 3 \;|\; (k+1)^3 + 2(k+1) \]
+
+% Start with the expression used in $P(k+1)$, we want to show this is divisible by 3.
+% \begin{align*}
+%   (k+1)^3 + 2(k+1) &=  k^3 + 3k^2 + 3k + 1 + 2k + 2 \\
+%    &= (k^3 + 2k) + (3k^2 + 3k + 3) \\
+% \end{align*}
+% Each of the terms in parenthesis are divisible by 3.  The first term $k^3 + 2k$ is divisible by 3 using the Inductive Hypothesis, the second term has a 3 pulled from the expression, $3\cdot(k^2 + k + 1)$ so it is also divisible by 3. 
+
+% This shows $P(k+1)$ is true when $P(k)$ is true, completing the
+% inductive step.
+
+% \smallskip
+% Hence, the basis step and inductive step are completed, by mathematical induction $P(n)$ is true for all $n$ such
+% that $n\geq 1$.
+% \end{solution}
+
+\ugquestion{8} Rosen Ch 5.1 \# 22, p. 330
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+$n^2 \leq n!$ hold for $n=0$, $1$, and $n \geq 4$.  Prove $n^2 \leq n!$ for all $n \geq 4$.
+
+\smallskip 
+Let $P(n)$ be the proposition $n^2 \leq n!$.
+
+\smallskip
+\begin{tabular}{lp{4in}}
+  \textit{Basis Step:} & Show $P(4)$ is true, $4^2 = 16 \leq 24 = 4!$ holds \\
+   & \\
+ \textit{Inductive Step:} &  \\
+\end{tabular}
+
+Assume $P(k)$ is true for an arbitrary, fixed integer $k \geq 4$, that is,
+\begin{align*}
+  k^2 \leq k! \tag{IH} \\
+\end{align*}
+
+Show $P(k+1)$ is true, that is,
+\[  (k+1)^2 \leq (k+1)! \]
+
+Start by expanding the \textit{lhs} of the expression $P(k+1)$
+\begin{align*}
+  (k+1)^2 = k^2 + 2k + 1 &\overset{IH}{\leq} k! + 2k +1 \\
+   &\leq k! + 2k + k = k! + 3k  \tag{$k \geq 1$} \\
+   &\leq k! + k\cdot k \tag{$k \geq 3$} \\
+   &\leq k! + k\cdot k! = (k+1)k! = (k+1)! 
+\end{align*}
+
+This shows $P(k+1)$ is true, assuming $P(k)$ is true, completing the inductive step.
+
+\smallskip
+Consequently, we have shown the basis step and inductive step, by mathematical induction, $P(n)$ is true for all $n \geq 4$.
+\end{solution}
+
+
+
+\gquest{8}{8}  The Fibonacci numbers are defined as $F(0) = 0$, $F(1) = 1$, and $F(n) = F(n-1) + F(n-2)$ for $n \geq 2$.   Use induction to prove for the positive integers $n$: 
+\[ F(1)^2 + F(2)^2 + \cdots + F(n)^2 = F(n)F(n+1). \]
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+  \textit{Proof:}
+  Let the $P(n)$ be the statement $F(1)^2 + F(2)^2 + \cdots + F(n)^2 = F(n)F(n+1)$.
+
+  \smallskip
+  \begin{tabular}{lp{4in}}
+    \textit{Basis Step:} & Show $P(1)$ is true, $F(1) = 1 = 1\cdot1 = F(1)F(1+1)$ \\
+     & \\
+   \textit{Inductive Step:} &  \\
+  \end{tabular}
+
+  Assume $P(k)$ is true for an arbitrary, fixed integer $k \geq 1$, that is,
+  \begin{align*}
+    F(1)^2 + F(2)^2 + \cdots + F(k)^2  = F(k)F(k+1)  \tag{IH} \\
+    \sum_{i=1}^k F(i)^2 = F(k)F(k+1)
+  \end{align*}
+
+  Show $P(k+1)$ is true, that is
+  \begin{align*}
+    F(1)^2 + F(2)^2 + \cdots + F(k)^2 + F(k+1)^2 = F(k+1)F(k+2) \\
+    \sum_{i=1}^{k+1} F(k)^2 = F(k+1)F(k+2) 
+  \end{align*}
+
+  Start with $P(k+1)$:
+  \begin{align*}
+    F(1)^2 + F(2)^2 + \cdots + F(k)^2 + F(k+1)^2 &= F(k+1)F(k+2) \\
+    F(k)F(k+1) + F(k+1)^2 &= \tag{IH} \\
+    F(k+1)\left[ F(k) + F(k+1) \right] &= \\
+    F(k+1)F(k+2) 
+  \end{align*}
+  This shows $P(k+1)$ is true, assuming $P(k)$ is true, completing the inductive step. 
+
+  Therefore, by mathematical induction, $P(n)$ is true for all $n \geq 1$.
+\end{solution}
+
+
+
+% Ferland p. 206, Example 4.28
+\gquest{8}{8} Consider the game of football (that is, the American game of football).  Let's assume teams can either score via field goal (3 points) or touchdowns (7 points, assume all point after touchdowns are made).   Safeties are ignored for this problem.  
+
+Show that it is then possible (assuming no time constraints) for a team to score any number of points from 12 on up. 
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+    \textit{Proof:}
+    Let $P(n)$ be that it is possible for a team to score $n$ points, for $n \geq 12$.
+    
+    \smallskip
+    \begin{tabular}{lp{4in}}
+      \textit{Basis Step:}  & Show $P(12)$ is true, 4 field goals \\
+                            & Show $P(13)$ is true, 1 touchdown and 2 field goals, and \\
+                            & Show $P(14)$ is true, 2 touchdowns \\
+       & \\
+     \textit{Inductive Step:} &  \\
+    \end{tabular}
+
+    Assume $P(j)$ is true where $12 \leq j \leq k$ and an arbitrary, fixed integer $k \geq 14$, that is, a team can score $j$ points. 
+
+    Show $P(k+1)$ is true, that is, a team can score $k+1$ points through field goals and touchdowns.
+
+    We know a team can score $P(k-2)$ and $k -2 \geq 12$ from the inductive hypothesis. A team can score one additional field goal (3 points) to reach $k+1$ points, competing the inductive step. 
+
+    Therefore, by mathematical induction, $P(n)$ for integers $n \geq 12$. 
+\end{solution}
+
+
+% Ferland, p. 207, Exercise #1.
+\ugquestion{8} Let $\{s_n\}$ be the sequence defined as, 
+\[ s_0 = 0, \quad s_1 = 1,  \quad \text{and} \quad s_n = 3s_{n-1} - 2s_{n-2}, \forall n \geq 2. \]
+Show $\forall n \geq 0, s_n = 2^n - 1 .$
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+  \textit{Proof:}
+  Let $P(n)$ be that the $n$th term of the sequence is determine as $s_n = 2^n - 1$ for $n \geq 0$.
+
+  \smallskip
+  \begin{tabular}{lp{4in}}
+    \textit{Basis Step:}  & Show $P(0)$ is true, $2^0 - 1 = 0 = s_0$ \\
+                & Show $P(1)$ is true, $2^1 - 1 = 1 = s_1$ \\
+     & \\
+   \textit{Inductive Step:} &  \\
+  \end{tabular}
+
+  Assume $P(j)$ is true $0 \leq j \leq k$ with $k \geq 1$, that is, 
+  \begin{align*}
+    s_j = 2^j - 1 \quad \forall 0 \geq j \geq k \tag{IH}
+  \end{align*}
+
+  Show that $P(k+1)$ is true, that is,
+  \[ s_{k+1} = 2^{k+1} - 1 \] 
+
+  Consider the definition of the sequence, 
+  \begin{align*}
+    s_{k+1} &= 3s_{k} - 2s_{k-1} \\
+    &= 3(2^k - 1) - 2(2^{k-1} - 1) \\
+    &= 3\cdot 2^k - 3 - 2^k + 2 \\
+    &= 2\cdot 2^k - 1 \\
+    &= 2^{k+1} - 1
+  \end{align*}
+  When the inductive hypothesis is true, then $P(k+1)$ is true, completing the inductive step. 
+
+  Then, by strong mathmatical induction, we conclude $P(n)$ for $n \geq 0$.
+\end{solution}
+
+
+
+
+\ugquestion{4} Rosen Ch 5.3 \# 24(a,b), p. 358.
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+  \begin{itemize}
+    \item[(a)] Odd integers are obtained from other odds, by adding 2. Thus, $O$, the set of odd integers, can be defined as:  $1 \in O$;  and if $n \in O$, then $n+2  \in O$.
+    \item[(b)] Powers of 3 are obtained from other powers of 3 by multiplying by 3.  The set $S$ of powers of three is:  $3 \in S$; and if $n \in S$, then $3n \in S$.
+  \end{itemize}
+\end{solution}
+
+
+
+\gquest{6}{6} Rosen Ch 5.3 \# 26a, p. 358. (See book examples and \#
+27 to help with this problem)
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+% Let $S$ be the subset of the set of ordered pairs of integers defined recursively by \\
+% \textit{Basis Step}: $(0,0) \in S$. \\
+% \textit{Recursive Step}: If $(a,b) \in S$, then $(a+2,b+3)\in S$ and $(a+3,b+2) \in S$. \\
+% \begin{enumerate}
+%     \item List the elements of $S$ produced by the first five applications of the recursive definition.
+% \end{enumerate}
+\begin{quote}
+    From the basis step $(0,0) \in S$.  Each application of the recursive definition will be given:
+
+    \begin{tabular}{rllllll}
+    1 & (2,3), & (3,2) \\
+    2 & (4,6), & (5,5), & (6,4) \\
+    3 & (6,9), & (7,8), & (8,7), & (9,6) \\
+    4 & (8,12), & (9,11), & (10,10), & (11,9), & (12,8) \\
+    5 & (10,15), & (11,14), & (12,13), & (13,12), & (14,11), & (15,10) \\
+    \end{tabular}
+\end{quote}
+\end{solution}
+
+
+
+\ifprintanswers
+\newpage 
+\fi
+\section*{Counting}
+
+\gquest{2}{2} You go to your favorite sandwich shop and order a single sandwich.  You have a choice of sub roll, white bread, wheat bread, wrap or pita.  You also have a choice of proteins: ham, turkey, roast beef, tuna, bacon, or hummus.  How many different single sandwichs (single type of bread, single protein) may be ordered?
+\ifprintanswers
+    \vspace{-10pt}
+  \fi
+  \begin{solution}
+  Use product rule: $\Sole{ \us{\text{bread}}{\uls{5}} \cdot \us{\text{protein}}{\uls{6}} = 30} $
+  \end{solution}
+
+
+\ugquestion{2} At the same sandwich shop.  Kari wants to order a triple-decker sandwich.  Kari believes that the order in which the sandwich is constructed matters when eating (that is, bread-ham-turkey-roast beef-bread tastes different than bread-turkey-ham-roast beef-bread).  How many different triple-decker sandwiches may be ordered (assume the bread selection is constant)?
+  \ifprintanswers
+    \vspace{-10pt}
+  \fi
+  \begin{solution}
+  Use product rule: $\Sole{ \us{\text{protein1}}{\uls{6}} \cdot 
+    \us{\text{protein2}}{\uls{6}} \cdot \us{\text{protein3}}{\uls{6}} \cdot
+    \us{\text{bread}}{\uls{5}} = 6^3\cdot5 = 1080} $
+  \end{solution}
+
+
+\gquest{2}{2} At the same sandwich shop. Dylan also wants a triple-decker sandwich, but doesn't want any protein to repeat.  How many different sandwiches may he order (assume order of construction still matters and bread selection is constant)?
+  \ifprintanswers
+    \vspace{-10pt}
+  \fi
+  \begin{solution}
+  Use product rule: $\Sole{ \us{\text{protein1}}{\uls{6}} \cdot 
+    \us{\text{protein2}}{\uls{5}} \cdot \us{\text{protein3}}{\uls{4}} \cdot
+    \us{\text{bread}}{\uls{5}} = 600 } $
+  \end{solution}
+
+
+\ugquestion{2} Six teams are going to an Broomball tournament.  If each team plays each other team exactly once, how many games are played?
+  \ifprintanswers
+    \vspace{-10pt}
+  \fi
+  \begin{solution}
+  Order does not matter:  $ \ds \Sole{ \binom{6}{2} = \frac{6!}{2!\,4!} = 15 } $.
+  \end{solution}
+
+
+
+\uplevel{For the next several problems, consider strings representing the sequence of a DNA strand where the four letters in the sequence represent the four base nucleotides (A - adenine, C - cytosine, G - guanine, or T - thymine).  A length 4 DNA sequence, would then be four of the letters in a string, e.g., AAAA, ACGT, ACTA, CGCG, etc.  }
+
+% like Rosen Ch 6.1, \# 10
+\ugquestion{2} How many DNA sequences are there of length 10?
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+    \begin{solution}
+    For each of the 10 positions in the string there are 4 options (A,C,G,T), \\
+    $\uls{4} \cdot \uls{4} \cdot \uls{4} \cdot \uls{4} \cdot \uls{4} \cdot \uls{4} \cdot
+        \uls{4} \cdot \uls{4} \cdot \uls{4} \cdot \uls{4} = \Sole{  4^{10}= 1,048,576 }$ sequences.
+    \end{solution}
+
+%\question[2] Rosen, Ch 6.1 \#10, p. 396.
+%    \begin{solution}
+%    How many bit strings are there of length eight?
+%    \[ \underline{2} \cdot \underline{2} \cdot \underline{2} \cdot
+%    \underline{2} \cdot \underline{2} \cdot \underline{2} \cdot
+%    \underline{2} \cdot \underline{2} = \mathbf{2^8} \;\;\text{strings}\]
+%    \end{solution}
+
+
+
+%\question[4] Rosen, Ch 6.1 \#11, p.396.
+%    \begin{solution}
+%    How many bit strings of length ten both begin and end with a 1?
+%    \[ \underline{1} \cdot \underline{2} \cdot \underline{2} \cdot
+%    \underline{2} \cdot \underline{2} \cdot \underline{2} \cdot
+%    \underline{2} \cdot \underline{2} \cdot \underline{2} \cdot
+%    \underline{1} = \mathbf{2^8} \;\; \text{strings} \]
+%    \end{solution}
+
+\gquest{2}{2} How many DNA sequence of length 10 only contain the purines (A and G)?
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+    \begin{solution}
+    $ \uls{2} \cdot \uls{2} \cdot \uls{2} \cdot \uls{2} \cdot \uls{2}
+      \cdot \uls{2} \cdot \uls{2} \cdot \uls{2} \cdot \uls{2} \cdot \uls{2} = \Sole{  2^{10} = 1024}$ sequences
+    \end{solution}
+
+
+% like Rosen, Ch 6.1 \# 11, p. 396
+\gquest{2}{2} How many DNA sequences are there of length 10 that begin with a T and end with a T?
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+    \begin{solution}
+    The sequence starts and ends with T, but the middle eight positions can be any of the 4 options,
+    $ \uls{T}\, \uls{4} \cdot \uls{4} \cdot \uls{4} \cdot \uls{4} \cdot \uls{4} \cdot
+        \uls{4} \cdot \uls{4} \cdot \uls{4}\, \uls{T} =  \Sole{ 4^{8} = 65,536 } $ sequences
+    \end{solution}
+
+
+\ugquestion{2} How many DNA sequences of length 10 begin with TATA or begin with TAGC?
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution}
+    The num. that start with TATA: 
+    $ \nuls{T} \nuls{A} \nuls{T} \nuls{A} \uls{4} \cdot \uls{4}
+      \cdot \uls{4} \cdot \uls{4} \cdot \uls{4} \cdot \uls{4} = \Sole{ 4^6 = 4096 }$ \\
+    The num. that start with TAGC: 
+    $\nuls{T} \nuls{A} \nuls{G} \nuls{C} \uls{4} \cdot \uls{4}
+      \cdot \uls{4} \cdot \uls{4} \cdot \uls{4} \cdot \uls{4} = \Sole{  4^6 = 4096 }$ \\[3pt]
+    The number that start with TATA or TAGC: 
+    $ \Sole{ 4^6 + 4^6 = 8192}$
+    \end{solution}
+
+
+\gquest{2}{2} How many DNA sequences of length 10 begin with TATA or end with GCGC?
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+    \begin{solution}
+    The num. that start with TATA: 
+    $ \nuls{T} \nuls{A} \nuls{T} \nuls{A} \uls{4} \cdot \uls{4}
+      \cdot \uls{4} \cdot \uls{4} \cdot \uls{4} \cdot \uls{4} 
+       = \Sole{ 4^6 = 4096 }$ \\
+    The num. that end with GCGC: 
+    $\uls{4} \cdot \uls{4} \cdot \uls{4} \cdot \uls{4} \cdot 
+       \uls{4} \cdot \uls{4} \nuls{G} \nuls{C} \nuls{G} \nuls{C} 
+       = \Sole{ 4^6 = 4096 }$ \\
+    The num. start and end with the patterns: 
+    $ \nuls{T} \nuls{A} \nuls{T} \nuls{A} \uls{4}
+      \cdot \uls{4} \nuls{G} \nuls{C} \nuls{G} \nuls{C} 
+      = \Sole{ 4^2 = 16}$ \\[3pt]
+    The number that start with TATA or end with  GCGC: $ \Sole{ 4^6 + 4^6 - 4^2 = 8176}$
+    \end{solution}
+
+
+\ugquestion{2} How many DNA sequences are there of length 6 or less, not counting the empty string?
+    \ifprintanswers
+        \vspace{-15pt}
+   \fi
+    \begin{solution}
+    $\Sole{ 4^1 + 4^2 + 4^3 + 4^4 + 4^5 + 4^6 = 5,460 }$
+    \end{solution}
+
+
+\uplevel{For the next several problems, consider strings representing 10 digit phone numbers.}
+
+\ugquestion{2} How many ten-digit phone numbers begin with 906 and end with 0?
+  \ifprintanswers
+    \vspace{-10pt}
+  \fi
+  \begin{solution}
+  The middle 6 numbers can be any of the 10 digits, but the other digits are set: \\
+  $ \Sole{ \nuls{9} \; \nuls{0} \; \nuls{6} \; \uls{10} \cdot \uls{10} \cdot \uls{10} \cdot \uls{10} \cdot \uls{10} \cdot \uls{10}\; \nuls{0} = 10^6 = 1,000,000 } $
+  \end{solution} 
+
+
+\ugquestion{2} How many ten-digit phone numbers only contain odd numbers?
+  \ifprintanswers
+    \vspace{-10pt}
+  \fi
+  \begin{solution}
+  $ \Sole{ \uls{5} \cdot \uls{5} \cdot \uls{5} \cdot \uls{5} \cdot \uls{5} 
+  \cdot \uls{5} \cdot \uls{5} \cdot \uls{5} \cdot \uls{5} \cdot \uls{5}= 5^{10} = 9,765,625 } $
+  \end{solution}
+
+
+\gquest{2}{2} How many ten-digit phone numbers start with 555 or end with 0000?
+  \ifprintanswers
+    \vspace{-10pt}
+  \fi
+  \begin{solution}
+  The num. that start with 555: $ \Sole{ \nuls{5} \nuls{5} \nuls{5} \uls{10} \cdot \uls{10} \cdot \uls{10} \cdot \uls{10} \cdot \uls{10} \cdot \uls{10} \cdot \uls{10} = 10^7 = 10,000,000 } $
+  
+  The numbers that end with 0000: $ \Sole{ \uls{10} \cdot \uls{10} \cdot \uls{10} \cdot \uls{10} \cdot \uls{10} \cdot \uls{10} \, \nuls{0} \, \nuls{0} \, \nuls{0} \, \nuls{0} = 10^6 } $
+  
+  The numbers that start with 555 and end with 0000 \\
+   $ \Sole{ \nuls{5} \, \nuls{5} \, \nuls{5} \, \uls{10} \cdot \uls{10} \cdot \uls{10} \, \nuls{0} \, \nuls{0} \, \nuls{0} \, \nuls{0} = 10^3 } $
+  
+  The numbers that start with 555 or end with 0000 = $ \Sole{ 10^7 + 10^6 - 10^3 = 10999000 } $
+  \end{solution}
+
+
+
+\gquestion{10}{6}{d-f} How many positive integers less than 1000
+    \ifprintanswers
+        \vspace{-10pt}
+    \else
+    \begin{parts}
+      \part are divisible by 6?
+      \part are divisible by both 6 and 13?
+      \part are divisible by 6 but not by 13?
+      \part are divisible by either 6 or 13?
+      \part are divisible by exactly one of 6 and 13?
+      \part are divisible by neither 6 nor 13?
+    \end{parts}
+    \fi
+    \begin{solution}
+    % How many positive integers less than 1000
+    \begin{parts}
+    \part (1 pt) are divisible by 6?
+    There are \vspace{-0.1in} \[ \left \lfloor \frac{999}{6} \right \rfloor = \Sole{ 166 } \]
+
+    \part (1 pt) are divisible by both 6 and 13?
+    There are \vspace{-0.1in} \[ \left \lfloor \frac{999}{78} \right \rfloor = \Sole{ 12 } \]
+
+    \part (2 pt) are divisible by 6 but not by 13?
+    There are \vspace{-0.1in} \[ \left \lfloor \frac{999}{6} \right \rfloor - \left \lfloor \frac{999}{78} \right \rfloor =  \Sole{ 166 - 12 = 154 } \]
+    
+    \part (2 pt) are divisible by either 6 or 13?
+    There are \vspace{-0.1in} \[ \left \lfloor \frac{999}{6} \right \rfloor + \left \lfloor \frac{999}{13} \right \rfloor - \left \lfloor \frac{999}{78} \right \rfloor = \Sole{  166 + 76 - 12 = 230 } \]
+    \part (2 pt) are divisible by exactly one of 6 and 13?
+    There are \vspace{-0.1in} \[  \left \lfloor \frac{999}{6} \right \rfloor + \left \lfloor \frac{999}{13} \right \rfloor - \left \lfloor \frac{999}{78} \right \rfloor - \left \lfloor \frac{999}{78} \right\rfloor = \Sole{ 166 + 76 - 12 - 12 = 218 } \]
+    
+    \part (2 pt) are divisible by neither 6 nor 13?
+    There are 999 total numbers, use strategy of complements, subtract the number divisible by either 6 or 13? \Solm{ 999 - 230 = 769 }
+    % \part have distinct digits?
+    % There are 9 one digit numbers all with distinct digits.  There are 90 two digits numbers (10-99), all but 9 of them have distinct digits, therefore 81 two-digit numbers.  For three digiti numbers, there are 9 options with the first digit (1-9), 9 options for the second digit (0-9 minus the one selected first), and 8 options for the third digit, therefore $9 \cdot 9 \cdot 8 = 648$ numbers.  In total, there are \Solm{ 9 + 81 + 648 = 738}  numbers with distinct digits.
+    \end{parts}
+    \end{solution}
+
+
+
+
+\section*{Bonus Questions} 
+
+
+\bonusquestion[4] Rosen Ch 5.3 \#26(b). 
+
+\begin{solution}
+Use strong induction, to show that $5\;|\; a+b$ when $(a,b) \in S$.  
+
+\textit{Basis Step:}  The 0th application of the recursive step yields $(0,0)$.  $0 + 0 = 0$ which is divisible by 5. 
+
+\smallskip
+\textit{Recursive Step:} 
+
+Assume that for some $k \geq 0$, any pair $(a,b) \in S$ derived through $k$ or fewer applications of the recursive step, $a + b$ is divisible by 5. 
+
+Show that for any pair $(a' , b' ) \in S$ derived through $k + 1$ applications of the recursive step, $a' + b'$ is divisible by 5. 
+
+By the recursive step of the definition, either (1) $a' = a+2$ and $b' = b+3$ or (2) $a' = a+3$ and $b' = b+2$, for some $(a, b)$ derived through $k$ applications of the recursive step. In either case, $a' + b'$ = $a + b + 5$.  By the inductive hypothesis, $a + b$ is divisible by 5, so $a' + b'$ is also divisible by 5.
+
+Then, by strong mathmatical induction, we conclude $5\;|\; a+b$ when $(a,b) \in S$.
+\end{solution}
+
+
+
+\bonusquestion[2] How many positive integers less than 1000 have (a) distinct digits and (b) have distinct digits and are even?
+    \ifprintanswers
+        \vspace{-20pt}
+    \fi
+    \begin{solution}
+    \begin{itemize}
+    \item[(g)] have distinct digits?
+    There are 9 one digit numbers all with distinct digits.  There are 90 two digits numbers (10-99), all but 9 of them have distinct digits, therefore 81 two-digit numbers.  For three digit numbers, there are 9 options with the first digit (1-9), 9 options for the second digit (0-9 minus the one selected first), and 8 options for the third digit, therefore $9 \cdot 9 \cdot 8 = 648$ numbers.  In total, there are \Solm{ 9 + 81 + 648 = 738}  numbers with distinct digits.
+    \item[(h)]
+    It is easier to count the numbers with odd, distinct digits.  There are 5 one digit odd numbers.  The odd, two digit numbers are $8\cdot5= 40$.  The three digits numbers that are odd are $8 \cdot 8\cdot 5 = 320$.  There are $5 + 40+ 320 = 365$ odd numbers with distinct digits. Therefore, there are \Solm{738 - 365 = 373} even numbers with distinct digits.
+    \end{itemize}
+    \end{solution}
+
+
+\end{questions}
+\end{document}

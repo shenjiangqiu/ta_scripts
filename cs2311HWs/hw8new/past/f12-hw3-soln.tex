@@ -1,0 +1,350 @@
+\documentclass[12pt,addpoints]{exam}
+% can include option [answers] to print out solutions, or command \printanswers
+%  can turn addpoint on and off with commands, \addpoints and \noaddpoints
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage[top=0.75in,bottom=0.75in,left=0.9in,right=0.9in]{geometry}
+
+\setlength{\itemsep}{0pt} \setlength{\topsep}{0pt}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\xor}{\oplus}
+
+\renewcommand{\solutiontitle}{\noindent\textbf{Soln:}\enspace}
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Fall 2012}}{\textbf{HW
+3 - \numpoints$\;$ points - Solutions}}{\textbf{Due: \underline{TUES.} 9/25/12}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+
+\noindent \textbf{Instructions:} All assignments are due \underline{by 5pm on the due date} specified.  There will be a box in the CS department office (Rekhi 221) where assignments may be turned in.  Solutions will be handed out (or posted on-line) shortly thereafter.  Every student
+must write up their own solutions in their own manner.
+
+\smallskip
+\noindent Please present your solutions in a clean, understandable
+manner; pages should be stapled before class, no ragged edges of
+paper.
+
+
+\begin{questions}
+\printanswers
+
+\question[8] Rosen Ch 1.6 \#14 (c), p. 79
+   \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+ \item[(c)] Let $s(x)$ be ``$x$ is a movie produced by Sayles", $c(x)$ be ``$x$ is a movie about coal miners", and $w(x)$ be ``movie $x$ is wonderful."  The premises are:
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[1.] $\forall x\; (s(x) \rightarrow w(x))$
+        \item[2.] $\exists x\; (s(x) \wedge c(x))$
+    \end{itemize}
+    The conclusion is: $\exists x\; (c(x) \wedge w(x))$
+
+    \smallskip
+    \begin{tabular}{lll}
+        Step        & \hspace{0.2in} & Reason \\
+        1. $\exists x\; (s(x) \wedge c(x))$  &   & Hypothesis \\
+        2. $s(y) \wedge c(y)$               &   & Exis. Inst. with (1) \\
+        3. $s(y)$                           &   & Simplification with (2) \\
+        4. $\forall x\; (s(x) \rightarrow w(x))$ &  & Hypothesis \\
+        5. $s(y) \rightarrow w(y)$          & & Univ. Inst. with (4) \\
+        6. $w(y)$                           & & Modus ponens with (3) and (5) \\
+        7. $c(y)$                           & & Simplification using (2) \\
+        8. $w(y) \wedge c(y)$               & & Conjunction with (6) and (7) \\
+        9. $\exists x\; (c(x) \wedge w(x))$ &   & Exis. generalization with (8) \\
+    \end{tabular}
+%
+%        \item[(d)] Let $c(x)$ be ``$x$ is in this class", $f(x)$ be ``$x$ has been to France", and $l(x)$ be ``$x$ has visited the Louvre."   The premises are:
+%        \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%            \item[1.] $\exists x\; (c(x) \wedge f(x))$
+%            \item[2.] $\forall x\; (f(x) \ra l(x))$
+%        \end{itemize}
+%        The conclusion is: $\exists x\; (c(x) wedge l(x))$.
+%
+%        \smallskip
+%        \begin{tabular}{lll}
+%            Step                    & \hspace{0.15in} & Reason \\
+%            1. $\exists x\; (c(x) \wedge f(x))$     & & Hypothesis \\
+%            2. $c(a) \wedge f(a)$                   & & Exist. Inst. with (1) \\
+%            3. $f(a)$                               & & Simplification with (2) \\
+%            4. $c(a)$                               & & Simplification with (2) \\
+%            5. $\forall x\; (f(x) \ra l(x))$        & & Hypothesis \\
+%            6. $f(a) \ra l(a)$                      & & Univ. Inst. with (5) \\
+%            7. $l(a)$                               & & Modus ponens with (3) and (6) \\
+%            8. $c(a) \wedge l(a)$                   & & Conjunction with (4) and (7) \\
+%            9. $\exists x\; (c(x) \wedge l(x))$     & & Existential generalization with (8) \\
+%        \end{tabular}
+    \end{itemize}
+\end{solution}
+
+
+% Epp, p. 106 - Ex. 7 for a
+\question[16] For each argument determine whether it is valid or not and explain why (in a sentence or two).
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item[(a)] From  ``all healthy people eat an apple a day" and  ``Samantha eats an apple a day" conclude ``Samantha is a healthy person."  
+    \item[(b)] ``Everyone who left campus for the weekend is a senior" and ``All math majors left campus for the weekend"  implies the conclusion ``All math majors are seniors." 
+    \item[(c)] ``Some math majors left the campus for the weekend" and ``All seniors left the campus for the weekend" implies the conclusion ``Some seniors are math majors."
+    \item[(d)] ``No juniors left campus for the weekend" and "Some math majors are not juniors" implies the conclusion "Some math majors left campus for the weekend."
+    \end{itemize}
+   \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}
+        \item[(a)] Not Valid argument.  Fallacy of affirming the conclusion
+        \item[(b)] Valid argument. The argument uses Univ. instantiation (x2), hyp. syllogism, followed by Univ. generalization.
+        \item[(c)] Not Valid argument.  The two premises do not imply the conclusion.
+        \item[(d)] Not Valid argument.  The two premises do not imply the conclusion.
+    \end{itemize}
+\end{solution}
+
+
+\question[10] Consider the following statements (the domain of $x$ is all people):
+	\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    	topsep=0pt,partopsep=0pt]
+    	\item Each student in the class has a computer.
+    	\item Everyone with a computer can program.
+    	\item Mary is a student in the class.
+    	\item Therefore, Mary can program.
+    \end{enumerate}
+Let $S(x)$ mean ``$x$ is a student in the class", $C(x)$ mean ``$x$ has a computer", and $P(x)$ mean ``$x$ can program."  You will first translate the statements into logical expressions (4 pts).  Then, show the conclusion (d) can be drawn from the prior statements (a-c) (6 pts).  Justify each step of the argument.
+	\ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    For the problem, the translated statements are as follows:
+	\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    	topsep=0pt,partopsep=0pt]
+    	\item $\forall x\; (S(x) \ra C(x))$
+    	\item $\forall x\; (C(x) \ra P(x))$
+    	\item $S(Mary)$
+    	\item $P(Mary)$
+    \end{enumerate}
+    
+    The argument is as follows:
+    
+    \begin{tabular}{lll}
+            Step                    & \hspace{0.15in} & Reason \\
+            1. $\forall x\; (S(x) \ra C(x))$			& & Given \\
+            2. $\forall x\; (C(x) \ra P(x))$			& & Given \\
+            3. $S(Mary)$								& & Given \\
+            4. $S(Mary) \ra C(Mary)$   					& & Univ. instantiation with (1) \\
+            5. $C(Mary) \ra P(Mary)$                    & & Univ. instantiation with (2) \\
+            6. $C(Mary)$                				& & Modus ponens with (3) and (4) \\
+            7. $P(Mary)$                				& & Modus ponens with (5) and (6) \\
+    \end{tabular}
+\end{solution}
+
+
+% PROOFS
+\ifprintanswers
+\else
+\uplevel{For the next two problems, you will use the definition of
+$n$ being \textit{divisible} by $m$, specifically:
+
+\smallskip
+\textbf{Definition:} For integers $n$ and $m$ and $m\neq0$, $n$ is
+\underline{divisible} by $m$ if and only if there is a integer $k$ such that $n=km$.  The notation $m | n$ denotes, ``$m$ divides $n$.}
+
+\smallskip
+\uplevel{
+For example, 56 is divisible by 8; there is a natural number $k$
+(specifically, 7) such that $56 = 8k$. Also, thinking of the
+bi-implication in the other direction, you can state because $39 = 3
+\cdot 13$, 39 is divisible by 3 (or 39 is divisible by 13).}
+
+\uplevel{An example of a proof using this new definition is to show,
+\begin{center}
+ "For all integers $n$, if $n$ is divisible by 6, then $n^2$
+ is divisible by 9."
+\end{center}
+Follow the examples in class,
+\begin{quote}
+Assume $n$ is divisible by 6.  Then, by definition of divisible
+there is some integer $k$ s.t. $n=6k$. Compute $n^2$:
+\[ n^2 = (6k)^2 = 36k^2 = 9(4k^2). \]
+where $n^2$ is divisible by 9 by definition. Therefore, for all
+integers, if $n$ is divisible by 6, then $n^2$ is divisible
+by 9.
+\end{quote}}
+\fi
+
+% 
+\question[8] Prove: For all natural numbers $m$ and $n$, if $m$ is divisible by 3 and $n$ is divisible by 8, then $m\cdot n$ is divisible by 6.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution} \textbf{Proof:} Assume $m$ is divisible by 3 and also assume $n$ is divisible by 8.  By definition of divisibility, then there exists a integer $k_m$ and a integer $k_n$ such that $m = 3k_m$ and $n=8k_n$.  Then, $m\cdot n$ is:
+  \[ m\cdot n = 3k_m \cdot 8k_n = 24k_mk_n = 6(4k_mk_n). \]
+From this expression, you can see $m\cdot n$ is divisible by 6.  Therefore, if $m$ is divisible by 3 and $n$ is divisible by 8, then $m \cdot n$ is divisible by 6.
+\end{solution}
+
+
+\question[8] Prove: For all integers $a$, $b$, and $c$, if $b$ is divisible by $a$ and $c$ is divisible by $a$, then $2b - 3c$ is divisible by $a$.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution} \textbf{Proof:} Assume $a$, $b$, and $c$ are integers and $a | b$ and $a | c$.  By definition of divisibility, there exists integers $k_b$ and $k_c$ such that $b = ak_b$ and $c = ak_c$.  By substitution,
+	\[ 2b - 3c = 2(ak_b) - 3(ak_c) = a(2k_b - 3k_c), \]
+where the expression $2k_b - 3k_c$ is also an integer.  Hence, $2b - 3c$ is also divisible by $a$.  Therefore, if $b$ is divisible by $a$ and $c$ is divisible by $a$, then $2b-3c$ is divisible by $a$.
+\end{solution}
+
+
+% 
+\question[16]  Prove that if $n$ is an integer and $7n+2$ is odd,
+then $n$ is odd using: (a) proof by contraposition and (b) proof by
+contradiction.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution} \textbf{Proof by contraposition:}
+    Assume $n$ is even.  Then by definition of even, there exists an
+    integer $k$ s.t. $n=2k$.  Compute $7n+2$:
+    \[ 7n+2 = 7(2k)+2 = 14k+2 = 2(7k+1) = 2*k'\]
+    Here, $7n+2$ is in the form of an even number.  Therefore, by
+    contraposition, if $n$ is an integer and $7n+2$ is odd,
+    then $n$ is odd.
+
+    \medskip
+    \textbf{Proof by contradiction:} Assume $n$ is even and $7n+2$ is
+    odd.  By definition of even, there there exists an
+    integer $k$ s.t. $n=2k$.  Compute $7n+2$:
+    \[ 7n+2 = 7(2k)+2 = 14k+2 = 2(7k+1) = 2k' \]
+    Here, $7n+2$ is in the form of an even number, however, we assumed
+    $7n+2$ is odd giving a contradiction. Therefore, by
+    contradiction, it must be that if $n$ is an integer and $7n+2$ is
+    odd, then $n$ is odd.
+\end{solution}
+
+
+% 
+\question[16] Prove the following is true for all positive integers $n$, $n$ is even if and only if $5n^2 + 4$ is even.
+%Prove that if $n$ is a positive integer, then $n$ is
+%even if and only if $7n+4$ is even.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    The statement is a biimplication therefore both sides of the
+    implication must be shown.  Let $p$ be ``$n$ is even" and $q$ be
+    ``$5n^2 + 4$ is even."
+    
+    \textbf{Prove ``if p, then q":}
+    Assume $n$ is even. By definition of even, there exists an
+    integer $k$ s.t. $n=2k$.  Compute $5n^2+4$:
+    \[ 5n^2 + 4 = 5(2k)^2 + 4 = 5(4k) + 4 = 20k + 4 = 2(10k+2) \]
+    $5n^2+4$ is also of the form of an even number.  Therefore, if $n$
+    is even, then $5n^2+4$ is even.
+
+    \smallskip
+    \textbf{Prove ``if q, then p": using proof by contradiction.}
+    Assume $5n^2+4$ is even and $n$ is odd.  Then by definition of odd
+    there exists an integer $k$ s.t. $n=2k+1$.  Compute $5n^2+4$:
+    \[ 5n^2+4 = 5(2k+1)^2+4 = 5(2k^2+4k+1)+4 = 10k^2 + 20k + 5 + 4 = 2(5k^2 + 10k + 4) + 1 \]
+    $5n^2+4$ is of the form of an odd number leading to a
+    contradiction, therefore it must be that if $5n^2+4$ is even, then
+    $n$ is even.
+
+    \smallskip
+    Combining both parts, we have shown if $n$ is a positive integer,
+    then $n$ is even if and only if $5n^2+4$ is even.
+\end{solution}
+
+
+\question[10] Prove that if $n$ is an integer that $n^3 - n$ is even.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+%\begin{EnvFullwidth}
+%\begin{TheSolution}
+\begin{solution} \textbf{Proof:} Let $n$ be an integer.
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[Case] (i): Let $n$ be even. By definition, there exists an integer $k$ s.t. $n=2k$.
+            \[ n^3 - n = (2k)^3 - 2k = 8k^3 - 2k = 2(4k^3 - k) \]
+        This is of the form of an even number.
+        \item[Case] (ii):  Let $n$ be odd.  By definition, there exists an integer $k$ s.t. $n = 2k+1$.
+            \begin{align*}
+                n^3 - n &= (2k+1)^3 - (2k+1) = (4k^2 + 4k+ 1)(2k + 1) - (2k+1) \\
+                &= 8k^3 + 12k^2 + 6k + 1 - 2k - 1 = 8k^3 + 12k^2 + 4k = 2(8k^3 + 6k^2 + 2k)
+            \end{align*}
+        This is of the form of an even number.
+        
+        Therefore, because $n^3 - n$ is even in all cases, it holds that for any integer $n$, $n^3 - n$ is even.
+    \end{itemize}
+\end{solution}
+
+
+\bonusquestion[6] There are 3 murder suspects, Adam, Bob, and Carl.  Adam says, ``I didn't do it.  The victim was an old acquantance of Bob's.  But Carl hated him."  Bob says, ``I didn't do it.  I didn't even know the guy.  Plus, I was out of town all week."  Carl states, ``I didn't do it.  I saw both Adam and Bob with the victim the other day; one of them must have done it."  Detective Logic believes the two innocent men are telling the truth, but the guilty man might not be.  Who is the murderer?  
+
+Use propositional logic to express the necessary information and construct an argument on who is the murderer.
+
+\begin{solution} Note, this is one of many possible ways to illustrate the solution.
+
+Let 
+	\begin{tabular}{ll}
+	   A : Adam didn't do it. \hspace{0.6in} & D : Bob knows the victim \\
+	   B : Bob didn't do it.				 & E : Carl hated the victin \\
+	   C : Carl didn't do it.				 & F : Bob was out of town 
+	\end{tabular}
+
+Then, a translation of what is known to Detective Logic is as follows:
+
+    \begin{tabular}{p{2.5in}p{3in}}
+    	$A \ra (D \wedge E)$  $\equiv \neg A \vee (D \wedge E)\quad$ $\equiv (\neg A \vee D) \wedge (\neg A \vee E)\quad\quad\quad\quad$ $\equiv \neg A \vee D,\;  \neg A \vee E$  
+    	& If Adam is telling the truth, he didn't do it, then Bob knows the victim and Carl hated him. \\
+    	& \\
+    	$B \ra (\neg D \wedge F)$ $\equiv \neg B \vee (\neg D \wedge F)$ $\equiv (\neg B \vee \neg D) \wedge (\neg B \vee F)\quad\quad\quad\quad$ $ \equiv \neg B \vee \neg D, \; \neg B \vee F$ 
+    	& If Bob is telling the truth, he didn't do it, then Bob does not know the victim and was out of town at the time of the murder. \\
+    	& \\
+    	$C \ra (D \wedge \neg F)$ $\equiv \neg C \vee (D \wedge \neg F)$ $\equiv (\neg C \vee D) \wedge (\neg C \vee \neg F)\quad\quad\quad\quad$ $\equiv \neg C \vee D,\; \neg C \vee \neg F$ 
+    	& If Carl is telling the truth, he didn't do it, then Bob does know the victim and was not out of town at the time of the murder. \\
+    	& \\
+    $(A \wedge B) \vee (B \wedge C) \vee (A \wedge C)$ & The two innocent men are telling the truth, but the guilty man may not be.
+    \end{tabular}
+
+Construct the argument:
+
+\begin{tabular}{lll}
+    Step                    & \hspace{0.15in} & Reason \\
+    1. $\neg A \vee D$				& & Given \\
+    2. $\neg A \vee E$				& & Given \\
+    3. $\neg B \vee \neg D$			& & Given \\
+    4. $\neg B \vee F$				& & Given \\
+    5. $\neg C \vee D$				& & Given \\
+    6. $\neg C \vee \neg F$			& & Given \\
+    7. $(A \wedge B) \vee (B \wedge C) \vee (A \wedge C)$	& & Given \\
+    8. $\neg A \vee \neg B$			& & Resolution w/ (1) \& (3) \\
+    9. $\neg (A \wedge B)$			& & DeMorgans w/ (8) \\
+    10. $(B \wedge C) \vee (A \wedge C)$	& & Disj. Syl w/ (9) \& (7) \\
+    11. $\neg B \vee \neg C$		& & Resolution w/ (4) \& (6)  or (3) \& (5) \\
+    12. $\neg (B \wedge C)$			& & DeMorgans w/ (11) \\
+    13. $A \wedge C$				& & Disj. Syl. w/ (10) \& (12)
+\end{tabular}
+
+This proves Adam and Carl didn't do it. 
+Therefore, \underline{Bob is the murderer}.        
+
+\end{solution}
+
+
+% Epp, Ch 2.3, # 40, p. 62
+%There was a theft committed among a group of people.  Detective Logic has interviewed all the suspects and determined they all lied except for one.  The detective was able to determine who committed the theft, from the following statements:
+%	\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%		\item Amy says, ``Carl stole it"
+%		\item Bob says, ``DeShaun did not steal it"
+%		\item Carl says, ``DeShaun was with Amy, when it was stolen"
+%		\item DeShaun says, ``Carl did not steal it"
+%	\end{itemize}
+%Who did steal the item?
+
+
+\end{questions}
+\end{document}

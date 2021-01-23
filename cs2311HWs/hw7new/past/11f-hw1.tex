@@ -1,0 +1,125 @@
+\documentclass[12pt,addpoints]{exam}
+% can include option [answers] to print out solutions, or command \printanswers
+%  can turn addpoint on and off with commands, \addpoints and \noaddpoints
+
+\setlength{\itemsep}{0pt} \setlength{\topsep}{0pt}
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0.75in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Fall 2011}}{\textbf{HW
+1 - \numpoints$\;$ points}}{\textbf{Due: Wed. 9/7/11}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\noindent \textbf{Instructions:} All assignments are due at the
+\underline{beginning of class on the due date} specified.  Solutions will be
+handed out (or posted on-line) shortly thereafter.  Every student
+must write up their own solutions in their own manner.
+
+\noindent Please follow the format in the book when asked to produce
+truth tables (this will help in grading in order to avoid any
+errors).
+
+\noindent Please present your solutions in a clean, understandable
+manner; pages should be stapled before class, no ragged edges of
+paper.
+
+%\noindent The assignment has \totalpoints\ points.
+
+\begin{questions}
+%\printanswers
+
+\question[4] Determine which of the statements are propositions? What are the truth values of those that are propositions?
+    \begin{parts}
+    \part Open your books.
+    \part Who is the president?
+    \part z + 3 = 8.
+    \part 6 + 6 = 14.
+    \end{parts}
+    \begin{solution}
+        \begin{parts}
+        \part not a proposition, is a command
+        \part not a proposition, is a question
+        \part not a proposition, depends on value of $z$
+        \part proposition, $F$
+        \end{parts}
+    \end{solution}
+
+\question[10] Let $p$ and $q$ be the propositions
+ \begin{itemize}
+    \item[$p$:] I went hiking this week.
+    \item[$q$:] I have a sunburn.
+ \end{itemize}
+ Express each of these propositions as an English sentence.
+    \begin{parts}
+    \part $\neg q$
+    \part $p \vee q$
+    \part $q \rightarrow p$
+    \part $\neg p \wedge \neg q$
+    \part $p \leftrightarrow q$
+    \end{parts}
+    \begin{solution}
+        \begin{parts}
+        \part It is not the case that I have a sunburn.
+        \part I went hiking this week or I have a sunburn.
+        \part If I have a sunburn then I went hiking this week.
+        \part I did not go hiking this week and I do not have a sunburn.
+        \part I went hiking this week if and only if I have a sunburn.
+        \end{parts}
+    \end{solution}
+
+\question[6] Rosen Ch 1.1, \#14 (a,b,c), p. 13-14 \\
+    \begin{solution}
+    \begin{itemize}
+        \item[(a)] 
+
+\question[8] Rosen Ch 1.1, \#24 (a,c,e,f), p. 15 \\
+
+
+\question[6] Rosen Ch 1.1 \#28 (a,b), p. 15 \\
+
+\question[2] Rosen Ch 1.1 \#30 (b,d), p. 15 \\
+
+\question[16] Rosen Ch 1.1 \#32 (a,c,d,e), p. 15 \\
+
+\question[8] Rosen Ch 1.1 \#36 (c,e), p. 15 \\
+
+
+%TODO WRITE Solutions
+\question[8] There are 16 possible truth tables for propositions of two variables $p$ and $q$.
+ All sixteen possibilities are given in the table below (numbered 15, 14, \ldots, 0).
+ For example, the proposition $p \vee q$ is 14. What are the numbers of the truth
+ tables for propositions:\\
+ \begin{tabular}{l}
+    (a) $q \leftrightarrow p$ \\
+    (b) $p \wedge (\neg q \vee p)$ \\
+    (c) $\neg p \oplus q $ \\
+    (d) $q \rightarrow \neg p$ \\
+ \end{tabular}
+
+ \begin{tabular}{cc|cccc|cccc|cccc|cccc}
+    $p$ & $q$ & 15 & 14 & 13 & 12 & 11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 \\
+    \hline
+    T & T & T & T & T & T & T & T & T & T & F & F & F & F & F & F & F & F \\
+    T & F & T & T & T & T & F & F & F & F & T & T & T & T & F & F & F & F \\
+    F & T & T & T & F & F & T & T & F & F & T & T & F & F & T & T & F & F \\
+    F & F & T & F & T & F & T & F & T & F & T & F & T & F & T & F & T & F \\
+ \end{tabular}
+
+\question[8] Show the proposition is a tautology using a truth table
+and logical equivalences.
+ $$ (p \vee q) \wedge (\neg p \vee r) \rightarrow (q \vee r) $$
+
+
+\question[12] Prove the following logical equivalences using the
+equivalences from Table 6-8 (model the solutions in the style of
+book Examples 6-8, pp. 29-30).  Justify each step with laws.
+    \begin{parts}
+    \part $(q \wedge \neg p) \vee (\neg p \wedge \neg (p \vee q))
+    \equiv \neg p$
+    \part $\neg(\neg p \vee (p \wedge q)) \vee q \equiv q \vee p $
+    \end{parts}
+
+
+
+\end{questions}
+\end{document}

@@ -1,0 +1,757 @@
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{CS2311 - Spring 2020}}{\textbf{HW
+ 6 \ifprintanswers - Solutions \fi}}{\textbf{Due: Sun. 03/08/20}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\ifprintanswers
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  Assignments should be typed and submitted as a PDF.  Every student must write up their own solutions in their own manner.
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\else
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  Every student must write up their own solutions in their own manner.
+
+\noindent Please present your solutions in a clean, understandable
+manner.  Use the provided files that give mathematical notation in Word, Open Office, Google Docs, and \LaTeX. 
+
+\noindent Assignments should be typed and submitted as a PDF.   
+
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\fi
+
+\begin{questions}
+
+
+\section*{Graphs}
+
+\ugquestion{3} Rosen Ch 10.5 \#56, p. 707.
+  \ifprintanswers
+        \vspace{-10pt}
+  \fi
+  \begin{solution}
+    \includegraphics[width=1in]{figs/rosen_10_5_56}
+  \end{solution}
+
+
+  \ifprintanswers
+        \vspace{-10pt}
+  \fi
+\gquestion{2}{2}{all} Rosen Ch 10.5 \#58(a), p. 707.
+  \ifprintanswers
+        \vspace{-10pt}
+  \fi
+  \begin{solution}
+  \textit{A \textbf{knight’s tour} is a sequence of legal moves by a knight starting at some square and visiting each square exactly once. We can model knights tours using the graph that has a vertex for each square on the board, with an edge connecting two vertices if a knight can legally move between the squares represented by these vertices.}
+
+  \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item \textit{Show that finding a knight’s tour on an $m \times n$ chessboard is equivalent to finding a Hamilton path.} \\
+    Let the graph represent legal moves of the knights, where the vertices are the squared on the board and the edges between those squares where moves are legal. 
+
+    By definition, a knight’s tour visits each square exactly once, therefore traverses a simple path that includes each vertex once; which fits the definition of a Hamilton path. 
+
+    % \item \textit{Show that finding a reentrant knight’s tour on an m × n chessboard is equivalent to finding a Hamilton circuit on the corresponding graph.}  \\
+
+    \end{enumerate}
+
+  \end{solution}
+
+
+
+  \ifprintanswers
+        \vspace{-10pt}
+  \fi
+\gquestion{2}{2}{all} Rosen Ch 10.7 \#14, p. 725. 
+  \ifprintanswers
+        \vspace{-10pt}
+  \fi
+  \begin{solution}
+    You are given $e = 30$ and $r = 20$. Therefore, rewriting Euler's formula: 
+      $r = e - v + 2$ so $v = e - r + 2 = 30 - (20) + 2 = 12$
+  \end{solution}
+
+
+
+  \ifprintanswers
+        \vspace{-10pt}
+  \fi
+\ugquestion{2} Rosen Ch 10 Supplementary Exercises \#19, p. 739. 
+  \ifprintanswers
+        \vspace{-10pt}
+  \fi
+  \begin{solution}
+    The graph does not contain $K_5$ or any larger complete graphs.  It has the following cliques: 
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+      \item $K_4 - \{b, c, e, f\}$ 
+      \item $K_3 - \{a, b, g\}$, $\{a, d, g \}$, $\{d, e, g\}$, $\{b, e, g\}$
+    \end{itemize}
+  \end{solution}
+
+
+
+  \ifprintanswers
+        \vspace{-10pt}
+  \fi
+\gquestion{2}{2}{all} Rosen Ch 10 Supplementary Exercises \#20, p. 739. 
+  \ifprintanswers
+        \vspace{-10pt}
+  \fi
+  \begin{solution}
+  The graph does not contain $K_6$ or any larger complete graphs. It has the following cliques: 
+  \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item $K_5 -  \{c, e, g, h, i\}$
+    \item $K_4 -  \{a, b, c, e\}$, $\{c, d, e, g\}$
+    \item $K_3$ - $\{a,e,f\}, \{e, f, g\}$
+  \end{itemize}
+  \end{solution}
+
+
+  \ifprintanswers
+        \vspace{-10pt}
+  \fi
+\gquestion{2}{2}{all} Rosen Ch 10 Supplementary Exercises \#22, p. 739. 
+  \ifprintanswers
+        \vspace{-10pt}
+  \fi
+  \begin{solution}
+    The unique minimum dominating set is $\{e \}$
+  \end{solution}
+
+
+
+\section*{Logic}
+\ifprintanswers
+\vspace{-10pt}
+\uplevel{\color{blue} \large For each question, there are many possible solutions.  I have typically provided one or two common solutions to these problems. }
+\fi
+
+
+\gquestion{34}{24}{a-c} Prove the following statement is a tautology without using truth tables (use the logical equivalences from Table 6-8 of the book).  Justify each step with the law used.  Model the solutions in the style of Examples 6-8, pp. 29-30 of the book.
+
+
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+topsep=0pt,partopsep=0pt]
+    \item (6 points) $p \rightarrow (\neg q \rightarrow r) \equiv \neg(q \vee r)
+    \rightarrow \neg p$
+
+    % f15, f14
+    \item (8 points) $p \ra (q \vee r) \equiv (p \wedge \neg q) \ra r$
+
+    % f14
+    \item (10 points) $ [ \neg p \wedge (p \vee q) ] \ra q \equiv \mathbf{T}$
+    
+    % f16
+    \item (10 points) $[(p \vee q) \wedge (p \ra r) \wedge (q \ra r)] \ra r \equiv \mathbf{T}$
+\end{enumerate}
+\begin{solution}
+  \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+topsep=0pt,partopsep=0pt]
+    \item $p \rightarrow (\neg q \rightarrow r) \equiv 
+      \neg(q \vee r) \rightarrow \neg p$
+    \begin{align*}
+      p & \rightarrow (\neg q \rightarrow r) \\
+      & \equiv p \ra (\neg \neg q \vee r) \tag{Table 7, rule 1} \\
+      & \equiv p \ra (q \vee r) \tag{Double Negation} \\
+      & \equiv \neg (q \vee r) \ra \neg p \tag{Table 7, rule 2} \\
+    \end{align*}
+
+    \vspace{-25pt}
+    \begin{center}
+    OR
+    \end{center}
+
+    \vspace{-25pt}
+    \begin{align*}
+      p & \rightarrow (\neg q \rightarrow r) \\
+       & \equiv p \ra (q \vee r) \tag{Table 7, rule 3} \\
+       & \equiv \neg (q \vee r) \ra \neg p  \tag{Table 7, rule 2}
+    \end{align*}
+
+    \item $p \ra (q \vee r) \equiv (p \wedge \neg q) \ra r$
+    \begin{align*}
+        p &\ra (q \vee r) \equiv (p \wedge \neg q) \ra r \\
+            & \equiv \neg p \vee (q \vee r) \tag{Table 7, rule 1} \\
+            & \equiv (\neg p \vee q) \vee r) \tag{Associative} \\
+            & \equiv \neg (\neg p \vee q) \ra r \tag{Table 7, rule 1} \\
+            & \equiv (\neg \neg p \wedge \neg q) \ra r \tag{DeMorgan's} \\
+            & \equiv (p \wedge \neg q) \ra r \tag{Double Negation} 
+    \end{align*}
+    
+    \begin{center}
+    OR
+    \end{center}
+
+    \begin{align*}
+        p &\ra (q \vee r) \equiv (p \wedge \neg q) \ra r \\
+        & \equiv (p \ra q) \vee (p \ra r) \tag{Table 7, rule 8} \\
+        & \equiv (\neg p \vee q) \vee (p \ra r) \tag{Table 7, rule 1} \\
+        & \equiv (\neg p \vee q) \vee (\neg p \vee r) \tag{Table 7, rule 1} \\
+        & \equiv \neg p \vee q \vee \neg p \vee r \tag{drop parenthesis} \\
+        & \equiv \neg p \vee \neg p \vee q \vee r \tag{Commutative} \\
+        & \equiv \neg p \vee q \vee r \tag{Idempotent Law} \\
+        & \equiv (\neg p \vee q) \vee r \tag{add parenthesis} \\
+        & \equiv \neg \neg (\neg p \vee q) \vee r \tag{Double Negation} \\
+        & \equiv \neg (\neg \neg p \wedge \neg q) \vee r \tag{DeMorgans} \\
+        & \equiv \neg (p \wedge \neg q) \vee r \tag{Doulbe Negation} \\
+        & \equiv (p \wedge \neg q) \ra r \tag{Table 7, rule 1}
+    \end{align*}
+
+    \item $ [ \neg p \wedge (p \vee q) ] \ra q \equiv \mathbf{T}$
+    % There are many possible solutions; two are given.
+    \small
+    \begin{align*}
+        [ \neg p & \wedge (p \vee q) ] \ra q \\
+        & \equiv \neg [ \neg p \wedge (p \vee q) ] \vee q \tag{Table 7, rule 1} \\
+        & \equiv \neg \neg p \vee \neg (p \vee q) \vee q \tag{DeMorgan's law} \\
+        & \equiv p \vee \neg (p \vee q) \vee q \tag{Double Negation} \\
+        & \equiv p \vee q \vee \neg (p \vee q) \tag{Commutative} \\
+        & \equiv (p \vee q) \vee \neg (p \vee q) \tag{add in parenthesis}\\
+        & \equiv \mathbf{T} \tag{Negation} 
+    \end{align*}
+
+    \begin{center}
+    OR
+    \end{center}
+
+    \vspace{-25pt}
+    \begin{align*}
+        [ \neg p & \wedge (p \vee q) ] \ra q \\
+        & \equiv \neg [ \neg p \wedge (p \vee q) ] \vee q \tag{Table 7, rule 1} \\
+        & \equiv \neg \neg p \vee \neg (p \vee q) \vee q \tag{DeMorgan's law} \\
+        & \equiv p \vee \neg (p \vee q) \vee q \tag{Double Negation} \\
+        & \equiv p \vee q \vee \neg (p \vee q) \tag{Commutative} \\
+        & \equiv p \vee q \vee (\neg p \wedge \neg q) \tag{DeMorgan's} \\
+        & \equiv p \vee (q \vee \neg p) \wedge (q \vee \neg q) \tag{Distributive} \\
+        & \equiv p \vee (q \vee \neg p) \wedge \mathbf{T} \tag{Negation} \\
+        & \equiv p \vee (q \vee \neg p) \tag{Identity} \\
+        & \equiv p \vee (\neg p \vee q) \tag{Commutative} \\
+        & \equiv (p \vee \neg p) \vee q \tag{Associative} \\
+        & \equiv \mathbf{T} \vee q \tag{Negation} \\
+        & \equiv \mathbf{T} \tag{Domination}
+    \end{align*}
+    
+
+    \item $[(p \vee q) \wedge (p \ra r) \wedge (q \ra r)] \ra r \equiv \mathbf{T}$ 
+    \begin{align*}
+      [(p \vee q) &\wedge (p \ra r) \wedge (q \ra r)] \ra r \\
+      &\equiv \neg[(p \vee q) \wedge (\neg p \vee r) \wedge (\neg q \vee r)] \vee r \tag{Table 7, rule 1, x3} \\
+      &\equiv \neg(p \vee q) \vee \neg(\neg p \vee r) \vee \neg(\neg q \vee r) \vee r \tag{DeMorgan's} \\
+      &\equiv (\neg p \wedge \neg q) \vee (\neg\neg p \wedge \neg r) \vee (\neg\neg q \wedge \neg r) \vee r \tag{DeMorgan's, x3} \\
+      &\equiv (\neg p \wedge \neg q) \vee (p \wedge \neg r) \vee (q \wedge \neg r) \vee r \tag{Double Negation, x2} \\
+      &\equiv (\neg p \wedge \neg q) \vee (p \wedge \neg r) \vee r \vee (q \wedge \neg r) \tag{Commutative Law} \\
+      &\equiv (\neg p \wedge \neg q) \vee (p \wedge \neg r) \vee ((r \vee q) \wedge (r \vee \neg r)) \tag{Distributive Law} \\
+      &\equiv (\neg p \wedge \neg q) \vee (p \wedge \neg r) \vee ((r \vee q) \wedge \mathbf{T}) \tag{Negation Law} \\
+      &\equiv (\neg p \wedge \neg q) \vee (p \wedge \neg r) \vee r \vee q  \tag{Identity Law} \\
+      &\equiv q \vee (\neg p \wedge \neg q) \vee r \vee (p \wedge \neg r) \tag{Commutative Law, x2} \\
+      &\equiv ((q \vee \neg p) \wedge (q \vee \neg q)) \vee ((r \vee p) \wedge (r \vee \neg r)) \tag{Commutative Law, x2} \\
+      &\equiv ((q \vee \neg p) \wedge \mathbf{T}) \vee ((r \vee p) \wedge \mathbf{T}) \tag{Negation Law, x2} \\
+      &\equiv (q \vee \neg p) \vee (r \vee p)  \tag{Identity Law, x2} \\
+      &\equiv q \vee \neg p \vee r \vee p  \tag{Associative Law} \\
+      &\equiv p \vee  \neg p \vee q \vee r  \tag{Commutative Law} \\
+      &\equiv \mathbf{T} \vee q \vee r  \tag{Negation Law} \\
+      &\equiv \mathbf{T} \tag{Domination Law} \\
+    \end{align*}
+
+    An alternative solution is:
+    \begin{align*}
+      [(p \vee q) &\wedge (p \ra r) \wedge (q \ra r)] \ra r \\
+       &\equiv [(p \vee q) \wedge ((p \vee q) \ra r)] \ra r \tag{Table 7, rule 7} \\
+       &\equiv [(p \vee q) \wedge (\neg (p \vee q) \vee r)] \ra r \tag{Table 7, rule 1} \\
+       &\equiv [((p \vee q) \wedge \neg (p \vee q)) \vee ((p \vee q) \wedge r)] \ra r \tag{Distributive} \\
+       &\equiv [\mathbf{F} \vee ((p \vee q) \wedge r)] \ra r \tag{Negation} \\
+       & \equiv [((p \vee q) \wedge r) \vee \mathbf{F}] \ra r \tag{Commutative} \\
+       & \equiv [((p \vee q) \wedge r)] \ra r \tag{Identity} \\
+       & \equiv [(p \vee q) \wedge r] \ra r \tag{drop extra ()} \\
+       & \equiv \neg [(p \vee q) \wedge r] \vee r \tag{Table 7, rule 1} \\
+       & \equiv  [\neg (p \vee q) \vee \neg r] \vee r \tag{DeMorgans} \\
+       & \equiv  \neg (p \vee q) \vee [\neg r \vee r ] \tag{Associative} \\
+       & \equiv \neg (p \vee q) \vee [r \vee \neg r] \tag{Commutative} \\
+       & \equiv \neg (p \vee q) \vee \mathbf{T} \tag{Negation} \\
+       & \equiv \mathbf{T} \tag{Domination} 
+    \end{align*}
+
+  \end{enumerate}
+\end{solution}
+
+
+
+\gquestion{8}{8}{all}  Show the following expressions are logically equivalent. 
+\begin{quote}
+  If you are not lazy, then you work hard or you are clever and lazy. \\[3pt]
+  You work hard or you are lazy.
+\end{quote}
+
+Use the following propositions to represent the concepts in the expression. Let 
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+  \item $l$ be ``you are lazy'' 
+  \item $w$ be ``you work hard''
+  \item $c$ be ``you are clever''
+\end{itemize}
+
+\begin{solution}
+First, translate the expressions into logic. 
+
+$$ \neg l \ra (w \vee (c \wedge l)) \equiv w \vee l $$
+
+\begin{align*}
+  \neg l \ra & (w \vee (c \wedge l)) \\
+    & \equiv l \vee (w \vee (c \wedge l)) \tag{Table 7.3} \\
+    & \equiv l \vee ((c \wedge l) \vee w) \tag{Commutative} \\
+    & \equiv (l \vee (c \wedge l)) \vee w \tag{Associative} \\
+    & \equiv l \vee w \tag{Absorption} \\
+    & \equiv w \vee l \tag{Commutative}
+\end{align*}
+
+\end{solution}
+
+
+
+
+% \gquestion{8}{8}{all} Prove the following statement is a tautology without using truth tables (use the logical equivalences from Table 6-8 of the book).  Justify each step with the law used.  Model the solutions in the style of Examples 6-8, pp. 29-30 of the book.
+% \[ [ \neg p \wedge (p \vee q) ] \ra q \]
+%     \ifprintanswers
+%         \vspace{-30pt}
+%     \fi
+% \begin{solution}  There are many possible solutions; two are given.
+% \small
+%     \begin{align*}
+%         [ \neg p & \wedge (p \vee q) ] \ra q \\
+%         & \equiv \neg [ \neg p \wedge (p \vee q) ] \vee q \tag{Table 7, rule 1} \\
+%         & \equiv \neg \neg p \vee \neg (p \vee q) \vee q \tag{DeMorgan's law} \\
+%         & \equiv p \vee \neg (p \vee q) \vee q \tag{Double Negation} \\
+%         & \equiv p \vee q \vee \neg (p \vee q) \tag{Commutative} \\
+%         & \equiv (p \vee q) \vee \neg (p \vee q) \tag{algebra, add ()} \\
+%         & \equiv \mathbf{T} \tag{Negation} 
+%     \end{align*}
+
+%     \begin{center}
+%     OR
+%     \end{center}
+
+%     \vspace{-20pt}
+%     \begin{align*}
+%         [ \neg p & \wedge (p \vee q) ] \ra q \\
+%         & \equiv \neg [ \neg p \wedge (p \vee q) ] \vee q \tag{Table 7, rule 1} \\
+%         & \equiv \neg \neg p \vee \neg (p \vee q) \vee q \tag{DeMorgan's law} \\
+%         & \equiv p \vee \neg (p \vee q) \vee q \tag{Double Negation} \\
+%         & \equiv p \vee q \vee \neg (p \vee q) \tag{Commutative} \\
+%         & \equiv p \vee q \vee (\neg p \wedge \neg q) \tag{DeMorgan's} \\
+%         & \equiv p \vee (q \vee \neg p) \wedge (q \vee \neg q) \tag{Distributive} \\
+%         & \equiv p \vee (q \vee \neg p) \wedge \mathbf{T} \tag{Negation} \\
+%         & \equiv p \vee (q \vee \neg p) \tag{Identity} \\
+%         & \equiv p \vee (\neg p \vee q) \tag{Commutative} \\
+%         & \equiv (p \vee \neg p) \vee q \tag{Associative} \\
+%         & \equiv \mathbf{T} \vee q \tag{Negation} \\
+%         & \equiv \mathbf{T} \tag{Domination}
+%     \end{align*}
+% \end{solution}
+
+
+% % CS 2311 f14 hw5
+% \ugquestion{8} 
+% Show the following statement is a tautology without using truth tables. Use the equivalence laws from Table 6-8 (model the solutions in the style of book Examples 6-8, pp. 29-30).  Justify each step with laws.
+
+% \vspace{-0.15in}
+% \begin{center}
+%     $[(p \vee q) \wedge (p \ra r) \wedge (q \ra r)] \ra r$
+% \end{center}
+% \vspace{-10pt}
+
+%     \begin{solution}
+%     \begin{align*}
+%       [(p \vee q) &\wedge ((p \ra r) \wedge (q \ra r))] \ra r \\
+%       &\equiv \neg[(p \vee q) \wedge \neg(p \vee r) \wedge \neg (q \vee r)] \vee r \tag{Table 7, rule 1, x3} \\
+%       &\equiv [\neg(p \vee q) \vee \neg(\neg(p \vee r) \wedge \neg(q \vee r))] \vee r \tag{DeMorgan's} \\
+%       & \equiv (\neg p \wedge \neg q) \vee (\neg \neg(p \vee r) \vee \neg \neg(q \vee r)) \vee r \tag{DeMorgan's, x2} \\
+%       & \equiv (\neg p \wedge \neg q) \vee (p \vee r) \vee (q \vee r) \vee r \tag{Double Negation, x2} \\
+%       & \equiv (\neg p \wedge \neg q) \vee p \vee q \vee r \vee r \vee r \tag{Commutative} \\
+%       & \equiv (\neg p \wedge \neg q) \vee p \vee q \vee r \vee r \tag{Idempotent} \\
+%       & \equiv (\neg p \wedge \neg q) \vee p \vee q \vee r \tag{Idempotent} \\
+%       & \equiv p \vee (\neg p \wedge \neg q) \vee q \vee r \tag{Commutative} \\
+%       & \equiv (p \vee \neg p) \wedge (p \vee \neg q) \vee q \vee r \tag{Distributive} \\
+%       & \equiv (\mathbf{T} \wedge (p \vee \neg q) \vee q \vee r \tag{Negation} \\
+%       & \equiv (p \vee \neg q) \vee q \vee r \tag{Identity} \\
+%       & \equiv p \vee (\neg q \vee q) \vee r \tag{Associative} \\
+%       & \equiv p \vee \mathbf{T} \vee r \tag{Negation} \\
+%       & \equiv \mathbf{T} \vee r \tag{Domination} \\
+%       & \equiv \mathbf{T} \tag{Domination}
+%     \end{align*}
+
+%     An alternative solution is:
+%     \begin{align*}
+%       [(p \vee q) &\wedge ((p \ra r) \wedge (q \ra r))] \ra r \\
+%        &\equiv [(p \vee q) \wedge ((p \vee q) \ra r)] \ra r \tag{Table 7, rule 7} \\
+%        &\equiv [(p \vee q) \wedge (\neg (p \vee q) \vee r)] \ra r \tag{Table 7, rule 1} \\
+%        &\equiv [((p \vee q) \wedge \neg (p \vee q)) \vee ((p \vee q) \wedge r)] \ra r \tag{Distributive} \\
+%        &\equiv [\mathbf{F} \vee ((p \vee q) \wedge r)] \ra r \tag{Negation} \\
+%        & \equiv [((p \vee q) \wedge r) \vee \mathbf{F}] \ra r \tag{Commutative} \\
+%        & \equiv [((p \vee q) \wedge r)] \ra r \tag{Identity} \\
+%        & \equiv [(p \vee q) \wedge r] \ra r \tag{drop extra ()} \\
+%        & \equiv \neg [(p \vee q) \wedge r] \vee r \tag{Table 7, rule 1} \\
+%        & \equiv  [\neg (p \vee q) \vee \neg r] \vee r \tag{DeMorgans} \\
+%        & \equiv  \neg (p \vee q) \vee [\neg r \vee r ] \tag{Associative} \\
+%        & \equiv \neg (p \vee q) \vee [r \vee \neg r] \tag{Commutative} \\
+%        & \equiv \neg (p \vee q) \vee \mathbf{T} \tag{Negation} \\
+%        & \equiv \mathbf{T} \tag{Domination} 
+%     \end{align*}
+%     \end{solution}
+
+% % CS 2311 f16
+% \ifprintanswers
+% \newpage
+% \fi
+% \ugquestion{8} Prove the following statement is a tautology without using truth tables (use the logical equivalences from Table 6-8 of the book).  Justify each step with the law used.  Model the solutions in the style of Examples 6-8, pp. 29-30 of the book.
+% \[ [(p \rightarrow q) \wedge (q \rightarrow r)] \rightarrow (p \rightarrow r) \]
+%     \ifprintanswers
+%         \vspace{-30pt}
+%     \fi
+% 	\begin{solution}
+%    \begin{align*}
+%     [(p \rightarrow q) &\wedge (q \rightarrow r)] \rightarrow (p \rightarrow r) \\
+%      & \equiv \neg [ (\neg p \vee q) \wedge (\neg q \vee r)] \vee (\neg p \vee r) \tag{Table 7, rule 1, x4}\\
+%      & \equiv [\neg (\neg p \vee q) \vee \neg (\neg q \vee r)] \vee (\neg p \vee r) \tag{DeMorgan's} \\
+%      & \equiv [(\neg \neg p \wedge \neg q) \vee (\neg \neg q \wedge \neg r)] \vee (\neg p \vee r) \tag{DeMorgan's, x2} \\
+%      & \equiv (p \wedge \neg q) \vee (q \wedge \neg r) \vee \neg p \vee r \tag{Double Negation, x2} \\
+%      & \equiv (p \wedge \neg q) \vee \neg p \vee (q \wedge \neg r) \vee r \tag{Commutative} \\
+%      & \equiv \neg p \vee (p \wedge \neg q) \vee r \vee (q \wedge \neg r) \tag{Commutative, x2} \\
+%      & \equiv (\neg p \vee p) \wedge (\neg p \vee \neg q) \vee (r \vee q) \wedge (r \vee \neg r) \tag{Distributive, x2} \\
+%      & \equiv \mathbf{T} \wedge (\neg p \vee \neg q) \vee (r \vee q) \wedge \mathbf{T} \tag{Negation, x2} \\
+%      & \equiv (\neg p \vee \neg q) \vee (r \vee q) \tag{Identity, x2} \\
+%      & \equiv \neg p \vee \neg q \vee r \vee q \tag{algebra} \\
+%      & \equiv \neg p \vee r \vee \neg q \vee q \tag{Commutative} \\
+%      & \equiv \neg p \vee r \vee \mathbf{T} \tag{Negation} \\
+%      & \equiv \neg p \vee \mathbf{T} \tag{Domination} \\
+%      & \equiv \mathbf{T} \tag{Domination}
+%   \end{align*}
+
+
+%   \begin{center}
+%   OR
+%   \end{center}
+%   \vspace{-20pt}
+%   \begin{align*}
+%     [(p \rightarrow q) \wedge (q \rightarrow r)] &\rightarrow (p \rightarrow r) \\
+%     & \equiv [(p \vee q) \ra r] \ra (p \ra r) \tag{Table 7, r7} \\
+%     & \equiv \neg[\neg(p \vee q) \vee r] \vee (\neg p \vee r) \tag{Table 7, r1, x3} \\
+%     & \equiv [\neg \neg (p \vee q) \vee r] \vee (\neg p \vee r) \tag{DeMorgans} \\
+%     & \equiv [(p \vee q) \vee r] \vee (\neg p \vee r) \tag{Double Negation} \\
+%     & \equiv p \vee q \vee r \vee \neg p \vee r  \tag{algebra} \\
+%     & \equiv p \vee q \vee \neg p \vee r \vee r \tag{Commutative} \\
+%     & \equiv p \vee \neg p \vee q \vee r \vee r \tag{Commutative} \\
+%     & \equiv \mathbf{T} \vee q \vee r \vee r \tag{Negation} \\
+%     & \equiv \mathbf{T} \vee q \vee r \tag{Idempotent} \\
+%     & \equiv q \vee \mathbf{T} \vee r \tag{Commutative} \\
+%     & \equiv \mathbf{T} \vee r \tag{Domination} \\
+%     & \equiv r \vee \mathbf{T} \tag{Commutative} \\
+%     & \equiv \mathbf{T} \tag{Domination}
+%   \end{align*}
+%   \end{solution}
+
+
+% CS 2311 f16
+% \ifprintanswers
+% \newpage
+% \fi
+% \gquestion{18}{10}{a-b} Prove the following logical equivalences using the
+% equivalences from Table 6-8 (model the solutions in the style of
+% book Examples 6-8, pp. 29-30).  Justify each step with laws.
+% \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%     \item $(p \wedge \neg(q \vee \neg p)) \equiv p \wedge \neg q$
+%     \item $p \rightarrow (\neg q \rightarrow r) \equiv \neg(q \vee r)
+%     \rightarrow \neg p$
+%     \item $\neg(\neg p \vee (p \wedge q)) \vee q \equiv q \vee p $
+% \end{enumerate}
+
+%     \begin{solution}
+%     \begin{parts}
+%     \part  $(p \wedge \neg(q \vee \neg p)) \equiv 
+%       p \wedge \neg q$
+%     \begin{align*}
+%       (p &\wedge \neg(q \vee \neg p)) \\
+%       & \equiv p \wedge (\neg q \wedge \neg \neg p) \tag{DeMorgan's} \\
+%       & \equiv p \wedge \neg q \wedge p \tag{Double Negation} \\
+%       & \equiv p \wedge p \wedge \neg q \tag{Commutative} \\
+%       & \equiv p \wedge \neg q \tag{Idempotent}
+%     \end{align*}
+    
+%     \part $p \rightarrow (\neg q \rightarrow r) \equiv 
+%       \neg(q \vee r) \rightarrow \neg p$
+%     \begin{align*}
+%       p & \rightarrow (\neg q \rightarrow r) \\
+%       & \equiv p \ra (\neg \neg q \vee r) \tag{Table 7, rule 1} \\
+%       & \equiv p \ra (q \vee r) \tag{Double Negation} \\
+%       & \equiv \neg (q \vee r) \ra \neg p \tag{Table 7, rule 2} \\
+%     \end{align*}
+
+%     \vspace{-30pt}
+%     \begin{center}
+%     OR
+%     \end{center}
+
+%     \vspace{-30pt}
+%     \begin{align*}
+%       p & \rightarrow (\neg q \rightarrow r) \\
+%        & \equiv p \ra (q \vee r) \tag{Table 7, rule 3} \\
+%        & \equiv \neg (q \vee r) \ra \neg p  \tag{Table 7, rule 2}
+%     \end{align*}
+    
+%     \part $\neg(\neg p \vee (p \wedge q)) \vee q \equiv q \vee p $
+%     \begin{align*}
+%     \neg(\neg p & \vee (p \wedge q)) \vee q \\
+%      & \equiv (\neg \neg p \wedge \neg (p \wedge q)) \vee q \tag{DeMorgan's} \\
+%      & \equiv (p \wedge \neg (p \wedge q)) \vee q \tag{Double Negation}\\
+%      & \equiv (p \wedge (\neg p \vee \neg q)) \vee q \tag{DeMorgan's}\\
+%      & \equiv (p \wedge \neg p) \vee (p \wedge \neg q) \vee q \tag{Distributive}\\
+%      & \equiv \mathbf{F} \vee (p \wedge \neg q) \vee q \tag{Negation}\\
+%      & \equiv (p \wedge \neg q) \vee q \tag{Identity}\\
+%      & \equiv q \vee (p \wedge \neg q) \tag{Commutative}\\
+%      & \equiv (q \vee p) \wedge (q \vee \neg q) \tag{Distributive}\\
+%      & \equiv (q \vee p) \wedge \mathbf{T} \tag{Negation}\\
+%      & \equiv  q \vee p \tag{Identity} \\
+%      & \equiv p \vee q \tag{Commutative}
+%      \end{align*}
+
+%     \vspace{-30pt}
+%     \begin{center}
+%     OR
+%     \end{center}
+
+%     \vspace{-30pt}
+%     \begin{align*}
+%     \neg(\neg p & \vee (p \wedge q)) \vee q \\
+%       & \equiv \neg[ (\neg p \vee p) \wedge (\neg p \vee q) ] \vee q \tag{Distributive} \\
+%       & \equiv \neg[ \mathbf{T} \wedge (\neg p \vee q) ] \vee q \tag{Negation} \\
+%       & \equiv \neg[ (\neg p \vee q)  ] \vee q \tag{Identity} \\
+%       & \equiv \neg( \neg p \vee q) \vee q \tag{algebra} \\
+%       & \equiv (\neg \neg p \wedge \neg q) \vee q \tag{DeMorgans} \\
+%       & \equiv (p \wedge \neg q) \vee q \tag{Double Negation} \\
+%       & \equiv q \vee (p \wedge \neg q) \tag{Commutative} \\
+%       & \equiv (q \vee p) \wedge (q \vee \neg q) \tag{Distributive} \\
+%       & \equiv (q \vee p) \wedge \mathbf{T} \tag{Negation} \\
+%       & \equiv (q \vee p) \tag{Identity} \\
+%       & \equiv q \vee p \tag{algebra}
+%     \end{align*}
+%     \end{parts}
+%     \end{solution}
+
+
+
+% \newpage
+\ugquestion{8}  Rosen Ch 1.6 \#6, p. 78.\\
+Let $r$ be the proposition ``It rains", let $f$ be ``It is foggy",
+    let $s$ be ``The sailing race will be held", let $l$ be ``The life
+    saving demonstration will go on", and let $t$ be ``The trophy will
+    be awarded".
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    The premises are: $(\neg r \vee \neg f) \rightarrow (s \wedge l)$, $s \rightarrow t$, $\neg t$. \\
+    The conclusion we want is: $r$.
+
+    \begin{tabular}{lll}
+        Step    & \hspace{0.2in} & Reason \\
+        \hline
+        1. $\neg t$                 &       & Hypothesis (Premise, Given) \\
+        2. $s \rightarrow t$        &       & Hypothesis (Premise, Given) \\
+        3. $\neg s$                 &       & Modus tollens with (1) and (2) \\
+        4. $(\neg r \vee \neg f) \rightarrow (s \wedge l)$  &   & Hypothesis (Premise, Given)  \\
+        5. $(\neg(s \wedge l)) \rightarrow \neg(\neg r \vee \neg f)$    & & Contrapositive with (4) \\
+        6. $(\neg s \vee \neg l) \rightarrow (\neg \neg r \wedge \neg \neg f)$ & & De Morgans law with (5) (x2) \\
+        7. $(\neg s \vee \neg l) \rightarrow (r \wedge f)$  & & Double negation with (6) (x2) \\
+        8. $\neg s \vee \neg l$     &       & Addition with (3) \\
+        9. $r \wedge f$             &       & Modus ponens with (7) and (8) \\
+        10. $r$                     &       & Simplification with (9)
+    \end{tabular}
+
+    \medskip
+    Another valid argument is:
+
+    \begin{tabular}{lll}
+        Step   & \hspace{0.2in}     & Reason \\
+        \hline
+        1. $\neg t$                 &   & Hypothesis \\
+        2. $s \ra t$                &   & Hypothesis \\
+        3. $(\neg r \vee \neg f) \ra (s \wedge l)$  &   & Hypothesis \\
+        4. $\neg s$                 &   & Modus tollens, (1), (2) \\
+        5. $\neg (\neg r \vee \neg f) \vee (s \wedge l) $  & & Table 7, rule 1, (3) \\
+        6. $(\neg \neg r \wedge \neg \neg f) \vee (s \wedge l)$  & & DeMorgans,  (5) \\
+        7. $(r \wedge f) \vee (s \wedge l)$     & & Double Negation (x2), (6) \\
+        8. $\neg s \vee \neg l$     &   & Addition with (4) \\
+        9. $\neg (s \wedge l)$      &   & DeMorgans, (8) \\
+        10. $r \wedge f$            &   & Disjunctive Syllogism, (7), (9) \\
+        11. $r$                     &   & Simplification, (10)
+    \end{tabular}
+
+
+    \newpage
+    Or, another valid argument is:
+
+    \begin{tabular}{lll}
+        Step   & \hspace{0.2in}     & Reason \\
+        \hline
+        1. $(\neg r \vee \neg f) \ra (s \wedge l)$                &   & Hypothesis \\
+        2. $s \ra t$                &   & Hypothesis \\
+        3. $\neg t$  &   & Hypothesis \\
+        4. $\neg s$                 &   & Modus tollens, (2), (3) \\
+        5. $\neg s \vee \neg l$     &   & Addition with (4) \\
+        6. $\neg(s \wedge l)$       &   & DeMorgans with (5) \\
+        7. $\neg (\neg r \vee \neg f)$  & & Modus tollens with (1) and (6)\\
+        8. $\neg \neg r \wedge \neg \neg f$ & & DeMorgans with (7) \\
+        9. $r \wedge f$             &   & Double Negation with (8) \\
+        10. $r$                     &   & Simplification, (9)
+    \end{tabular}
+\end{solution}
+
+
+
+% \gquestion{10}{10}{all} Use the rules of inference to show that the hypotheses imply the conclusion:
+% \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%     \item ``If I graduate in four years, then I will have completed the CS courses", and
+%     \item ``If I do not work on CS for 10 hours a week, then I will not complete the CS courses", and
+%     \item ``If I work on CS for 10 hours a week, then I can not procrastinate."
+% \end{itemize}
+% Conclusion: ``If I procrastinate, then I will not graduate in four years."
+% Let
+% \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%     \item[$w = $] ``I work on CS for 10 hours a week",
+%     \item[$g = $] ``I graduate in four years",
+%     \item[$c = $] ``I will complete the CS courses", and
+%     \item[$p = $] ``I procrastinate."
+% \end{itemize}
+
+% \begin{parts}
+%   \part (4 pts) Translate the hypotheses and conclusion to logical statements. 
+%   \part (6 pts) Construct a valid argument (justify each step). 
+% \end{parts}
+
+% \textit{Hint: Remember you can also use the logical equivalences as a step in the argument.}
+%     \ifprintanswers
+%         \vspace{-12pt}
+%     \fi
+% \begin{solution}
+%   (a) The hypotheses are: $g \ra c$, $\neg w \ra \neg c$ and $w \ra \neg p$. \\
+%   The conclusion is: $p \ra \neg g$.
+  
+%   (b)
+
+%     \begin{tabular}{lll}
+%         Step    & \hspace{0.2in} & Reason \\
+%         \hline
+%         1. $g \ra c$                & & hypothesis \\
+%         2. $\neg w \ra \neg c$          & & hypothesis \\
+%         3. $w \ra \neg p$             & & hypothesis \\
+%         4. $\neg \neg p \ra \neg w$   & & Table 7, rule 2, with (3) \\
+%         5. $p \ra \neg w$       & & Double Negation with (4) \\
+%         6. $p \ra \neg c$               & & Hyp. syl., with (2) \& (5) \\
+%         7. $\neg c \ra \neg g$          & & Table 7, rule 2 with (1) \\
+%         8. $p \ra \neg g$       & & Hyp. syl. with (6) \& (7)
+%     \end{tabular}
+    
+%     \emph{Note, this is one possible valid argument; many others exists.}
+
+%     \begin{tabular}{lll}
+%         Step    & \hspace{0.2in} & Reason \\
+%         \hline
+%         1. $g \ra c$                    & & premise \\
+%         2. $\neg w \ra \neg c$          & & premise \\
+%         3. $w \ra \neg p$               & & premise \\
+%         4. $\neg g \vee c$              & & Table 7.1 with (1) \\
+%         5. $\neg \neg w \vee \neg c$    & & Table 7.1 with (2) \\
+%         6. $\neg w \vee \neg p$         & & Table 7.1 with (3) \\
+%         7. $w \vee \neg c$              & & Double Negation with (5) \\
+%         8. $\neg p \vee \neg c$         & & Resolution with (6) and (7) \\
+%         9. $\neg c \vee \neg p$         & & Commutative with (8) \\
+%         10. $c \vee \neg g$             & & Commutative with (9) \\
+%         11. $\neg p \vee \neg g$        & & Resolution with (9) and (10) \\
+%         12. $p \ra \neg g$              & & Table 7.1 with (11)
+%     \end{tabular}
+% \end{solution}
+
+
+% \gquestion{12}{12}{all} Use the rules of inference to show that the hypotheses imply the conclusion:
+
+% \begin{quote}
+% If you eat carefully then you will have a healthy digestive system. If you exercise regularly you will be very fit. If you have a healthy digestive system or you are very fit, you will live to a ripe old age. You do not live to a ripe old age. Therefore, you did not eat carefully and you did not exercise regularly.
+% \end{quote}
+
+% Let
+% \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%     \item[$c = $] ``you eat carefully",
+%     \item[$h = $] ``you have a healthy digestive system",
+%     \item[$e = $] ``you excercise regularly",
+%     \item[$f = $] ``you will be very fit", 
+%     \item[$l = $] ``you will live to a ripe old age"
+% \end{itemize}
+
+% \begin{parts}
+%   \part (4 pts) Translate the hypotheses and conclusion to logical statements. 
+%   \part (8 pts) Construct a valid argument (justify each step). 
+% \end{parts}
+
+% \textit{Hint: Remember you can also use the logical equivalences as a step in the argument.}
+%     \ifprintanswers
+%         \vspace{-2pt}
+%     \fi
+% \begin{solution}
+%   % (a) The hypotheses are: 
+%   % 	\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%   % 		\item $c \ra h$ 
+%   % 		\item $e \ra f$ 
+%   % 		\item $(h \vee f) \ra l$ 
+%   % 		\item $\neg l$ 
+%   % 	\end{itemize}
+%   % The conclusion is: $\neg c \wedge \neg e$.
+%   (a) The hypotheses are:  $\;\;c \ra h$ \qquad $e \ra f$ \qquad $(h \vee f) \ra l$ 
+%   \qquad $\neg l$ 
+
+%   The conclusion is: $\neg c \wedge \neg e$
+  
+%   (b) 
+
+%   \begin{tabular}{lll}
+%         Step    & \hspace{0.2in} & Reason \\
+%         \hline
+%         1. $c \ra h$                & & hypothesis \\
+%         2. $e \ra f$           & & hypothesis \\
+%         3. $(h \vee f) \ra l$            & & hypothesis \\
+%         4. $\neg l$ 				& & hypothesis \\
+%         5. $\neg (h \vee f)$   & & modus tollens (3) \& (4) \\
+%         6. $\neg h \wedge \neg f$       & & DeMorgans (5) \\
+%         7. $\neg h$               & & Simplification (6) \\
+%         8. $\neg c$          & & modus tollens (7) \& (1) \\
+%         9. $\neg f$       & & Simplification (6) \\
+%         10. $\neg e$  		& & modus tollens (2) \& (9) \\
+%         11. $\neg c \wedge \neg e$ 		 & & Conjunction (8) \& (10) \\
+%     \end{tabular}
+    
+%     \emph{Note, this is one possible valid argument; many others exists.}
+
+%     % \begin{tabular}{lll}
+%     %     Step    & \hspace{0.2in} & Reason \\
+%     %     \hline
+%     %     1. $c \ra h$                & & premise \\
+%     %     2. $e \ra f$                & & premise \\
+%     %     3. $(h \vee f) \ra l$       & & premise \\
+%     %     4. $\neg l$                 & & premise \\
+%     %     5. $\neg (h \vee f)$        & & modus tollens (3) \& (4) \\
+%     %     6. $
+% \end{solution}
+
+
+
+\bonusquestion[2] Give a compound proposition with three variables $p$, $q$, and $r$ that is 
+true when at most one of the three variables is true, and false otherwise.
+    \begin{solution}
+    \[ (p \wedge \neg q \wedge \neg r) \vee (\neg p \wedge q \neg r) 
+        \vee (\neg p \wedge \neg q \wedge r) \vee (\neg p \wedge \neg q \neg r)\]
+    \end{solution}
+
+
+
+
+
+\end{questions}
+
+\end{document}

@@ -1,0 +1,485 @@
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{CS2311 - Spring 2020}}{\textbf{HW
+ 9 \ifprintanswers - Solutions \fi}}{\textbf{Due: Mon. 04/06/20}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\ifprintanswers
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  Assignments should be typed and submitted as a PDF.  Every student must write up their own solutions in their own manner.
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\else
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  Every student must write up their own solutions in their own manner.
+
+\noindent Please present your solutions in a clean, understandable
+manner.  Use the provided files that give mathematical notation in Word, Open Office, Google Docs, and \LaTeX. 
+
+\noindent Assignments should be typed and submitted as a PDF.   
+
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\fi
+
+\begin{questions}
+
+
+
+\section*{Sequences} 
+
+\gquestion{12}{6}{e} Rosen Ch 2.4 \# 16(c,e), p. 168.
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+    % \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    %     \item[a)]
+        % \small \vspace{-0.2in}
+        % \begin{align*}
+        %     (a) \quad \quad a_n &= -a_{n-1} = -1\cdot a_{n-1} \\
+        %       &= -(-a_{n-2}) = (-1)^2a_{n-2} \\
+        %       &= -(-(-a_{n-3})) = (-1)^3a_{n-3} \\
+        %       &= \cdots \\
+        %       &= (-1)^n\cdot a_{n-n} = (-1)^n\cdot a_{0} = 5\cdot(-1)^n
+        % \end{align*}
+        % \item[(c)] 
+        \vspace{-0.1in} 
+        \begin{align*}
+            (c) \quad \quad a_n &= a_{n-1} - n \\
+            &= a_{n-2} -(n-1) - n = a_{n-1} - (n + (n-1)) \\
+            &= a_{n-3} -(n-2) - (n + (n-1)) = a_{n-2} - (n + (n-1) + (n-2)) \\
+            &= \cdots \\
+            &= a_{n-n} -(n + (n-1) + (n-2) + \ldots + (n- (n-1)) \\
+            &= a_0 - (n + (n-1) + (n-2) + \ldots + 1) \\
+            &= 4 - (n + (n-1) + (n-2) + \ldots + 1) = 4 -\frac{n(n+1)}{2}
+        \end{align*}
+    % \end{itemize}
+        \vspace{-0.1in}
+        \begin{align*}
+            (e) \quad \quad a_n &= (n+1)a_{n-1} \\
+              &= (n+1)na_{n-2} \\
+              &= (n+1)n(n-1)a_{n-3} \\
+              &= \cdots \\
+              &= (n+1)n(n-1)\cdots(n-(n-2))a_{n-n} \\
+              &= (n+1)n(n-1)\cdots2a_{0} \\
+              &= 2(n+1)!
+        \end{align*}
+\end{solution}
+
+
+\ugquestion{6} A mortage loan is paid off in periodic (monthly) installments, while interest is also charged each period.  A mortage with an annual interest rate of $r$ has a monthly interest rate of $i = \frac{r}{12}$.  A mortage of $M$ dollars at monthly interest rate $i$ has payments of $P$ dollars.  At the end of the month, interest is added to the previous balance, and then the payment $P$ is subtracted from the result.  Let $m_n$ be the balance due after $n$ months, where $m_0 = M$, $m_1 = M(1+i) - P, \ldots$
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    topsep=0pt,partopsep=0pt]
+    \item Let $M = 10,000$, $i = 0.03$ and $P = 105.13$, determine $m_2$ and $m_3$.
+    % \item If $m_{20} = 79,495.98$, $i=0.02$ and $R = 822.89$, determine $m_{21}$.
+    \item Find a recursive formula for the mortage balance, $m_n$
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    topsep=0pt,partopsep=0pt]
+        \item $m_0 = 10,000$, $m_1 = 10194.87$, $m_2 = 10395.59$, $m_3 =  10602.32$
+        \item $m_n = m_{n-1}(1+i) - P$, $m_o = M$
+    \end{enumerate}
+\end{solution}
+
+
+\section*{Summations}
+
+
+\ugquestion{2} Write out in sigma notation the sum of the first 40 terms of the series $3 + 6 + 9 + 12 + \ldots$.
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+    The sum can take many form depending on index of summation and limits.  Here are two samples
+
+\begin{center}
+\begin{tabular}{ccc}
+   $\ds \sum_{i=1}^{40} 3\cdot i$ \hspace{0.25in} & $\ds \sum_{j=1}^{40} 3\cdot j$ \hspace{0.25in} &
+    $\ds \sum_{k=0}^{39} 3\cdot (k+1)$
+\end{tabular}
+\end{center}
+\end{solution}
+
+
+\gquestion{12}{8}{(a,c-e)} What are the values of the sums:\\
+\begin{tabular}{lll}
+    (a) $\ds \sum_{j\in S} (2j - 1), \text{ where } S = \{1, 2, 4, 6\}$
+    & (b) $\ds \sum_{i=1}^{8} 4$  \hspace*{1in} 
+    & (c) $\ds \sum_{k=0}^{4} (-3)^k$ \\
+    & & \\
+    (d) $\ds \sum_{j=0}^{7} (2^{j+1} - 2^{j-1})$
+    & (e) $\ds \sum_{i=1}^{4} \sum_{j=1}^{3} (2i + 3j)$
+    & (f) $\ds \sum_{j=0}^{3} \sum_{k=1}^{3} j*2^{k}$
+\end{tabular}
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=2pt,parsep=0pt,
+    topsep=0pt,partopsep=0pt]
+        \item $(2\cdot1 - 1)+(2\cdot2 - 1)+(2\cdot4 -1)+(2\cdot6-1) = 1+3+7+11 = 22$ 
+        \item $\ds \sum_{i=1}^8 4 = 8\cdot4 = 32$
+        \item $(-3^0) + (-3^1) + (-3^2) + (-3^3) + (-3^4) = 1 -3 + 9 -27 + 81 = 61 $
+        \item $\ds \sum_{j=0}^7 2^{j+1} - \sum_{j=0}^7 2^{j-1} = 510 - 127.5 = 382.5$
+        \item $\ds \sum_{i=1}^4 \left( \sum_{j=1}^3 2i + \sum_{j=1}^3 3j \right) = 132$
+        \item $\ds \sum_{j=0}^3 \sum_{k=1}^3 j*2^k = 84$
+    \end{enumerate}
+\end{solution}
+
+
+
+\uplevel{\ifprintanswers 
+\else 
+A \textit{closed form} of a summation is an equation
+in which no summation symbol appears.  The classic example is
+$\ds \sum_{i=1}^n i = \frac{n(n+1)}{2}$.  The fraction on
+the right is the \textit{closed form} of the summation. 
+
+\medskip
+\fi
+}
+% \ifprintanswers
+\small
+\begin{tabular}{llll}
+  \multicolumn{3}{l}{\textit{Arithmetic Properties of Summations}} &  \\
+  \hline   
+  Fact 1: & $\ds \sum_{i=1}^n c  = nc$     & Fact 2: & $\ds \sum_{i=j}^n c  = (n-j+1)c$ \\
+    & when $c$ is a constant & & when $c$ is a constant \\ 
+  Fact 3: & $\ds \sum_{i=j}^n (f(i) \pm g(i)) = \sum_{i=j}^n f(i) \pm \sum_{i=j}^n g(i)$ \hspace{0.4in} & Fact 4: & $\ds \sum_{i=j}^n cf(i) = c \sum_{i=j}^n f(i)$ \\
+    & & & when $c$ is a constant \\
+  \hline 
+\end{tabular}
+
+\medskip
+\begin{tabular}{llllll}
+  \multicolumn{3}{l}{\textit{Closed-form Summation Formulae}} \\
+  \hline 
+  Name & Sum & Closed Form & Name & Sum & Closed Form \\
+  Table 2.1 & $\ds \sum_{k=0}^n ar^k \;(r \neq 0)$ 
+    & $\ds \frac{ar^{n+1} - a}{r-1}, \;\text{if}\; r \neq 1$ \hspace{0.25in}
+    & Table 2.2 & $\ds \sum_{k=1}^n k $
+    & $\ds \frac{n(n+1)}{2}$  \\
+  Table 2.3 & $\ds \sum_{k=1}^n k^2 $ 
+    & $\ds \frac{n(n+1)(2n+1)}{6}$  
+    & Table 2.4 & $\ds \sum_{k=1}^n k^3 $
+    & $\ds \frac{n^2(n+1)^2}{4} $  \\
+  Table 2.5 & $\displaystyle \sum_{k=0}^{\infty} x^k, \;|x| < 1$ 
+    & $\displaystyle \frac{1}{1-x}$ 
+    & Table 2.6 & $\displaystyle \sum_{k=1}^{\infty} kx^{k-1}, \;|x| < 1$ & $\displaystyle \frac{1}{(1-x)^2} $\\
+  \hline
+\end{tabular}
+
+
+% \else
+% \small
+% \begin{tabular}{lll}
+%     \multicolumn{2}{l}{Facts:} & Example: \\
+%   Fact 1: & $\ds \sum_{i=1}^n c  = nc$     & $\ds \sum_{i=1}^n 7 = 7n$ \\
+%     & when $c$ is a constant \\
+%   Fact 2: & $\ds \sum_{i=j}^n c  = (n-j+1)c$  & $\ds \sum_{i=0}^n = 7(n+1) $ \\
+%     & when $c$ is a constant \\
+%   Fact 3: & $\ds \sum_{i=j}^n (f(i) \pm g(i)) = \sum_{i=j}^n f(i) \pm \sum_{i=j}^n g(i)$ \hspace{0.2in} &  $\ds \sum_{i=j}^n (2n - n^2) = \sum_{i=j}^n 2n - \sum_{i=j}^n n^2 $ \\
+%     & \\
+%   Fact 4: & $\ds \sum_{i=j}^n cf(i) = c \sum_{i=j}^n f(i)$  & $\ds \sum_{i=j}^n (3 \times 2^i) = 3 \sum_{i=j}^n 2^i $ \\
+%    & when $c$ is a constant \\
+% \end{tabular}
+
+
+% \begin{tabular}{llll}
+%      Name & Summation & & Closed Form \\
+%      \\
+%      Table 2.1 & $\displaystyle \sum_{k=0}^n ar^k \;(r \neq 0)$ 
+%       & \hspace{0.3in} & $\displaystyle \frac{ar^{n+1} - a}{r-1}, \;\text{if}\; r \neq 1$ \\
+%      \\
+%      % $\displaystyle \sum_{k=0}^n ar^k \;(r = 1)$ & & $\displaystyle (n+1)a, \;\text{if}\; r=1$ \\
+%      % \\
+%      Table 2.2 & $\displaystyle \sum_{k=1}^n k $ & 
+%       & $\displaystyle \frac{n(n+1)}{2}$ \\
+%      \\
+%      Table 2.3 & $\displaystyle \sum_{k=1}^n k^2 $ & 
+%       & $\displaystyle \frac{n(n+1)(2n+1)}{6}$ \\
+%      Table 2.4 & $\displaystyle \sum_{k=1}^n k^3 $ & 
+%       & $\displaystyle \frac{n^2(n+1)^2}{4} $ \\
+%      \\
+%      Table 2.5 & $\displaystyle \sum_{k=0}^{\infty} x^k, \;|x| < 1$ & 
+%       & $\displaystyle \frac{1}{1-x}$ \\
+%      \\
+%      Table 2.6 & $\displaystyle \sum_{k=1}^{\infty} kx^{k-1}, \;|x| < 1$ &
+%       & $\displaystyle \frac{1}{(1-x)^2} $
+%     \end{tabular}
+
+% \fi
+
+
+\gquestion{8}{8}{all} Find a closed form for the summation $\displaystyle \sum_{i=0}^n (2 \cdot 3^i - 3 \cdot 2^i)$.   Show how you find the closed form solution; justify each step using the four facts of the arithmetic properties of summations and Table 2 above (p. 166 in the book).
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+\begin{align*}
+  \sum_{i=0}^n (2 &\cdot 3^i - 3 \cdot 2^i) \\
+     &= \sum_{i=0}^n 2 \cdot 3^i - \sum_{i=0}^n 3 \cdot 2^i \tag{Fact 3} \\
+     &= 2 \sum_{i=0}^n 3^i - 3 \sum_{i=0}^n 2^i \tag{Fact 4} \\
+     &= 2 \left( \frac{3^{n+1} - 1}{2} \right) 
+        - 3 \left( \frac{2^{n+1} - 1}{1} \right) \tag{Table 2.1} \\
+     &= 3^{n+1} - 1 - 3(2^{n+1} - 1) \tag{algebra} \\
+     &= 3^{n+1} - 3\cdot 2^{n+1} +2 \tag{algebra}
+\end{align*}
+\end{solution}
+
+
+
+\ugquestion{8} Find a closed form for the summation $\displaystyle \sum_{i=4}^n 7\cdot 5^i$.  Show how you find the closed form solution; justify each step using the four facts of the arithmetic properties of summations and Table 2 above (p. 166 in the book).
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+  \begin{align*}
+      \sum_{i=4}^n 7\cdot 5^i  &= \sum_{j=0}^{n-4} 7\cdot 5^{j+4} \tag{change of index} \\
+       &= \sum_{j=0}^{n-4} 7\cdot 5^{j}5^{4} \tag{algebra} \\
+       &= 7\cdot 5^4 \sum_{j=0}^{n-4} 5^j \tag{Fact 4} \\
+       &= 7\cdot 5^4 \left( \frac{5^{n-3} - 1}{4}  \right) \tag{Table 2.1} \\
+       &= \frac{7\cdot 5^4(5^{n-3} - 1)}{4} \tag{algebra}
+  \end{align*}
+
+  or, 
+  \begin{align*}
+      \sum_{i=4}^n 7\cdot 5^i  &= \sum_{j=0}^{n-4} 7\cdot 5^{j+4} \tag{change of index} \\
+       &= \sum_{j=0}^{n-4} 7\cdot 5^{j}5^{4} \tag{algebra} \\
+       &= \frac{7\cdot 5^4 \cdot 5^{n-3} - 7\cdot 5^4}{4} \tag{Table 2.1} \\
+       &= \frac{7\cdot 5^4(5^{n-3} - 1)}{4} \tag{algebra}
+  \end{align*}
+
+  Alternatively, 
+  \begin{align*}
+    \sum_{i=4}^n 7\cdot5^i  &= \sum_{i=0}^n 7\cdot5^i - \sum_{i=0}^3 7\cdot5^i \tag{prop. of sum }\\
+      &= \frac{7\cdot5^{n+1} - 7}{4} - \frac{7\cdot5^4 - 7}{4} \tag{Table 2.1} \\
+      &= \frac{7\cdot5^{n+1} - 7\cdot5^4}{4} \tag{algebra} \\
+      &= \frac{7\cdot5^4\cdot5^{n-3} - 7\cdot5^4}{4} \tag{algebra} \\
+      &= \frac{7\cdot5^4 (5^{n-3} - 1)}{4}  
+  \end{align*}
+\end{solution}
+
+
+
+\section*{Induction}
+
+\uplevel{Follow the template for inductive proofs given on p. 329 of the book.}
+
+\gquestion{10}{10}{all} Let $P(n)$ be the statement $\sum_{j=1}^n 2j = n + n^2$ for $n \geq 1$.
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    topsep=0pt,partopsep=0pt]
+  \item (1 pt) What is the statement $P(1)$? 
+  \item (1 pt) Show that P(1) is true, completing the basis step of the proof.
+  \item (1.5 pts) What is the inductive hypothesis? 
+  \item (1.5 pts) What do you need to prove in the inductive step? 
+  \item (4 pts) Complete the inductive step.
+  \item (1 pt) Explain why these steps show that this formula is true whenever $n$ is a positive integer. 
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    topsep=0pt,partopsep=0pt]
+  \item (1 pt) What is the statement $P(1)$? \\
+    $P(1)$ is the statement $\sum_{j=1}^1 2j = 1 + 1^2 $.
+  \item (1 pt) Show that P(1) is true, completing the basis step of the proof. \\
+    $\sum_{j=1}^1 2j = 2\cdot 1 = 2 = 1 + 1^2 $.
+  \item (1.5 pts) What is the inductive hypothesis? \\
+    The inductive hypothesis is to assume $P(k)$ is true for an arbitrary, fixed integer $k \geq 1$, that is
+    \[ \sum_{j=1}^k 2j = k + k^2 \]
+  \item (1.5 pts) What do you need to prove in the inductive step? \\
+    For the inductive step, show for each $k \geq 1$ that $P(k)$ implies $P(k+1)$. \\
+    That is, show $P(k+1)$:
+    \[ \sum_{j=1}^{k+1} 2j = (k+1) + (k+1)^2  = k^2 + 3k + 2\]
+  \item (4 pts) Complete the inductive step.
+    Start with $P(k+1)$ 
+      \begin{align*}
+        \sum_{j=1}^{k+1} 2j &= \sum_{j=1}^k 2j + 2(k+1) \\
+        &= k + k^2 +  2(k+1) \tag{IH} \\
+        &= k^2 + k + 2k + 2 \\
+        &= k^2 + 3k + 2 
+      \end{align*}
+      This shows $P(k+1)$ is true, assuming $P(k)$ is true, completing the inductive step.
+  \item (1 pt) Explain why these steps show that this formula is true whenever $n$ is a positive integer. \\
+    The basis step and inductive step are completed.  Therefore by principle of mathematical induction, the statement, $P(n)$, is true for every positive integer $n$.
+\end{enumerate}
+\end{solution}
+  % \textit{Proof:}
+  % Let $P(n)$ be the statement $\sum_{j=1}^n 2j = n + n^2$ for $n \geq 1$.
+
+  % \smallskip
+  % \smallskip
+  % \begin{tabular}{lp{4in}}
+  %   \textit{Basis Step:} & Show $P(1)$ is true, $\sum_{j=1}^1 2j = 2\cdot 1 = 2 =  1 + 1^2 = n + n^2 $ \\
+  %    & \\
+  %  \textit{Inductive Step:} &  \\
+  % \end{tabular}
+
+  % Assume $P(k)$ is true for an arbitrary, fixed integer $k \geq 1$, that is,
+  % \begin{align*}
+  %   \sum_{j=1}^k 2j = k + k^2 \tag{IH}
+  % \end{align*}
+
+  % Show $P(k+1)$ is true, that is, 
+  % \[ \sum_{j=1}^{k+1} 2j = (k+1) + (k+1)^2 = k+1 + k^2 + 2k + 1 = k^2 + 3k + 2 = (k+1)(k+2) \]
+
+  % Start with $P(k+1)$ 
+  % \begin{align*}
+  %   \sum_{j=1}^{k+1} 2j = \sum_{j=1}^k 2j + 2(k+1) \\
+  %   &= k + k^2 +  2(k+1) \tag{IH} \\
+  %   &= k^2 + k + 2k + 2 \\
+  %   &= k^2 + 3k + 2 = (k+2)(k+1) \\
+  %   &= k+1 + k^2 + 2k + 1 = (k+1) + (k+1)^2 \tag{alternatively} 
+  % \end{align*}
+  % This shows $P(k+1)$ is true, assuming $P(k)$ is true, completing the inductive step.
+
+  % Therefore by mathematical induction, $P(n)$ is true for $n \geq 1$.
+% \end{solution}
+
+
+\ugquestion{8} Prove using mathematical induction that
+\[ 1 + 5 + 5^2 + 5^3 + \cdots + 5^n = \frac{5^{n+1} - 1}{4} \text{ for all } n\geq 0. \]
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+    Let $P(n)$ be $1 + 5 + 5^2 + 5^3 + \cdots + 5^n = \frac{5^{n+1} - 1}{4}$.
+
+    \smallskip
+    Show, for all $n\geq 0, P(n)$.
+
+    \smallskip
+    \textit{Basis Step:}\\ Show $n=0$, $1 = \frac{5^{0+1} - 1}{4} = \frac{5-1}{4} = 1.$ \\
+    Therefore, $P(0)$ is true.
+
+    \smallskip
+    \textit{Inductive Step:} \\
+    Assume $P(k)$ is true, for some arbitrary, fixed integer $k \geq 0$,
+       \[ 1 + 5 + 5^2 + 5^3 + \cdots + 5^k = \frac{5^{k+1} - 1}{4} \]
+    Show $P(k+1)$ is true,
+      \[ 1 + 5 + 5^2 + 5^3 + \cdots + 5^{k+1} = \frac{5^{k+2} - 1}{4} \]
+    Begin with $P(k)$ and add the next term, $5^{k+1}$ to both sides.
+    \begin{align*}
+        1 + 5 + 5^2 + 5^3 + \cdots + 5^k &= \frac{5^{k+1} - 1}{4} \\
+        1 + 5 + 5^2 + 5^3 + \cdots + 5^k  + 5^{k+1} &= \frac{5^{k+1} - 1}{4} + 5^{k+1} \\
+          &= \frac{5^{k+1} - 1 + 4\cdot 5^{k+1}}{4} \\
+          &= \frac{5\cdot 5^{k+1} - 1}{4} = \frac{5^{k+2} - 1}{4} \\
+    \end{align*}
+    This is the form of $P(k+1)$, thus completing the inductive step.
+
+    Therefore, by mathematical induction $P(n)$ is true for all $n \geq 0$.
+\end{solution}
+
+
+
+\gquestion{8}{8}{all} Rosen Ch 5.1 \# 32, p. 330
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+Let $P(n)$ be the proposition that $3 \;|\; n^3 + 2n$ for positive integers $n$.
+
+\smallskip
+\begin{tabular}{ll}
+  \textit{Basis Step:} & Show $P(1)$ is true, $3 \;|\; n^3 + 2n$ or $3 \;|\; 1 + 2$ or $3 \;|\; 3$ which is true. \\
+   & \\
+ \textit{Inductive Step:} &  \\
+\end{tabular}
+
+Assume $P(k)$ is true for an arbitrary, fixed
+ integer $k \geq 1$, that is,
+\begin{align*}
+  3 \;|\; k^3 + 2k \tag{IH} 
+\end{align*}
+
+Show $P(k+1)$ is true, that is,
+\[ 3 \;|\; (k+1)^3 + 2(k+1) \]
+
+Start with the expression used in $P(k+1)$, we want to show this is divisible by 3.
+\begin{align*}
+  (k+1)^3 + 2(k+1) &=  k^3 + 3k^2 + 3k + 1 + 2k + 2 \\
+   &= (k^3 + 2k) + (3k^2 + 3k + 3) \\
+\end{align*}
+Each of the terms in parenthesis are divisible by 3.  The first term $k^3 + 2k$ is divisible by 3 using the Inductive Hypothesis, the second term has a 3 pulled from the expression, $3\cdot(k^2 + k + 1)$ so it is also divisible by 3. 
+
+This shows $P(k+1)$ is true when $P(k)$ is true, completing the
+inductive step.
+
+\smallskip
+Hence, the basis step and inductive step are completed, by mathematical induction $P(n)$ is true for all $n$ such
+that $n\geq 1$.
+\end{solution}
+
+
+\section*{Bonus Questions} 
+
+
+\bonusquestion[4] Find a closed form for the summation $\displaystyle \sum_{i=1}^n \sum_{j=1}^n (6i^2 - 2j)$.  Show how you find the closed form solution; justify each step using the four facts of the arithmetic properties of summations and Table 2, p. 166 in the book.
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+\begin{align*}
+        \sum_{i=1}^n \sum_{j=1}^n (6i^2 - 2j) 
+        &= \sum_{i=1}^n ( \sum_{j=1}^n (6i^2 - 2j) ) \tag{implied parentheses} \\
+        &= \sum_{i=1}^n (\sum_{j=1}^n 6i^2 - \sum_{j=1}^n 2j) \tag{Fact 3} \\
+        &= \sum_{i=1}^n (6i^2 \sum_{j=1}^n 1 - 2 \sum_{j=1}^n j) \tag{Fact 4, twice} \\
+        &= \sum_{i=1}^n (6i^2n - 2 \sum_{j=1}^n j) \tag{Fact 1} \\
+        &= \sum_{i=1}^n (6i^2n - 2 \frac{n(n+1)}{2}) \tag{Table 2} \\
+        &= \sum_{i=1}^n 6i^2n - \sum_{i=1}^n  n(n+1) \tag{Fact 3} \\
+        &= 6n \sum_{i=1}^n i^2 - n(n+1) \sum_{i=1}^n 1 \tag{Fact 4, twice} \\
+        &= 6n (\frac{n(n+1)(2n+1)}{6}) - n(n+1) \sum_{i=1}^n 1 \tag{Table 2} \\
+        &= n^2(n+1)(2n+1) - n^2(n+1) \tag{algebra} \\
+        &= n^2(n+1)(2n + 1  - 1) \\
+        &= 2n^3(n+1) 
+    \end{align*}
+\end{solution}
+
+
+
+% Ferland, p. 191, Exercise #17.
+\bonusquestion[4] Let $\{s_n\}$ be the sequence defined as, 
+\[ s_1 = 4 \quad \text{and} \quad s_n = 3s_{n-1} - 2, \forall n \geq 2. \]
+Show $\forall n \geq 1, s_n = 3^n + 1.$
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+  \textit{Proof:}
+  Let $P(n)$ be that the $n$th term of the sequence is found as $s_n = 3^n + 1$ for $n \geq 1$
+
+  \smallskip
+  \begin{tabular}{lp{4in}}
+    \textit{Basis Step:} & Show $P(1)$ is true, $s_1 = 3^1 + 1 = 4$ \\
+     & \\
+   \textit{Inductive Step:} &  \\
+  \end{tabular}
+
+  Assume $P(k)$ is ture for an arbitrary fixed integer $k \geq 1$, that is, 
+  \begin{align*}
+    s_k &= 3^k + 1 \tag{IH} \\
+  \end{align*}
+
+  Show $P(k+1)$ is true, that is,
+  \[ s_{k+1} = 3^{k+1} + 1 \]
+
+  Start with $P(k+1)$ and the definition of the sequence, 
+  \begin{align*}
+    s_{k+1} &= 3s_{k} - 2 \\
+    &= 3(3^k + 1) - 2 \tag{IH}\\
+    &= 3^{k+1} + 3 - 2 = 3^{k+1} + 1
+  \end{align*}
+  This shows $P(k+1)$ is true, assuming $P(k)$, completing the inductive step.
+
+  \smallskip
+  Therefore, we have shown by mathematical induction, $P(n)$ is true for all $n \geq 1$.
+\end{solution}
+
+
+\end{questions}
+\end{document}

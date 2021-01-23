@@ -1,0 +1,547 @@
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{CS2311 - Spring 2020}}{\textbf{HW
+ 1  \ifprintanswers - Solutions \fi}}{\textbf{Due: Tue. 01/28/20}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+
+\ifprintanswers
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  Assignments should be typed and submitted as a PDF in Canvas.   
+
+\medskip
+\noindent Every student must write up their own solutions in their own manner.
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\else
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  
+
+\medskip
+\noindent Every student must write up their own solutions in their own manner.
+
+\medskip
+\noindent Please present your solutions in a clean, understandable
+manner.  Use the provided files that give mathematical notation in Word, Open Office, Google Docs, and \LaTeX. 
+
+\medskip
+\noindent Assignments should be typed and submitted as a PDF.   
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\fi
+
+
+\begin{questions}
+
+\section*{Logic}
+
+\gquestion{6}{4}{a-d} Determine which of the following statements are propositions? What are the truth values of those that are propositions? \\
+\begin{tabular}{lll}
+    (a) $x - 4 = 7$ \hspace*{0.5in}
+     & (b)  When in Winter Carnival? \hspace*{0.5in}
+     & (c) 14 is prime. \\
+	(d) 37 is odd. 		
+	 & (e) Read Chapter 2.1 before class. 
+	 & (f) $8 - 5 = -3$ \\	
+\end{tabular}
+	\ifprintanswers
+        \vspace{-5pt}
+    \fi
+	\begin{solution}
+		\begin{tabular}{lll}	
+			(a) $x - 4 = 7$						
+                & not a proposition, depends on $x$ \hspace*{0.25in} & -- \\
+			(b) When is Winter Carnival? 
+                & not a proposition, question & -- \\
+			(c) 14 is prime.  
+                & proposition 			       & $F$ \\
+            (d) 37 is odd.                      
+                &  proposition                 & $T$ \\
+            (e)  Read Chapter 2.1 before class. \hspace*{0.3in}   
+                & not a proposition, command   & -- \\
+            (f) $8 - 5 = -3$                        
+                & proposition                  & $F$ \\
+		\end{tabular}
+	\end{solution}
+
+
+
+\ugquestion{4}  Rosen Ch 1.1.8 (a,c,f,h), p. 13 
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+    \begin{solution}
+        \begin{itemize}[itemsep=0pt,parsep=0pt,
+        topsep=0pt,partopsep=0pt]
+            \item[(a)] I did not buy a lottery ticket this week.
+            % \item[(b)] Either I bought a lottery ticket this week or I won the million dollar jackpot on Friday.
+            \item[(c)] If I bought a lottery ticket this week, then I won the million dollar jackpot on Friday. 
+            % \item[(d)] I bought a lottery ticket this week and I won the million dollar jackpot on Friday.
+            % \item[(e)] I bought a lottery ticket this week if and only if I won the million dollar jackpot on Friday.
+            \item[(f)] If I did not buy a lottery ticket this week, then I did not win the million dollar jackpot on Friday. 
+            % \item[(g)] I did not buy a lottery ticket this week, and I did not win the million dollar jackpot on Friday. 
+            \item[(h)] Either I did not buy a lottery ticket this week, or else I did buy one and won the million dollar jackpot on Friday.
+        \end{itemize}
+    \end{solution}
+
+
+
+
+\gquestion{6}{4}{c-f}  Rosen Exercise 1.1.14, p. 13-14
+    \ifprintanswers
+        \vspace{-5pt}
+    \fi
+    \begin{solution}
+        (a) $r \wedge \neg q$ \\
+        (b) $p \wedge q \wedge r$ \\
+        (c) $r \ra p$ \\
+        (d) $p \wedge \neg q \wedge r$ \\ 
+        (e) $(p \wedge q) \ra r$ \\
+        (f) $r \lra (q \vee p)$
+    \end{solution}
+
+
+
+
+\gquestion{6}{3}{a-c} Rosen Ch 1.1.22 (a-f), p. 14.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+    \begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,
+    topsep=0pt,partopsep=0pt]
+    	\item If you get promoted, then you wash the boss’s car.
+        \item If the winds are from the south, then there will be a spring thaw.
+    	\item If you bought the computer less than a year ago, then the warranty is good.
+    	\item If Willy cheats, then he gets caught.
+        \item If you access the website, then you must pay a subscription fee.
+        \item If you know the right people, then you will be elected.
+        % \item If Carol is on a boat, then she gets seasick.
+    \end{itemize}
+    \end{solution}
+
+
+
+\gquestion{6}{3}{b} State the converse, contrapositive, and inverse of each of the following statements.
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item If it is summer, then I take a vacation.
+        \item To be able to go on the trip, it is necessary that you get written permission.
+    \end{enumerate}
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+    \begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item Converse: If I take a vacation, then it is summer. \\
+            Contrapositive: If I do not take a vacation, then it is not summer. \\
+            Inverse: If it is not summer, then I do not take a vacation. 
+        \medskip
+        \item If you go on the trip, then you get written permission. \\
+            \textit{Getting written permission is a necessary condition for going on the trip.} \\
+            Converse: If you get written permission, then you go on the trip \\
+            Contrapositive: If you do not get written permission, then you are not able to go on the trip. \\
+            Inverse: If you do not go on the trip, then you did not get written permission.
+    \end{enumerate}
+    \end{solution}
+
+
+
+\gquestion{15}{9}{b,c,e} Construct a truth table for each compound proposition.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+    % \footnotesize
+    \begin{center}
+    \begin{tabular}{ll}
+       (a) (2 pt) $p \ra \neg p$  
+       & (b) (2 pt) $(p \vee q) \wedge \neg p$ \\
+       (c) (3 pt) $(\neg q \ra p) \xor (p \wedge \neg q)$ 
+       & (d) (4 pt) $p \vee (q \ra r)$ \\
+       (e) (4 pt) $(p \lra \neg r) \ra (q \vee \neg (p \vee \neg r))$
+    \end{tabular}
+    \end{center}
+    % \normalsize
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution}
+    \scriptsize
+        % $p \ra \neg p$
+       \begin{tabular}{c|c||c}
+            \multicolumn{3}{l}{ (a) $p \ra \neg p$} \\
+            $p$ & $\neg p$ & $p \ra \neg p$ \\
+         \hline
+            T & F & F \\
+            F & T & T \\
+         \end{tabular} \hspace{0.35in}
+
+        % $(p \vee q) \wedge \neg p$
+        \begin{tabular}{c|c|c||c|c}
+            \multicolumn{5}{l}{ (b)  $(p \vee q) \wedge \neg p$} \\
+            $p$ & $q$ & $\neg p$ & $p \vee q$ & $(p \vee q) \wedge \neg p$ \\
+         \hline
+            T & T & F & T & F  \\
+            T & F & F & T & F  \\
+            F & T & T & T & T  \\
+            F & F & T & F & F  \\
+        \end{tabular} \hspace{0.35in}
+
+        %
+        % $(\neg q \ra p) \xor (p \wedge \neg q)$
+        \begin{tabular}{c|c|c||c|c|c} 
+            \multicolumn{6}{l}{(c) $(\neg q \ra p) \xor (p \wedge \neg q)$ } \\
+            $p$ & $q$ & $\neg q$ & $\neg q \ra p$ & $p \wedge \neg q$ & (c)  \\
+         \hline
+            T & T & F & T & F  & T   \\
+            T & F & T & T & T  & F  \\
+            F & T & F & T & F  & T  \\
+            F & F & T & F & F  & F  \\
+        \end{tabular} 
+
+        \smallskip
+        % $p \vee (q \ra r)$ 
+        \begin{tabular}{c|c|c||c|c} 
+            \multicolumn{5}{l}{(d) $p \vee (q \ra r)$} \\
+            $p$ & $q$ & $r$ & $q \ra r$ & (d) \\
+         \hline
+            T & T & T   & T & T  \\
+            T & T & F   & F & T  \\
+            T & F & T   & T & T  \\
+            T & F & F   & T & T  \\
+          \hline
+            F & T & T   & T & T  \\
+            F & T & F   & F & F  \\
+            F & F & T   & T & T  \\
+            F & F & F   & T & T 
+        \end{tabular} \hspace{0.5in}
+
+        % $(p \lra \neg r) \ra (q \vee \neg (p \vee \neg r))$
+        \begin{tabular}{c|c|c|c||c|c|c|c|c}
+            \multicolumn{9}{l}{(e) $(p \lra \neg r) \ra (q \vee \neg (p \vee \neg r))$ } \\
+            $p$ & $q$ & $r$ & $\neg r$ 
+             & $p \vee \neg r$ & $\neg (p \vee \neg r)$ 
+             & $(q \vee \neg (p \vee \neg r))$ & $p \lra \neg r$ & (e) \\
+         \hline
+            T & T & T & F  & T & F & T  & F & T \\
+            T & T & F & T  & T & F & T  & T & T \\
+            T & F & T & F  & T & F & F  & F & T \\
+            T & F & F & T  & T & F & F  & T & F \\
+          \hline
+            F & T & T & F  & F & T & T  & T & T \\
+            F & T & F & T  & T & F & T  & F & T \\
+            F & F & T & F  & F & T & T  & T & T \\
+            F & F & F & T  & T & F & F  & F & T
+         \end{tabular} 
+    \end{solution}
+
+
+
+\section*{Sets}
+
+\gquestion{3}{3}{all} List the members of the sets.
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    topsep=0pt,partopsep=0pt]
+    \item $\{ x \;|\; x \in \mathbb{N} \text{ and }\ -4 < x < 4 \}$
+    \item $\{ 2x+1 \;|\; x \in \mathbb{N} \text{ and } x < 4 \}$
+    \item $\{ \{a, a^2-1\} \;|\; a \in \mathbb{N} \text{ and } -2 \leq a <
+3\}$
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+    \begin{solution}
+        % \begin{tabular}{p{1.4in}p{1.4in}p{2in}}
+            (a). $\{0, 1, 2, 3\}$  \\
+            (b). $\{1, 3, 5, 7\}$  \\
+            (c). $\{\{0,-1\}, \{1,0\}, \{2,3\}\}$
+        % \end{tabular}
+    \end{solution}
+
+
+
+
+\gquestion{5}{3}{c-e} Write each of the following sets in set-builder notation. 
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    topsep=0pt,partopsep=0pt]
+    \item $S_a = \{ 2, 4, 8, 16, 32, \ldots \}$
+    \item $S_b = \{ -3, -2, -1, 0, 1, 2 \}$
+    \item $S_c = \{ \ldots, \frac{1}{27}, \frac{1}{9}, \frac{1}{3}, 1, 3, 9, 27 \ldots \}$
+    \item The natural numbers divisible by 4, $S_d$
+    \item The square roots of the natural numbers, $S_e$
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+    \begin{solution}
+    (a) $S_a = \{ 2n \;|\; n \in \mathbb{Z}^+ \}$ \\
+    (b) $S_b = \{ x \in \mathbb{Z} \;|\; -4 < x < 3 \}$ \\
+    (c) $S_c = \{ 3^{x} \;|\; x \in \mathbb{Z} \}$ \\
+    (d) $S_d = \{ 4n \;|\; n \in \mathbb{N} \}$ \\ 
+    (e) $S_e = \{ \sqrt{n} \;|\; n \in \mathbb{N} \}$ 
+    \end{solution}
+
+
+
+
+\gquestion{6}{6}{all} Let $A = \{b, \{b, a\}, \es\}$ and $B = \{ \es, \{\es\} \}$. Determine whether each of the statements are \textit{True} or \textit{False}.
+\[ \begin{array}{llllll}
+    \mathrm{(a)}\;\;  \es \in A  \;\;&\;\; 
+    \mathrm{(b)}\;\;  \es \s A \;\;&\;\;
+    \mathrm{(c)}\;\; a \in A \;\;&\;\; 
+    \mathrm{(d)}\;\; a \s A \;\;&\;\;
+    \mathrm{(e)}\;\; \{ \es \} \in A \;\;&\;\; 
+    \mathrm{(f)}\;\; \{ \es \} \s A \\
+    \mathrm{(g)}\;\; \es \in B  \;\;&\;\; 
+    \mathrm{(h)}\;\; \es \s B \;\;&\;\;
+    \mathrm{(i)}\;\; \{\es\} \in B \;\;&\;\; 
+    \mathrm{(j)}\;\; \{ \es \} \s B \;\;&\;\;
+    \mathrm{(k)}\;\; \{ \es  \} \pss A \;\;&\;\; 
+    \mathrm{(l)}\;\; \{ \es  \} \pss B 
+   \end{array}\]
+   \ifprintanswers
+        \vspace{-25pt}
+    \fi
+    \begin{solution}
+    % $ \begin{array}{llllll}
+    %     \mathrm{(a)}\;\; True \;\;&\;\; 
+    %     \mathrm{(b)}\;\; True \;\;&\;\;
+    %     \mathrm{(c)}\;\; False \;\;&\;\; 
+    %     \mathrm{(d)}\;\; False \;\;&\;\;
+    %     \mathrm{(e)}\;\; False \;\;&\;\; 
+    %     \mathrm{(f)}\;\; True \\
+    %     \mathrm{(g)}\;\; True \;\;&\;\; 
+    %     \mathrm{(h)}\;\; True \;\;&\;\;
+    %     \mathrm{(i)}\;\; True \;\;&\;\; 
+    %     \mathrm{(j)}\;\; True \;\;&\;\;
+    %     \mathrm{(k)}\;\; True \;\;&\;\; 
+    %     \mathrm{(l)}\;\; True
+    %     \end{array} $
+        \begin{enumerate}[label=(\alph*),itemsep=2pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+            \item True  % (a)
+            \item True 
+            \item False 
+            \item False  % (d) 
+            \item False 
+            \item True 
+            \item True   % (g)
+            \item True 
+            \item True
+            \item True     % (j)
+            \item True 
+            \item True 
+        \end{enumerate}
+    \end{solution}
+
+
+%\gquestion{15}{6}{a,e,g,i,k,o}\label{probA} Let 
+% \gquestion{15}{10}{a-e,g,j-k,n-o}\label{probA} Let
+\ugquestion{15}\label{probA} Let 
+$A = \{1, \{2, 3\}, 2\}$, 
+$B = \{1, 2, 4\}$, 
+$C = \{3, 4, \{2\}\}$, 
+$D = \es$, \\
+$E = \{\es\}$, 
+where the universal set is $U = A \cup B \cup C \cup D \cup E$. Determine (write out members of the set explicitly, that is do not use set builder notation):
+
+\begin{tabular}{p{1.3in}p{1.3in}p{1.3in}p{1.3in}}
+ (a) $A \cup B$  & (b) $C \cup E$  & 
+    (c) $A \cap B$   & (d) $C \cap B$ \\
+ (e) $A - C$     & (f) $C - A$     & 
+    (g) $\overline{A}$ & (h) $(A \cup C) - D$ \\
+ (i) $E \times A$    & (j) $A \times B$ & 
+    (k) $\mathcal{P}(B)$ & (l) $\mathcal{P}(D)$ \\
+ (m) $|C|$  & (n) $|E \cup A|$ & 
+    (o) $(A \cap U) \cup \overline{U}$
+\end{tabular}
+%    \ifprintanswers
+%         \vspace{-5pt}
+%     \fi
+% \begin{solution}  % U = \{ 1, 2, 3, 4, \{2\}, \{2,3\}, \es \}
+
+% 	\begin{tabular}{l}
+%  	(a) $A \cup B = \{ 1, 2, 4, \{2, 3\} \}$\\
+%  	(b) $C \cup E = \{ 3, 4, \{2\}, \es \}$ \\
+%  	(c) $A \cap B = \{ 1, 2 \}$ \\
+%  	(d) $C \cap B = \{ 4 \}$ \\
+%  	(e) $A - C = A = \{ 1, \{2, 3\}, 2 \}$\\
+%  	(f) $C - A = C = \{ 3, 4, \{2\} \}$ \\
+%  	(g) $\overline{A} = U - A = \{ 3, 4, \{2\}, \es \}$ \\
+%  	(h) $(A \cup C) - D = \{1, \{2,3\}, 2, 3, 4, \{2\} \} - \es
+% = A \cup C = \{1, \{2,3\}, 2, 3, 4, \{2\}\}$ \\
+%  	(i) $E \times A = \{ (\es, 1), (\es, \{2,3\}), (\es, 2)  \}$ \\
+%  	(j) $A \times B = \{ (1,1), (1,2), (1,4), (\{2,3\},1), (\{2,3\},2),
+% (\{2,3\},4), (2,1), (2,2), (2,4) \}$ \\
+%  	(k) $\mathcal{P}(B) = \{ \es, \{1\}, \{2\}, \{4\}, \{1,2\}, \{1,4\},
+% \{2,4\}, \{1,2,4\} \}$ \\
+%  	(l) $\mathcal{P}(D) = \{ \es \}$\\
+%  	(m) $|C| = 3$ \\
+%  	(n) $|E \cup A| = |\{1, \{2,3\}, 2, \es\}| = 4$\\
+%  	(o) $(A \cap U) \cup \overline{U} = A \cup \overline{U} = A \cup \es = A
+% = \{1, \{2,3\}, 2 \}\}$ \\ 
+%  	\end{tabular}
+%  \end{solution}
+
+%\gquestion{6}{3}{a,c,e,f,i,l} 
+\gquestion{6}{4}{a-d,g-h,k-l} Using the sets from problem \ref{probA}, determine the truth value
+of the following statements.
+
+\begin{tabular}{p{1.5in}p{1.5in}p{1.5in}p{1in}}
+	(a) $A \s B$	& (b) $B \s A$ 	& (c) $D \s D$ 	& (d) $E \s B$ \\
+	(e) $A \pss B$ 	& (f) $D \pss D$ & (g) $E \pss B$ & (h) $D \pss E$ \\
+	(i) $A$ disjoint from $B$ & (j) $E$ disjoint from $C$ & (k) $E$ disjoint
+from $E$ & (l) $\es$ disjoint from $D$ 
+\end{tabular}
+   \ifprintanswers
+        \vspace{-17pt}
+    \fi
+\begin{solution}
+	% \begin{tabular}{p{1in}p{1in}p{1in}p{1in}}
+	%     (a) False 	& (b) False 	& (c) True	& (d) False \\
+	%     (e) False	& (f) False	& (g) False	& (h) True \\
+	%     (i) False	& (j) True	& (k) False	& (l) True
+	% \end{tabular}
+    \begin{enumerate}[label=(\alph*),itemsep=2pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item False  % (a)
+        \item False 
+        \item True 
+        \item False 
+        \item False  % (e)
+        \item False 
+        \item False 
+        \item True 
+        \item False  % (i) 
+        \item True 
+        \item False 
+        \item True  
+    \end{enumerate}
+\end{solution}
+ 
+
+% \ugquestion{1} Find the set $A$ that satisfies the following two properties.  \\
+% \begin{tabular}{ll}
+%     $A - \{1, 2, 4, 5\}$ &= $\{3, 6, 7\}$ \\
+%     $\{1, 2, 4, 5\} - A$ &= $\{1, 4\}$ \\
+% \end{tabular}
+%    \ifprintanswers
+%         \vspace{-5pt}
+%     \fi
+% 	\begin{solution}
+% 	    $A = \{2, 3, 5, 6, 7\}$
+% 	\end{solution}
+
+
+
+\gquestion{1}{1}{all} How many elements are in $\mathcal{P}(A) \times A$ when $A = \{a,
+b, c, d, e, f\}$?  Explain your answer.
+   \ifprintanswers
+        \vspace{-5pt}
+    \fi
+	\begin{solution}
+	    The number of elements in $\mathcal{P}(A)$ is $2^{|A|} = 2^6 = 64$. 
+	Therefore, the number of elements in  $\mathcal{P}(A) \times A$ is all pairs of
+	the elements in the sets or $64 * 6 = \mathbf{384}$.
+	\end{solution}
+
+
+
+\section*{Bonus Questions}
+
+Note, the Bonus questions can at times be more challenging or lengthy in crafting your solution.  First, complete the main problems of the assignment before considering doing the bonus questions.
+
+
+\bonusquestion[1] Many restaurants have the sign, ``No shoes, no shirt, no service.''  Write this sentence as a conditional proposition. 
+
+\begin{solution}
+    If you do not wear shoes and a shirt, then you can not enter the restaurant for service.
+\end{solution}
+
+
+\bonusquestion[2] When considering the case of two propositions, $p$ and $q$, there are are 16 truth tables.  All sixteen possibilities are listed in the table below (columns $a$-$p$).  For each column, express the proposition represented using standard operators ($\neg$, $\wedge$, $\vee$, $\ra$, $\lra$, $\oplus$).  Try to keep the expressions simple (use as few logical operators and propositional variables). 
+% LEB TODO
+
+% \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+% \hline  
+% p & q & (a) & (b) & (c) & (d) & (e) & (f) & (g) & (h) & (i) & (j) & (k) & (l) & (m) & (n) & (o) & (p)\\
+% \hline  
+% F & F & F & F & F & F & F & F & F & F & T & T & T & T & T & T & T & T \\
+% F & T & F & F & F & F & T & T & T & T & F & F & F & F & T & T & T & T \\
+% T & F & F & F & T & T & F & F & T & T & F & F & T & T & F & F & T & T \\
+% T & T & F & T & F & T & F & T & F & T & F & T & F & T & F & T & F & T \\
+% \hline 
+% \end{tabular}
+
+% \sol{
+% \begin{tabular}{llll}
+% (a) $p\wedge\neg p$
+% & (b) $p\wedge q$
+% & (c) $\neg(p\Rightarrow q)$
+% & (d) $p$\\
+% (e) $\neg(q\Rightarrow p)$
+% & (f) $q$
+% & (g) $\neg(p\Leftrightarrow q)$
+% & (h) $p\vee q$\\
+% (i) $\neg(p\vee q)$
+% & (j) $p\Leftrightarrow q$
+% & (k) $\neg q$
+% & (l) $q\Rightarrow p$\\
+% (m) $\neg p$
+% & (n) $p\Rightarrow q$
+% & (o) $\neg(p\wedge q)$
+% & (p) $p\vee\neg p$
+% \end{tabular}}
+
+\begin{tabular}{cc|cccc|cccc|cccc|cccc}
+    $p$ & $q$ & (a) & (b) & (c) & (d) & (e) & (f) & (g) & (h) & (i) & (j) & (k) & (l) & (m) & (n) & (o) & (p) \\
+    \hline
+    T & T & T & T & T & T & T & T & T & T & F & F & F & F & F & F & F & F \\
+    T & F & T & T & T & T & F & F & F & F & T & T & T & T & F & F & F & F \\
+    F & T & T & T & F & F & T & T & F & F & T & T & F & F & T & T & F & F \\
+    F & F & T & F & T & F & T & F & T & F & T & F & T & F & T & F & T & F \\
+ \end{tabular}
+
+\begin{solution}
+    \begin{tabular}{l}
+    (a) $\mathbf{T} \equiv p \vee \neg p$ \\
+    (b) $p \vee q$ \\
+    (c) $q \ra p$ \\
+    (d) $p$  \\
+    (e) $p \ra q$ \\
+    (f) $q$ \\
+    (g) $p \lra q$ \\
+    (h) $p \wedge q$ \\
+    (i) $\neg (p \wedge q) $  \\
+    (j) $p \oplus q \equiv \neg (p \lra q)$ \\ 
+    (k) $\neg q $ \\
+    (l) $\neg (p \ra q) $ \\
+    (m) $\neg p$ \\
+    (n) $\neg (q \ra p)$ \\ 
+    (o) $\neg (p \vee q)$ \\ 
+    (p) $\mathbf{F} \equiv p \wedge \neg p$ 
+    \end{tabular}
+\end{solution}
+
+% \bonusquestion[1] A survey was given to students asking whether they watch movies on Netflix, on Amazon Prime, or with Hulu. Use the results to determine how many people use at least one of the services?
+% 	\begin{center}
+% 	\begin{tabular}{ll}
+% 		43 use Netflix  & 44 use Amazon Prime \\
+% 		25 use Hulu   & 10 use Netflix and Amazon Prime \\
+% 		8 use Amazon Prime and Hulu  & 5 use Netflix and Hulu \\
+% 		2 use all three
+% 	\end{tabular}
+% 	\end{center}
+% 	\ifprintanswers
+% 		\vspace{-10pt}
+% 	\fi
+% 	\begin{solution}
+% 		91 people, 
+%         \begin{venndiagram3sets}[labelA={N}, labelB={AP}, labelC = {H},labelOnlyA={30},labelOnlyB={28},labelOnlyC={14},
+%             labelOnlyAB={8},labelOnlyAC={3},labelOnlyBC={6},labelABC={2}]
+%         \end{venndiagram3sets}  
+
+% 	\end{solution}
+
+
+\end{questions}
+
+\end{document}
+

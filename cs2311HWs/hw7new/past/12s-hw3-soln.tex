@@ -1,0 +1,351 @@
+\documentclass[12pt,addpoints]{exam}
+% can include option [answers] to print out solutions, or command \printanswers
+%  can turn addpoint on and off with commands, \addpoints and \noaddpoints
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage[top=0.75in,bottom=0.75in,left=0.9in,right=0.9in]{geometry}
+
+\setlength{\itemsep}{0pt} \setlength{\topsep}{0pt}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\xor}{\oplus}
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Spring 2012}}{\textbf{HW
+3 Solutions - \numpoints$\;$ points}}{\textbf{Due: Wed. 2/1/12}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\noindent \textbf{Instructions:} All assignments are due \underline{by 5pm on the due date} specified.  There will be a box in the CS department office (Rekhi 221) where assignments may be turned in.  Solutions will be handed out (or posted on-line) shortly thereafter.  Every student
+must write up their own solutions in their own manner.
+
+\smallskip
+\noindent Please present your solutions in a clean, understandable
+manner; pages should be stapled before class, no ragged edges of
+paper.
+
+\begin{questions}
+\printanswers
+
+\question[8] Rosen Ch 1.6 \#14 (d), p. 79
+   \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        %\item[(c)] Let $s(x)$ be ``$x$ is a movie produced by Sayles", $c(x)$ be ``$x$ is a movie about coal miners", and $w(x)$ be ``movie $x$ is wonderful."  The premises are:
+%    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%        \item[1.] $\forall x\; (s(x) \rightarrow w(x))$
+%        \item[2.] $\exists x\; (s(x) \wedge c(x))$
+%    \end{itemize}
+%    The conclusion is: $\exists x\; (c(x) \wedge w(x))$
+%
+%    \smallskip
+%    \begin{tabular}{lll}
+%        Step        & \hspace{0.2in} & Reason \\
+%        1. $\exists x\; (s(x) \wedge c(x))$  &   & Hypothesis \\
+%        2. $s(y) \wedge c(y)$               &   & Exis. Inst. with (1) \\
+%        3. $s(y)$                           &   & Simplification with (2) \\
+%        4. $\forall x\; (s(x) \rightarrow w(x))$ &  & Hypothesis \\
+%        5. $s(y) \rightarrow w(y)$          & & Univ. Inst. with (4) \\
+%        6. $w(y)$                           & & Modus ponens with (3) and (5) \\
+%        7. $c(y)$                           & & Simplification using (2) \\
+%        8. $w(y) \wedge c(y)$               & & Conjunction with (6) and (7) \\
+%        9. $\exists x\; (c(x) \wedge w(x))$ &   & Exis. generalization with (8) \\
+%    \end{tabular}
+%
+        \item[(d)] Let $c(x)$ be ``$x$ is in this class", $f(x)$ be ``$x$ has been to France", and $l(x)$ be ``$x$ has visited the Louvre."   The premises are:
+        \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+            \item[1.] $\exists x\; (c(x) \wedge f(x))$
+            \item[2.] $\forall x\; (f(x) \ra l(x))$
+        \end{itemize}
+        The conclusion is: $\exists x\; (c(x) wedge l(x))$.
+
+        \smallskip
+        \begin{tabular}{lll}
+            Step                    & \hspace{0.15in} & Reason \\
+            1. $\exists x\; (c(x) \wedge f(x))$     & & Hypothesis \\
+            2. $c(a) \wedge f(a)$                   & & Exist. Inst. with (1) \\
+            3. $f(a)$                               & & Simplification with (2) \\
+            4. $c(a)$                               & & Simplification with (2) \\
+            5. $\forall x\; (f(x) \ra l(x))$        & & Hypothesis \\
+            6. $f(a) \ra l(a)$                      & & Univ. Inst. with (5) \\
+            7. $l(a)$                               & & Modus ponens with (3) and (6) \\
+            8. $c(a) \wedge l(a)$                   & & Conjunction with (4) and (7) \\
+            9. $\exists x\; (c(x) \wedge l(x))$     & & Existential generalization with (8) \\
+        \end{tabular}
+    \end{itemize}
+\end{solution}
+
+
+% TestBank, #170, 174, 172
+\question[16] For each argument determine whether it is valid or not and explain why (in a sentence or two).
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item[(a)] “Every student in this class passed the first exam” and “Ariel is a student in this class” implies the conclusion “Ariel passed the first exam”.
+    \item[(b)] “No juniors left campus for the weekend” and “Some math majors are not
+    juniors” implies the conclusion “Some math majors left campus for the weekend.”
+    \item[(c)] “Some math majors left the campus for the weekend” and “All seniors left
+    the campus for the weekend” implies the conclusion “Some seniors are math majors.”
+    \item[(d)] ``Everyone who left campus for the weekend is a senior" and ``All math majors left campus for the weekend"  implies the conclusion ``All math majors are seniors."
+    \end{itemize}
+   \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[(a)] Valid argument.  The argument uses Universal instantiation then modus ponens to conclude ``Ariel passed the first exam."
+        \item[(b)] Not Valid argument.  The two premises do not imply the conclusion.
+        \item[(c)] Not Valid argument.  The two premises do not imply the conclusion.
+        \item[(d)] Valid argument. The argument uses Univ. instantiation (x2), hyp. syllogism, followed by Univ. generalization.
+    \end{itemize}
+\end{solution}
+
+
+\question[12] Consider the statements of Rosen Example 27, Ch 1.4, p. 51.  Show from the premises a valid argument that leads to the conclusion.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    For the problem, the domain description and translation into logical expression has already been performed.
+
+    \begin{tabular}{lll}
+            Step                    & \hspace{0.15in} & Reason \\
+            1. $\forall x\; (P(x) \ra S(x))$            & & Given \\
+            2. $\neg \exists x\; (Q(x) \wedge R(x))$    & & Given \\
+            3. $\forall x\; (\neg R(x) \ra \neg S(x))$  & & Given \\
+            4. $\forall x\; \neg (Q(x) \wedge R(x))$    & & DeMorgan's with Quantifiers with (2) \\
+            5. $P(a) \ra S(a)$                          & & Univ. instantiation with (1) \\
+            6. $\neg R(a) \ra \neg S(a)$                & & Univ. instantiation with (3) \\
+            7. $\neg (Q(a) \wedge R(a))$                & & Univ. instantiation with (4) \\
+            8. $\neg Q(a) \vee \neg R(a)$               & & DeMorgan's with (7) \\
+            9. $\neg R(a) \vee \neg Q(a)$               & & Commutative with (8) \\
+            10. $\neg \neg R(a) \ra \neg Q(a)$          & & Table 7, rule 3 with (9) \\
+            11. $R(a) \ra \neg Q(a)$                    & & Double negation with (10) \\
+            12. $S(a) \ra R(a)$                         & & Table 7, rule 2 with (6) \\
+            13. $P(a) \ra R(a)$                         & & Hyp. syllogism with (5) and (12) \\
+            14. $P(a) \ra \neg Q(a)$                    & & Hyp. syllogism with (13) and (11) \\
+            15. $\forall x\; (P(x) \ra \neg Q(x))$      & & Univ. generalization with (14)
+    \end{tabular}
+\end{solution}
+
+
+%\question[8] Use a direct proof to show the sum of two odd integers is even.
+%    \ifprintanswers
+%        \vspace{-10pt}
+%    \fi
+%\begin{solution} \textbf{Proof:} Assume you have two odd integers $a$ and $b$.  By definition of odd numbers, then there exists integers $k_a$ and $k_b$ such that $a=2k_a + 1$ and $b=2k_b + 1$.  Computer $a+b$:
+%    $$a+b = (2k_a +1) + (2k_b + 1) = 2(k_a + k_b + 1).$$
+%    The sum of the two odd numbers is also in the form of a even number.
+%    Therefore, the sum of two odd integers is even.
+%\end{solution}
+
+
+\question[8] Rosen Ch 1.7 \# 6, p. 91
+% Use a direct proof to show that the product of two odd numbers is odd.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution} \textbf{Proof:} Assume there are two odd integers $a$ and $b$.  Then, by definition of odd there exists two integers $k_a$ and $k_b$ such that $a=2k_a + 1$ and $b=2k_b + 1$.  Compute $a \cdot b$:
+    $$ a\cdot b = (2k_a + 1)\cdot(2k_b + 1) = 4k_ak_b + 2k_a + 2k_b + 1 = 2(2k_ak_b + k_a + k_b) + 1$$
+    the product of the two odd integers is the form of an odd number.
+    Consequently, the product of two odd numbers is odd.
+\end{solution}
+
+
+\uplevel{For the next two problems, you will use the definition of
+$n$ being \textit{divisible} by $m$, specifically:
+
+\smallskip
+\textbf{Definition:} For natural numbers $n$ and $m$, then $n$ is
+\underline{divisible} by $m$ if and only if there is a natural
+number $k$ such that $n=km$.}
+
+\smallskip
+\uplevel{
+For example, 56 is divisible by 8; there is a natural number $k$
+(specifically, 7) such that $56 = 8k$. Also, thinking of the
+bi-implication in the other direction, you can state because $39 = 3
+\cdot 13$, 39 is divisible by 3 (or 39 is divisible by 13).}
+
+\uplevel{An example of a proof using this new definition is to show,
+\begin{center}
+ "For all natural numbers $n$, if $n$ is divisible by 6, then $n^2$
+ is divisible by 9."
+\end{center}
+Follow the examples in class,
+\begin{quote}
+Assume $n$ is divisible by 6.  Then, by definition of divisible
+there is some natural number $k$ s.t. $n=6k$. Compute $n^2$:
+\[ n^2 = (6k)^2 = 36k^2 = 9(4k^2). \]
+where $n^2$ is divisible by 9 by definition. Therefore, for all
+natural numbers, if $n$ is divisible by 6, then $n^2$ is divisible
+by 9.
+\end{quote}}
+
+
+\question[8] Prove: For all natural numbers $m$ and $n$, if $m$ is divisible by 3 and $n$ is divisible by 4, then $m\cdot n$ is divisible by 6.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution} \textbf{Proof:} Assume $m$ is divisible by 3 and also assume $n$ is divisible by 4.  By definition of divisibility, then there exists a natural number $k_m$ and a natural number $k_n$ such that $m = 3k_m$ and $n=4k_n$.  Then, $m\cdot n$ is:
+  \[ m\cdot n = 3k_m \cdot 4k_n = 12k_mk_n = 6(2k_mk_n). \]
+From this expression, you can see $m\cdot n$ is divisible by 6.  Therefore, if $m$ is divisible by 3 and $n$ is divisible by 4, then $m \cdot n$ is divisible by 6.
+\end{solution}
+
+
+\question[8] Prove: For any three consecutive natural numbers, the sum of the consecutive numbers is divisible by 3.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution} \textbf{Proof:} Assume you have three consecutive natural numbers, with values $n$, $n+1$ and $n+2$.  Compute the sum:
+  \[ n + (n+1) + (n+2) = 3n+3 = 3(n+1). \]
+The sum is shown to be divisible by 3.  Consequently, the sum of three consecutive natural numbers is divisible by 3.
+\end{solution}
+
+
+\question[16]  Prove that if $n$ is an integer and $n^2 - 2n + 1$ is odd,
+then $n$ is even using: (a) proof by contraposition and (b) proof by
+contradiction.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution} \textbf{Proof by contraposition:}
+    Assume $n$ is odd.  Then by definition of odd, there exists an
+    integer $k$ s.t. $n=2k+1$.  Compute $n^2 - 2n + 1$:
+    \[ n^2 - 2n + 1 = (2k+1)^2 - 2(2k+1) + 1 = 4k^2 + 4k + 1 - 4k - 2 + 1 = 4k^2 = 2(2k^2) \]
+    Here, $n^2 - 2n + 1$ is in the form of an even number.  Therefore, by
+    contraposition, if $n$ is an integer and $n^2 - 2n + 1$ is odd,
+    then $n$ is even.
+
+    \medskip
+    \textbf{Proof by contradiction:} Assume $n$ is odd and $n^2 - 2n + 1$ is
+    odd.  By definition of odd, there there exists an
+    integer $k$ s.t. $n=2k+1$.  Compute $n^2 - 2n + 1$:
+    \[ n^2 - 2n + 1 = (2k+1)^2 - 2(2k+ 1) + 1 = 4k^2 + 4k+ 1 - 4k - 2 + 1 = 4k^2 = 2(2k^2) \]
+    Here, $n^2 - 2n + 1$ is in the form of an even number, however, we assumed
+    $n^2 -2n +1$ is odd giving a contradiction. Therefore, by
+    contradiction, it must be that if $n$ is an integer and $n^2 - 2n + 1$ is
+    odd, then $n$ is even.
+\end{solution}
+
+
+\question[16] Rosen Ch 1.7 \# 26, p. 91
+%Prove that if $n$ is a positive integer, then $n$ is
+%even if and only if $7n+4$ is even.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    The statement is a biimplication therefore both sides of the
+    implication must be shown.  Let $p$ be ``$n$ is even" and $q$ be
+    ``$7n+4$ is even."
+    \textbf{Prove ``if p, then q":}
+    Assume $n$ is even. By definition of even, there exists an
+    integer $k$ s.t. $n=2k$.  Compute $7n+4$:
+    \[ 7n+4 = 7(2k) + 4 = 14k+4 = 2(7k+2) \]
+    $7n+4$ is also of the form of an even number.  Therefore, if $n$
+    is even, then $7n+4$ is even.
+
+    \smallskip
+    \textbf{Prove ``if q, then p":}
+    Assume $7n+4$ is even and $n$ is odd.  Then by definition of odd
+    there exists an integer $k$ s.t. $n=2k+1$.  Compute $7n+4$:
+    \[ 7n+4 = 7(2k+1)+4 = 14k + 11 = 2(7k+5)+1 \]
+    $7n+4$ is of the form of an odd number leading to a
+    contradiction, therefore it must be that if $7n+4$ is even, then
+    $n$ is even.
+
+    \smallskip
+    Combining both parts, we have shown if $n$ is a positive integer,
+    then $n$ is even if and only if $7n+4$ is even.
+\end{solution}
+
+
+\question[4] Prove that there is a positive integer that equals the
+sum of the positive integers not exceeding it.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    This is an existence proof.  3 is an example of such a positive
+    integer, 3 = 1 + 2.
+\end{solution}
+
+
+\question[4] Prove or disprove: If $a$ and $b$ are rational
+numbers, then $a^b$ is also rational.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \textbf{Disprove:} Let $a=2$ and $b=\frac{1}{2}$, which are both rational numbers.  Then $a^b =
+    \sqrt{2}$ which is irrational.
+\end{solution}
+
+
+\question[4] Prove or disprove: The sum of four consecutive integers is divisible by 4.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \textbf{Disprove:} Let the consecutive integers be 1, 2, 3, 4; the sum is 10 which is not divisible by 4.
+\end{solution}
+
+
+\question[12] Prove that if $n$ is an integer that $n^3 - n$ is even.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+%\begin{EnvFullwidth}
+%\begin{TheSolution}
+\begin{solution} \textbf{Proof:} Let $n$ be an integer.
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[Case] (i): Let $n$ be even. By definition, there exists an integer $k$ s.t. $n=2k$.
+            \[ n^3 - n = (2k)^3 - 2k = 8k^3 - 2k = 2(4k^3 - k) \]
+        This is of the form of an even number.
+        \item[Case] (ii):  Let $n$ be odd.  By definition, there exists an integer $k$ s.t. $n = 2k+1$.
+            \begin{align*}
+                n^3 - n &= (2k+1)^3 - (2k+1) = (4k^2 + 4k+ 1)(2k + 1) - (2k+1) \\
+                &= 8k^3 + 12k^2 + 6k + 1 - 2k - 1 = 8k^3 + 12k^2 + 4k = 2(8k^3 + 6k^2 + 2k)
+            \end{align*}
+        This is of the form of an even number.
+        Therefore, because $n^3 - n$ is even in all cases, it holds that for any integer $n$, $n^3 - n$ is even.
+    \end{itemize}
+\end{solution}
+%\end{TheSolution}
+%\end{EnvFullwidth}
+
+
+\bonusquestion[4]  Rosen Ch 1.6 \#28, p. 80 \\
+FYI: the proof is lengthy, only work on the bonus once rest of the homework is complete.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{tabular}{lll}
+        Step                    & \hspace{0.15in} & Reason \\
+        1. $\forall x\; (P(x) \vee Q(x))$                       & & Hypothesis \\
+        2. $\forall x\; ((\neg P(x) \wedge Q(x)) \ra R(x))$     & & Hypothesis \\
+        3. $P(a) \vee Q(a)$                                     & & Univ. Inst. with (1) \\
+        4. $(\neg P(a) \wedge Q(a)) \ra R(a)$                   & & Univ. Inst. with (2) \\
+        5. $\neg (\neg P(a) \wedge Q(a)) \vee R(a)$             & & Table 7, rule 1 with (4) \\
+        6. $\neg \neg P(a) \vee \neg Q(a) \vee R(a)$            & & DeMorgan's with (5) \\
+        7. $P(a) \vee \neg Q(a) \vee R(a)$                      & & Double negation with (6) \\
+        8. $\neg Q(a) \vee P(a) \vee R(a)$                      & & Commutative with (7) \\
+        9. $Q(a) \vee P(a)$                                     & & Commutative with (3) \\
+        10. $P(a) \vee R(a) \vee P(a)$                          & & Resolution with (8) and (9) \\
+        11. $P(a) \vee P(a) \vee R(a)$                          & & Commutative with (10) \\
+        12. $P(a) \vee R(a)$                                    & & Idempotent with (11) \\
+        13. $R(a) \vee P(a)$                                    & & Commutative with (12) \\
+        14. $\neg R(a) \ra P(a)$                                & & Table 7, rule 3 with (13) \\
+        15.  $\forall x\; (\neg R(x) \ra P(x))$                 & & Univ. Generalization with (14)
+    \end{tabular}
+\end{solution}
+
+
+\end{questions}
+\end{document}

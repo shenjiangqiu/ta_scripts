@@ -1,0 +1,416 @@
+\documentclass[12pt,addpoints]{exam}
+% can include option [answers] to print out solutions, or command \printanswers
+%  can turn addpoint on and off with commands, \addpoints and \noaddpoints
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage[top=0.75in,bottom=0.75in,left=0.9in,right=0.9in]{geometry}
+
+\setlength{\itemsep}{0pt} \setlength{\topsep}{0pt}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\xor}{\oplus}
+
+
+\renewcommand{\solutiontitle}{\noindent\textbf{Soln:}\enspace}
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule 
+\header{\textbf{cs2311 - Fall 2012}}{\textbf{HW 2 - \numpoints$\;$ points - Solutions}}{\textbf{Due: Wed. 9/19/12}} \footrule 
+\footer{}{Page \thepage\ of \numpages}{}
+
+%\noindent \textbf{Instructions:} All assignments are due \underline{by 5pm on the due date} specified.  There will be a box in the CS department office where assignments may be turned in.  Solutions will be handed out (or posted on-line) shortly thereafter.  Every student
+%must write up their own solutions in their own manner.
+%
+%\smallskip
+%\noindent Please present your solutions in a clean, understandable
+%manner; pages should be stapled before class, no ragged edges of
+%paper.
+
+\begin{questions}
+\printanswers
+
+
+% Discrete Mathematical Structures, 6ed, 9780136044413
+% p. 54, Ex. 8 and 9
+\question[6] Let $P(x)$ be $x + 1 < 4$ and $Q(y,z)$ be $y + 2z = 2y - z$, with the domain of $x$, $y$, and $z$ be the set of all real numbers.  Determine the truth value of:
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+	topsep=0pt,partopsep=0pt]
+    \item $P(5)$, \hspace{0.2in} (b) $P(2)$, \hspace{0.2in} (c) $Q(2, \frac{2}{3})$, 
+    	\hspace{0.2in} (d) $Q(1, 2)$, \hspace{0.2in} (e) $\exists x\; P(x)$, \hspace{0.2in} (f) $\forall x\; P(x)$
+%    \item $P(2)$
+%    \item $Q(2, \frac{2}{3})$
+%    \item $Q(1, 2)$
+%    \item $\exists x\; P(x)$
+%    \item $\forall x\; P(x)$
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+%    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+%    	topsep=0pt,partopsep=0pt]
+%        \item False, $5 + 1 \not < 4$ 
+%        \item True,  $2 + 1 < 4$
+%        \item True,
+%        \item False
+%        \item True, $P(2)$ is a positive example
+%        \item False, $P(5)$ is a counterexample
+%    \end{enumerate}
+	\begin{tabular}{ll}
+		(a) False, $5 + 1 \not < 4$  & (b) True,  $2 + 1 < 4$ \\
+		(c) True, $ 2 + \frac{4}{3} = 4 - \frac{2}{3}$ & (d) False, $1 + 4 \neq 2 - 2$ \\ 
+		(e) True, $P(2)$ is a positive example & (f) False, $P(5)$ is a counterexample 
+	\end{tabular}
+\end{solution}
+
+
+\question[10]\label{probb} Translate the following statements to logical expressions where $P(x)$ is ``$x$ is a prime number", $E(x)$ is ``$x$ is even" (note, the negation of even is odd), $I(x)$ is ``$x$ is an integer", and $R(x,y)$ is ``$x + y$ is even"; the domains of $x$ and $y$ are real numbers.
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+	topsep=0pt,partopsep=0pt]
+    \item ``Some integers are odd."
+    \item ``There are no even prime numbers."
+    \item ``All prime numbers are odd."
+    \item ``If a integer is even, then it is not prime."
+    \item ``The sum of any two integers is an even number."
+%    \item (3pt) ``Some prime number plus an even number is an odd number."
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+%    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+%    	topsep=0pt,partopsep=0pt]
+%        \item $\exists x\; (I(x) \wedge \neg E(x))$
+%        \item $\neg \exists x\; (P(x) \wedge E(x))$
+%        \item $\forall x\; (P(x) \ra \neg E(x))$
+%        \item $\forall x\; ((I(x) \wedge E(x)) \ra \neg P(x))$
+%        \item $\forall x\; \forall y\; ((I(x) \wedge I(y)) \ra R(x,y))$ 
+%%        \item $\exists x\; \exists y\; (P(x) \wedge Q(x) \wedge R(x,y))$
+%    \end{enumerate}
+	\begin{tabular}{ll}
+		(a) $\exists x\; (I(x) \wedge \neg E(x))$ & 
+		(b) $\neg \exists x\; (P(x) \wedge E(x)) \equiv \forall x\; (P(x) \ra \neg E(x))$ \\
+		(c) $\forall x\; (P(x) \ra \neg E(x))$ & 
+		(d) $\forall x\; ((I(x) \wedge E(x)) \ra \neg P(x))$ \\
+		(e) $\forall x\; \forall y\; ((I(x) \wedge I(y)) \ra R(x,y))$ 
+	\end{tabular}
+\end{solution}
+
+
+\question[4] Translate the following logical expressions into sentences using the same predicates as problem \ref{probb}.
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+	topsep=0pt,partopsep=0pt]
+    \item $\exists x\; (P(x) \wedge E(x))$ \hfill (b) $\forall x\; (P(x) \ra (I(x) \wedge \neg E(x)))$ \hspace{0.3in}
+    %\item $\forall x\; (P(x) \ra (I(x) \wedge \neg E(x)))$
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+%	\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+%    	topsep=0pt,partopsep=0pt]
+%        \item There exists a number $x$ which is prime and is even. Or, \\
+%            Some prime numbers are even.
+%        \item For every $x$, if $x$ is prime then it an integer and odd. Or, \\
+%            Every prime number is an integer and odd.
+%    \end{enumerate}
+    \begin{tabular}{l}
+    	(a) There exists a number $x$ which is prime and is even. Or, \\
+            Some prime numbers are even. \\
+        (b) For every $x$, if $x$ is prime then it an integer and odd. Or, \\
+            Every prime number is an integer and odd.
+    \end{tabular}
+\end{solution}
+
+
+\question[7]\label{proba} For this problem, use the predicates: $F(x)$ is ``$x$ is a Freshman", $S(x)$ be ``$x$ is a student at MTU", $C(y)$ is ``$y$ is a CS course", and $T(x,y)$ is ``$x$ is taking $y$", where $x$ has the domain of all students at MTU and $y$ has the domain of all CS courses.
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+	topsep=0pt,partopsep=0pt]
+    \item Translate the logical expression into English: $\forall x\; (F(x) \ra T(x,CS1000))$.
+    \item Translate English into logic: ``Some freshman at MTU are taking CS1121."
+    \item Translate English into logic: ``Every freshman at MTU is taking a CS course."
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    	topsep=0pt,partopsep=0pt]
+        \item ``For every student $x$ at MTU, if $x$ is a freshman, then $x$ is taking CS1000."
+
+            Conversationally, ``All freshman at MTU take CS1000."
+        \item $\exists x\; (F(x) \wedge T(x,CS 1121))$
+        \item $\forall x\; (F(x) \ra \exists y\; T(x,y))$ or $\forall x\; \exists y\; (F(x) \ra T(x,y))$
+    \end{enumerate}
+\end{solution}
+
+
+\question[7] Repeat problem \ref{proba} where $x$ has the domain of all people and $y$ has the domain of all courses.
+%\item Translate the logical expression into English: $\forall x\; (F(x) \ra T(x,CS1000))$.
+%    \item Translate the English statement into logic: ``Some freshman at the College are taking CS1121."
+%    \item Translate the English statement into logic: ``Every freshman at the College is taking some CS course."
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    	topsep=0pt,partopsep=0pt]
+        \item  ``For every person $x$, if $x$ is a freshman then $x$ is taking CS1000."
+
+            Conversationally, ``All freshman take CS1000."
+        \item $\exists x\; (S(x) \wedge F(x) \wedge T(x,CS 1121))$
+        \item $\forall x\; ((S(x) \wedge F(x)) \ra \exists y (C(y) \wedge T(x,y)))$ or \\
+        $\forall x\; \exists y\; ((S(x) \wedge F(x)) \ra (C(y) \wedge T(x,y)))$
+    \end{enumerate}
+\end{solution}
+
+
+\bonusquestion[2] Using the same predicates as problem \ref{proba}, translate the following statement into logic assuming the domain of $x$ is all students at MTU and the domain of $y$ is all CS courses.
+``Some freshman at MTU is taking two CS courses."
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+	$\exists x\; \exists y\; \exists z\;(F(x) \wedge T(x,y) \wedge T(x,z) \wedge (y \neq z))$
+\end{solution}
+
+
+\question[4] Rosen Ch 1.4 \# 38(a,d), p. 55
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+%	\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%        \item[(a)] Some system is open.
+%        \item[(d)] Some system is unavailable.
+%    \end{itemize}
+    \begin{tabular}{ll} 
+    	(a) Some system is open. & (d) Some system is unavailable. 
+    \end{tabular}
+\end{solution}
+
+
+\question[6] Rosen Ch 1.5 \#10(a,d,e), p. 65
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+%    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%        \item[(a)] $\forall x\; F(x,Fred)$
+%        \item[(b)] $\forall y\; F(Evelyn, y)$
+%        \item[(c)] $\forall x\; \exists y\; F(x,y)$
+%        \item[(d)] $\neg \exists x\; \forall y\; F(x,y)$
+%        \item[(e)] $ \forall y\; \exists x\; F(x,y)$
+%        \item[(f)] $\neg \exists x\; (F(x, Fred) \wedge F(x,Jerry))$
+%        \item[(g)] $\exists x\; \exists y; (F(Nancy, x) \wedge F(Nancy, y) \wedge x \neq y \wedge \forall z\; (F(Nancy,z) \ra (x = z \vee y = z)))$
+%        \item[(h)] $\exists y\; (\forall x\; F(x,y) \wedge \forall z\; (\forall x\; F(x,z) \ra z = y))$
+%        \item[(i)] $\neg \exists x F(x,x)$
+%        \item[(j)] $\exists x\; \exists y\; (x \neq y \wedge F(x,y) \wedge \forall z\; ((F(x,z) \wedge z \neq x) \ra z = y))$
+%    \end{itemize}
+	\begin{tabular}{lll} 
+		(a) $\forall x\; F(x,Fred)$ & (d) $\neg \exists x\; \forall y\; F(x,y)$ & (e) $ \forall y\; \exists x\; F(x,y)$
+	\end{tabular}
+\end{solution}
+
+
+\question[6] Rosen Ch 1.5 \#12(c,g,h), p. 65
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+%    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%        \item[(a)] $\neg I(Jerry)$
+%        \item[(b)] $\neg C(Rachel, Chelsea)$
+%        \item[(c)] $\neg C(Jan, Sharon)$
+%        \item[(d)] $\neg \exists x\; C(x,Bob) \equiv \forall x\; \neg C(x,Bob)$
+%        \item[(e)] $\forall x\; (x \neq Joseph \lra C(x, Sanjay))$
+%        \item[(f)] $\exists x\; \neg I(x)$
+%        \item[(g)] $\neg \forall x\; I(x)$
+%        \item[(h)] $\exists x\; \forall y\; (x=y \lra I(y))$
+%        \item[(i)] $\exists x\; \forall y\l (x\neq y \lra I(y))$
+%        \item[(j)] $\forall x\; (I(x) \ra \exists y\; (x \neq y \wedge C(x,y)))$
+%        \item[(k)] $\exists x\; (I(x) \wedge \forall y\; (x \neq y \ra \neg C(x,y)))$
+%        \item[(l)] $\exists x\; \exists y\; (x \neq y \wedge \neg C(x,y))$
+%        \item[(m)] $\exists x\; \forall y\; C(x,y)$
+%        \item[(n)] $\exists x\; \exists y\; (x \neq y \wedge \forall z\; \neg (C(x,z) \wedge C(y,z)))$
+%        \item[(o)] $\exists x\; \exists y\; (x \neq y \wedge \forall z\; C(x,z) \vee C(y,z))$
+%    \end{itemize}
+    \begin{tabular}{lll}
+    	(c) $\neg C(Jan, Sharon)$ & (g) $\neg \forall x\; I(x)$ & (h) $\exists x\; \forall y\; (x=y \lra I(y))$ 
+    \end{tabular}
+\end{solution}
+
+
+\question[3] Rosen Ch 1.5 \# 28 (b,c,f), p. 67
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+%    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%    	\item[(b)] False, x can not be negative
+%    	\item[(c)] True, let x = 0
+%    	\item[(f)] False
+%    \end{itemize}
+    \begin{tabular}{lll}
+    	(b) False, x can't be negative & (c) True, let x = 0 & (f) False 
+    \end{tabular}
+\end{solution}
+
+
+
+\question[6] Rewrite the statements so that the negations appear only on predicates (that is, so that no negation is outside a quantifier or an expression involving logical connectives).
+	\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    	topsep=0pt,partopsep=0pt]
+    	\item $\neg \forall x\; \exists y\; P(x,y)$
+    	\item $\neg \exists x\; (Q(x) \vee \exists y\; \neg P(x,y))$
+    	\item $\neg \forall x\; (\exists y\; \forall z\; T(x,y,z) \ra \forall y\; \forall z\; U(x,y,z))$
+    \end{enumerate}
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution} Repeatedly apply DeMorgans law of quantifiers, DeMorgans law, Double Negation, and other logical equivalence laws.
+	\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    	topsep=0pt,partopsep=0pt]
+    	\item $\neg \forall x\; \exists y\; P(x,y)$ \\
+    		$ \equiv \exists x\; \neg \exists y\; P(x,y)$ \\
+    		$ \equiv \exists x\; \forall y\; \neg P(x,y)$ 
+    		
+    	\item $\neg \exists x\; (Q(x) \vee \exists y\; \neg P(x,y))$ \\
+    		$ \equiv \forall x\; \neg (Q(x) \vee \exists y\; \neg P(x,y))$ \\
+    		$ \equiv \forall x\; (\neg Q(x) \wedge \neg \exists y\; \neg P(x,y))$ \\
+    		$\equiv \forall x\; (\neg Q(x) \wedge \forall y\; \neg \neg P(x,y))$ \\
+    		$ \equiv \forall x\; (\neg Q(x) \wedge \forall y\; P(x,y))$ 
+    		
+    	\item $\neg \forall x\; (\exists y\; \forall z\; T(x,y,z) \ra \forall y\; \forall z\; U(x,y,z))$ \\
+    		$ \equiv \exists x\; \neg (\exists y\; \forall z\; T(x,y,z) \ra \forall y\; \forall z\; U(x,y,z))$ \\
+    		$ \equiv \exists x\; (\exists y\; \forall z\; T(x,y,z) \wedge \neg \forall y\; \forall z\; U(x,y,z))$ \\
+    		$ \equiv \exists x\; (\exists y\; \forall z\; T(x,y,z) \wedge \exists y\; \neg \forall z\; U(x,y,z))$ \\
+    		$ \equiv \exists x\; (\exists y\; \forall z\; T(x,y,z) \wedge \exists y\; \exists z\; \neg U(x,y,z))$ \\
+    \end{enumerate}
+\end{solution}
+
+
+
+\question[6] Determine if the following arguments are valid? If so, describe the inferences used.
+	\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    	topsep=0pt,partopsep=0pt]
+    	\item \begin{tabular}{cl}
+    		 & If you invest in the stock market, then you will get rich. \\
+    		 & If you get rich, then you will be happy. \\
+    		 \cline{2-2} 
+    		$\therefore$ & If you invest in the stock market, then you will be happy.
+    		\end{tabular} 
+    		\smallskip
+    	\item \begin{tabular}{cl}
+    		& If taxes are lowered, then spending rises. \\
+    		& Spending rises. \\
+    		\cline{2-2} 
+    		$\therefore$ & Taxes are lowered.
+    		\end{tabular}
+    		\smallskip
+    	\item \begin{tabular}{cl}
+    		& If my programming project does not meet specifications, then I can not submit for a grade. \\
+    		& If I get help at the learning center, then my programming project will meet specifications. \\
+    		& I get help at the learning center \\
+    		\cline{2-2}
+    		$\therefore$ & I can submit for a grade.
+    		\end{tabular}
+    \end{enumerate}
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}  
+%	\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+%    	topsep=0pt,partopsep=0pt]
+%    	\item Valid, argument in the form of hypothetical syllogism
+%    	\item Not valid, this is the fallacy of affirming the conclusion
+%    	\item Not valid
+%    \end{enumerate}
+    \begin{tabular}{l}
+    	(a) Valid, argument in the form of hypothetical syllogism \\
+    	(b) Not valid, this is the fallacy of affirming the conclusion\\
+    	(c) Not valid
+    \end{tabular}
+\end{solution}
+
+
+\question[9]\label{probc} Use the rules of inference to show that the hypotheses imply the conclusion:
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item ``If I graduate in four years, then I will have completed the CS courses", and
+    \item ``If I do not work on CS for 10 hours a week, then I will not complete the CS courses", and
+    \item ``If I work on CS for 10 hours a week, then I can not procrastinate."
+\end{itemize}
+Conclusion: ``If I procrastinate, then I will not graduate in four years."
+Let
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item[$w = $] ``I work on CS for 10 hours a week",
+    \item[$g = $] ``I graduate in four years",
+    \item[$c = $] ``I will complete the CS courses", and
+    \item[$p = $] ``I procrastinate."
+\end{itemize}
+First, translate the hypotheses and conclusion in to logical statements (4 points).  Then, show the valid argument (5 points).
+
+\textit{Hint: Remember you can also use the logical equivalences as a step in the argument.}
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+    The hypotheses are: $g \ra c$, $\neg w \ra \neg c$ and $w \ra \neg p$.
+    The conclusion to reach is: $p \ra \neg g$.
+
+    \begin{tabular}{lll}
+        Step    & \hspace{0.2in} & Reason \\
+        1. $g \ra c$           			& & hypothesis \\
+        2. $\neg w \ra \neg c$          & & hypothesis \\
+        3. $w \ra \neg p$           	& & hypothesis \\
+        4. $\neg \neg p \ra \neg w$ 	& & Table 7, rule 2, with (3) \\
+        5. $p \ra \neg w$				& & Double Negation with (4) \\
+        6. $p \ra \neg c$               & & Hyp. syl., with (2) \& (5) \\
+        7. $\neg c \ra \neg g$          & & Table 7, rule 2 with (1) \\
+        8. $p \ra \neg g$				& & Hyp. syl. with (6) \& (7)
+    \end{tabular}
+    
+    \emph{Note, this is one possible valid argument; many others exists.}
+\end{solution}
+
+
+\question[12] Use the same propositional variables of problem \ref{probc} and the rules of inference to show the hypotheses imply the conclusion:
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item ``If I work on CS for 10 hours a week and I don't procrastinate, then I will complete the CS courses",
+    \item ``I will not graduate in four years and I worked on CS for 10 hours a week.", and
+    \item ``If I complete the CS courses, then I graduate in four years."
+\end{itemize}
+Conclusion:  ``I procrastinated."
+
+First, translate the hypotheses and conclusion in to logical statements (4 points).  Then, show the valid argument (8 points).
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+    The hypotheses are: $(w \wedge \neg p) \ra c$, $\neg g \wedge w$ and $c \ra g$.
+    The conclusion is: $p$.
+
+        \begin{tabular}{lll}
+        Step    & \hspace{0.2in} & Reason \\
+        1. $(w \wedge \neg p) \ra c$        & & hypothesis \\
+        2. $\neg g \wedge w$                & & hypothesis \\
+        3. $c \ra g$                     	& & hypothesis \\
+        4. $\neg g$							& & Simplification with (2) \\
+        5. $\neg c$							& & modus tollens with (3) \& (4) \\
+        6. $\neg (w \wedge \neg p)$			& & modus tollens with (1) \& (5) \\
+        7. $\neg w \vee \neg \neg p$			& & DeMorgans with (6) \\
+        8. $\neg w \vee p$					& & Double neg. with (7) \\
+        9.  $w$								& & Simplifiation with (2) \\
+        10. $p$								& & Disj. syl. with (8) \& (9) \\
+        \end{tabular}
+\end{solution}
+    		
+
+\end{questions}
+\end{document} 
+		

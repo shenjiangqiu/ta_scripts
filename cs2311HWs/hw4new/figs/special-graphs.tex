@@ -1,0 +1,50 @@
+\begin{tabular}{ccc}
+
+(a)
+\begin{tikzpicture}[scale=0.3]
+	\SetGraphUnit{2}
+	\GraphInit[vstyle=Simple]
+	\tikzset{VertexStyle/.style = {
+							shape = circle,
+							fill = black,
+							inner sep = 0pt,
+							outer sep = 0pt,
+							minimum size = 3pt,
+							draw}}
+	% \SetVertexSimple[Shape=circle, MinSize=3pt, FillColor=black]
+    % \SetUpVertex[NoLabel]
+	\grCycle[RA=3]{5}
+\end{tikzpicture}
+
+& 
+(b)
+\begin{tikzpicture}[scale=0.3]
+	\SetGraphUnit{3}
+	\GraphInit[vstyle=Simple]
+	\tikzset{VertexStyle/.style = {
+						shape = circle,
+						fill = black,
+						inner sep = 0pt,
+						outer sep = 0pt,
+						minimum size = 3pt,
+						draw}}
+	\grWheel[RA=3]{8}
+\end{tikzpicture}
+
+& 
+(c)
+\begin{tikzpicture}[scale=0.4]
+	\SetGraphUnit{3}
+	\GraphInit[vstyle=Simple]
+	\tikzset{VertexStyle/.style = {
+						shape = circle,
+						fill = black,
+						inner sep = 0pt,
+						outer sep = 0pt,
+						minimum size = 3pt,
+						draw}}
+	\grCompleteBipartite[RA=2,RB=2,RS=3]{3}{4}
+\end{tikzpicture}
+
+
+\end{tabular}

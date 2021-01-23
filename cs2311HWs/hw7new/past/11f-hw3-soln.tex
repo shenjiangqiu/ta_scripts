@@ -1,0 +1,266 @@
+\documentclass[12pt,addpoints]{exam}
+% can include option [answers] to print out solutions, or command \printanswers
+%  can turn addpoint on and off with commands, \addpoints and \noaddpoints
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\setlength{\itemsep}{0pt} \setlength{\topsep}{0pt}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\xor}{\oplus}
+
+\newenvironment{my_parts}{
+\begin{parts}
+    \setlength{\itemsep}{1pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}
+}{\end{parts}}
+
+\newenvironment{my_item}{
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0.75in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Fall 2011}}{\textbf{HW
+ 3- \numpoints$\;$ points}}{\textbf{Due: Wed. 9/21/11}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\noindent \textbf{Instructions:} All assignments are due at the
+\underline{beginning of class on the due date} specified. Every student
+must write up their own solutions in their own manner.
+
+\noindent Please present your solutions in a clean, understandable
+manner; pages should be stapled before class, no ragged edges of
+paper.
+
+%\noindent The assignment has \totalpoints\ points.
+
+\begin{questions}
+\printanswers
+
+\question[16] Rosen Ch 1.6 \#14 (a,c), p. 79
+%For each of these arguments, explain which rules of inference are used for each step.
+%\begin{parts}
+%    \part ``Linda, a student in this class, owns a red convertible.  Everyone who owns a red convertible has gotten at least one speeding ticket.  Therefore, someone in this class has gotten a speeding ticket."
+%    \part ``Each of five roommates, Melissa, Aaron, Ralph, Veneesha, and Keeshawn, has taken a course in discrete mathematics.  Every student who has taken a course in discrete mathematics can take a course in algorithms.  Therefore, all five roommates can take a course in algorithms next year."
+%    \part All movies produced by John Sayles are wonderful.  John Sayles produced a movie about coal miners.  Therefore, there is a wonderful movie about coal miners."
+%\end{parts}
+
+Your answer should include the predicates and propositions used to translate each sentence, your translation, then your valid argument showing the premises lead to the given conclusion (the sentence starting with ``Therefore").
+
+\begin{solution}
+\begin{quote}
+    \textbf{(a):} Let $c(x)$ be ``$x$ is in this class", $r(x)$ be ``$x$ owns a red convertible", $t(x)$ be ``$x$ has gotten a speeding ticket."  The premises are:
+    \begin{itemize}
+        \item[1.] $c(Linda)$
+        \item[2.] $r(Linda)$
+        \item[3.] $\forall x\; (r(x) \rightarrow t(x))$
+    \end{itemize}
+    To conclude: $\exists x\; (c(x) \wedge t(x))$
+
+    \smallskip
+    \begin{tabular}{lll}
+        Step        & \hspace{0.2in} & Reason \\
+        1. $\forall x\; (r(x) \rightarrow t(x))$    &   & Hypothesis \\
+        2. $r(Linda) \rightarrow t(Linda)$          &   & Universal Instantiation \\
+        3. $r(Linda)$                               &   & Hypothesis \\
+        4. $t(Linda)$                               &   & Modus ponens using (2) and (3) \\
+        5. $c(Linda)$                               &   & Hypothesis \\
+        6. $c(Linda) \wedge t(Linda)$               &   & Conjunction with (4) and (5) \\
+        7. $\exists x\; (c(x) \wedge t(x))$         &   & Existential generalizaion \\
+    \end{tabular}
+
+    \medskip
+    \textbf{(c):} Let $s(x)$ be ``$x$ is a movie produced by Sayles", $c(x)$ be ``$x$ is a movie about coal miners", and $w(x)$ be ``movie $x$ is wonderful."  The premises are:
+    \begin{itemize}
+        \item[1.] $\forall x\; (s(x) \rightarrow w(x))$
+        \item[2.] $\exists x\; (s(x) \wedge c(x))$
+    \end{itemize}
+    The conclusion is: $\exists x\; (c(x) \wedge w(x))$
+
+    \smallskip
+    \begin{tabular}{lll}
+        Step        & \hspace{0.2in} & Reason \\
+        1. $\exists x\; (s(x) \wedge c(x))$  &   & Hypothesis \\
+        2. $s(y) \wedge c(y)$               &   & Exis. Inst. with (1) \\
+        3. $s(y)$                           &   & Simplification with (2) \\
+        4. $\forall x\; (s(x) \rightarrow w(x))$ &  & Hypothesis \\
+        5. $s(y) \rightarrow w(y)$          & & Univ. Inst. with (4) \\
+        6. $w(y)$                           & & Modus ponens with (3) and (5) \\
+        7. $c(y)$                           & & Simplification using (2) \\
+        8. $w(y) \wedge c(y)$               & & Conjunction with (6) and (7) \\
+        9. $\exists x\; (c(x) \wedge w(x))$ &   & Exis. generalization with (8) \\
+    \end{tabular}
+\end{quote}
+\end{solution}
+
+\question[8] Rosen Ch 1.6 \# 16(a,b), p. 79
+%For each of these argument determine whether the argument is correct or incorrect and explain why.
+%\begin{parts}
+%    \part Everyone enrolled in the university has lived in a dormitory.  Mia has never lived in a dormitory.  Therefore, Mia is not enrolled in the university.
+%    \part A convertible car is fun to drive.  Isaac's car is not a convertible. Therefore, Isaac's car is not fun to drive.
+%    \part Quincy likes all action movies.  Quincy likes the movie \textit{Eight Men Out}.  Therefore \textit{Eight Men Out} is an action movie.
+%    \part All lobstermen set at least a dozen traps.  Hamilton is a lobsterman. Therefore, Hamilton sets at least a dozen traps.
+%\end{parts}
+
+    \begin{solution}
+    \begin{my_item}
+        \item[(a)] Correct, using universal instantiation and modus tollens.
+        \item[(b)] Incorrect, after applying universal instantiation it uses the fallacy of denying the hypothesis.
+%        \item[(c)] Incorrect, after applying universal instantiation it uses the fallacy of denying the hypothesis.
+%        \item[(d)] Correct, using universal instantiation and modus ponens.
+    \end{my_item}
+    \end{solution}
+
+
+\question[4] Rosen Ch 1.6 \# 18, p. 79
+%What is wrong with this argument? Let $S(x,y)$ be ``$x$ is shorter than $y$." Given the premise $\exists s\; S(s, Max)$, it follows that $S(Max, Max)$.  Then by existential generalization it follows that $\exists x\; S(x,x)$, so that someone is shorter than himself.
+
+    \begin{solution}
+    It is true that there is some $s$ in the domain s.t. $S(s,Max)$; however, there is no guarantee that Max is the $s$.  This first step of the proof is invalid.
+    \end{solution}
+
+
+\question[4] Rosen Ch 1.6 \# 24, p. 79
+%Identify the error or errors in this argument that supposedly shows that if $\forall x (P(x) \vee Q(x))$ is true then $\forall x P(x) \vee \forall x Q(x)$ is true.
+%\begin{align*}
+%  & 1. \forall x (P(x) \vee Q(x)) \tag{Premise} \\
+%  & 2. P(c) \vee Q(c) \tag{Universal Inst. with (1)} \\
+%  & 3. P(c) \tag{Simplification from (2) } \\
+%  & 4. \forall x P(x) \tag{Univ. Gen. with (3)} \\
+%  & 5. Q(c) \tag{Simplification from (2)} \\
+%  & 6. \forall x Q(x) \tag{Univ. Gen. with (5)} \\
+%  & 7. \forall P(x) \vee \forall Q(x) \tag{Conjunction with (4) and (5)} \\
+%\end{align*}
+
+    \begin{solution}
+    The incorrect steps are 3 and 5.  The simplification rule can not be applied to disjunctions.  Also, step 7 the conjunction rule should ``AND" terms together.
+    \end{solution}
+
+\question[22]  Match the term in the left column with the definition
+from the right column that best matches the word.  Put the letter
+associated with a word's definition in the space next to the word.
+
+%\footnotesize
+%\begin{tabular}{p{1.8in}p{3.9in}}
+%\rule{0.7in}{.01in} Argument    & (a) A declarative statement that
+%is either true of false, but not both.\\
+%&\\[9pt]
+%\rule{0.7in}{.01in} Axiom       & (b) A form of incorrect reasoning\\
+%&\\[9pt]
+%\rule{0.7in}{.01in} Conjecture  & (c) A proposition that can be
+%established directly from a theorem that has been proved\\
+%&\\[9pt]
+%\rule{0.7in}{.01in} Contingency & (d) A proposition that is always false\\
+%&\\[9pt]
+%\rule{0.7in}{.01in} Contradiction & (e) A proposition that is always true\\
+%&\\[9pt]
+%\rule{0.7in}{.01in} Corollary   & (f) A proposition that is neither
+%always true nor always false\\
+%&\\[9pt]
+%\rule{0.7in}{.01in} Fallacy     & (g) A sequence of propositions.\\
+%&\\[9pt]
+%\rule{0.7in}{.01in} Lemma       & (h) A simple theorem used in proof of another theorem\\
+%&\\[9pt]
+%\rule{0.7in}{.01in} Proposition & (i) A statement accepted as true
+%as the basis for argument or inference\\
+%&\\[9pt]
+%\rule{0.7in}{.01in} Tautology   & (j) A statement proposed to be
+%true.\\
+%&\\[9pt]
+%\rule{0.7in}{.01in} Theorem     & (k) A statement that can be shown to be true\\
+%\end{tabular}
+\normalsize
+
+    \begin{solution}
+    The following matches are correct:
+
+    \begin{tabular}{ll}
+        (g) - Argument      & (b) - Fallacy \\
+        (i) - Axiom         & (h) - Lemma  \\
+        (j) - Conjecture    & (a) - Proposition \\
+        (f) - Contingency   & (e) - Tautology \\
+        (d) - Contradiction & (k) - Theorem \\
+        (c) - Corollary     & \\
+    \end{tabular}
+    \end{solution}
+
+
+\question[10] Rosen Ch 1.7 \# 2, p. 91
+%Use a direct proof to show that the sum of two even integers is even.
+
+    \begin{solution}
+    \textbf{Proof:} Assume you have two even integers $a$ and $b$.  By definition of even numbers, then there exists integers $k_a$ and $k_b$ such that $a=2k_a$ and $b=2k_b$.  Computer $a+b$:
+    $$a+b = 2k_a + 2k_b = 2(k_a + k_b).$$
+    The sum of the two even numbers is also in the form of a even number.
+    Therefore, the sum of two even integers is even.
+    \end{solution}
+
+
+\question[10] Rosen Ch 1.7 \# 6, p. 91
+% Use a direct proof to show that the product of two odd numbers is odd.
+    \begin{solution}
+    \textbf{Proof:} Assume there are two odd integers $a$ and $b$.  Then, by definition of odd there exists two integers $k_a$ and $k_b$ such that $a=2k_a + 1$ and $b=2k_b + 1$.  Compute $a \cdot b$:
+    $$ a\cdot b = (2k_a + 1)\cdot(2k_b + 1) = 4k_ak_b + 2k_a + 2k_b + 1 = 2(2k_ak_b + k_a + k_b) + 1$$
+    the product of the two odd integers is the form of an odd number. 
+    Consequently, the product of two odd numbers is odd.
+    \end{solution}
+
+
+\uplevel{For the next two problems, you will use the definition of
+$n$ being \textit{divisible} by $m$, specifically:
+
+\smallskip
+\textbf{Definition:} For natural numbers $n$ and $m$, then $n$ is
+\underline{divisible} by $m$ if and only if there is a natural
+number $k$ such that $n=km$.
+
+\smallskip
+For example, 56 is divisible by 8; there is a natural number $k$
+(specifically, 7) such that $56 = 8k$. Also, thinking of the
+bi-implication in the other direction, you can state because $39 = 3
+\cdot 13$, 39 is divisible by 3 (or 39 is divisible by 13).}
+
+\uplevel{An example of a proof using this new definition is to show,
+\begin{center}
+ "For all natural numbers $n$, if $n$ is divisible by 6, then $n^2$
+ is divisible by 9."
+\end{center}
+Follow the examples in class,
+\begin{quote}
+Assume $n$ is divisible by 6.  Then, by definition of divisible
+there is some natural number $k$ s.t. $n=6k$. Compute $n^2$:
+\[ n^2 = (6k)^2 = 36k^2 = 9(4k^2). \]
+where $n^2$ is divisible by 9 by definition. Therefore, for all
+natural numbers, if $n$ is divisible by 6, then $n^2$ is divisible
+by 9.
+\end{quote}}
+
+\question[10] Prove: For all natural numbers $n$, if $n$ is divisible by
+12, then $n^2$ is divisible by 9.
+    \begin{solution} \textbf{Proof:} Assume $n$ is divisible by 12.
+    Then by definition of divisible there is some natural number $k$
+    s.t. $n=12k$. Compute $n^2$:
+    \[ n^2 = (12k)^2 = 144k^2 = 9(16k^2) \]
+    It follows, $n^2$ is of the form of divisible by 9.  Therefore,
+    for all natural numbers $n$, if $n$ is divisible by 12, then
+    $n^2$ is divisible by 9.
+    \end{solution}
+
+\question[10] Prove divisibility is transitive, that is prove: If a is divisible by b and b is divisible by c then a is divisible by c.
+
+    \begin{solution}
+    \textbf{Proof:} Assume $a$ is divisible by $b$ and $b$ is divisible by $c$. By definition of divisibility, then there exists a natural number $k_a$ and $k_b$ such that $a = k_ab$ and $b = k_bc$.  The number a can be written as:
+    $$ a = k_a b = k_a k_b c$$
+    where $a$ is also divisible by $c$.  Therefore, if $a$ is divisible by $b$ and $b$ is divisible by $c$ then $a$ is divisible by $c$.
+    \end{solution}
+
+
+\end{questions}
+\end{document} 

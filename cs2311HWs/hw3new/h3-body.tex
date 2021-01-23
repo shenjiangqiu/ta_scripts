@@ -1,0 +1,206 @@
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Fall 2017}}{\textbf{HW
+ 3  \ifprintanswers - Solutions \fi}}{\textbf{Due: Fri. 09/29/17}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+
+\ifprintanswers
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  Assignments should be typed and submitted as a PDF in Canvas.   
+
+\medskip
+\noindent Every student must write up their own solutions in their own manner.
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\else
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  
+
+\medskip
+\noindent Every student must write up their own solutions in their own manner.
+
+\medskip
+\noindent Please present your solutions in a clean, understandable
+manner.  Use the provided \href{https://mtu.instructure.com/courses/1184060/pages/help-for-typing-hw}{files} that give mathematical notation in Word, Open Office, Google Docs, and \LaTeX. 
+
+\medskip
+\noindent Assignments should be typed and submitted as a PDF. 
+
+\medskip 
+\noindent  Do Not Crowd Your Answers
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\fi
+
+
+\begin{questions}
+
+
+\section*{Relations}
+
+\ugquestion{6} Let $X = \{ a, b \}$ and $Y = \{ 1, 2 \}$.  
+\begin{parts}
+	\part Give the sets $X \times Y$ and $\mathcal{P}(X \times Y)$. 
+	\part How many possible relations exist from $X$ to $Y$?
+	\part What does $\mathcal{P}(X \times Y)$ represent with respect to relations?
+	\part How many binary relations exist on the set $C = \{1, 2, 3, 4\}$? 
+
+	You do \textbf{not} need to list all such relations
+\end{parts}
+\ifprintanswers 
+	\vspace{-10pt}
+\fi 
+\begin{solution}
+\begin{parts}
+	\part $X \times Y = \{ (a, 1), (b, 1), (a, 2), (b, 2) \}$ \\[2pt]
+	$\mathcal{P}(X \times Y) = 
+	\{\; \es, \{ (a,1) \}, \{ (a,2) \}, \{ (b,1) \}, \{ (b,2) \}$ \\
+	\hspace*{0.2in}$\{ (a,1), (1,2) \}, \{ (a,1), (b,1) \}, \{ (a,1), (b,2) \}, \{ (a,2), (b,1) \}, \{ (a,2), (b,2) \}, \{ (b,1), (b,2) \},$ \\
+	\hspace*{0.2in}$\{ (a,1), (a,2), (b,1) \}, \{ (a,1), (a,2), (b,2) \}, \{ (a,1), (b,1), (b,2) \}, \{ (a,2), (b,1), (b,2) \}, $ \\
+	\hspace*{0.2in}$\{ (a,1), (a,2), (b,1), (b,2) \}  \;\}$
+	
+	\part $2^{|X \times Y|} = 2^{2\cdot 2} = 2^4 = 16$
+
+	\part Each element of $\mathcal{P}(X \times Y)$ is a possible relation.
+	
+	\part $2^{|C \times C|} = 2^{4 \cdot 4} = 2^{16} = 65536$
+\end{parts}
+\end{solution}
+
+
+
+
+\gquestion{6}{2}{a(i),b(i)} For each part, describe a relation using the different representations asked for. 
+
+\begin{enumerate}[label=(\alph*),itemsep=1pt,parsep=0pt,
+        topsep=0pt,partopsep=0pt]
+    %  Book of Proof  11.0.2
+    \item Let $A = \{1, 2, 3, 4, 5, 6 \}$.  
+    \begin{enumerate}[label=(\roman*)]
+    	\item  Write out the relation $R$ on $A$ that expresses $x\;|\;y$ (divides), that is if $x \;|\; y$ then $(x, y) \in R$, that is describe the relation using the set enumeration methods (list all elements of the set).  
+    	\item  Draw the relation as a digraph. 
+    	\item  Describe the relation as a zero-one matrix (assume rows/columns are ordered numerically). 
+    \end{enumerate}
+
+    % Book of Proof 11.0.5
+    \item Let $R$ be a relation on a set $A$, illustrated below. 
+    	\begin{center}
+	    \begin{tikzpicture}[scale=0.5]
+	    	\tikzset{VertexStyle/.style = {shape = circle,
+		                                    %ball color = orange,
+		                                    text = black,
+		                                    inner sep = 1pt,
+		                                    outer sep = 0pt,
+		                                    minimum size = 4 pt,
+		                                    draw}}
+		    \SetGraphUnit{2}
+		    \Vertex[x=0,y=0,Lpos=-90,LabelOut]{3} 
+		    \Vertex[x=0,y=3,Lpos=90,LabelOut]{0}
+		    \Vertex[x=3,y=0,Lpos=-90,LabelOut]{4} 
+		    \Vertex[x=3,y=3,Lpos=90,LabelOut]{1}
+		    \Vertex[x=6,y=0,Lpos=-90,LabelOut]{5} 
+		    \Vertex[x=6,y=3,Lpos=90,LabelOut]{2}
+		    \tikzset{EdgeStyle/.style = {->,>=latex}}
+		    \Edge(5)(0)
+		    \Edge(1)(2)
+		    \Edge(2)(5)
+		    \Edge(4)(2)
+		    \Edge(4)(3)
+		    % \Edge(3)(3)
+		    \Loop[dist=1cm,dir=WE](3)
+	    \end{tikzpicture}
+	    \end{center}
+    \begin{enumerate}[label=(\roman*)]
+    	\item Write out the sets $A$ and $R$.
+    	\item Describe the relation as a zero-one matrix (assume rows/columns are ordered numerically). 
+    \end{enumerate}
+
+    % Book of Proof  11.0.6
+    \item Congruence modulo 5 is a relation, $R$, on $\Z$, where $(x,y) \in R$ means $x \equiv y \;(mod\; 5)$.  Write out the set $R$ in set-builder notation.
+\end{enumerate}
+\ifprintanswers 
+	\vspace{-10pt}
+\fi 
+\begin{solution}
+\begin{itemize}
+	\item[] (a).(i) $R = \{ (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 2), (2, 4), (2, 6),$
+
+	$\hspace{0.9in} (3, 3), (3, 6), (4, 4), (5, 5), (6, 6)   \}$
+	\item[] (a).(ii) \& (a).(iii)
+	\input{figs/hw3.q2a} 
+
+	\item[] (b).(i) $A = \{0, 1, 2, 3, 4, 5 \}$ ,  $R = \{ (1,2), (2,5), (3,3), (4,2), (4,3), (5,0) \}$
+
+	\item[] (b).(ii)  
+	$ \mathbf{M}_R = 
+	\begin{bmatrix}
+		0 & 0 & 0 & 0 & 0 & 0 \\
+		0 & 0 & 1 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0 & 0 & 1 \\
+		0 & 0 & 0 & 1 & 0 & 0 \\
+		0 & 0 & 1 & 1 & 0 & 0 \\
+		1 & 0 & 0 & 0 & 0 & 0 \\
+	\end{bmatrix}$
+
+	\item[] (c)  $ R = \{ (x,y) \;|\;  x, y\in \Z \text{ and } 5 \,|\, (x-y) \}$
+\end{itemize}
+\end{solution}
+
+
+
+\ugquestion{4} In the following figures relations $R$ are indicated by gray shading.  In figure (a), the relation is on $\mathbb{R}$ in (b) the relation is on $\mathbb{z}$.  State what familiar relation is being represented. 
+
+% Book of Proof 11.0.12, 11.0.14
+\begin{tabular}{cc}
+	\includegraphics[width=1in]{figs/rel1} & 
+	\includegraphics[width=1in]{figs/rel3} \\
+	(a) & (b) 
+\end{tabular}
+\ifprintanswers 
+	\vspace{-10pt}
+\fi 
+\begin{solution}
+	(a) $>$\\
+	(b) $<$ 
+\end{solution}
+
+
+
+
+\gquestion{28}{14} Consider the following relations, determine whether the relation described is reflexive (R), symmetric (S), antisymmetric (AS), and transitive (T).  Report the results in a table, for example, 
+
+\begin{tabular}{|r|cccc|}
+	\hline 
+		\textbf{Relation} & \textbf{R?} & \textbf{S?} & \textbf{AS?} & \textbf{T?} \\
+	\hline 
+		(a)  &  ? & ? & ? &  ? \\
+		\vdots & \vdots & \vdots & \vdots & \vdots \\	
+	\hline 
+\end{tabular}
+
+Also, briefly explain for any ``no'' answer, why the relation does not have a given property. 
+
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+	\item $R_a = \{ (a,a),(b,b),(c,c),(d,d),(a,b),(b,a) \}$ on $\{a, b, c, d\}$
+		% Book of Proof 11.1.1
+	\item $R_b = \{ (0, 0), (􏰁2, 0), (0, 􏰁2), (􏰁2, 􏰁2) \}$ on $\mathbb{R}$ 
+		% Book of Proof 11.1.5 
+	\item Rosen 9.1.4(a) %$(a, b) \in R_T$ if $a$ is taller than $b$, thre relation is on the set of all people.
+	\item Rosen 9.1.4(c) 
+	\item Rosen 9.1.4(d) 
+	\item $R_f = \{ (\text{Bill Gates}, \text{Mark Zuckerberg}) \}$ on the set of all people.
+	\item The $>$ relation on $\Z$ 
+	\item The $\leq$ relation on $\Z$ 
+	\item The $\neq$ relation on $\Z$ 
+	\item The $\;|\;$ relation on $\Z$. 
+	\item Rosen 9.1.6(b)
+	\item Rosen 9.1.6(c)
+	\item Rosen 9.1.6(e) 
+	\item Rosen 9.1.6(f) 
+\end{enumerate}
+
+
+\end{questions}
+
+\end{document}

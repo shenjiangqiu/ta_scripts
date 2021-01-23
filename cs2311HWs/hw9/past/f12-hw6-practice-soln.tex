@@ -1,0 +1,272 @@
+\documentclass[12pt,addpoints]{exam}
+% can include option [answers] to print out solutions, or command \printanswers
+%  can turn addpoint on and off with commands, \addpoints and \noaddpoints
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage[top=0.75in,bottom=0.75in,left=0.9in,right=0.9in]{geometry}
+
+\setlength{\itemsep}{0pt} \setlength{\topsep}{0pt}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\xor}{\oplus}
+\newcommand{\es}{\emptyset}
+\newcommand{\s}{\subseteq}
+\newcommand{\pss}{\subset}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\Zp}{\mathbb{Z}^+}
+\newcommand{\Zn}{\mathbb{Z}^-}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Fall 2012}}{\textbf{HW
+6 - Practice Problems Solutions}}{} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\noindent \textbf{Instructions:} The following practice problems are
+not due and are not graded.  The solutions will be provided to allow
+for extra practice.
+
+\begin{questions}
+\printanswers
+
+\question Rosen Ch 2.4, \# 26(b,c,d,g,h), p. 169
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+For each of these lists of integers, provide a simple formula or rule that generates the terms of an integer sequence that begins with the given list.  Assuming that your formula or rule is correct, determine the next three terms of the sequence. \\
+%\begin{parts}
+%    \part $3, 6, 11, 18, 27, 38, 51, 66, 83, 102, \ldots $
+%    \part $7, 11, 15, 19, 23, 27, 31, 35, 39, 43, \ldots $
+%    \part $1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010, 1011, \ldots $
+%    \part $1, 2, 2, 2, 3, 3, 3, 3, 3, 5, 5, 5, 5, 5, 5, 5, \ldots $
+%    \part $0, 2, 8, 26, 80, 242, 728, 2186, 6560, 19682, \ldots $
+%    \part $1, 3, 15, 105, 945, 10395, 135135, 2027025, 34459425, \ldots $
+%    \part $1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, \ldots $
+%    \part $2, 4, 16, 256, 65536, 4294967296, \ldots $
+%\end{parts}
+
+\begin{itemize}[topsep=0pt,parsep=0pt,itemsep=0pt]
+%    \item[(a)] Look at the difference between terms $3, 5, 7, 11, 13, ...$.  The $n$th term is obtained by adding $2n-1$ to the previous term.  One could also observe that starting with $n=1$ then, $a_n = n^2 + 2$.  \\
+%    Using this formula the next three terms will be: \\
+%    3, 6, 11, 18, 27, 38, 51, 66, 83, 102, \textbf{123, 146, 171,} \ldots
+    \item[(b)] This is an arithmetic progression with an initial term of 7 and common difference of 4.  The $n$th term is $a_n = 7 + 4(n-1) = 4n + 3$ starting from $n=1$.  The next three terms will be: \\
+    7, 11, 15, 19, 23, 27, 31, 35, 39, 43, \textbf{47, 51, 55,} \ldots
+ 	\item[(c)] Here the pattern is the sequence of increasing integers if counting in binary starting from 1. The $n$th term is then $a_0 = binary(1)$, $a_n = binary(a_{n-1}+1)$ where binary(x) is the number $x$ expressed in base 2.  The next three terms will be: \\
+    1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010, 1011, \textbf{1100, 1101, 1110,} \ldots
+    \item[(d)] This sequence has two patterns to recognize what number is listed, and how many times it appears.  The number of times a number appears is increasing odd, 1, 3, 5, 7, \ldots.  The number itself is the sum of the two previous numbers 3 = 1+2, 5 =2+3.   The next three terms will be:
+    1, 2, 2, 2, 3, 3, 3, 3, 3, 5, 5, 5, 5, 5, 5, 5, \textbf{8, 8, 8,} \ldots
+   % \item[(e)]  This sequence is close to the expression $3^n$.  In fact, the $n$th term is $a_n = 3^n - 1$, where $n=0, 1, 2, \ldots$.  The next three terms will be: \\
+%    0, 2, 8, 26, 80, 242, 728, 2186, 6560, 19682, \textbf{59048, 177146, 531440,}\ldots
+%    \item[(f)] In this sequence, the ratio of a term divided by the previous term starts with 3 then increases by two as the terms increase.  That is, $\frac{3}{1} = 3$, $\frac{15}{3} = 5$, $\frac{105}{15} = 7$, $\frac{945}{105} = 9$, \ldots.  The general form is $a_n = a_{n-1} \cdot (2n -1)$.  The next three terms will be:
+%    1, 3, 15, 105, 945, 10395, 135135, 2027025, 34459425, \textbf{585810225, 11130394275, 233738279775,} \ldots
+    \item[(g)] The pattern is 1 appears once, the next number 0 appears twice, the next number 1 appears three times, then 0 four times, etc.  The next three terms will be: \\
+    1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, \textbf{0, 0, 0,} \ldots
+    \item[(h)] Every term is the square of the previous term. The next three terms are:
+    2, 4, 16, 256, 65536, 4294967296, \textbf{ 18446744073709551616,}\\ \textbf{340282366920938463463374607431768211456,}\\ \scriptsize\textbf{115792089237316195423570985008687907853269984665640564039457584007913129639936}, \normalsize\ldots
+
+\end{itemize}
+\end{solution}
+
+
+\question A \textit{closed form} of a summation is an equation
+in which no summation symbol appears.  The classic example is
+$\displaystyle \sum_{i=1}^n i = \frac{n(n+1)}{2}$.  The fraction on
+the right is the \textit{closed form} of the summation.  For this
+problem you will determine closed forms for summations.
+
+The four facts below will be useful:
+
+\begin{tabular}{lll}
+    \multicolumn{2}{l}{Fact} & Example: \\
+  Fact 1: & $\displaystyle \sum_{i=1}^n c  = nc$     & $\displaystyle \sum_{i=1}^n 7 = 7n$ \\
+    & when $c$ is a constant \\
+  Fact 2: & $\displaystyle \sum_{i=j}^n c  = (n-j+1)c$  & $\displaystyle \sum_{i=0}^n = 7(n+1) $ \\
+    & when $c$ is a constant \\
+  Fact 3: & $\displaystyle \sum_{i=j}^n (f(i) \pm g(i)) = \sum_{i=j}^n f(i) \pm \sum_{i=j}^n g(i)$ \hspace{0.2in} &  $\displaystyle \sum_{i=j}^n (2n - n^2) = \sum_{i=j}^n 2n - \sum_{i=j}^n n^2 $ \\
+    & \\
+  Fact 4: & $\displaystyle \sum_{i=j}^n cf(i) = c \sum_{i=j}^n f(i)$  & $\displaystyle \sum_{i=j}^n (3 \times 2^i) = 3 \sum_{i=j}^n 2^i $ \\
+   & when $c$ is a constant \\
+\end{tabular}
+
+Find a closed form for the summation $\displaystyle \sum_{i=1}^n \sum_{j=1}^n (3i+ 2j)$.  Show how you find the closed form solution; justify each step.
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+\begin{tabular}{rll}
+  $\displaystyle \sum_{i=1}^n \sum_{j=1}^n (3i+ 2j)$ & $\displaystyle = \sum_{i=1}^n \left[ \sum_{j=1}^n (3i + 2j) \right] $ & add implied parentheses \\
+   & $\displaystyle = \sum_{i=1}^n \left[ \sum_{j=1}^n 3i + \sum_{j=1}^n 2j \right]$ & Fact 3 \\
+   & $\displaystyle = \sum_{i=1}^n \left[ 3i \sum_{j=1}^n 1 + 2 \sum_{j=1}^n j \right]$ & Fact 4 and Fact 4 \\
+   & $\displaystyle = \sum_{i=1}^n \left[ 3in + 2 \sum_{j=1}^n j \right]$ & Fact 1  \\
+   & $\displaystyle = \sum_{i=1}^n \left[ 3in + 2 \cdot \frac{n(n+1)}{2} \right]$ & Table 2 \\
+   & $\displaystyle = \sum_{i=1}^n 3in + \sum_{i=1}^n n(n+1)$ & Fact 3 \\
+   & $\displaystyle = 3n \sum_{i=1}^n i + n(n+1) \sum_{i=1}^n 1$ & Fact 4 (twice) \\
+   & $\displaystyle = 3n \cdot \frac{n(n+1)}{2} + n(n+1) \sum_{i=1}^n 1$ & Table 2 \\
+   & $\displaystyle = 3n \cdot \frac{n(n+1)}{2} + n(n+1)\cdot n$ & Fact 1 \\
+   & $\displaystyle = \frac{5n^2(n+1)}{2} $ & algebra \\
+\end{tabular}
+\end{solution}
+
+
+\question Consider the following geometric series (follows a geometric progression): $\sum_{i=0}^{10} 2^i$.  Identify $a$, $r$, and $n$ from Table 2, then find the sum.
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+This is the series $2^0 + 2^1 + 2^2 + \cdot + 2^{10}$.  Therefore, we can use $a = 2^0 = 1$, $r = 2$ and $n=10$ to apply the rule.
+\[ \sum_{i=0}^{10} 2^i = \frac{a(r^{n+1} - 1)}{r-1} = \frac{1(2^{11}-1)}{2-1} = 2^{11}-1 = 2,047. \]
+\end{solution}
+
+
+\uplevel{\textbf{Ch 5 Induction and Recursion}}
+
+\question Rosen, Ch 5.1 \# 4, p. 329
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+Let $P(n)$ be the statement that $1^3 + 2^3 + \cdots + n^3 = \left( \frac{n(n+1)}{2} \right)^2$ for the positive integer $n$.
+\begin{parts}
+    \part (1 point) What is the statement P(1)? \\
+        $P(1)$ is the statement $ 1^3 = [ \frac{1 \cdot (1+1) }{2} ]^2 $.
+    \part (1 point) Show that P(1) is true, completing the basis step of the proof.
+        \[ \left[ \frac{1 \cdot (1+1) }{2} \right]^2 = 1^2 = 1 = 1^3 \]
+    \part (2 points) What is the inductive hypothesis? \\
+        The inductive hypothesis is to assume $P(k)$ is true for an arbitrary, fixed integer $k \geq 1$, that is
+        \[ 1^3 + 2^3 + \cdots + k^3 = \left( \frac{k(k+1)}{2} \right)^2 \]
+    \part (2 point) What do you need to prove in the inductive step? \\
+        For the inductive step, show for each $k \geq 1$ that $P(k)$ implies $P(k+1)$. \\
+        That is, show $P(k+1)$:
+        \[ 1^3 + 2^3 + \cdots + k^3 + (k+1)^3 = \left( \frac{(k+1)(k+2)}{2} \right)^2 \]
+    \part (3 points) Complete the inductive step. \\
+        Since, $P(k)$ holds,
+        \begin{align*}
+            1^3 + 2^3 + \cdots + k^3 + (k+1)^3 &=  \left( \frac{k(k+1)}{2} \right)^2 + (k+1)^3  \tag{Ind. Hyp.} \\
+              &= \left(\frac{k^2(k+1)^2}{2^2} \right) + (k+1)^3 \\
+              &= (k+1)^2 \left( \frac{k^2}{4} + (k + 1) \right) \\
+              &= (k+1)^2 \left( \frac{k^2 + 4k + 4}{4} \right) \\
+              &= \frac{(k+1)^2(k+2)^2}{2^2} \\
+        \end{align*}
+        That is, $1^3 + 2^3 + \cdots +(k+1)^3 = \left( \frac{(k+1)(k+2)}{2} \right)^2 $, the $P(k+1)$ statement.  This completes the inductive step.
+    \part (1 point) Explain why these steps show that this formula is true whenever $n$ is a positive integer. \\
+        The basis step and inductive step are completed.  Therefore by principle of mathematical induction, the statement is true for every positive integer $n$.
+\end{parts}
+\end{solution}
+
+
+\question Rosen Ch 5.1 \# 10, p. 330
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+(a) Find a closed formula for $\displaystyle \sum_{i=1}^n \frac{1}{i(i+1)}$ by examining the value of this summation for small values of $n$ (Look at $n=1,2,3,4$ to determine this pattern).\\
+\begin{quote}
+    For $n=1,2$, and $3$, the summation $\displaystyle \sum_{i=1}^n \frac{1}{i(i+1)}$ is $\frac{1}{2}$, $\frac{2}{3}$, $\frac{3}{4}$, respectively.  Therefore, the closed form of this summation is
+    \[ \sum_{i=1}^n \frac{1}{i(i+1)} = \frac{n}{n+1}. \]
+\end{quote}
+
+(b) Use induction to prove that the formula you found is correct.\\
+\begin{quote}
+Let $P(n)$ be for all $n \geq 1$, $\displaystyle \sum_{i=1}^n \frac{1}{i(i+1)} =  \frac{n}{n+1}.$ \\
+\textit{Basis Step}: For $n=1$, compute $\sum_{i=1}^1 \frac{1}{1(1+1)} = \frac{1}{2}$ and $\frac{n}{n+1} = \frac{1}{1+1} = \frac{1}{2}$.  \\
+\textit{Inductive Step}: Assume for some $k \geq 1$
+ \[ \sum_{i=1}^k \frac{1}{i(i+1)} = \frac{k}{k+1}. \]
+ Show that
+ \[ \sum_{i=1}^{k+1} \frac{1}{i(i+1)} = \frac{k+1}{k+2}. \]
+ \begin{align*}
+    \sum_{i=1}^{k+1} \frac{1}{i(i+1)} &= \sum_{i=1}^k \frac{1}{i(i+1)}  + \frac{1}{(k+1)(k+2)}  & \text{by def. of}\; \sum \\
+      &= \frac{k}{k+1} + \frac{1}{(k+1)(k+2)}  & \text{by ind. hyp.} \\
+      &= \frac{k(k+2) + 1}{(k+1)(k+2)} \\
+      &= \frac{k^2 + 2k + 1}{(k+1)(k+2)} \\
+      &= \frac{(k+1)^2}{(k+1)(k+2)} \\
+      &= \frac{k+1}{k+2} \\
+ \end{align*}
+ This completes the inductive step.  By mathematical induction, $P(n)$ is true, for every pos. integer $n$.
+\end{quote}
+\end{solution}
+
+
+\question Rosen Ch 5.1 \# 20, p. 330
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+Prove that $3^n < n!$ if $n$ is an integer greater than 6.
+
+\smallskip
+    Let $P(n)$ be $3^n < n!$ for $n > 6$.
+
+    \textit{Basis Step}: Look at $P(7)$, $3^7 = 2187$ and $7! = 5040$, so $P(7)$ is true $2187 < 5040$. \\
+
+    \textit{Inductive Step}:  Assume for some arbitrary, fixed integer $k > 6$, $P(k)$ is true.
+    \[ 3^k < k! \]
+    Show that $P(k+1)$ is true.
+    \[ 3^{k+1} < (k+1)! \]
+    $3^{k+1} = 3 \cdot 3^{k} < (k+1) \cdot 3^k < (k+1)k! = (k+1)!$
+    This completes the inductive step.  By mathematical induction, $P(n)$ is true, for integers greater than 6.
+\end{solution}
+
+
+\question Rosen Ch 5.3 \# 4b, p. 357
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+Find $f(2)$, $f(3)$, $f(4)$, and $f(5)$ if $f$ is defined
+recursively by $f(0) = f(1) = 1$ and for $n=1,2,\ldots$
+\begin{itemize}
+%    \item[(a)] $f(n+1) = f(n) - f(n-1)$
+%    \begin{quote}
+%    \begin{align*}
+%        f(2) &= f(1) - f(0) = 1 - 1 = 0 \\
+%        f(3) &= f(2) - f(1) = 0 - 1 = -1 \\
+%        f(4) &= f(3) - f(2) = -1 - 0 = -1 \\
+%        f(5) &= f(4) - f(3) = -1 - -1 = 0 \\
+%    \end{align*}
+%    \end{quote}
+    \item[(b)] $f(n+1) = f(n)f(n-1)$
+    \begin{quote}
+    \begin{align*}
+        f(2) &= f(1)f(0) = 1 \\
+        f(3) &= f(2)f(1) = 1 \\
+        f(4) &= f(3)f(2) = 1 \\
+        f(5) &= f(4)f(3) = 1 \\
+    \end{align*}
+    \end{quote}
+%    \item[(c)] $f(n+1) = f(n)^2 + f(n-1)^3$.
+%    \begin{quote}
+%    \begin{align*}
+%        f(2) &= f(1)^2 + f(0)^3 = 1^2 + 1^3 = 2 \\
+%        f(3) &= f(2)^2 + f(1)^3 = 2^2 + 1^3 = 5 \\
+%        f(4) &= f(3)^2 + f(2)^3 = 5^2 + 2^3 = 33 \\
+%        f(5) &= f(4)^2 + f(3)^2 = 33^2 + 5^3 = 1214 \\
+%    \end{align*}
+%    \end{quote}
+\end{itemize}
+\end{solution}
+
+
+\question Rosen Ch 5.3 \# 49, p. 359
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+ Show that A(m,2) = 4 whenever
+$m \geq 1$.
+\begin{quote}
+    Let $P(n)$ be $A(n,2) = 4$ for $n \geq 1$. \\
+    \textit{Basis Step}: $A(1,2) = A(0,A(1,1)) = A(0,2) = 2*2 = 4$, therefore $P(1)$ is true completing the basis step. \\
+    \textit{Inductive Step}: Assume that $P(k)$ is true, that is $A(k,2) = 4$.  Then, $A(k+1,2) = A(k,A(k+1,1)) = A(k,2) = 4$.  This completes the inductive step.  Therefore, by mathematical induction, $A(n,2) = 4$ for $n \geq 1$.
+\end{quote}
+\end{solution}
+
+\end{questions}
+\end{document} 

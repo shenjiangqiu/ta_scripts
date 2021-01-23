@@ -1,0 +1,348 @@
+\documentclass[12pt,addpoints]{exam}
+% can include option [answers] to print out solutions, or command \printanswers
+%  can turn addpoint on and off with commands, \addpoints and \noaddpoints
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{epsfig,graphicx}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage[top=0.75in,bottom=0.75in,left=0.9in,right=0.9in]{geometry}
+
+\setlength{\itemsep}{0pt} \setlength{\topsep}{0pt}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\xor}{\oplus}
+\newcommand{\es}{\emptyset}
+\newcommand{\s}{\subseteq}
+\newcommand{\pss}{\subset}
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\Z}{\mathbf{Z}}
+\newcommand{\Zp}{\mathbb{Z}^+}
+\newcommand{\Zn}{\mathbb{Z}^-}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\ds}{\displaystyle}
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Spring 2012}}{\textbf{HW
+ 6 Solutions - \numpoints$\;$ points}}{\textbf{Due: Fri. 3/2/12}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{noon} on the due date} specified.  There will be a box in the CS department office (Rekhi 221) where assignments may be turned in.  Solutions will be handed out (or posted on-line) shortly thereafter.  Every student
+must write up their own solutions in their own manner.
+
+\smallskip
+\noindent Please present your solutions in a clean, understandable
+manner; pages should be stapled before class, no ragged edges of
+paper.
+
+\begin{questions}
+\printanswers
+
+\question[12] Rosen Ch 2.4, \# 26(a,c,e,f), p. 169
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+For each of these lists of integers, provide a simple formula or rule that generates the terms of an integer sequence that begins with the given list.  Assuming that your formula or rule is correct, determine the next three terms of the sequence. \\
+%\begin{parts}
+%    \part $3, 6, 11, 18, 27, 38, 51, 66, 83, 102, \ldots $
+%    \part $7, 11, 15, 19, 23, 27, 31, 35, 39, 43, \ldots $
+%    \part $1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010, 1011, \ldots $
+%    \part $1, 2, 2, 2, 3, 3, 3, 3, 3, 5, 5, 5, 5, 5, 5, 5, \ldots $
+%    \part $0, 2, 8, 26, 80, 242, 728, 2186, 6560, 19682, \ldots $
+%    \part $1, 3, 15, 105, 945, 10395, 135135, 2027025, 34459425, \ldots $
+%    \part $1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, \ldots $
+%    \part $2, 4, 16, 256, 65536, 4294967296, \ldots $
+%\end{parts}
+
+\begin{parts}
+    \part Look at the difference between terms $3, 5, 7, 11, 13, ...$.  The $n$th term is obtained by adding $2n-1$ to the previous term.  One could also observe that starting with $n=1$ then, $a_n = n^2 + 2$.  \\
+    Using this formula the next three terms will be: \\
+    3, 6, 11, 18, 27, 38, 51, 66, 83, 102, \textbf{123, 146, 171,} \ldots
+    \part This is an arithmetic progression with an initial term of 7 and common difference of 4.  The $n$th term is $a_n = 7 + 4(n-1) = 4n + 3$ starting from $n=1$.  The next three terms will be: \\
+    7, 11, 15, 19, 23, 27, 31, 35, 39, 43, \textbf{47, 51, 55,} \ldots
+    \part Here the pattern is the sequence of increasing integers if counting in binary starting from 1. The $n$th term is then $a_0 = binary(1)$, $a_n = binary(a_{n-1}+1)$ where binary(x) is the number $x$ expressed in base 2.  The next three terms will be: \\
+    1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010, 1011, \textbf{1100, 1101, 1110,} \ldots
+    \part This sequence has two patterns to recognize what number is listed, and how many times it appears.  The number of times a number appears is increasing odd, 1, 3, 5, 7, \ldots.  The number itself is the sum of the two previous numbers 3 = 1+2, 5 =2+3.   The next three terms will be:
+    1, 2, 2, 2, 3, 3, 3, 3, 3, 5, 5, 5, 5, 5, 5, 5, \textbf{8, 8, 8,} \ldots
+    \part  This sequence is close to the expression $3^n$.  In fact, the $n$th term is $a_n = 3^n - 1$, where $n=0, 1, 2, \ldots$.  The next three terms will be: \\
+    0, 2, 8, 26, 80, 242, 728, 2186, 6560, 19682, \textbf{59048, 177146, 531440,}\ldots
+    \part In this sequence, the ratio of a term divided by the previous term starts with 3 then increases by two as the terms increase.  That is, $\frac{3}{1} = 3$, $\frac{15}{3} = 5$, $\frac{105}{15} = 7$, $\frac{945}{105} = 9$, \ldots.  The general form is $a_n = a_{n-1} \cdot (2n -1)$.  The next three terms will be:
+    1, 3, 15, 105, 945, 10395, 135135, 2027025, 34459425, \textbf{585810225, 11130394275, 233738279775,} \ldots
+
+    \part The pattern is 1 appears once, the next number 0 appears twice, the next number 1 appears three times, then 0 four times, etc.  The next three terms will be: \\
+    1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, \textbf{0, 0, 0,} \ldots
+    \part Every term is the square of the previous term. The next three terms are:
+    2, 4, 16, 256, 65536, 4294967296, \textbf{ 18446744073709551616,}\\ \textbf{340282366920938463463374607431768211456,}\\ \scriptsize\textbf{115792089237316195423570985008687907853269984665640564039457584007913129639936}, \normalsize\ldots
+
+\end{parts}
+\end{solution}
+
+
+\question[4] Write out in sigma notation the sum of the first 40 terms of the series $3 + 6 + 9 + 12 + \ldots$.
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+    The sum can take many form depending on index of summation and limits.  Here are two samples
+
+\begin{center}
+\begin{tabular}{ccc}
+   $\ds \sum_{i=1}^{40} 3\cdot i$ \hspace{0.25in} & $\ds \sum_{j=1}^{40} 3\cdot j$ \hspace{0.25in} &
+    $\ds \sum_{k=0}^{39} 3\cdot (k+1)$
+\end{tabular}
+\end{center}
+\end{solution}
+
+
+\question[12] A \textit{closed form} of a summation is an equation
+in which no summation symbol appears.  The classic example is
+$\displaystyle \sum_{i=1}^n i = \frac{n(n+1)}{2}$.  The fraction on
+the right is the \textit{closed form} of the summation.  For this
+problem you will determine closed forms for summations.
+
+The four facts below will be useful:
+
+\small
+\begin{tabular}{lll}
+    \multicolumn{2}{l}{Fact} & Example: \\
+  Fact 1: & $\displaystyle \sum_{i=1}^n c  = nc$     & $\displaystyle \sum_{i=1}^n 7 = 7n$ \\
+    & when $c$ is a constant \\
+  Fact 2: & $\displaystyle \sum_{i=j}^n c  = (n-j+1)c$  & $\displaystyle \sum_{i=0}^n = 7(n+1) $ \\
+    & when $c$ is a constant \\
+  Fact 3: & $\displaystyle \sum_{i=j}^n (f(i) \pm g(i)) = \sum_{i=j}^n f(i) \pm \sum_{i=j}^n g(i)$ \hspace{0.2in} &  $\displaystyle \sum_{i=j}^n (2n - n^2) = \sum_{i=j}^n 2n - \sum_{i=j}^n n^2 $ \\
+    & \\
+  Fact 4: & $\displaystyle \sum_{i=j}^n cf(i) = c \sum_{i=j}^n f(i)$  & $\displaystyle \sum_{i=j}^n (3 \times 2^i) = 3 \sum_{i=j}^n 2^i $ \\
+   & when $c$ is a constant \\
+\end{tabular}
+
+\normalsize
+Find a closed form for the summation $\displaystyle \sum_{i=1}^n \sum_{j=1}^n (3i+ 2j)$.  Show how you find the closed form solution; justify each step using the four facts or the closed form solutions Table in the book.
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+\begin{tabular}{rll}
+  $\displaystyle \sum_{i=1}^n \sum_{j=1}^n (3i+ 2j)$ & $\displaystyle = \sum_{i=1}^n \left[ \sum_{j=1}^n (3i + 2j) \right] $ & add implied parentheses \\
+   & $\displaystyle = \sum_{i=1}^n \left[ \sum_{j=1}^n 3i + \sum_{j=1}^n 2j \right]$ & Fact 3 \\
+   & $\displaystyle = \sum_{i=1}^n \left[ 3i \sum_{j=1}^n 1 + 2 \sum_{j=1}^n j \right]$ & Fact 4 and Fact 4 \\
+   & $\displaystyle = \sum_{i=1}^n \left[ 3in + 2 \cdot \frac{n(n+1)}{2} \right]$ & Fact 1 and Table 2 \\
+   & $\displaystyle = \sum_{i=1}^n 3in + \sum_{i=1}^n n(n+1)$ & Fact 3 \\
+   & $\displaystyle = 3n \sum_{i=1}^n i + n(n+1) \sum_{i=1}^n 1$ & Fact 4 (twice) \\
+   & $\displaystyle = 3n \cdot \frac{n(n+1)}{2} + n(n+1)\cdot n$ & Table 2 and Fact 1 \\
+   & $\displaystyle = \frac{5n^2(n+1)}{2} $ & algebra \\
+\end{tabular}
+\end{solution}
+
+
+\question[6] Rosen Ch 2.4 \#40
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+ We can find $\ds \sum_{k=1}^{200} k^3 = \frac{200^2(201)^2}{4}$.
+ Also, $\ds \sum_{k=1}^{98} k^3 = \frac{98^2(99)^2}{4}$.
+
+ Therefore,
+\begin{align*}
+  \sum_{k=99}^{200} &= \sum_{k=1}^{200} k^3 - \sum_{k=1}^{98} k^3\\
+   &= \frac{200^2(201)^2}{4} - \frac{98^2(99)^2}{4} \\
+   &= 380,447,799.
+\end{align*}
+\end{solution}
+
+\uplevel{\textbf{Ch 5 Induction and Recursion}}
+
+\question[12] Rosen, Ch 5.1 \# 6, p. 329
+%Prove that $1\cdot 1! +
+%2\cdot 2! + \cdots + n\cdot n! = (n+1)! - 1$ whenever $n$ is a
+%positive integer. In other words, give a proof by induction for
+%every natural number $n > 0$,
+%\[ \sum_{i=1}^n i\cdot i! = (n+1)! - 1.\]
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+    Let $P(n)$ be $\displaystyle \sum_{i=1}^n i\cdot i! = (n+1)! - 1$
+    for every natural number $n >0$. \\
+
+    \textit{Basis Step}: For $n=1$, verify
+    $\sum_{i=1}^1 i \cdot i! = 1 \cdot 1! = 1$ and
+    $(1+1)!-1 = 1$, so $P(1)$ is true. \\
+
+    \smallskip
+    \textit{Inductive Step}: Assume $P(k)$ is true, for some arbitrary, fixed integer $k \geq 1$,
+    \[ \sum_{i=1}^k i\cdot i! = (k+1)! - 1. \]
+    Show that $P(k+1)$ is true,
+    \[ \sum_{i=1}^{k+1} i\cdot i! = (k+2)! - 1. \]
+    \begin{align*}
+        \sum_{i=1}^{k} i\cdot i! + (k+1)(k+1)! &= \sum_{i=1}^k i\cdot i! + (k+1)(k+1)!  \tag{add term to both sides} \\
+        \sum_{i=1}^{k+1} i\cdot i!  &= (k+1)!-1 + (k+1)(k+1)! \tag{by def. of sum and ind. hyp.} \\
+          &= (n+2)(n+1)! - 1  \\
+          &= (n+2)! - 1 \\
+    \end{align*}
+    This completes the inductive step.  By mathematical induction, $P(n)$ is true for every positive integer $n\geq1$.
+\end{solution}
+
+\question[12] Prove using mathematical induction that
+\[ 1 + 5 + 5^2 + 5^3 + \cdots + 5^n = \frac{5^{n+1} - 1}{4} \text{ for all } n\geq 0. \]
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+    Let $P(n)$ be $1 + 5 + 5^2 + 5^3 + \cdots + 5^n = \frac{5^{n+1} - 1}{4}$.
+
+    \smallskip
+    Show, for all $n\geq 0, P(n)$.
+
+    \smallskip
+    \textit{Basis Step:}\\ Show $n=0$, $1 = \frac{5^{0+1} - 1}{4} = \frac{5-1}{4} = 1.$ \\
+    Therefore, $P(0)$ is true.
+
+    \smallskip
+    \textit{Inductive Step:} \\
+    Assume $P(k)$ is true, for some arbitrary, fixed integer $k \geq 0$,
+       \[ 1 + 5 + 5^2 + 5^3 + \cdots + 5^k = \frac{5^{k+1} - 1}{4} \]
+    Show $P(k+1)$ is true,
+      \[ 1 + 5 + 5^2 + 5^3 + \cdots + 5^{k+1} = \frac{5^{k+2} - 1}{4} \]
+    Begin with $P(k)$ and add the next term, $5^{k+1}$ to both sides.
+    \begin{align*}
+        1 + 5 + 5^2 + 5^3 + \cdots + 5^k &= \frac{5^{k+1} - 1}{4} \\
+        1 + 5 + 5^2 + 5^3 + \cdots + 5^k  + 5^{k+1} &= \frac{5^{k+1} - 1}{4} + 5^{k+1} \\
+          &= \frac{5^{k+1} - 1 + 4\cdot 5^{k+1}}{4} \\
+          &= \frac{5\cdot 5^{k+1} - 1}{4} = \frac{5^{k+2} - 1}{4} \\
+    \end{align*}
+    This is the form of $P(k+1)$, thus completing the inductive step.
+
+    Therefore, by mathematical induction $P(n)$ is true for all $n \geq 0$.
+\end{solution}
+
+
+\question[12] Rosen Ch 5.1 \# 18, p. 330
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+\begin{enumerate}[label=(\alph*), itemsep=0pt, topsep=0pt, parsep=0pt]
+    \item (1 point) $P(2) \;:\;  2! < 2^2$.
+    \item (1 point) $P(2) \;:\; 2 = 2! < 2^2 = 4$
+    \item (2 points) The inductive hypothesis is that $P(k)$ is true for an arbitrary, fixed integer $k \geq 2$, that is $k! < k^k.$
+    \item (2 points) The inductive step should show for any $k \geq 2$ if $P(k)$ is true then $P(k+1)$ is true. That is prove, $(k+1)! < (k+1)^{k+1}$ given the inductive hypothesis.
+    \item (4 points)
+    \begin{align*}
+        k! &< k^k \tag{mult. both sides by (k+1)} \\
+        (k+1)\cdot k! &< k^k \cdot (k+1) \\
+        (k+1)! &< (k+1)\cdot k^k \\
+        (k+1)! &< (k+1)\cdot (k+1)^k  \tag{ $k < k+1$ } \\
+        (k+1)! &< (k+1)^{k+1} \\
+    \end{align*}
+    This completes the inductive step.
+    \item (2 points) By completing the basis and inductive step, by the principle of mathematical induction, the statement $P(n) \;:\; n! < n^n$ must hold for integers $n \geq 2$.
+\end{enumerate}
+\end{solution}
+
+
+
+\question[10] Rosen Ch 5.2 \# 4, p. 341-342
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+\begin{parts}
+    \part (2 points) Show $P(18)$, $P(19)$, $P(20)$, $P(21)$ are true.
+
+        \begin{tabular}{l}
+           $7 + 7 + 4 = 18$ \\
+           $7 + 4 + 4 + 4 = 19$\\
+           $4 + 4 + 4 + 4 + 4 = 20$\\
+           $7 + 7 + 7 = 21$
+        \end{tabular}
+    \part (2 points) What is the inductive hypothesis? \\
+        Using just 4-cent and 7-cent stamps we can form $j$ cents of postage, $P(j)$ for all $j$ with $ 18 \leq j \leq k$, assuming $k \geq 21$.
+    \part (2 points) What do you need to prove in the inductive step? \\
+        Show, assuming the inductive hypothesis, that we can form $k+1$ cents using only 4-cent and 7-cent stamps, $P(k+1)$.
+    \part (2 points) Complete the inductive step. \\
+        From the hypothesis, we can assume $P(k-3)$ is true, that is we can form $k-3$ cents of postage.  To form $k+1$ cents, add another 4-cent stamp.
+    \part (2 points) Explain why this statement is true for $n \geq 18$. \\
+        We have completed both the basis step and inductive step, therefore, by strong induction, the statement is true for all $n \geq 18$.
+\end{parts}
+\end{solution}
+
+
+
+\question[8] Rosen Ch 5.3 \# 4a,c, p. 357
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+Find $f(2)$, $f(3)$, $f(4)$, and $f(5)$ if $f$ is defined
+recursively by $f(0) = f(1) = 1$ and for $n=1,2,\ldots$
+\begin{itemize}
+    \item[(a)] $f(n+1) = f(n) - f(n-1)$
+    \begin{align*}
+        f(2) &= f(1) - f(0) = 1 - 1 = 0 \\
+        f(3) &= f(2) - f(1) = 0 - 1 = -1 \\
+        f(4) &= f(3) - f(2) = -1 - 0 = -1 \\
+        f(5) &= f(4) - f(3) = -1 - -1 = 0 \\
+    \end{align*}
+%    \item $f(n+1) = f(n)f(n-1)$
+%    \begin{quote}
+%    \begin{align*}
+%        f(2) &= f(1)f(0) = 1 \\
+%        f(3) &= f(2)f(1) = 1 \\
+%        f(4) &= f(3)f(2) = 1 \\
+%        f(5) &= f(4)f(3) = 1 \\
+%    \end{align*}
+%    \end{quote}
+    \item[(c)] $f(n+1) = f(n)^2 + f(n-1)^3$.
+    \begin{align*}
+        f(2) &= f(1)^2 + f(0)^3 = 1^2 + 1^3 = 2 \\
+        f(3) &= f(2)^2 + f(1)^3 = 2^2 + 1^3 = 5 \\
+        f(4) &= f(3)^2 + f(2)^3 = 5^2 + 2^3 = 33 \\
+        f(5) &= f(4)^2 + f(3)^2 = 33^2 + 5^3 = 1214 \\
+    \end{align*}
+\end{itemize}
+\end{solution}
+
+
+\question[6] Rosen Ch 5.3 \# 24(a,b), p. 358
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt]
+    \item The set of odd positive integers - $S$.  The base case is 1, $1 \in S$.  The recursive rule is if $n \in S$, then $n+2 \in S$.
+
+    \item The set of positive integer powers of 3 - $S$.  The base case is $3^1 = 3 \in S$.  The recursive definition is if $n \in S$, then $3\cdot n \in S$.
+\end{enumerate}
+\end{solution}
+
+
+\question[6] Rosen Ch 5.3 \# 26a, p. 358. (See book examples and \#
+27 to help with this problem)
+\begin{solution}
+Let $S$ be the subset of the set of ordered pairs of integers defined recursively by \\
+\textit{Basis Step}: $(0,0) \in S$. \\
+\textit{Recursive Step}: If $(a,b) \in S$, then $(a+2,b+3)\in S$ and $(a+3,b+2) \in S$. \\
+\begin{enumerate}
+    \item List the elements of $S$ produced by the first five applications of the recursive definition.
+\end{enumerate}
+\begin{quote}
+    From the basis step $(0,0) \in S$.  Each application of the recursive definition will be given:
+
+    \begin{tabular}{rllllll}
+    1 & (2,3), & (3,2) \\
+    2 & (4,6), & (5,5), & (6,4) \\
+    3 & (6,9), & (7,8), & (8,7), & (9,6) \\
+    4 & (8,12), & (9,11), & (10,10), & (11,9), & (12,8) \\
+    5 & (10,15), & (11,14), & (12,13), & (13,12), & (14,11), & (15,10) \\
+    \end{tabular}
+\end{quote}
+\end{solution}
+
+\end{questions}
+\end{document} 

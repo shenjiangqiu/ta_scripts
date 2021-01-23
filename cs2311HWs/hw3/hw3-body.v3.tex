@@ -1,0 +1,424 @@
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{CS2311 - Spring 2020}}{\textbf{HW
+ 3  \ifprintanswers - Solutions \fi}}{\textbf{Due: Sun. 02/16/20}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+
+\ifprintanswers
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  Assignments should be typed and submitted as a PDF in Canvas.   
+
+\medskip
+\noindent Every student must write up their own solutions in their own manner.
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\else
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  
+
+\medskip
+\noindent Every student must write up their own solutions in their own manner.
+
+\medskip
+\noindent Please present your solutions in a clean, understandable
+manner.  Use the provided files that give mathematical notation in Word, Open Office, Google Docs, and \LaTeX.  Do Not Crowd Your Answers!
+
+\medskip
+\noindent Assignments should be typed and submitted as a PDF. 
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\fi
+
+
+\begin{questions}
+
+
+\section*{Relations}
+
+\gquestion{6}{3}{b-d} Let $X = \{ a, b \}$ and $Y = \{ 1, 2 \}$.  
+\begin{parts}
+	\part Give the sets $X \times Y$ and $\mathcal{P}(X \times Y)$. 
+	\part How many possible relations exist from $X$ to $Y$?
+	\part What does $\mathcal{P}(X \times Y)$ represent with respect to relations?
+	\part How many binary relations exist on the set $C = \{1, 2, 3, 4\}$? 
+
+	You do \textbf{not} need to list all such relations
+\end{parts}
+\ifprintanswers 
+	\vspace{-10pt}
+\fi 
+\begin{solution}
+\begin{parts}
+	\part $X \times Y = \{ (a, 1), (b, 1), (a, 2), (b, 2) \}$ \\[2pt]
+	$\mathcal{P}(X \times Y) = 
+	\{\; \es, \{ (a,1) \}, \{ (a,2) \}, \{ (b,1) \}, \{ (b,2) \}$ \\
+	\hspace*{0.2in}$\{ (a,1), (1,2) \}, \{ (a,1), (b,1) \}, \{ (a,1), (b,2) \}, \{ (a,2), (b,1) \}, \{ (a,2), (b,2) \}, \{ (b,1), (b,2) \},$ \\
+	\hspace*{0.2in}$\{ (a,1), (a,2), (b,1) \}, \{ (a,1), (a,2), (b,2) \}, \{ (a,1), (b,1), (b,2) \}, \{ (a,2), (b,1), (b,2) \}, $ \\
+	\hspace*{0.2in}$\{ (a,1), (a,2), (b,1), (b,2) \}  \;\}$
+	
+	\part $2^{|X \times Y|} = 2^{2\cdot 2} = 2^4 = 16$
+
+	\part Each element of $\mathcal{P}(X \times Y)$ is a possible relation.
+	
+	\part $2^{|C \times C|} = 2^{4 \cdot 4} = 2^{16} = 65536$
+\end{parts}
+\end{solution}
+
+
+
+
+\gquestion{10}{3}{a(i),b(i),c} For each part, describe a relation using the different representations asked for. 
+
+\begin{enumerate}[label=(\alph*),itemsep=1pt,parsep=0pt,
+        topsep=0pt,partopsep=0pt]
+    %  Book of Proof  11.0.2
+    \item Let $A = \{1, 2, 3, 4, 5, 6 \}$.  
+    \begin{enumerate}[label=(\roman*)]
+    	\item  Write out the relation $R$ on $A$ that expresses $x\;|\;y$ (divides), that is if $x \;|\; y$ then $(x, y) \in R$, that is describe the relation using the set enumeration methods (list all elements of the set).  
+    	\item  Draw the relation as a digraph. 
+    	\item  Describe the relation as a zero-one matrix (assume rows/columns are ordered numerically). 
+    \end{enumerate}
+    \ifprintanswers 
+		\vspace{-10pt}
+	\fi 
+    \begin{solution}
+    	\begin{itemize}
+			\item[] (a).(i) $R = \{ (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 2), (2, 4), (2, 6),$
+
+			$\hspace{0.9in} (3, 3), (3, 6), (4, 4), (5, 5), (6, 6)   \}$
+			\item[] (a).(ii) \& (a).(iii)
+			\input{figs/hw3.q2a} 
+		\end{itemize}
+    \end{solution}
+
+    % Book of Proof 11.0.5
+    \item Let $R$ be a relation on a set $A$, illustrated below. 
+    	\begin{center}
+	    \begin{tikzpicture}[scale=0.5]
+	    	\tikzset{VertexStyle/.style = {shape = circle,
+		                                    %ball color = orange,
+		                                    text = black,
+		                                    inner sep = 1pt,
+		                                    outer sep = 0pt,
+		                                    minimum size = 4 pt,
+		                                    draw}}
+		    \SetGraphUnit{2}
+		    \Vertex[x=0,y=0,Lpos=-90,LabelOut]{3} 
+		    \Vertex[x=0,y=3,Lpos=90,LabelOut]{0}
+		    \Vertex[x=3,y=0,Lpos=-90,LabelOut]{4} 
+		    \Vertex[x=3,y=3,Lpos=90,LabelOut]{1}
+		    \Vertex[x=6,y=0,Lpos=-90,LabelOut]{5} 
+		    \Vertex[x=6,y=3,Lpos=90,LabelOut]{2}
+		    \tikzset{EdgeStyle/.style = {->,>=latex}}
+		    \Edge(5)(0)
+		    \Edge(1)(2)
+		    \Edge(2)(5)
+		    \Edge(4)(2)
+		    \Edge(4)(3)
+		    % \Edge(3)(3)
+		    \Loop[dist=1cm,dir=WE](3)
+	    \end{tikzpicture}
+	    \end{center}
+    \begin{enumerate}[label=(\roman*)]
+    	\item Write out the sets $A$ and $R$.
+    	\item Describe the relation as a zero-one matrix (assume rows/columns are ordered numerically). 
+    \end{enumerate}
+    \ifprintanswers 
+		\vspace{-10pt}
+	\fi 
+	\begin{solution}
+	\begin{itemize}
+		\item[] (b).(i) $A = \{0, 1, 2, 3, 4, 5 \}$ ,  $R = \{ (1,2), (2,5), (3,3), (4,2), (4,3), (5,0) \}$
+
+		\item[] (b).(ii)  
+		$ \mathbf{M}_R = 
+		\begin{bmatrix}
+			0 & 0 & 0 & 0 & 0 & 0 \\
+			0 & 0 & 1 & 0 & 0 & 0 \\
+			0 & 0 & 0 & 0 & 0 & 1 \\
+			0 & 0 & 0 & 1 & 0 & 0 \\
+			0 & 0 & 1 & 1 & 0 & 0 \\
+			1 & 0 & 0 & 0 & 0 & 0 \\
+		\end{bmatrix}$
+	\end{itemize}
+	\end{solution}
+
+    % Book of Proof  11.0.6
+    \item Congruence modulo 5 is a relation, $R$, on $\Z$, where $(x,y) \in R$ means $x \equiv y \;(mod\; 5)$.  Write out the set $R$ in set-builder notation.
+ %    \ifprintanswers 
+	% 	\vspace{-10pt}
+	% \fi 
+    \begin{solution}
+    	(c)  $ R = \{ (x,y) \;|\;  x, y\in \Z \text{ and } 5 \,|\, (x-y) \}$
+    \end{solution}
+\end{enumerate}
+% \ifprintanswers 
+% 	\vspace{-10pt}
+% \fi 
+% \begin{solution}
+% \begin{itemize}
+% 	\item[] (a).(i) $R = \{ (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 2), (2, 4), (2, 6),$
+
+% 	$\hspace{0.9in} (3, 3), (3, 6), (4, 4), (5, 5), (6, 6)   \}$
+% 	\item[] (a).(ii) \& (a).(iii)
+% 	\input{figs/hw3.q2a} 
+
+% 	\item[] (b).(i) $A = \{0, 1, 2, 3, 4, 5 \}$ ,  $R = \{ (1,2), (2,5), (3,3), (4,2), (4,3), (5,0) \}$
+
+% 	\item[] (b).(ii)  
+% 	$ \mathbf{M}_R = 
+% 	\begin{bmatrix}
+% 		0 & 0 & 0 & 0 & 0 & 0 \\
+% 		0 & 0 & 1 & 0 & 0 & 0 \\
+% 		0 & 0 & 0 & 0 & 0 & 1 \\
+% 		0 & 0 & 0 & 1 & 0 & 0 \\
+% 		0 & 0 & 1 & 1 & 0 & 0 \\
+% 		1 & 0 & 0 & 0 & 0 & 0 \\
+% 	\end{bmatrix}$
+
+% 	\item[] (c)  $ R = \{ (x,y) \;|\;  x, y\in \Z \text{ and } 5 \,|\, (x-y) \}$
+% \end{itemize}
+% \end{solution}
+
+
+
+\ugquestion{4} In the following figures relations $R$ are indicated by gray shading.  In figure (a), the relation is on $\R$ in (b) the relation is on $\Z$.  State what familiar relation is being represented. 
+
+% Book of Proof 11.0.12, 11.0.14
+\begin{tabular}{cc}
+	\includegraphics[width=1in]{figs/rel1} & 
+	\includegraphics[width=1in]{figs/rel3} \\
+	(a) \csol{$>$} & (b) \csol{$<$} 
+\end{tabular}
+% \ifprintanswers 
+% 	\vspace{-10pt}
+% \fi 
+% \begin{solution}
+% 	(a) $>$\\
+% 	(b) $<$ 
+% \end{solution}
+
+
+
+
+\gquestion{28}{16}{b,d-f,i-j,l-m} Consider the following relations, determine whether the relation described is reflexive (R), symmetric (S), antisymmetric (AS), and transitive (T).  Report the results in a table, for example, 
+
+\ifprintanswers
+\else
+\begin{tabular}{|c||c|c|c|c|}
+	\hline 
+		\textbf{Relation} & \textbf{R?} & \textbf{S?} & \textbf{AS?} & \textbf{T?} \\
+	\hline 
+		(a)  &  \hspace{0.1in}Yes / No\hspace{0.1in} & \hspace{0.1in}Yes / No\hspace{0.1in} & \hspace{0.1in}Yes / No\hspace{0.1in} &  \hspace{0.1in} Yes / No\hspace{0.1in} \\
+		\vdots & \vdots & \vdots & \vdots & \vdots \\	
+	\hline 
+\end{tabular}
+
+Also, briefly explain for any ``no'' answer, why the relation does not have a given property. 
+\fi 
+
+
+
+\ifprintanswers 
+% \begin{minipage}{0.42\textwidth}
+% \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+% 	\item $R_a = \{ (a,a)$,$(b,b)$,$(c,c)$,$(d,d)$,$(a,b)$, $(b,a) \}$ on $\{a, b, c, d\}$
+% 		% Book of Proof 11.1.1
+% 	\item $R_b = \{ (0, 0), (􏰁2, 0), (0, 􏰁2), (􏰁2, 􏰁2) \}$ on $\mathbb{R}$ 
+% 		% Book of Proof 11.1.5 
+% 	\item
+ 9.1.4(a) %$(a, b) \in R_T$ if $a$ is taller than $b$, thre relation is on the set of all people.
+% 	\item Rosen 9.1.4(c) 
+% 	\item Rosen 9.1.4(d) 
+% 	\item $R_f = \{ (\text{Bill Gates},$ Mark Zuckerberg) $\}$ on the set of all people.
+% 	\item The $>$ relation on $\Z$ 
+% 	\item The $\leq$ relation on $\Z$ 
+% 	\item The $\neq$ relation on $\Z$ 
+% 	\item The $\;|\;$ relation on $\Z$. 
+% 	\item Rosen 9.1.6(b)
+% 	\item Rosen 9.1.6(c)
+% 	\item Rosen 9.1.6(e) 
+% 	\item Rosen 9.1.6(f) 
+% \end{enumerate}
+% \end{minipage}
+% %
+% \begin{minipage}{0.55\textwidth}
+% \csol{
+% \begin{tabular}{|c||c|c|c|c|}
+% 	\hline 
+% 		\textbf{Relation} & \textbf{R?} & \textbf{S?} & \textbf{AS?} & \textbf{T?} \\
+% 	\hline 
+% 		(a)  	&  \hspace{0.1in}Yes\hspace{0.1in} 
+% 				& \hspace{0.1in}Yes\hspace{0.1in} 
+% 				& \hspace{0.1in}No\hspace{0.1in} 
+% 				&  \hspace{0.1in}Yes\hspace{0.1in} \\
+% 		(b) & 	No & Yes & No & Yes \\
+% 		(c) Rosen 9.1.4(a) 	& 	No & No & Yes & Yes \\
+% 		(d) Rosen 9.1.4(c) 	& 	Yes & Yes & No & Yes \\
+% 		(e) Rosen 9.1.6(d) 	&   Yes & Yes & No & No \\
+% 		(f) $R_f$ 			& 	No	& No	& Yes	& Yes  \\
+% 		(g) $>$ on $\Z$		&   No 	& No 	& Yes 	& Yes \\  % >
+% 		(h) $\leq$ on $\Z$  &  	Yes & No 	& Yes   & Yes \\  % <= 
+% 		(i) $\neq$ on $\Z$ 	& 	No  & Yes 	&   No 	& No \\  % neq 
+% 		(j) $|$ on $\Z$ 	&   No 	& No 	&   Yes & No \\   % | 
+% 		(k) Rosen 9.1.6(b) 	&   Yes & Yes 	& No 	& Yes \\  
+% 		(l) Rosen 9.1.6(c)  & Yes	& Yes 	& No 	& Yes \\
+% 		(m) Rosen 9.1.6(e)  & Yes 	& Yes 	& No 	& No \\
+% 		(n) Rosen 9.1.6(f) 	& No 	& Yes 	& No 	& No \\
+% 	\hline 
+% \end{tabular}
+% }
+% \end{minipage}
+
+
+\else
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+	\item $R_a = \{ (a,a),(b,b),(c,c),(d,d),(a,b),(b,a) \}$ on $\{a, b, c, d\}$
+		% Book of Proof 11.1.1
+	\item $R_b = \{ (0, 0), (2, 0), (0, 2), (2, 2) \}$ on $\mathbb{R}$ 
+		% Book of Proof 11.1.5 
+	\item Rosen 9.1.4(a) %$(a, b) \in R_T$ if $a$ is taller than $b$, thre relation is on the set of all people.
+	\item Rosen 9.1.4(c) 
+	\item Rosen 9.1.4(d) 
+	\item $R_f = \{ (\text{Bill Gates}, \text{Mark Zuckerberg}) \}$ on the set of all people.
+	\item The $>$ relation on $\Z$ 
+	\item The $\leq$ relation on $\Z$ 
+	\item The $\neq$ relation on $\Z$ 
+	\item The $\;|\;$ relation on $\Z$. 
+	\item Rosen 9.1.6(b)
+	\item Rosen 9.1.6(c)
+	\item Rosen 9.1.6(e) 
+	\item Rosen 9.1.6(f) 
+\end{enumerate}
+\fi 
+
+\begin{solution}
+\begin{tabular}{|c||c|c|c|c|}
+	\hline 
+		\textbf{Relation} & \textbf{R?} & \textbf{S?} & \textbf{AS?} & \textbf{T?} \\
+	\hline 
+		(a) $R_a$ 	&  \hspace{0.1in}Yes\hspace{0.1in} 
+				& \hspace{0.1in}Yes\hspace{0.1in} 
+				& \hspace{0.1in}No\hspace{0.1in} 
+				&  \hspace{0.1in}Yes\hspace{0.1in} \\
+		(b) $R_b$ 			& 	No & Yes & No & Yes \\
+		(c) Rosen 9.1.4(a) 	& 	No & No & Yes & Yes \\
+		(d) Rosen 9.1.4(c) 	& 	Yes & Yes & No & Yes \\
+		(e) Rosen 9.1.6(d) 	&   Yes & Yes & No & No \\
+		(f) $R_f$ 			& 	No	& No	& Yes	& Yes  \\
+		(g) $>$ on $\Z$		&   No 	& No 	& Yes 	& Yes \\  % >
+		(h) $\leq$ on $\Z$  &  	Yes & No 	& Yes   & Yes \\  % <= 
+		(i) $\neq$ on $\Z$ 	& 	No  & Yes 	&   No 	& No \\  % neq 
+		(j) $|$ on $\Z$ 	&   \textbf{Yes} 	& No 	&   Yes & \textbf{Yes} \\   % | 
+		(k) Rosen 9.1.6(b) 	&   Yes & Yes 	& No 	& Yes \\  
+		(l) Rosen 9.1.6(c)  & Yes	& Yes 	& No 	& Yes \\
+		(m) Rosen 9.1.6(e)  & Yes 	& Yes 	& No 	& No \\
+		(n) Rosen 9.1.6(f) 	& No 	& Yes 	& No 	& No \\
+	\hline 
+\end{tabular}
+
+Also, briefly explain for any ``no'' answer, why the relation does not have a given property. 
+
+\begin{enumerate}[label=(\alph*),itemsep=2pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+	\item $R_a$ is not antisymmetric, it has both $(a,b)$ and $(b,a)$ where $a \neq b$
+		% Book of Proof 11.1.1
+	\item $R_b$ is not reflixive, e.g., missing (1,1). $R_b$ is not antisymmetric, it has both $(2,0)$ and $(0,2)$, but $0 \neq 2$
+		% Book of Proof 11.1.5 
+	\item $R_c$ is not reflexive because no one can be taller than themselves.  $R_c$ is not symmetric if $a$ is taller then $b$ it can not be the opposite.
+	\item $R_d$ is not antisymmetric, person $a$ may have the same name as person $b$, $(a, b) \in R_d$ and $(b,a) \in R_d$, but $a$ and $b$ are not the same person.  
+	\item $R_e$ is not antisymmetric, if $a$ and $b$ share a common grandparent, this can be expressed as both $(a,b) \in R_e$ and $(b,a) \in R_e$.  $R_e$ is not transitive.  Let $b$ have grandparents $b_1$ and $b_2$, $a$ has $b_1$ as a grandparent (so, $(a,b) \in R_e$), and $c$ has $b_2$ as a grandparent (so, $(b,c) in R_e$), but $a$ and $c$ do not share a common grandparent.
+	\item $R_f$ is not reflexive because, for example, it does not have (Elon Musk, Elon Musk) in the relation.  $R_f$ is not symmetric it is missing (Mark Z, Bill Gates). 
+	\item $>$ is not reflexive, e.g., missing $(0,0)$.  $>$ is not symmetric, e.g., both $0 > 2$ and $2 > 0$ can not be in the relation. 
+	\item The $\leq$ relation on $\Z$ is not symmetric, e.g., both $0 > 2$ and $2 > 0$ can not be in the relation. 
+	\item The $\neq$ relation on $\Z$ is not reflexive, e.g., you can not state $1 \neq 1$.  $\neq$ is not antisymmetric, e.g., if $1 \neq 2$, then $2 \neq 1$ breaks the definition of antisymmetry.  $\neq$  is not transitive, e.g., if $1 \neq 2$ and $2 \neq 1$, then $1 = 1$ breaking the property of transitive.  
+	\item The $\;|\;$ relation on $\Z$ is not symmetric, e.g., if 2 divides 4, then 4 can not divide 2.
+	\item The relation is not antisymmetric, because both (1,-1) and (-1,1) are in the relation. 
+	\item The relation is not antisymmetric, because both (1,-1) and (-1,1) are in the relation.
+	\item The relation is not antisymmetric, because both (2,3) and (3,2) are in the relation.  It is not transitive, e.g., both (1,0) and (0, -2) are in the relation, but (1,-2) is not. 
+	\item The relation is not reflexive, because (1,1) not in the relation.  It is not antisymmetric, since (2,0) and (0,2) are both in the relation.  It is not transitive, e.g., both (1,0) and (0, -2) are in the relation, but (1,-2) is not. 
+\end{enumerate}
+
+
+\end{solution}
+
+
+
+
+\hrulefill
+
+\uplevel{Consider the relations $R$, $S$, $T$, $U$ on the set $\{a, b, c, d\}$.  Use the definitions and properties discussed in class and chapter 9.1 and the properties or operations of  \textbf{irreflexive}, \textbf{asymmetric}, \textbf{inverse relations}, and \textbf{complementary relations} mentioned before Rosen 9.1 \# 11 (p. 608), \# 18 (p. 609), and \# 26 (p. 609). }
+
+% \vspace{10pt}
+ \uplevel{
+    Let $R = \{ (a,a), (b,c), (c,b), (c,d), (d,c), (d,d) \}$, \\
+    $S = \{ (a,a), (a,d), (b,a), (b,b), (b,d), (c,a), (c,c), (d,c), (d,d) \}$, \\
+    $T = \{ (a,a), (a,b), (b,c), (b,d), (c,d), (d,a), (d,b) \}$, and \\
+    $U = \{ (a,a), (a,d), (b,c), (b,d), (c,a), (d,d) \}$}
+
+\gquestion{6}{3}{$S$} Determine (Yes/No) whether $R$ and $S$ have each of the following properties: reflexive, irreflexive, symmetric, antisymmetric, asymmetric, and transitive.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+    \begin{solution} % ??? CHECK!
+        % $R$ is not reflexive, not irreflexive, symmetric, not antisymmetric, not asymmetric, not transitive.
+
+        % $S$ is reflexive, not irreflexive, not symmetric, antisymmetric, not asymmetric, not transitive.
+        \begin{tabular}{|c|c|c|c|c|c|c|}
+        	\hline 
+        		Relation & Reflexive? & Irreflexive? & Symmetric? & AntiSym.? & Asym.? & Transitive? \\
+        	\hline 
+        		$R$ & No & No & Yes & No & No & No \\
+        	\hline 
+        		$S$ & Yes & No & No & Yes & No & No \\
+        	\hline 
+        \end{tabular}
+    \end{solution}
+
+\gquestion{25}{15}{d-e,h-j,l} Find the following expressions: \\
+\begin{tabular}{llll}
+    a) (1pt) $R \cup S$ \hspace{0.3in} & b) (1pt) $R \cap S$  \hspace{0.3in}
+        & c) (1pt) $R - S$ \hspace{0.3in} & d) (1pt) $S - R$\\
+    e) (1pt) $\overline{S}$ \hspace{0.3in} & f) (1pt) $S^{-1}$
+    & g) (2pt) $T \circ T$ & h) (2pt) $U \circ T$ \\
+    i) (2pt) $T \circ U$ & j) (4pt) $R^3$ & k) (4pt) $U^3$  & l) (5pt) $R \circ S \circ T$\\
+\end{tabular}
+	\ifprintanswers
+        \vspace{-10pt}
+    \fi
+    \begin{solution} % ??? TODO
+    \begin{enumerate}[label=(\alph*),itemsep=3pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item $R \cup S = \{(a,a), (a,d), (b,a), (b,b), (b,c), (b,d), (c,a), (c,b), (c,c), (c,d), (d,c), (d,d) \}$
+        \item $R \cap S = \{ (a,a), (d,c), (d,d) \}$
+        \item $R - S = \{(b,c), (c,b), (c,d) \}$
+        \item $S - R = \{(a,d), (b,a), (b,b), (b,d), (c,a), (c,c) \}$
+        \item $\overline{S} = \{ (a,b), (a,c), (b,c), (c,b), (c,d), (d,a), (d,b) \}$
+        \item %$S^{-1} = \{ (a,a), (d,a), (a,b), (b,b), (d,b), (a,c), (c,c), (c,d), (d,d) \}$ \\
+        $S^{-1} = \{(a,a), (a,b), (a,c), (b,b), (c,c), (c,d), (d,a), (d,b), (d,d) \}$
+        \item %$T \circ T = \{ (a,a), (a,b), (a,c), (a,d), (b,d), (b,a), (b,b), (c,a), 
+        %(c,b), (d,a), (d,b), (d,c), (d,d) \}$ \\
+        $T^2 = \{ (a,a), (a,b), (a,c), (a,d), (b,a), (b,b), (b,d), (c,a), (c,b), (d,a), (d,b), (d,c), (d,d) \}$
+        \item $U \circ T = \{ (a,a), (a,c), (a,d), (b,a), (b,d), (c,d), (d,a)
+        (d,c), (d,d) \}$
+        \item $T \circ U = \{ (a,a), (a,b), (b,a), (b,b), (b,d), (c,a), (c,b), (d,a), (d,b) \}$
+        \item $R^2 = \{ (a,a), (b,b), (b,d), (c,c), (c,d), (d,b), (d,c), (d,d) \}$ \\
+        $R^3 = R^2 \circ R = \{ (a,a), (b,c), (b,d), (c,b), (c,c), (c,d), (d,b), (d,c), (d,d) \}$
+        \item $U^2 = \{ (a,a), (a,d), (b,a), (b,d), (c,a), (c,d), (d,d)\}$ \\
+        $U^3 = U^2 \circ U = \{ (a,a), (a,d), (b,a), (b,d), (c,a), (c,d), (d,d) \}$
+        \item $R \circ S \circ T = \{ (a,a), (a,c), (a,d), (b,a), (b,b), (b,c), (b,d), (c,b), (c,c), (c,d), (d,a), (d,c), (d,d) \}$ 
+    \end{enumerate}
+    \end{solution}
+
+
+\section*{Bonus}
+
+\bonusquestion[2]   There are 16 possible relations $R$ on the set $A = \{a, b\}$.  Describe all of them as directed graphs (be sure to label the nodes in the graph).  Which relations are reflexive? symmetric? transitive?
+
+\begin{solution}
+\input{figs/bonus}
+
+\end{solution}
+
+\end{questions}
+
+\end{document}

@@ -1,0 +1,295 @@
+\vspace{-15pt}
+\begin{center}
+\begin{tabular}{cccc}
+\adjustbox{valign=c}{
+\begin{tikzpicture}
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    fill = black,
+                                    inner sep = 0.5pt,
+                                    minimum size = 3pt,
+                                    font=\scriptsize\sffamily,
+                                    draw}}
+    \SetGraphUnit{1}
+    \Vertex[x=0,y=0,Lpos=180,LabelOut]{a}
+    \Vertex[x=1.5,y=0,Lpos=0,LabelOut]{b}
+\end{tikzpicture}
+}
+&  % Row 1, col 2
+\adjustbox{valign=c}{
+\begin{tikzpicture}
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    fill = black,
+                                    inner sep = 0.5pt,
+                                    minimum size = 3pt,
+                                    font=\scriptsize\sffamily,
+                                    draw}}
+    \SetGraphUnit{1}
+    \Vertex[x=0,y=0,Lpos=180,LabelOut]{a}
+    \Vertex[x=1.5,y=0,Lpos=0,LabelOut]{b}
+    \tikzset{EdgeStyle/.style = {->,>=latex}}
+    \Loop[dist=1cm,dir=We,style={-{Latex[length=2mm,width=2mm]}}](a)
+\end{tikzpicture}
+}
+& % Row 1, col 3
+\adjustbox{valign=c}{
+\begin{tikzpicture}
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    fill = black,
+                                    inner sep = 0.5pt,
+                                    minimum size = 3pt,
+                                    font=\scriptsize\sffamily,
+                                    draw}}
+    \SetGraphUnit{1}
+    \Vertex[x=0,y=0,Lpos=180,LabelOut]{a}
+    \Vertex[x=1.5,y=0,Lpos=0,LabelOut]{b}
+    \tikzset{EdgeStyle/.style = {->,>=latex}}
+    \Loop[dist=1cm,dir=EA,style={-{Latex[length=2mm,width=2mm]}}](b)
+\end{tikzpicture}
+}
+&  % Row 1, col 4
+\adjustbox{valign=c}{
+\begin{tikzpicture}
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    fill = black,
+                                    inner sep = 0.5pt,
+                                    minimum size = 3pt,
+                                    font=\scriptsize\sffamily,
+                                    draw}}
+    \SetGraphUnit{1}
+    \Vertex[x=0,y=0,Lpos=180,LabelOut]{a}
+    \Vertex[x=1.5,y=0,Lpos=0,LabelOut]{b}
+    \tikzset{EdgeStyle/.style = {->,>=latex}}
+    \Loop[dist=1cm,dir=EA,style={-{Latex[length=2mm,width=2mm]}}](b)
+    \Loop[dist=1cm,dir=WE,style={-{Latex[length=2mm,width=2mm]}}](a)
+\end{tikzpicture}
+}
+\\
+
+S, T & S, T & S, T & R, S, T \\
+
+% ***** Row 2
+\adjustbox{valign=c}{
+\begin{tikzpicture}
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    fill = black,
+                                    inner sep = 0.5pt,
+                                    minimum size = 3pt,
+                                    font=\scriptsize\sffamily,
+                                    draw}}
+    \SetGraphUnit{1}
+    \Vertex[x=0,y=0,Lpos=180,LabelOut]{a}
+    \Vertex[x=1.5,y=0,Lpos=0,LabelOut]{b}
+    \tikzset{EdgeStyle/.style = {->,>=latex}}
+    \Edge[style={bend left}](a)(b)
+\end{tikzpicture}}
+&  % Row 2, col 2
+\adjustbox{valign=c}{
+\begin{tikzpicture}
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    fill = black,
+                                    inner sep = 0.5pt,
+                                    minimum size = 3pt,
+                                    font=\scriptsize\sffamily,
+                                    draw}}
+    \SetGraphUnit{1}
+    \Vertex[x=0,y=0,Lpos=180,LabelOut]{a}
+    \Vertex[x=1.5,y=0,Lpos=0,LabelOut]{b}
+    \tikzset{EdgeStyle/.style = {->,>=latex}}
+    \Edge[style={bend left}](a)(b)
+    \Loop[dist=1cm,dir=We,style={-{Latex[length=2mm,width=2mm]}}](a)
+\end{tikzpicture}}
+& % Row 2, col 3
+\adjustbox{valign=c}{
+\begin{tikzpicture}
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    fill = black,
+                                    inner sep = 0.5pt,
+                                    minimum size = 3pt,
+                                    font=\scriptsize\sffamily,
+                                    draw}}
+    \SetGraphUnit{1}
+    \Vertex[x=0,y=0,Lpos=180,LabelOut]{a}
+    \Vertex[x=1.5,y=0,Lpos=0,LabelOut]{b}
+    \tikzset{EdgeStyle/.style = {->,>=latex}}
+    \Edge[style={bend left}](a)(b)
+    \Loop[dist=1cm,dir=EA,style={-{Latex[length=2mm,width=2mm]}}](b)
+\end{tikzpicture}}
+&  % Row 2, col 4
+\adjustbox{valign=c}{
+\begin{tikzpicture}
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    fill = black,
+                                    inner sep = 0.5pt,
+                                    minimum size = 3pt,
+                                    font=\scriptsize\sffamily,
+                                    draw}}
+    \SetGraphUnit{1}
+    \Vertex[x=0,y=0,Lpos=180,LabelOut]{a}
+    \Vertex[x=1.5,y=0,Lpos=0,LabelOut]{b}
+    \tikzset{EdgeStyle/.style = {->,>=latex}}
+    \Edge[style={bend left}](a)(b)
+    \Loop[dist=1cm,dir=EA,style={-{Latex[length=2mm,width=2mm]}}](b)
+    \Loop[dist=1cm,dir=WE,style={-{Latex[length=2mm,width=2mm]}}](a)
+\end{tikzpicture}}
+\\ 
+
+T & T & T & R, T \\
+
+% **** Row 3
+\adjustbox{valign=c}{
+\begin{tikzpicture}
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    fill = black,
+                                    inner sep = 0.5pt,
+                                    minimum size = 3pt,
+                                    font=\scriptsize\sffamily,
+                                    draw}}
+    \SetGraphUnit{1}
+    \Vertex[x=0,y=0,Lpos=180,LabelOut]{a}
+    \Vertex[x=1.5,y=0,Lpos=0,LabelOut]{b}
+    \tikzset{EdgeStyle/.style = {->,>=latex}}
+    \Edge[style={bend left}](b)(a)
+\end{tikzpicture}}
+&  % Row 3, col 2
+\adjustbox{valign=c}{
+\begin{tikzpicture}
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    fill = black,
+                                    inner sep = 0.5pt,
+                                    minimum size = 3pt,
+                                    font=\scriptsize\sffamily,
+                                    draw}}
+    \SetGraphUnit{1}
+    \Vertex[x=0,y=0,Lpos=180,LabelOut]{a}
+    \Vertex[x=1.5,y=0,Lpos=0,LabelOut]{b}
+    \tikzset{EdgeStyle/.style = {->,>=latex}}
+    \Edge[style={bend left}](b)(a)
+    \Loop[dist=1cm,dir=We,style={-{Latex[length=2mm,width=2mm]}}](a)
+\end{tikzpicture}}
+& % Row 3, col 3
+\adjustbox{valign=c}{
+\begin{tikzpicture}
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    fill = black,
+                                    inner sep = 0.5pt,
+                                    minimum size = 3pt,
+                                    font=\scriptsize\sffamily,
+                                    draw}}
+    \SetGraphUnit{1}
+    \Vertex[x=0,y=0,Lpos=180,LabelOut]{a}
+    \Vertex[x=1.5,y=0,Lpos=0,LabelOut]{b}
+    \tikzset{EdgeStyle/.style = {->,>=latex}}
+    \Edge[style={bend left}](b)(a)
+    \Loop[dist=1cm,dir=EA,style={-{Latex[length=2mm,width=2mm]}}](b)
+\end{tikzpicture}}
+&  % Row 3, col 4
+\adjustbox{valign=c}{
+\begin{tikzpicture}
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    fill = black,
+                                    inner sep = 0.5pt,
+                                    minimum size = 3pt,
+                                    font=\scriptsize\sffamily,
+                                    draw}}
+    \SetGraphUnit{1}
+    \Vertex[x=0,y=0,Lpos=180,LabelOut]{a}
+    \Vertex[x=1.5,y=0,Lpos=0,LabelOut]{b}
+    \tikzset{EdgeStyle/.style = {->,>=latex}}
+    \Edge[style={bend left}](b)(a)
+    \Loop[dist=1cm,dir=EA,style={-{Latex[length=2mm,width=2mm]}}](b)
+    \Loop[dist=1cm,dir=WE,style={-{Latex[length=2mm,width=2mm]}}](a)
+\end{tikzpicture}}
+\\ 
+
+T & T & T & R, T \\
+
+% *** Row 4
+\adjustbox{valign=c}{
+\begin{tikzpicture}
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    fill = black,
+                                    inner sep = 0.5pt,
+                                    minimum size = 3pt,
+                                    font=\scriptsize\sffamily,
+                                    draw}}
+    \SetGraphUnit{1}
+    \Vertex[x=0,y=0,Lpos=180,LabelOut]{a}
+    \Vertex[x=1.5,y=0,Lpos=0,LabelOut]{b}
+    \tikzset{EdgeStyle/.style = {->,>=latex}}
+    \Edge[style={bend left}](a)(b)
+    \Edge[style={bend left}](b)(a)
+\end{tikzpicture}}
+&  % Row 4, col 2
+\adjustbox{valign=c}{
+\begin{tikzpicture}
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    fill = black,
+                                    inner sep = 0.5pt,
+                                    minimum size = 3pt,
+                                    font=\scriptsize\sffamily,
+                                    draw}}
+    \SetGraphUnit{1}
+    \Vertex[x=0,y=0,Lpos=180,LabelOut]{a}
+    \Vertex[x=1.5,y=0,Lpos=0,LabelOut]{b}
+    \tikzset{EdgeStyle/.style = {->,>=latex}}
+    \Edge[style={bend left}](a)(b)
+    \Edge[style={bend left}](b)(a)
+    \Loop[dist=1cm,dir=We,style={-{Latex[length=2mm,width=2mm]}}](a)
+\end{tikzpicture}}
+& % Row 4, col 3
+\adjustbox{valign=c}{
+\begin{tikzpicture}
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    fill = black,
+                                    inner sep = 0.5pt,
+                                    minimum size = 3pt,
+                                    font=\scriptsize\sffamily,
+                                    draw}}
+    \SetGraphUnit{1}
+    \Vertex[x=0,y=0,Lpos=180,LabelOut]{a}
+    \Vertex[x=1.5,y=0,Lpos=0,LabelOut]{b}
+    \tikzset{EdgeStyle/.style = {->,>=latex}}
+    \Edge[style={bend left}](a)(b)
+    \Edge[style={bend left}](b)(a)
+    \Loop[dist=1cm,dir=EA,style={-{Latex[length=2mm,width=2mm]}}](b)
+\end{tikzpicture}}
+&  % Row 4, col 4
+\adjustbox{valign=c}{
+\begin{tikzpicture}
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    fill = black,
+                                    inner sep = 0.5pt,
+                                    minimum size = 3pt,
+                                    font=\scriptsize\sffamily,
+                                    draw}}
+    \SetGraphUnit{1}
+    \Vertex[x=0,y=0,Lpos=180,LabelOut]{a}
+    \Vertex[x=1.5,y=0,Lpos=0,LabelOut]{b}
+    \tikzset{EdgeStyle/.style = {->,>=latex}}
+    \Edge[style={bend left}](a)(b)
+    \Edge[style={bend left}](b)(a)
+    \Loop[dist=1cm,dir=EA,style={-{Latex[length=2mm,width=2mm]}}](b)
+    \Loop[dist=1cm,dir=WE,style={-{Latex[length=2mm,width=2mm]}}](a)
+\end{tikzpicture}}
+\\
+
+S & S & S & S, R, T \\
+
+\end{tabular}
+\end{center}

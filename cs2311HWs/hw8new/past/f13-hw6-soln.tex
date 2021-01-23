@@ -1,0 +1,327 @@
+\documentclass[11pt,addpoints]{exam}
+% can include option [answers] to print out solutions, or command \printanswers
+%  can turn addpoint on and off with commands, \addpoints and \noaddpoints
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage[top=0.75in,bottom=0.75in,left=0.9in,right=0.9in]{geometry}
+
+\setlength{\itemsep}{0pt} \setlength{\topsep}{0pt}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\xor}{\oplus}
+
+\renewcommand{\solutiontitle}{\noindent\textbf{Soln:}\enspace}
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Fall 2013}}{\textbf{HW
+6 - \numpoints$\;$ points  - Solutions}}{\textbf{Due: Wed. 10/23/13}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+
+\noindent \textbf{Instructions:} All assignments are due \underline{by 5pm on the due date} specified.  There will be a box in the CS department office (Rekhi 221) where assignments may be turned in.  Solutions will be handed out (or posted on-line) shortly thereafter.  Every student
+must write up their own solutions in their own manner.
+
+\smallskip
+\noindent Please present your solutions in a clean, understandable
+manner; pages should be stapled before class, no ragged edges of
+paper.
+
+
+\begin{questions}
+\printanswers
+
+\question[8] \label{prob1} Rosen Ch 1.6 \#14 (a), p. 79 \\
+	Let $C(x)$ be ``$x$ is in this class", $R(x)$ be ``$x$ owns a red convertible", and $T(x)$ be ``$x$ has gotten a ticket."
+	\ifprintanswers
+        \vspace{-15pt}
+   	\fi
+\begin{solution}
+	The premises are:
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[1.] $C(Linda)$
+        \item[2.] $R(Linda)$
+        \item[3.] $\forall x\; (R(x) \ra T(x))$
+    \end{itemize}
+    The conclusion is: $\exists x\; (C(x) \wedge T(x))$
+
+    \smallskip
+    \begin{tabular}{lll}
+    	1. $C(Linda)$		&	& Hypothesis \\
+    	2. $R(Linda)$		&	& Hypothesis \\
+    	3. $\forall x\; (R(x) \ra T(x))$	& & Hypothesis \\
+    	4. $R(Linda) \ra T(Linda)$			& & Univ. Inst. with (3) \\
+    	5. $T(Linda)$		& 	& Modus ponens with (2) and (4) \\
+    	6. $C(Linda) \wedge T(Linda)$		& & Conjunction with (1) and (5) \\
+    	7. $\exists x\; (C(x) \wedge T(x))$	& & Exist. Gen. with (6) 
+    \end{tabular}
+\end{solution}
+
+
+\question[8] Rosen Ch 1.6 \#14 (c), p. 79 \\
+Let $S(x)$ be ``$x$ is a movie produced by Sayles", $C(x)$ be ``$x$ is a movie about coal miners", and $W(x)$ be ``movie $x$ is wonderful."  
+   \ifprintanswers
+        \vspace{-15pt}
+    \fi
+\begin{solution}
+ 	The premises are:
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[1.] $\forall x\; (S(x) \rightarrow W(x))$
+        \item[2.] $\exists x\; (S(x) \wedge C(x))$
+    \end{itemize}
+    The conclusion is: $\exists x\; (C(x) \wedge W(x))$
+
+    \smallskip
+    \begin{tabular}{lll}
+        Step        & \hspace{0.2in} & Reason \\
+        1. $\exists x\; (S(x) \wedge C(x))$  &   & Hypothesis \\
+        2. $S(y) \wedge C(y)$               &   & Exis. Inst. with (1) \\
+        3. $S(y)$                           &   & Simplification with (2) \\
+        4. $\forall x\; (S(x) \rightarrow W(x))$ &  & Hypothesis \\
+        5. $S(y) \rightarrow W(y)$          & & Univ. Inst. with (4) \\
+        6. $W(y)$                           & & Modus ponens with (3) and (5) \\
+        7. $C(y)$                           & & Simplification using (2) \\
+        8. $W(y) \wedge C(y)$               & & Conjunction with (6) and (7) \\
+        9. $\exists x\; (C(x) \wedge W(x))$ &   & Exis. generalization with (8) \\
+    \end{tabular}
+\end{solution}
+
+
+\question[8] For each argument determine whether it is valid or not and explain why (in a sentence).
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item[(a)] From  ``all healthy people eat an apple a day" and  ``Samantha eats an apple a day" conclude ``Samantha is a healthy person."  
+    \item[(b)] ``Some math majors left the campus for the weekend" and ``All seniors left the campus for the weekend" implies the conclusion ``Some seniors are math majors."
+    \item[(c)] ``Everyone who left campus for the weekend is a senior" and ``All math majors left campus for the weekend"  implies the conclusion ``All math majors are seniors." 
+    \item[(d)] ``No juniors left campus for the weekend" and ``Some math majors are not juniors" implies the conclusion ``Some math majors left campus for the weekend."
+    \end{itemize}
+   \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}
+        \item[(a)] Not Valid argument.  Fallacy of affirming the conclusion
+		\item[(b)] Not Valid argument.  The two premises do not imply the conclusion.
+        \item[(c)] Valid argument. The argument uses Univ. instantiation (x2), hyp. syllogism, followed by Univ. generalization.
+        \item[(d)] Not Valid argument.  The two premises do not imply the conclusion.
+    \end{itemize}
+\end{solution}
+
+
+% Proofs
+\ifprintanswers
+\else
+\uplevel{
+	For the next two problems, you will use the definition of
+	$n$ being \textit{divisible} by $m$, specifically:
+
+	\smallskip
+	\textbf{Definition:} For integers $n$ and $m$ and $m\neq0$, $n$ is
+	\underline{divisible} by $m$ if and only if there is a integer $k$ such that $n=km$.  The notation $m | n$ denotes, ``$m$ divides $n$".}
+
+\smallskip
+\uplevel{
+	For example, 56 is divisible by 8; there is a natural number $k$
+	(specifically, 7) such that $56 = 8k$. Also, thinking of the
+	bi-implication in the other direction, you can state because $39 = 3
+	\cdot 13$, 39 is divisible by 3 (or 39 is divisible by 13).}
+
+	\uplevel{An example of a proof using this new definition is to show,
+	\begin{center}
+	 "For all integers $n$, if $n$ is divisible by 6, then $n^2$
+	 is divisible by 9."
+	\end{center}
+	Follow the examples in class,
+	\begin{quote}
+	Assume $n$ is divisible by 6.  Then, by definition of divisible
+	there is some integer $k$ s.t. $n=6k$. Compute $n^2$:
+	\[ n^2 = (6k)^2 = 36k^2 = 9(4k^2). \]
+	where $n^2$ is divisible by 9 by definition. Therefore, for all
+	integers, if $n$ is divisible by 6, then $n^2$ is divisible
+	by 9.
+	\end{quote}}
+\fi
+
+\question[8] Prove: For all natural numbers $m$ and $n$, if $m$ is divisible by 3 and $n$ is divisible by 4, then $m\cdot n$ is divisible by 6.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+	\begin{solution} \textbf{Proof:} Assume $m$ is divisible by 3 and also assume $n$ is divisible by 8.  By definition of divisibility, then there exists a integer $k_m$ and a integer $k_n$ such that $m = 3k_m$ and $n=8k_n$.  Then, $m\cdot n$ is:
+	  \[ m\cdot n = 3k_m \cdot 8k_n = 24k_mk_n = 6(4k_mk_n). \]
+	From this expression, you can see $m\cdot n$ is divisible by 6.  Therefore, if $m$ is divisible by 3 and $n$ is divisible by 8, then $m \cdot n$ is divisible by 6.
+	\end{solution}
+
+
+% \question[8] Prove: For all integers $a$, $b$, and $c$, if $b$ is divisible by $a$ and $c$ is divisible by $a$, then $2b - 3c$ is divisible by $a$.
+%     \ifprintanswers
+%         \vspace{-10pt}
+%     \fi
+% 	\begin{solution} \textbf{Proof:} Assume $a$, $b$, and $c$ are integers and $a | b$ and $a | c$.  By definition of divisibility, there exists integers $k_b$ and $k_c$ such that $b = ak_b$ and $c = ak_c$.  By substitution,
+% 		\[ 2b - 3c = 2(ak_b) - 3(ak_c) = a(2k_b - 3k_c), \]
+% 	where the expression $2k_b - 3k_c$ is also an integer.  Hence, $2b - 3c$ is also divisible by $a$.  Therefore, if $b$ is divisible by $a$ and $c$ is divisible by $a$, then $2b-3c$ is divisible by $a$.
+% 	\end{solution}
+
+
+\question[8] Prove: For any three consecutive natural numbers, the sum of the consecutive numbers is divisible by 3.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+	\begin{solution} \textbf{Proof:} Assume you have three consecutive natural numbers, with values $n$, $n+1$ and $n+2$.  Compute the sum:
+	  \[ n + (n+1) + (n+2) = 3n+3 = 3(n+1). \]
+	The sum is shown to be divisible by 3.  Consequently, the sum of three consecutive natural numbers is divisible by 3.
+	\end{solution}
+
+
+\question[16]  Prove that if $n$ is an integer and $n^2 - 2n + 1$ is odd,
+then $n$ is even using: (a) proof by contraposition and (b) proof by
+contradiction.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution} \textbf{Proof by contraposition:}
+    Assume $n$ is odd.  Then by definition of odd, there exists an
+    integer $k$ s.t. $n=2k+1$.  Compute $n^2 - 2n + 1$:
+    \[ n^2 - 2n + 1 = (2k+1)^2 - 2(2k+1) + 1 = 4k^2 + 4k + 1 - 4k - 2 + 1 = 4k^2 = 2(2k^2) \]
+    Here, $n^2 - 2n + 1$ is in the form of an even number.  Therefore, by
+    contraposition, if $n$ is an integer and $n^2 - 2n + 1$ is odd,
+    then $n$ is even.
+
+    \medskip
+    \textbf{Proof by contradiction:} Assume $n$ is odd and $n^2 - 2n + 1$ is
+    odd.  By definition of odd, there there exists an
+    integer $k$ s.t. $n=2k+1$.  Compute $n^2 - 2n + 1$:
+    \[ n^2 - 2n + 1 = (2k+1)^2 - 2(2k+ 1) + 1 = 4k^2 + 4k+ 1 - 4k - 2 + 1 = 4k^2 = 2(2k^2) \]
+    Here, $n^2 - 2n + 1$ is in the form of an even number, however, we assumed
+    $n^2 -2n +1$ is odd giving a contradiction. Therefore, by
+    contradiction, it must be that if $n$ is an integer and $n^2 - 2n + 1$ is
+    odd, then $n$ is even.
+\end{solution}
+
+
+\question[16] Prove the following is true for all positive integers $n$, $n$ is even if and only if $5n^2 + 4$ is even.
+%Prove that if $n$ is a positive integer, then $n$ is
+%even if and only if $7n+4$ is even.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    The statement is a biimplication therefore both sides of the
+    implication must be shown.  Let $p$ be ``$n$ is even" and $q$ be
+    ``$5n^2 + 4$ is even."
+    
+    \textbf{Prove ``if p, then q":}
+    Assume $n$ is even. By definition of even, there exists an
+    integer $k$ s.t. $n=2k$.  Compute $5n^2+4$:
+    \[ 5n^2 + 4 = 5(2k)^2 + 4 = 5(4k) + 4 = 20k + 4 = 2(10k+2) \]
+    $5n^2+4$ is also of the form of an even number.  Therefore, if $n$
+    is even, then $5n^2+4$ is even.
+
+    \smallskip
+    \textbf{Prove ``if q, then p": using proof by contradiction.}
+    Assume $5n^2+4$ is even and $n$ is odd.  Then by definition of odd
+    there exists an integer $k$ s.t. $n=2k+1$.  Compute $5n^2+4$:
+    \[ 5n^2+4 = 5(2k+1)^2+4 = 5(2k^2+4k+1)+4 = 10k^2 + 20k + 5 + 4 = 2(5k^2 + 10k + 4) + 1 \]
+    $5n^2+4$ is of the form of an odd number leading to a
+    contradiction, therefore it must be that if $5n^2+4$ is even, then
+    $n$ is even.
+
+    \smallskip
+    Combining both parts, we have shown if $n$ is a positive integer,
+    then $n$ is even if and only if $5n^2+4$ is even.
+\end{solution}
+
+
+\question[2] Prove that there is a positive integer that equals the
+sum of the positive integers not exceeding it.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    This is an existence proof.  3 is an example of such a positive
+    integer, 3 = 1 + 2.
+\end{solution}
+
+
+\question[3] Prove or disprove: If $a$ and $b$ are rational
+numbers, then $a^b$ is also rational.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \textbf{Disprove:} Let $a=2$ and $b=\frac{1}{2}$, which are both rational numbers.  Then $a^b =
+    \sqrt{2}$ which is irrational.
+\end{solution}
+
+
+\question[3] Prove or disprove: The sum of four consecutive integers is divisible by 4.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \textbf{Disprove:} Let the consecutive integers be 1, 2, 3, 4; the sum is 10 which is not divisible by 4.
+\end{solution}
+
+
+\question[12] Prove that if $n$ is an integer that $n^3 - n$ is even.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+%\begin{EnvFullwidth}
+%\begin{TheSolution}
+\begin{solution} \textbf{Proof:} Let $n$ be an integer.
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[Case] (i): Let $n$ be even. By definition, there exists an integer $k$ s.t. $n=2k$.
+            \[ n^3 - n = (2k)^3 - 2k = 8k^3 - 2k = 2(4k^3 - k) \]
+        This is of the form of an even number.
+        \item[Case] (ii):  Let $n$ be odd.  By definition, there exists an integer $k$ s.t. $n = 2k+1$.
+            \begin{align*}
+                n^3 - n &= (2k+1)^3 - (2k+1) = (4k^2 + 4k+ 1)(2k + 1) - (2k+1) \\
+                &= 8k^3 + 12k^2 + 6k + 1 - 2k - 1 = 8k^3 + 12k^2 + 4k = 2(8k^3 + 6k^2 + 2k)
+            \end{align*}
+        This is of the form of an even number.
+        Therefore, because $n^3 - n$ is even in all cases, it holds that for any integer $n$, $n^3 - n$ is even.
+    \end{itemize}
+\end{solution}
+
+\bonusquestion[5] Consider the statements of Rosen Example 27, Ch 1.4, p. 51.  Show from the premises a valid argument that leads to the conclusion. \\
+\textit{Note, the bonus problem is lengthy.  Only work on it if the other problems are completed.}
+ \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    For the problem, the domain description and translation into logical expression has already been performed.
+
+    \begin{tabular}{lll}
+            Step                    & \hspace{0.15in} & Reason \\
+            1. $\forall x\; (P(x) \ra S(x))$            & & Given \\
+            2. $\neg \exists x\; (Q(x) \wedge R(x))$    & & Given \\
+            3. $\forall x\; (\neg R(x) \ra \neg S(x))$  & & Given \\
+            4. $\forall x\; \neg (Q(x) \wedge R(x))$    & & DeMorgan's with Quantifiers with (2) \\
+            5. $P(a) \ra S(a)$                          & & Univ. instantiation with (1) \\
+            6. $\neg R(a) \ra \neg S(a)$                & & Univ. instantiation with (3) \\
+            7. $\neg (Q(a) \wedge R(a))$                & & Univ. instantiation with (4) \\
+            8. $\neg Q(a) \vee \neg R(a)$               & & DeMorgan's with (7) \\
+            9. $\neg R(a) \vee \neg Q(a)$               & & Commutative with (8) \\
+            10. $\neg \neg R(a) \ra \neg Q(a)$          & & Table 7, rule 3 with (9) \\
+            11. $R(a) \ra \neg Q(a)$                    & & Double negation with (10) \\
+            12. $S(a) \ra R(a)$                         & & Table 7, rule 2 with (6) \\
+            13. $P(a) \ra R(a)$                         & & Hyp. syllogism with (5) and (12) \\
+            14. $P(a) \ra \neg Q(a)$                    & & Hyp. syllogism with (13) and (11) \\
+            15. $\forall x\; (P(x) \ra \neg Q(x))$      & & Univ. generalization with (14)
+    \end{tabular}
+\end{solution}
+
+\bonusquestion[3] Prove for all sets $X$, $Y$, and $Z$, if $X \subseteq Y$ then $X \cap Z \subseteq Y \cap Z$.
+ \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+	Assume $X \subseteq Y$.  Let $x \in X \cap Z$.  Then, $x \in X$ and $x \in Z$ by definition of intersection.  Since $X \subseteq Y$ and $x \in X$, then $x \in Y$.  Since $x \in Y$ and $x \in Z$ and definition of intersection, then $x \in Y \cap Z$.  Therefore, we have shown $X \cap Z \subseteq Y \cap Z$.
+\end{solution} 
+
+
+\end{questions}
+\end{document}

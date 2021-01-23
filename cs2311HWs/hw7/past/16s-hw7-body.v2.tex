@@ -1,0 +1,400 @@
+% Homework Specific Commands
+
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Fall 2016}}{\textbf{HW
+ 7 \ifprintanswers - Solutions \fi}}{\textbf{Due: Mon. 03/21/16}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\ifprintanswers
+% \noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\else
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{4pm} on the due date} specified.  There will be a box in the CS department office (Rekhi 221) where assignments may be turned in.  Solutions will be posted on-line at the following lecture.  Every student
+must write up their own solutions in their own manner.
+
+\medskip
+\noindent Please present your solutions in a clean, understandable
+manner; pages should be stapled before being turned in, no ragged edges of
+paper.
+
+% \medskip
+% \noindent Be clear with you penmanship to distinguish set brackets and parentheses.
+%   For example, $\{1, 2\}$ is a set where $(1,2)$ is an ordered pair.  Also,
+% differentiate the empty set $\emptyset$ and the number zero 0.
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+
+\medskip
+\noindent \textbf{Include the following information at the top, left corner of your submission:} (not including this information will result in -3pt)\\
+\textbf{Last Name, First Name (as listed in Canvas)} \\
+\textbf{Section (R01, R02)}
+\fi
+
+\begin{questions}
+
+\uplevel{\underline{\textbf{Inference}}}
+
+\ugquestion{6} {\color{red} Moved question to HW7} \\
+Rosen Ch 1.6 \#6, p. 78.\\
+Let $r$ be the proposition ``It rains", let $f$ be ``It is foggy",
+    let $s$ be ``The sailing race will be held", let $l$ be ``The life
+    saving demonstration will go on", and let $t$ be ``The trophy will
+    be awarded".
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    The premises are: $(\neg r \vee \neg f) \rightarrow (s \wedge l)$, $s \rightarrow t$, $\neg t$. \\
+    The conclusion we want is: $r$.
+
+    \begin{tabular}{lll}
+        Step    & \hspace{0.2in} & Reason \\
+        \hline
+        1. $\neg t$                 &       & Hypothesis (Premise, Given) \\
+        2. $s \rightarrow t$        &       & Hypothesis (Premise, Given) \\
+        3. $\neg s$                 &       & Modus tollens with (1) and (2) \\
+        4. $(\neg r \vee \neg f) \rightarrow (s \wedge l)$  &   & Hypothesis (Premise, Given)  \\
+        5. $(\neg(s \wedge l)) \rightarrow \neg(\neg r \vee \neg f)$    & & Contrapositive with (4) \\
+        6. $(\neg s \vee \neg l) \rightarrow (\neg \neg r \wedge \neg \neg f)$ & & De Morgans law with (5) (x2) \\
+        7. $(\neg s \vee \neg l) \rightarrow (r \wedge f)$  & & Double negation with (6) (x2) \\
+        8. $\neg s \vee \neg l$     &       & Addition with (3) \\
+        9. $r \wedge f$             &       & Modus ponens with (7) and (8) \\
+        10. $r$                     &       & Simplification with (9)
+    \end{tabular}
+
+    \medskip
+    Another valid argument is:
+
+    \begin{tabular}{lll}
+        Step   & \hspace{0.2in}     & Reason \\
+        \hline
+        1. $\neg t$                 &   & Hypothesis \\
+        2. $s \ra t$                &   & Hypothesis \\
+        3. $(\neg r \vee \neg f) \ra (s \wedge l)$  &   & Hypothesis \\
+        4. $\neg s$                 &   & Modus tollens, (1), (2) \\
+        5. $\neg (\neg r \vee \neg f) \vee (s \wedge l) $  & & Table 7, rule 1, (3) \\
+        6. $(\neg \neg r \wedge \neg \neg f) \vee (s \wedge l)$  & & DeMorgans,  (5) \\
+        7. $(r \wedge f) \vee (s \wedge l)$     & & Double Negation (x2), (6) \\
+        8. $\neg s \vee \neg l$     &   & Additiona with (4) \\
+        9. $\neg (s \wedge l)$      &   & DeMorgans, (8) \\
+        10. $r \wedge f$            &   & Disjunctive Syllogism, (7), (9) \\
+        11. $r$                     &   & Simplification, (10)
+    \end{tabular}
+\end{solution}
+
+
+
+\gquestion{10}{10}{all} Use the rules of inference to show that the hypotheses imply the conclusion:
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item ``If I graduate in four years, then I will have completed the CS courses", and
+    \item ``If I do not work on CS for 10 hours a week, then I will not complete the CS courses", and
+    \item ``If I work on CS for 10 hours a week, then I can not procrastinate."
+\end{itemize}
+Conclusion: ``If I procrastinate, then I will not graduate in four years."
+Let
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item[$w = $] ``I work on CS for 10 hours a week",
+    \item[$g = $] ``I graduate in four years",
+    \item[$c = $] ``I will complete the CS courses", and
+    \item[$p = $] ``I procrastinate."
+\end{itemize}
+
+\begin{parts}
+  \part (4 pts) Translate the hypotheses and conclusion to logical statements. 
+  \part (6 pts) Construct a valid argument (justify each step). 
+\end{parts}
+
+\textit{Hint: Remember you can also use the logical equivalences as a step in the argument.}
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+  (a) The hypotheses are: $g \ra c$, $\neg w \ra \neg c$ and $w \ra \neg p$. \\
+  The conclusion is: $p \ra \neg g$.
+  
+  (b)
+
+    \begin{tabular}{lll}
+        Step    & \hspace{0.2in} & Reason \\
+        1. $g \ra c$                & & hypothesis \\
+        2. $\neg w \ra \neg c$          & & hypothesis \\
+        3. $w \ra \neg p$             & & hypothesis \\
+        4. $\neg \neg p \ra \neg w$   & & Table 7, rule 2, with (3) \\
+        5. $p \ra \neg w$       & & Double Negation with (4) \\
+        6. $p \ra \neg c$               & & Hyp. syl., with (2) \& (5) \\
+        7. $\neg c \ra \neg g$          & & Table 7, rule 2 with (1) \\
+        8. $p \ra \neg g$       & & Hyp. syl. with (6) \& (7)
+    \end{tabular}
+    
+    \emph{Note, this is one possible valid argument; many others exists.}
+\end{solution}
+
+
+
+
+\gquestion{20}{10}{c} Rosen Ch 1.6 \#14 (a,c), p. 79 \\
+Let $C(x)$ be ``$x$ is in this class'', $R(x)$ be ``$x$ owns a red convertible'', and $T(x)$ be ``$x$ has gotten a ticket''. \\
+% Let $M(x)$ be ``$x$ is one of the five roommates'', $D(x)$ be ``$x$ has taken a course in discrete math'', and $A(x)$ be ``$x$ can take a course in algorithms''. \\
+Let $S(x)$ be ``$x$ is a movie produced by Sayles", $C(x)$ be ``$x$ is a movie about coal miners", and $W(x)$ be ``movie $x$ is wonderful."
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+  \begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item[(a):] The premises are:
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[1.] $C(Linda)$
+        \item[2.] $R(Linda)$
+        \item[3.] $\forall x\; (R(x) \rightarrow T(x))$
+    \end{itemize}
+    To conclude: $\exists x\; (C(x) \wedge T(x))$
+
+    \smallskip
+    \begin{tabular}{lll}
+        Step        & \hspace{0.2in} & Reason \\
+        1. $\forall x\; (R(x) \rightarrow T(x))$    &   & Hypothesis \\
+        2. $R(Linda) \rightarrow T(Linda)$          &   & Universal Instantiation \\
+        3. $R(Linda)$                               &   & Hypothesis \\
+        4. $T(Linda)$                               &   & Modus ponens using (2) and (3) \\
+        5. $C(Linda)$                               &   & Hypothesis \\
+        6. $C(Linda) \wedge T(Linda)$               &   & Conjunction with (4) and (5) \\
+        7. $\exists x\; (C(x) \wedge T(x))$         &   & Existential generalizaion \\
+    \end{tabular}
+
+    % \item[(b):] The premises are:
+    % \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    %     \item[1.] $\forall x\;(M(x) \rightarrow D(x))$
+    %     \item[2.] $\forall x\;(D(x) \rightarrow A(x))$
+    % \end{itemize}
+    % The conclusion is: $\forall x\;(M(x) \rightarrow A(x))$.  Let $y$ be an arbitrary person.
+
+    % \smallskip
+    % \begin{tabular}{lll}
+    %     Step        & \hspace{0.2in} & Reason \\
+    %     1. $\forall x\;(M(x) \rightarrow D(x))$     &   & Hypothesis \\
+    %     2. $M(y) \rightarrow D(y)$                  & & Univ. Inst. with (1) \\
+    %     3. $\forall x\; (D(x) \rightarrow A(x))$    &   & Hypothesis \\
+    %     4. $D(u) \rightarrow A(y)$                  &   & Univ. Inst. with (3) \\
+    %     5. $R(y) \rightarrow A(y)$                  &   & Hyp. syl. with (2) and (4) \\
+    %     6. $\forall x\;(R(x) \rightarrow A(x))$     &   & Univ. Generalization with (5) \\
+    % \end{tabular}
+
+    \item[(c):] The premises are: 
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+      \item[1.] $\forall x\; (S(x) \rightarrow W(x))$
+      \item[2.] $\exists x\; (S(x) \wedge C(x))$
+    \end{itemize} 
+    The conclusion is: $\exists x\; (C(x) \wedge W(x))$
+    
+    \smallskip
+    \begin{tabular}{lll}
+        Step        & \hspace{0.2in} & Reason \\
+        1. $\exists x\; (S(x) \wedge C(x))$  &   & Hypothesis \\
+        2. $S(y) \wedge C(y)$               &   & Exis. Inst. with (1) \\
+        3. $S(y)$                           &   & Simplification with (2) \\
+        4. $\forall x\; (S(x) \rightarrow W(x))$ &  & Hypothesis \\
+        5. $S(y) \rightarrow W(y)$          & & Univ. Inst. with (4) \\
+        6. $W(y)$                           & & Modus ponens with (3) and (5) \\
+        7. $C(y)$                           & & Simplification using (2) \\
+        8. $W(y) \wedge C(y)$               & & Conjunction with (6) and (7) \\
+        9. $\exists x\; (C(x) \wedge W(x))$ &   & Exis. generalization with (8) \\
+    \end{tabular}
+    \end{itemize}
+  \end{solution}
+
+
+
+
+\gquestion{8}{4}{a,d} For each argument determine whether it is valid or not and explain why (in a sentence).
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item[(a)] From  ``all healthy people eat an apple a day" and  ``Samantha eats an apple a day" conclude ``Samantha is a healthy person."  
+    \item[(b)] ``Some math majors left the campus for the weekend" and ``All seniors left the campus for the weekend" implies the conclusion ``Some seniors are math majors."
+    \item[(c)] ``Everyone who left campus for the weekend is a senior" and ``All math majors left campus for the weekend"  implies the conclusion ``All math majors are seniors." 
+    \item[(d)] ``No juniors left campus for the weekend" and ``Some math majors are not juniors" implies the conclusion ``Some math majors left campus for the weekend."
+    \end{itemize}
+   \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}
+        \item[(a)] Not Valid argument.  Fallacy of affirming the conclusion
+    \item[(b)] Not Valid argument.  The two premises do not imply the conclusion.
+        \item[(c)] Valid argument. The argument uses Univ. instantiation (x2), hyp. syllogism, followed by Univ. generalization.
+        \item[(d)] Not Valid argument.  The two premises do not imply the conclusion.
+    \end{itemize}
+\end{solution}
+
+
+
+\ugquestion{4} Rosen Ch 1.6 \# 16(a,b), p. 79
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[(a)] Correct, using universal instantiation and modus tollens.
+        \item[(b)] Incorrect, first apply universal instantiation then fallacy of denying the hypothesis.
+        % \item[(c)] Incorrect, first apply universal instantiation then fallacy of denying the hypothesis.
+%        \item[(d)] Correct, using universal instantiation and modus ponens.
+    \end{itemize}
+\end{solution}
+
+
+
+\gquestion{4}{4}{all} Rosen Ch 1.6 \# 24, p. 79
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    The incorrect steps are 3 and 5.  The simplification rule can not be applied to disjunctions.  Also, step 7 the conjunction rule should ``AND" terms together.
+\end{solution}
+
+
+
+
+% \ugquestion{10} Consider the statements of Rosen Example 27, Ch 1.4, p. 51.  Show from the premises a valid argument that leads to the conclusion.
+%     \ifprintanswers
+%         \vspace{-10pt}
+%     \fi
+% \begin{solution}
+%     For the problem, the domain description and translation into logical expression has already been performed.
+
+%     \begin{tabular}{lll}
+%             Step                    & \hspace{0.15in} & Reason \\
+%             1. $\forall x\; (P(x) \ra S(x))$            & & Given \\
+%             2. $\neg \exists x\; (Q(x) \wedge R(x))$    & & Given \\
+%             3. $\forall x\; (\neg R(x) \ra \neg S(x))$  & & Given \\
+%             4. $\forall x\; \neg (Q(x) \wedge R(x))$    & & DeMorgan's with Quantifiers with (2) \\
+%             5. $P(a) \ra S(a)$                          & & Univ. instantiation with (1) \\
+%             6. $\neg R(a) \ra \neg S(a)$                & & Univ. instantiation with (3) \\
+%             7. $\neg (Q(a) \wedge R(a))$                & & Univ. instantiation with (4) \\
+%             8. $\neg Q(a) \vee \neg R(a)$               & & DeMorgan's with (7) \\
+%             9. $\neg R(a) \vee \neg Q(a)$               & & Commutative with (8) \\
+%             10. $\neg \neg R(a) \ra \neg Q(a)$          & & Table 7, rule 3 with (9) \\
+%             11. $R(a) \ra \neg Q(a)$                    & & Double negation with (10) \\
+%             12. $S(a) \ra R(a)$                         & & Table 7, rule 2 with (6) \\
+%             13. $P(a) \ra R(a)$                         & & Hyp. syllogism with (5) and (12) \\
+%             14. $P(a) \ra \neg Q(a)$                    & & Hyp. syllogism with (13) and (11) \\
+%             15. $\forall x\; (P(x) \ra \neg Q(x))$      & & Univ. generalization with (14)
+%     \end{tabular}
+% \end{solution}
+
+
+\uplevel{\underline{\textbf{Proofs}}}
+
+% Proofs
+\ifprintanswers
+\else
+\uplevel{
+  For the next two problems, you will use the definition of
+  $n$ being \textit{divisible} by $m$, specifically:
+
+  \smallskip
+  \textbf{Definition:} For integers $n$ and $m$ and $m\neq0$, $n$ is
+  \underline{divisible} by $m$ if and only if there is a integer $k$ such that $n=km$.  The notation $m | n$ denotes, ``$m$ divides $n$".}
+
+\smallskip
+\uplevel{
+  For example, 56 is divisible by 8; there is a natural number $k$
+  (specifically, 7) such that $56 = 8k$. Also, thinking of the
+  bi-implication in the other direction, you can state because $39 = 3
+  \cdot 13$, 39 is divisible by 3 (or 39 is divisible by 13).}
+
+  \uplevel{An example of a proof using this new definition is to show,
+  \begin{center}
+   "For all integers $n$, if $n$ is divisible by 6, then $n^2$
+   is divisible by 9."
+  \end{center}
+  Follow the examples in class,
+  \begin{quote}
+  Assume $n$ is divisible by 6.  Then, by definition of divisible
+  there is some integer $k$ s.t. $n=6k$. Compute $n^2$:
+  \[ n^2 = (6k)^2 = 36k^2 = 9(4k^2). \]
+  where $n^2$ is divisible by 9 by definition. Therefore, for all
+  integers, if $n$ is divisible by 6, then $n^2$ is divisible
+  by 9.
+  \end{quote}}
+\fi
+
+
+\gquestion{6}{6}{all} Prove: For all natural numbers $m$ and $n$, if $m$ is divisible by 3 and $n$ is divisible by 4, then $m\cdot n$ is divisible by 6.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+  \begin{solution} \textbf{Proof:} Assume $m$ is divisible by 3 and also assume $n$ is divisible by 4.  By definition of divisibility, then there exists an integer $k_m$ and an integer $k_n$ such that $m = 3k_m$ and $n=4k_n$.  Then, $m\cdot n$ is:
+    \[ m\cdot n = 3k_m \cdot 4k_n = 12k_mk_n = 6(2k_mk_n). \]
+  From this expression, you can see $m\cdot n$ is divisible by 6.  Therefore, if $m$ is divisible by 3 and $n$ is divisible by 4, then $m \cdot n$ is divisible by 6.
+  \end{solution}
+
+
+
+\ugquestion{6} Prove: For any three consecutive natural numbers, the sum of the consecutive numbers is divisible by 3.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+  \begin{solution} \textbf{Proof:} Assume you have three consecutive natural numbers, with values $n$, $n+1$ and $n+2$.  Compute the sum:
+    \[ n + (n+1) + (n+2) = 3n+3 = 3(n+1). \]
+  The sum is shown to be divisible by 3.  Consequently, the sum of three consecutive natural numbers is divisible by 3.
+  \end{solution}
+
+
+\gquestion{12}{6}{b}  Prove that if $n$ is an integer and $n^2 - 2n + 1$ is odd,
+then $n$ is even using: (a) proof by contraposition and (b) proof by
+contradiction.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution} \textbf{Proof by contraposition:}
+    Assume $n$ is odd.  Then by definition of odd, there exists an
+    integer $k$ s.t. $n=2k+1$.  Compute $n^2 - 2n + 1$:
+    \[ n^2 - 2n + 1 = (2k+1)^2 - 2(2k+1) + 1 = 4k^2 + 4k + 1 - 4k - 2 + 1 = 4k^2 = 2(2k^2) \]
+    Here, $n^2 - 2n + 1$ is in the form of an even number.  Therefore, by
+    contraposition, if $n$ is an integer and $n^2 - 2n + 1$ is odd,
+    then $n$ is even.
+
+    \medskip
+    \textbf{Proof by contradiction:} Assume $n$ is odd and $n^2 - 2n + 1$ is
+    odd.  By definition of odd, there there exists an
+    integer $k$ s.t. $n=2k+1$.  Compute $n^2 - 2n + 1$:
+    \[ n^2 - 2n + 1 = (2k+1)^2 - 2(2k+ 1) + 1 = 4k^2 + 4k+ 1 - 4k - 2 + 1 = 4k^2 = 2(2k^2) \]
+    Here, $n^2 - 2n + 1$ is in the form of an even number, however, we assumed
+    $n^2 -2n +1$ is odd giving a contradiction. Therefore, by
+    contradiction, it must be that if $n$ is an integer and $n^2 - 2n + 1$ is
+    odd, then $n$ is even.
+\end{solution}
+
+
+\bonusquestion[4] Consider the statements of Rosen Example 27, Ch 1.4, p. 51.  Show from the premises a valid argument that leads to the conclusion. \\
+\textit{Note, the bonus problem is lengthy.  Only work on it if the other problems are completed.}
+ \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    For the problem, the domain description and translation into logical expression has already been performed.
+
+    \begin{tabular}{lll}
+            Step                    & \hspace{0.15in} & Reason \\
+            1. $\forall x\; (P(x) \ra S(x))$            & & Given \\
+            2. $\neg \exists x\; (Q(x) \wedge R(x))$    & & Given \\
+            3. $\forall x\; (\neg R(x) \ra \neg S(x))$  & & Given \\
+            4. $\forall x\; \neg (Q(x) \wedge R(x))$    & & DeMorgan's with Quantifiers with (2) \\
+            5. $P(a) \ra S(a)$                          & & Univ. instantiation with (1) \\
+            6. $\neg R(a) \ra \neg S(a)$                & & Univ. instantiation with (3) \\
+            7. $\neg (Q(a) \wedge R(a))$                & & Univ. instantiation with (4) \\
+            8. $\neg Q(a) \vee \neg R(a)$               & & DeMorgan's with (7) \\
+            9. $\neg R(a) \vee \neg Q(a)$               & & Commutative with (8) \\
+            10. $\neg \neg R(a) \ra \neg Q(a)$          & & Table 7, rule 3 with (9) \\
+            11. $R(a) \ra \neg Q(a)$                    & & Double negation with (10) \\
+            12. $S(a) \ra R(a)$                         & & Table 7, rule 2 with (6) \\
+            13. $P(a) \ra R(a)$                         & & Hyp. syllogism with (5) and (12) \\
+            14. $P(a) \ra \neg Q(a)$                    & & Hyp. syllogism with (13) and (11) \\
+            15. $\forall x\; (P(x) \ra \neg Q(x))$      & & Univ. generalization with (14)
+    \end{tabular}
+\end{solution}
+
+
+
+\end{questions}
+\end{document}

@@ -1,0 +1,295 @@
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Fall 2016}}{\textbf{HW
+ 8 \ifprintanswers - Solutions \fi}}{\textbf{Due: Mon. 10/31/16}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\ifprintanswers
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  Assignments should be typed and submitted as a PDF.  Every student must write up their own solutions in their own manner.
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\else
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  Every student must write up their own solutions in their own manner.
+
+\noindent Please present your solutions in a clean, understandable
+manner.  Use the provided files that give mathematical notation in Word, Open Office, Google Docs, and \LaTeX. 
+
+\noindent Assignments should be typed and submitted as a PDF.   
+
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\fi
+
+\begin{questions}
+
+\ifprintanswers
+\else
+\uplevel{
+For many of these proof problems you will be asked to proof expressions related to even (definition p. 83), odd (definition p. 83), and divides (definition p. 238).}
+
+
+  % For the next two problems, you will use the definition of
+  % $n$ being \textit{divisible} by $m$, specifically:
+
+  % \smallskip
+  % \textbf{Definition:} For integers $n$ and $m$ and $m\neq0$, $n$ is
+  % \underline{divisible} by $m$ if and only if there is a integer $k$ such that $n=km$.  The notation $m | n$ denotes, ``$m$ divides $n$".}
+
+% \smallskip
+% \uplevel{
+%   For example, 56 is divisible by 8; there is a natural number $k$
+%   (specifically, 7) such that $56 = 8k$. Also, thinking of the
+%   bi-implication in the other direction, you can state because $39 = 3
+%   \cdot 13$, 39 is divisible by 3 (or 39 is divisible by 13).}
+
+%   \uplevel{An example of a proof using this new definition is to show,
+%   \begin{center}
+%    "For all integers $n$, if $n$ is divisible by 6, then $n^2$
+%    is divisible by 9."
+%   \end{center}
+%   Follow the examples in class,
+%   \begin{quote}
+%   Assume $n$ is divisible by 6.  Then, by definition of divisible
+%   there is some integer $k$ s.t. $n=6k$. Compute $n^2$:
+%   \[ n^2 = (6k)^2 = 36k^2 = 9(4k^2). \]
+%   where $n^2$ is divisible by 9 by definition. Therefore, for all
+%   integers, if $n$ is divisible by 6, then $n^2$ is divisible
+%   by 9.
+%   \end{quote}}
+\fi
+
+
+\gquestion{6}{6}{all} Prove: For all natural numbers $m$ and $n$, if $m$ is divisible by 5 and $n$ is divisible by 4, then $m\cdot n$ is divisible by 10.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+  \begin{solution} \textbf{Proof:} Assume $m$ is divisible by 5 and also assume $n$ is divisible by 4.  By definition of divisibility, then there exists a integer $k_m$ and a integer $k_n$ such that $m = 5k_m$ and $n=4k_n$.  Then, $m\cdot n$ is:
+    \[ m\cdot n = 5k_m \cdot 4k_n = 20k_mk_n = 10(2k_mk_n). \]
+  From this expression, you can see $m\cdot n$ is divisible by 10.  Therefore, if $m$ is divisible by 5 and $n$ is divisible by 4, then $m \cdot n$ is divisible by 10.
+  \end{solution}
+
+
+
+\ugquestion{6} Prove: For all integers $a$, $b$, and $c$, if $b$ is divisible by $a$ and $c$ is divisible by $a$, then $2b - 3c$ is divisible by $a$.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+  \begin{solution} \textbf{Proof:} Assume $a$, $b$, and $c$ are integers and $a | b$ and $a | c$.  By definition of divisibility, there exists integers $k_b$ and $k_c$ such that $b = ak_b$ and $c = ak_c$.  By substitution,
+    \[ 2b - 3c = 2(ak_b) - 3(ak_c) = a(2k_b - 3k_c), \]
+  where the expression $2k_b - 3k_c$ is also an integer.  Hence, $2b - 3c$ is also divisible by $a$.  Therefore, if $b$ is divisible by $a$ and $c$ is divisible by $a$, then $2b-3c$ is divisible by $a$.
+  \end{solution}
+
+
+
+\ugquestion{6} Prove: If $a$ is an odd integer, then $a^2 + 3a + 5$ is odd. 
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+  \begin{solution} \textbf{Proof:} Assume $a$ is an odd integer.  Then, by definition of odd, there exists an integer $k$ such that $a = 2k + 1$.  
+  Examining the expression: 
+  \begin{align*}
+    a^2 + 3a + 5 &= (2k+1)^2 + 3(2k+1) + 5 =  4k^2 + 4k + 1 + 6k + 3 + 5 = 4k^2 + 10k + 9 \\
+      &= 2(2k^2 + 5k + 4) + 1 = 2k' + 1,  
+  \end{align*}
+  which shows that $a^2 + 3a + 5$ is of the form of an odd integer. 
+  Therefore, if $a$ is an odd integer, then $a^2 + 3a + 5$ is odd. 
+  \end{solution}
+
+
+
+\gquestion{12}{6}{a} Give a (a) proof by contradiction and (b) proof by contraposition that if $n$ is a natural
+number and $3n+3$ is odd, then $n$ is even.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \textbf{Proof by contradiction:} Assume $3n+3$ is odd and $n$ is
+    odd.  Then $n=2k + 1$ for some integer $k$.  Compute
+    $3n+3$:
+    \[ 3n + 3 = 3(2k+1) + 3 = 6k + 6 = 2(3k + 3)\]
+    showing $3n+3$ is even. This contradicts the assumption that $3n
+    + 3$ is odd. Consequently, if $n$ is a natural number and $3n + 3$ is odd, then $n$ is even.
+
+    \textbf{Proof by contraposition} Assume $n$ is odd. Then by definition of odd, there exists an integer $k$ such that $n = 2k+1$.  Compute $3n+3$:
+    \[ 3n+3 = 3(2k+1) + 3 = 6k + 3 + 3 = 6k + 6 = 2(3k + 3) = 2k' \]
+    where the expression $2(3k+3)$ is an even integer.  Therefore, by contraposition if $3n+3$ is odd, then $n$ is even.
+\end{solution}
+
+
+
+\gquestion{12}{6}{b} Give a (a) proof by contradiction and (b) proof by contraposition that 
+for an integer $n$ if $3\not|\; n^2$, then $3\not|\; n$. 
+\ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+  \textbf{Proof by contradiction:} Assume $3\not|\; n^2$ and $3 | n$, that is that $n^2$ is not divisible by 3 and that $n$ is divisible by 3.  By definition of divisibility, $n = 3b$ for some integer $b$.  Squaring both sides, we have $n^2 = 3b^2 = 3(3b^2) = 3d$. This shows that $n^2$ is divisible by 3 which is a contradiction.  Consequently, via proof by contradiction, if if $3\not|\; n^2$, then $3\not|\; n$  
+
+  \textbf{Proof by contraposition:} Suppose it is not the case the $3 \not| n$, so that is $3 | n$.  Then, by definition of divisibility, $n = 3a$ for some integer $a$.   Squaring both sides, we have $n^2 = 9a^2 = 3(3a^2) = 3c$.  This shows that $n^2$ is divisible by 3 or $3 | n^2$.  We have shown the negation of the hypothesis.   
+  Therefore, using proof by contraposition, for an integer $n$, if $3\not|\; n^2$, then $3\not|\; n$.
+\end{solution}
+
+
+
+
+\gquestion{13}{13}{all} Prove for all natural numbers $n$ and $m$, $nm$ is odd if
+and only if $n$ and $m$ are both odd.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+     This proof is for a theorem using ``if and only if" therefore,
+     it must be proved in both directions.  \\
+    \textbf{Prove ``if p, then q" by contradiction:} Assume $nm$ is
+    odd and $n$ and $m$ are not both odd.  Then at least one of $n$
+    and $m$ are even.  Suppose $n$ is the one that is even. Then
+    $n=2k$ for some natural number $k$.  Then $nm = 2km$ and so $nm$
+    is even.  This contradicts the assumption that $nm$ is odd.
+    Similarly, if we assume instead that $m$ is the one that is even,
+    we reach the same contradiction.   If both $m$ and $n$ are both
+    even we reach the same result.  Thus, it must be that $n$ and
+    $m$ are both odd.
+
+    \smallskip
+    \textbf{Prove ``if q then p" directly:} Assume $n$ and $m$ are
+    both odd.  Then, there are natural numbers $k$ and $j$ such
+    that $n = 2k+1$ and $m=2j+1$.  Then,
+    \[ nm = (2k+1)(2j+1) = 4kj + 2(k+j) +1 = 2(2kj +k + j) +1 \]
+    So, $nm$ is odd by definition. Therefore, if $n$ and $m$ are
+    odd, $nm$ is odd.
+
+    \smallskip
+    Combining both parts, we have shown for any natural number $n$ and $m$, $nm$ is odd if and only if $n$ and $m$ are both odd.
+\end{solution}
+
+
+
+
+
+
+
+
+
+\ugquestion{2} Prove that there is a positive integer that equals the
+sum of the positive integers not exceeding it.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    This is an existence proof.  3 is an example of such a positive
+    integer, 3 = 1 + 2.
+\end{solution}
+
+
+\gquestion{3}{3}{all} Prove or disprove: If $a$ and $b$ are rational
+numbers, then $a^b$ is also rational.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \textbf{Disprove:} Let $a=2$ and $b=\frac{1}{2}$, which are both rational numbers.  Then $a^b =
+    \sqrt{2}$ which is irrational.
+\end{solution}
+
+
+\ugquestion{3} Prove or disprove: The sum of four consecutive integers is divisible by 4.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \textbf{Disprove:} Let the consecutive integers be 1, 2, 3, 4; the sum is 10 which is not divisible by 4.
+\end{solution}
+
+
+
+
+\gquestion{6}{6}{all} Prove that if $n$ is an integer that $n^3 - n$ is even.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+%\begin{EnvFullwidth}
+%\begin{TheSolution}
+\begin{solution} \textbf{Proof:} Let $n$ be an integer.
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[Case] (i): Let $n$ be even. By definition, there exists an integer $k$ s.t. $n=2k$.
+            \[ n^3 - n = (2k)^3 - 2k = 8k^3 - 2k = 2(4k^3 - k) \]
+        This is of the form of an even number.
+        \item[Case] (ii):  Let $n$ be odd.  By definition, there exists an integer $k$ s.t. $n = 2k+1$.
+            \begin{align*}
+                n^3 - n &= (2k+1)^3 - (2k+1) = (4k^2 + 4k+ 1)(2k + 1) - (2k+1) \\
+                &= 8k^3 + 12k^2 + 6k + 1 - 2k - 1 = 8k^3 + 12k^2 + 4k = 2(8k^3 + 6k^2 + 2k)
+            \end{align*}
+        This is of the form of an even number.
+
+        Therefore, because $n^3 - n$ is even in all cases, it holds that for any integer $n$, $n^3 - n$ is even.
+    \end{itemize}
+\end{solution}
+
+
+
+\section*{Bonus Questions} 
+
+
+\bonusquestion[6] Prove: For an integer $a$ if $7 | 4a$, then $7 | a$. \\
+\textit{Hint: you may want to use the definition of even and knowledge of the products of even and odd integers.}
+ \ifprintanswers
+        \vspace{-10pt}
+    \fi
+  \begin{solution} 
+  \textbf{Proof:}  Assume $a$ is an integer and $7 | 4a$.  By definition of divisibility, there is some integer $c$ such that $4a = 7c$.  We know that $4a$ is even because it can be written as $2(2a)$.  Also, because $4a = 7c$ we know that $7c$ is even.  If $7c$ is even, then $c$ must be even (odd*odd = odd and odd*even = even).  Then, we can replace $c$ with $2d$ for some integer $d$.  
+
+  From the initial equation, replace $c=2d$, we get the following: 
+  \begin{align*}
+    4a &= 7c \\
+      &= 7(2d) = 14d \\
+    2a &= 7d \tag{divide by 2}
+  \end{align*}
+  Since $7d$ is equal to $2a$ if follows that $7d$ is even. Using the same reasoning as above $d$ must be even (odd*odd = odd and odd*even = even).  With $d$ as an even number, then it can be respresented as $d = 2e$ for some integer $e$. 
+
+  Replacing $d$ in the equation above, we get the following:
+  \begin{align*}
+    2a &= 7d \\
+      &= 7(2e) = 14e \\
+    a &= 7e \tag{divide by 2}
+  \end{align*}
+  At this point we have shown, $a = 7e$ which means that $7 | a$ by definition of divisibility. 
+
+  Therefore, for an integer $a$ if $7 | 4a$, then $7 | a$.
+
+  \end{solution}
+
+% \bonusquestion[4] Prove the following proposition, ``For any integer $n \geq 2$, $n^2-3$ is never divisible by 4."
+%     \ifprintanswers
+%         \vspace{-10pt}
+%     \fi
+% \begin{solution}
+%     Consider two cases:
+%     \begin{itemize}
+%         \item[Case 1]: If $n$ is even, then by definition $n^2$is also even and $n^2-3$ will be odd.  Therefore, $n^2-3$ is not divisible by 4.
+%         \item[Case 2]: If $n$ is odd, there are 4 cases to consider. $n$ can be written as $4k$, $4k+1$, $4k+2$, and $4k+3$ for an integer $k$.  The forms of $4k$ and $4k+2$ are even, not matching the condition $n$ is odd, and will not be considered further.
+%             \begin{itemize}
+%                 \item[Case a]:
+%                 \begin{align*}
+%                     n &= 4k + 1 \\
+%                     n^2 - 3 &= (4k + 1)^2 - 3 \\
+%                         &= 16k^2 + 8k + 1 - 3 \\
+%                         &= 16k^2 +8k - 2
+%                 \end{align*}
+%                 The number $n^2-3$ is not divisible by 4.
+%                 \item[Case b]:
+%                 \begin{align*}
+%                     n &= 4k+3 \\
+%                     n^2 - 3 &= (4k + 3)^2 - 3 \\
+%                      &= 16k^2 + 24k + 9 - 3 \\
+%                      &= 16k^2 + 24k + 6
+%                 \end{align*}
+%                 The number $n^2-3$ is not divisible by 4.
+%                 Therefore, if $n$ is odd, $n^2-3$ is not divisible by 4.
+%             \end{itemize}
+%         \end{itemize}
+%         Therefore, we have shown in all cases that for any integer $n \geq 2$, $n^2 - 3$ is not divisible by 4.
+% \end{solution}
+
+
+\end{questions}
+\end{document}

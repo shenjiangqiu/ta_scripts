@@ -1,0 +1,428 @@
+% Homework Specific Commands
+
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Fall 2016}}{\textbf{HW
+ 8 \ifprintanswers - Solutions \fi}}{\textbf{Due: Mon. 03/28/16}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\ifprintanswers
+% \noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\else
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{4pm} on the due date} specified.  There will be a box in the CS department office (Rekhi 221) where assignments may be turned in.  Solutions will be posted on-line at the following lecture.  Every student
+must write up their own solutions in their own manner.
+
+\medskip
+\noindent Please present your solutions in a clean, understandable
+manner; pages should be stapled before being turned in, no ragged edges of
+paper.
+
+% \medskip
+% \noindent Be clear with you penmanship to distinguish set brackets and parentheses.
+%   For example, $\{1, 2\}$ is a set where $(1,2)$ is an ordered pair.  Also,
+% differentiate the empty set $\emptyset$ and the number zero 0.
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+
+\medskip
+\noindent \textbf{Include the following information at the top, left corner of your submission:} (not including this information will result in -3pt)\\
+\textbf{Last Name, First Name (as listed in Canvas)} \\
+\textbf{Section (R01, R02)}
+\fi
+
+\begin{questions}
+
+
+\gquestion{9}{9}{all} Prove the following is true for all positive integers $n$, $n$ is even if and only if $5n^2 + 4$ is even.
+%Prove that if $n$ is a positive integer, then $n$ is
+%even if and only if $7n+4$ is even.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    The statement is a biimplication therefore both sides of the
+    implication must be shown.  Let $p$ be ``$n$ is even" and $q$ be
+    ``$5n^2 + 4$ is even."
+    
+    \textbf{Prove ``if p, then q":}
+    Assume $n$ is even. By definition of even, there exists an
+    integer $k$ s.t. $n=2k$.  Compute $5n^2+4$:
+    \[ 5n^2 + 4 = 5(2k)^2 + 4 = 5(4k) + 4 = 20k + 4 = 2(10k+2) \]
+    $5n^2+4$ is also of the form of an even number.  Therefore, if $n$
+    is even, then $5n^2+4$ is even.
+
+    \smallskip
+    \textbf{Prove ``if q, then p": using proof by contradiction.}
+    Assume $5n^2+4$ is even and $n$ is odd.  Then by definition of odd
+    there exists an integer $k$ s.t. $n=2k+1$.  Compute $5n^2+4$:
+    \[ 5n^2+4 = 5(2k+1)^2+4 = 5(2k^2+4k+1)+4 = 10k^2 + 20k + 5 + 4 = 2(5k^2 + 10k + 4) + 1 \]
+    $5n^2+4$ is of the form of an odd number leading to a
+    contradiction, therefore it must be that if $5n^2+4$ is even, then
+    $n$ is even.
+
+    \smallskip
+    Combining both parts, we have shown if $n$ is a positive integer,
+    then $n$ is even if and only if $5n^2+4$ is even.
+\end{solution}
+
+
+\vspace{-4pt}
+\ugquestion{6} Use a proof by cases to show that $min(a, min(b,c)) =
+min(min(a,b),c)$ whenever $a$, $b$, and $c$ are real numbers.
+% SEE Jean Mayo hw5
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    There are 6 cases for the values of $a$,$b$, $c$. 
+
+    \begin{minipage}{0.5\textwidth}
+    \begin{itemize}[itemsep=1pt, topsep=0pt]
+      \item \textbf{case 1:} $a \leq b \leq c$, then \\
+        $min(a, min(b,c)) = min(a,c) = a$ \\
+        $min(min(a,b),c)) = min(a,c) = a$ 
+      \item \textbf{case 2:} $a \leq c \leq b$, then \\
+        $min(a, min(b,c)) = min(a,c,) = a$ \\
+        $min(min(a,b),c) = min(a,c) = a$ 
+      \item \textbf{case 3:} $b \leq a \leq c$, then \\
+        $min(a, min(b,c)) = min(a,b) = b$\\
+        $min(min(a,b),c) = min(b,c) = b$ 
+    \end{itemize}
+    \end{minipage}
+    %
+    \begin{minipage}{0.5\textwidth}
+    \begin{itemize}[itemsep=1pt, topsep=0pt]
+      \item \textbf{case 4:} $b \leq c \leq a$, then \\
+        $min(a, min(b,c)) = min(a,b) = b$ \\
+        $min(min(a,b),c) = min(b,c) = b$ 
+      \item \textbf{case 5:} $c \leq a \leq b$, then \\
+        $min(a, min(b,c)) = min(a,c) = c$\\
+        $min(min(a,b),c) = min(a,c) = c$ 
+      \item \textbf{case 6:} $c \leq b \leq a$, then \\
+        $min(a, min(b,c)) = min(a,c) = c$ \\
+        $min(min(a,b),c) = min(b,c) = c$ 
+    \end{itemize}
+    \end{minipage}
+
+    \smallskip
+    We have shown it to be true, in all cases.
+\end{solution}
+
+
+\vspace{-4pt}
+\ugquestion{3} Prove that there is a positive integer that equals the
+sum of the positive integers not exceeding it.
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+    This is an existence proof.  3 is an example of such a positive
+    integer, 3 = 1 + 2.
+\end{solution}
+
+\vspace{-4pt}
+\ugquestion{3} Prove/disprove: If $a$ and $b$ are rational
+numbers, then $a^b$ is also rational.
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+    \textbf{Disprove:} Let $a=2$ and $b=\frac{1}{2}$, which are both rational numbers.  Then $a^b =
+    \sqrt{2}$ which is irrational.
+\end{solution}
+
+\vspace{-4pt}
+\gquestion{3}{3}{all} Prove/disprove: The sum of four consecutive integers is divisible by 4.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \textbf{Disprove:} Let the consecutive integers be 1, 2, 3, 4; the sum is 10 which is not divisible by 4.
+\end{solution}
+
+
+\ifprintanswers
+  \newpage 
+\fi 
+\gquestion{8}{8}{all} Prove that if $n$ is an integer that $n^3 - n$ is even.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+%\begin{EnvFullwidth}
+%\begin{TheSolution}
+\begin{solution} \textbf{Proof:} Let $n$ be an integer.
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[Case] (i): Let $n$ be even. By definition, there exists an integer $k$ s.t. $n=2k$.
+            \[ n^3 - n = (2k)^3 - 2k = 8k^3 - 2k = 2(4k^3 - k) \]
+        This is of the form of an even number.
+        \item[Case] (ii):  Let $n$ be odd.  By definition, there exists an integer $k$ s.t. $n = 2k+1$.
+            \begin{align*}
+                n^3 - n &= (2k+1)^3 - (2k+1) = (4k^2 + 4k+ 1)(2k + 1) - (2k+1) \\
+                &= 8k^3 + 12k^2 + 6k + 1 - 2k - 1 = 8k^3 + 12k^2 + 4k = 2(8k^3 + 6k^2 + 2k)
+            \end{align*}
+        This is of the form of an even number.
+
+        Therefore, because $n^3 - n$ is even in all cases, it holds that for any integer $n$, $n^3 - n$ is even.
+    \end{itemize}
+\end{solution}
+
+
+
+\bonusquestion[4] Prove the following proposition, ``For any integer $n \geq 2$, $n^2-3$ is never divisible by 4."
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    Consider two cases:
+    \begin{itemize}
+        \item[Case 1]: If $n$ is even, then by definition $n^2$is also even and $n^2-3$ will be odd.  Therefore, $n^2-3$ is not divisible by 4.
+        \item[Case 2]: If $n$ is odd, there are 4 cases to consider. $n$ can be written as $4k$, $4k+1$, $4k+2$, and $4k+3$ for an integer $k$.  The forms of $4k$ and $4k+2$ are even, not matching the condition $n$ is odd, and will not be considered further.
+            \begin{itemize}
+                \item[Case a]:
+                \begin{align*}
+                    n &= 4k + 1 \\
+                    n^2 - 3 &= (4k + 1)^2 - 3 \\
+                        &= 16k^2 + 8k + 1 - 3 \\
+                        &= 16k^2 +8k - 2
+                \end{align*}
+                The number $n^2-3$ is not divisible by 4.
+                \item[Case b]:
+                \begin{align*}
+                    n &= 4k+3 \\
+                    n^2 - 3 &= (4k + 3)^2 - 3 \\
+                     &= 16k^2 + 24k + 9 - 3 \\
+                     &= 16k^2 + 24k + 6
+                \end{align*}
+                The number $n^2-3$ is not divisible by 4.
+                Therefore, if $n$ is odd, $n^2-3$ is not divisible by 4.
+            \end{itemize}
+        \end{itemize}
+        Therefore, we have shown in all cases that for any integer $n \geq 2$, $n^2 - 3$ is not divisible by 4.
+\end{solution}
+
+
+
+
+\ifprintanswers
+  \newpage 
+\fi 
+\uplevel{{\bf Sequences}}
+
+\ugquestion{8} What are the first 4 terms of each sequence:
+
+\begin{tabular}{ll}
+    (a) $a_n = 4-2n\;\;\forall n \geq 0$ \hspace{0.35in} 
+        & (b) $b_n = 6- 3\cdot 2^n \;\;\forall n \geq 0$ \\
+    (c) $c_1 = 4,  c_n = 3\cdot c_{n-1} - 2 \;\; \forall n \geq 2$ \hspace{0.3in}
+        & (d) $d_1 = -1, d_n = 5\cdot d_{n-1} + 1\;\; \forall n \geq 2$ \\
+    % \multicolumn{2}{c}{(e) $e_0 = 1, e_1 = 1$, $e_n = ne_{n-1} + n^2e_{n-2} \;\forall n \geq 2$}
+\end{tabular}
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+
+    \begin{tabular}{ll}
+        (a) $a_1 = 4$, $a_2 = 2$, $a_3 = 0$, $a_4 = -2$ \hspace{0.2in}
+            & (b) $b_1 = 3$, $b_2 = 0$, $b_3 = -6$, $b_4 = -18$ \\
+        (c) $c_1 = 4$, $c_2 = 10$, $c_3 = 28$, $c_4 = 82$
+            & (d) $d_1 = -1$, $d_2 = -4$, $d_3 = -19$, $d_4 = -94$ \\
+        % (e) $e_0 = 1$, $e_1 = 1$, $e_2 = 6$, $e_3 = 27$
+    \end{tabular}
+\end{solution}
+
+
+
+\gquestion{8}{4}{d,e} Find a closed formula; assume the sequence starts with $n=0, 1, 2, \ldots$.
+
+\begin{tabular}{ll}
+    (a) $1, -4, 9, -16, 25, \ldots$ 
+        & (b) $8, 4, 2, 1, \frac{1}{2}, \frac{1}{4},  \ldots$ \\
+    % (c) $2, 6, 18, 54, 162, 486, 1458\ldots$  \hspace{0.3in}
+        (c) $3, 4, 7, 12, 19, 28, 39 \ldots$ 
+    & (d) $6, 1, -4, -9, -14, -19 \ldots$ \\
+\end{tabular}
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+    
+    \begin{tabular}{ll}
+        (a) $a_n = (n+1)^2 (-1)^n$ \hspace{0.6in}
+            & (b) $a_n = 8\cdot (\frac{1}{2})^n$ \hspace{0.6in} \\
+            % & (c) $a_n = 2\cdot 3^n$ \\
+        (c) $a_n = n^2 + 3$
+            & (d) $a_n = 6 - 5n$
+    \end{tabular}
+\end{solution}
+
+
+
+\gquestion{6}{4}{a,b} Find a recursive formula; assume the sequnce starts with $n=0,1,2,\ldots$
+
+\begin{tabular}{ll}
+    (a) $6, 18, 54, 162, 486, \ldots$  \hspace{0.3in}
+        & (b) $5, 9, 14, 20, 27, 35, \ldots$\\
+    \multicolumn{2}{c}{(c) $7, 3, -1, -5, -9, -13, \ldots$}
+\end{tabular}
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+    (a) $a_0 = 6$, $a_n = 3*a_{n-1}$ \\
+    (b)  $a_0 = 5$, $a_n = a_{n-1} + n + 3$  
+        \hspace{0.6in} (c) $a_0 = 7$, $a_n = a_{n-1} -4$
+\end{solution}
+
+
+
+
+\gquestion{6}{3}{a} Determine whether each answer is a solution to the recurrence relation, 
+$$ a_n = a_{n-1} + 2a_{n-2} + 2n - 9 $$
+    \begin{enumerate}[label=(\alph*),topsep=0pt,itemsep=0pt,parsep=0pt]
+        \item $a_n = 0$
+        \item $a_n = -n +2$
+    \end{enumerate}
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),topsep=0pt,itemsep=0pt,parsep=0pt]
+        \item Not a solution.
+        \begin{align*}
+            a_n &= a_{n-1} + 2a_{n-2} + 2n - 9 \\
+            &= (0) + 2\cdot0 + 2n - 9 \\
+            &= 2n - 9 \\
+            0 &\neq 2n - 9
+        \end{align*}
+        \item Yes, $a_n = -n + 2$ is a solution.
+        \begin{align*}
+            a_n &= a_{n-1} + 2a_{n-2} + 2n - 9 \\
+            &= (-(n-1) + 2) + 2(-(n-2) + 2) + 2n -9 \\
+            &= -n + 1 + 2 -2n + 4 + 4 + 2n -9 \\
+            &= -n +2 \\
+        \end{align*}
+    \end{enumerate}
+\end{solution}
+
+
+
+
+\gquestion{10}{5}{c} Rosen Ch 2.4 \# 16(c,e), p. 168.
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+    % \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    %     \item[a)]
+        % \small \vspace{-0.2in}
+        % \begin{align*}
+        %     (a) \quad \quad a_n &= -a_{n-1} = -1\cdot a_{n-1} \\
+        %       &= -(-a_{n-2}) = (-1)^2a_{n-2} \\
+        %       &= -(-(-a_{n-3})) = (-1)^3a_{n-3} \\
+        %       &= \cdots \\
+        %       &= (-1)^n\cdot a_{n-n} = (-1)^n\cdot a_{0} = 5\cdot(-1)^n
+        % \end{align*}
+        % \item[(c)] 
+        \vspace{-0.1in} 
+        \begin{align*}
+            (c) \quad \quad a_n &= a_{n-1} - n \\
+            &= a_{n-2} -(n-1) - n = a_{n-1} - (n + (n-1)) \\
+            &= a_{n-3} -(n-2) - (n + (n-1)) = a_{n-2} - (n + (n-1) + (n-2)) \\
+            &= \cdots \\
+            &= a_{n-n} -(n + (n-1) + (n-2) + \ldots + (n- (n-1)) \\
+            &= a_0 - (n + (n-1) + (n-2) + \ldots + 1) \\
+            &= 4 - (n + (n-1) + (n-2) + \ldots + 1) = 4 -\frac{n(n+1)}{2}
+        \end{align*}
+    % \end{itemize}
+        \vspace{-0.1in}
+        \begin{align*}
+            (e) \quad \quad a_n &= (n+1)a_{n-1} \\
+              &= (n+1)na_{n-2} \\
+              &= (n+1)n(n-1)a_{n-3} \\
+              &= \cdots \\
+              &= (n+1)n(n-1)\cdots(n-(n-2))a_{n-n} \\
+              &= (n+1)n(n-1)\cdots2a_{0} \\
+              &= 2(n+1)!
+        \end{align*}
+\end{solution}
+
+
+\ugquestion{6} A mortage loan is paid off in periodic (monthly) installments, while interest is also charged each period.  A mortage with an annual interest rate of $r$ has a monthly interest rate of $i = \frac{r}{12}$.  A mortage of $M$ dollars at monthly interest rate $i$ has payments of $P$ dollars.  At the end of the month, interest is added to the previous balance, and then the payment $P$ is subtracted from the result.  Let $m_n$ be the balance due after $n$ months, where $m_0 = M$, $m_1 = M(1+i) - P, \ldots$
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    topsep=0pt,partopsep=0pt]
+    \item Let $M = 10,000$, $i = 0.03$ and $P = 105.13$, determine $m_2$ and $m_3$.
+    % \item If $m_{20} = 79,495.98$, $i=0.02$ and $R = 822.89$, determine $m_{21}$.
+    \item Find a recursive formula for the mortage balance, $m_n$
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    topsep=0pt,partopsep=0pt]
+        \item $m_0 = 10,000$, $m_1 = 10194.87$, $m_2 = 10395.59$, $m_3 =  10602.32$
+        \item $m_n = m_{n-1}(1+i) - P$, $m_o = M$
+    \end{enumerate}
+\end{solution}
+
+
+\uplevel{{\bf Summations}}
+
+\ugquestion{3} Write out in sigma notation the sum of the first 50 terms of the series: \\
+\hspace*{0.2in} $1 - \frac{1}{2} + \frac{1}{4} - \frac{1}{8} + \frac{1}{16} - \ldots$
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+    The sum can take many form depending on index of summation and limits.  Here are three samples
+    
+    \begin{center}
+    \begin{tabular}{ccc}
+        $\ds \sum_{i=1}^{50} (-1)^{n+1}\cdot\frac{1}{2^{n-1}}$ \hspace{0.25in}
+        & $\ds \sum_{i=0}^{49} (-1)^{n}\cdot\frac{1}{2^{n}}$ \hspace{0.2in}
+        & $\ds \sum_{i=0}^{49} \left(\frac{-1}{2}\right)^n$
+    \end{tabular}
+    \end{center}
+\end{solution}  
+
+
+
+\gquestion{8}{4}{c,e} What are the values of the sums:\\
+% \begin{tabular}{lll}
+%     (a) $\ds \sum_{j\in S} (2j - 1), \text{ where } S = \{1, 2, 4, 6\}$
+%     & (b) $\ds \sum_{i=1}^{8} 4$  \hspace*{1in} 
+%     & (c) $\ds \sum_{k=0}^{4} (-3)^k$ \\
+%     & & \\
+%     (d) $\ds \sum_{j=0}^{7} (2^{j+1} - 2^{j-1})$
+%     & (e) $\ds \sum_{i=1}^{4} \sum_{j=1}^{3} (2i + 3j)$
+%     & (f) $\ds \sum_{j=0}^{3} \sum_{k=1}^{3} j*2^{k}$
+% \end{tabular}
+\begin{tabular}{lll}
+    (a) $\ds \sum_{j\in S} (2j - 1), \text{ where } S = \{1, 2, 4, 6\}$
+    & (b) $\ds \sum_{k=0}^{4} (-3)^k$ \\
+    & & \\
+    (c) $\ds \sum_{i=1}^{4} \sum_{j=1}^{3} (2i + 3j)$
+    & (d) $\ds \sum_{j=0}^{3} \sum_{k=1}^{3} j*2^{k}$
+\end{tabular}
+    \ifprintanswers
+        \vspace{-10pt}
+   \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=3pt,parsep=0pt,
+    topsep=0pt,partopsep=0pt]
+        \item $\ds (2\cdot1 - 1)+(2\cdot2 - 1)+(2\cdot4 -1)+(2\cdot6-1) = 1+3+7+11 = 22$ 
+        % \item $\sum_{i=1}^8 4 = 8\cdot4 = 32$
+        \item $\ds (-3^0) + (-3^1) + (-3^2) + (-3^3) + (-3^4) = 1 -3 + 9 -27 + 81 = 61 $
+        % \item $\sum_{j=0}^7 2^{j+1} - \sum_{j=0}^7 2^{j-1} = 510 - 127.5 = 382.5$
+        \item $\ds \sum_{i=1}^4 \left( \sum_{j=1}^3 2i + \sum_{j=1}^3 3j \right) = 132$
+        \item $\ds \sum_{j=0}^3 \sum_{k=1}^3 j*2^k = 84$
+    \end{enumerate}
+\end{solution}
+
+
+
+\end{questions}
+\end{document}

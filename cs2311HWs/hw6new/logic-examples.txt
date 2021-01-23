@@ -1,0 +1,128 @@
+logic-examples
+
+% f17, f16, s12p, f12p
+$p \ra (\neg q \ra r) \equiv \neg(q \vee r) \ra \neg p$
+
+% f17, s16, f14, s12 
+$p \ra (q \vee r) \equiv (p \wedge \neg q) \ra r$
+
+% f17p, f13, f12 
+$[ p \wedge (\neg p \vee q) ] \ra q \equiv \mathbf{T}$
+
+% f17, f16, s16, f14, s12
+$ [ \neg p \wedge (p \vee q) ] \ra q \equiv \mathbf{T}$
+    
+% f17, f16, s16, f14
+$[(p \vee q) \wedge (p \ra r) \wedge (q \ra r)] \ra r \equiv \mathbf{T}$
+
+% f17 
+$ \neg l \ra (w \vee (c \wedge l)) \equiv w \vee l $
+
+% s16, f14, f13, s12, f12 
+$\neg [ r \vee (q \wedge (\neg r \ra \neg p))] 
+    \equiv \neg r \wedge (p \vee \neg q) $
+
+% slides 
+$\neg(q \wedge \neg p) \vee p \equiv \neg q \vee p $
+
+% slides 
+$ (p \vee \neg q) \wedge (q \vee \neg p) 
+    \equiv (q \wedge p) \vee (\neg p \wedge \neg q) $
+
+% slides, Add. examples, f16, f13, s12p, f12p 
+$ (p \wedge \neg(q \vee \neg p)) \equiv p \wedge \neg q$
+
+% slides, Add. examples, f16, s12p, f12p
+$ \neg(\neg p \vee (p \wedge q)) \vee q \equiv q \vee p $
+
+% slides, Add. examples, f16, s12p, f12p
+$ [(p \ra q) \wedge (q \ra r)] \ra (p \ra r) \equiv \mathbf{T}$
+
+
+
+-------
+
+Inference examples 
+
+% f17, f16, f14, s12p, f12p, 
+Ch 1.6, #6 
+
+% f17, f16, s16, f14, f13, f12
+\gquestion{10}{10}{all} Use the rules of inference to show that the hypotheses imply the conclusion:
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item ``If I graduate in four years, then I will have completed the CS courses", and
+    \item ``If I do not work on CS for 10 hours a week, then I will not complete the CS courses", and
+    \item ``If I work on CS for 10 hours a week, then I can not procrastinate."
+\end{itemize}
+Conclusion: ``If I procrastinate, then I will not graduate in four years."
+Let
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item[$w = $] ``I work on CS for 10 hours a week",
+    \item[$g = $] ``I graduate in four years",
+    \item[$c = $] ``I will complete the CS courses", and
+    \item[$p = $] ``I procrastinate."
+\end{itemize}
+
+
+
+% f17, f13, f12
+\question[12] Use the same propositional variables of problem \ref{probc} and the rules of inference to show the hypotheses imply the conclusion:
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item ``If I work on CS for 10 hours a week and I don't procrastinate, then I will complete the CS courses",
+    \item ``I will not graduate in four years and I worked on CS for 10 hours a week.", and
+    \item ``If I complete the CS courses, then I graduate in four years."
+\end{itemize}
+Conclusion:  ``I procrastinated."
+
+First, translate the hypotheses and conclusion in to logical statements (4 points).  Then, show the valid argument (8 points).
+
+
+
+% f17, f16
+\gquestion{12}{12}{all} Use the rules of inference to show that the hypotheses imply the conclusion:
+\begin{quote}
+If you eat carefully then you will have a healthy digestive system. If you exercise regularly you will be very fit. If you have a healthy digestive system or you are very fit, you will live to a ripe old age. You do not live to a ripe old age. Therefore, you did not eat carefully and you did not exercise regularly.
+\end{quote}
+Let
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item[$c = $] ``you eat carefully",
+    \item[$h = $] ``you have a healthy digestive system",
+    \item[$e = $] ``you excercise regularly",
+    \item[$f = $] ``you will be very fit", 
+    \item[$l = $] ``you will live to a ripe old age"
+\end{itemize}
+
+
+% f17p, s12, 
+% Ross and Wright, Example 1, p. 96
+\question[8]\label{probc} Use the rules of inference to show that the hypotheses imply the conclusion:
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item ``If I study or if I am a genius, then I will pass the course", and
+    \item ``If I pass the course, then I will be allowed to take the next course."
+\end{itemize}
+Conclusion: ``If I am not allowed to take the next course, then I am not a genius."
+Let
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item[$s = $] ``I study",
+    \item[$g = $] ``I am a genius",
+    \item[$p = $] ``I will pass the course", and
+    \item[$n = $] ``I will be allowed to take the next course."
+\end{itemize}
+First, translate the hypotheses and conclusion in to logical statements (3 points).  Then, show the valid argument (5 points).
+
+% f17p, s12
+\question Use the same propositional variables of problem \ref{probc} and the rules of inference to show the hypotheses imply the conclusion:
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item ``If I study or if I am a genius, then I will pass the course",
+    \item ``I will not be allowed to take the next course.", and
+    \item ``If I pass the course, then I will be allowed to take the next course."
+\end{itemize}
+Conclusion:  ``I did not study."
+
+
+% s16 
+Rosen Ch 1.6 \#14 (a,c)  % s16, f13
+Rosen Ch 1.6 \#14 (a,b)  % f16, f14, f12p 
+
+
+

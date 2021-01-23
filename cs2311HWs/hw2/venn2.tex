@@ -1,0 +1,22 @@
+%  $ (A \cap B) \cup (B \cap C)$
+% http://users.ju.edu/hduong/math220/venn_diagrams.pdf
+
+
+\def \setA{ (0,0) circle (1cm) }
+\def \setB{ (1.5,0) circle (1cm) }
+\def \setC{ (60:1.5) circle (1cm) }
+\def \setU{ (-2, -1.5) rectangle (3.5, 2.75) }
+% \begin{center}
+\begin{tikzpicture}[scale=0.8]
+\draw \setU node[below left]{$U$};
+        \begin{scope}
+        \clip \setA;
+        \fill[gray] \setB;
+        \end{scope}
+        \begin{scope}
+        \clip \setB;
+        \fill[gray] \setC;
+        \end{scope}
+\draw \setA node[left] {$A$}; \draw \setB node[right] {$B$}; \draw \setC node {$C$};
+\end{tikzpicture}
+% \end{center}

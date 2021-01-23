@@ -1,0 +1,630 @@
+% Homework Specific Commands
+\newcommand{\CMX}{\text{CMX}}
+\newcommand{\ORD}{\text{ORD}}
+\newcommand{\DTW}{\text{DTW}}
+\newcommand{\MQT}{\text{MQT}}
+\newcommand{\MSP}{\text{MSP}}
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Fall 2016}}{\textbf{HW
+ 6 \ifprintanswers - Solutions \fi}}{\textbf{Due: Wed. 03/02/16}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\ifprintanswers
+% \noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\else
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{4pm} on the due date} specified.  There will be a box in the CS department office (Rekhi 221) where assignments may be turned in.  Solutions will be posted on-line at the following lecture.  Every student
+must write up their own solutions in their own manner.
+
+\medskip
+\noindent Please present your solutions in a clean, understandable
+manner; pages should be stapled before being turned in, no ragged edges of
+paper.
+
+% \medskip
+% \noindent Be clear with you penmanship to distinguish set brackets and parentheses.
+%   For example, $\{1, 2\}$ is a set where $(1,2)$ is an ordered pair.  Also,
+% differentiate the empty set $\emptyset$ and the number zero 0.
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+
+\medskip
+\noindent \textbf{Include the following information at the top, left corner of your submission:} (not including this information will result in -3pt)\\
+\textbf{Last Name, First Name (as listed in Canvas)} \\
+\textbf{Section (R01, R02)}
+\fi
+
+\begin{questions}
+
+
+% \uplevel{\textbf{Logic}}
+	
+% cs2311-f11, hw2
+% \gquestion{8}{8}{all}
+\ugquestion{8} {\color{red} Move question to HW6}
+Show the following statement is a tautology without using truth tables. Use the equivalence laws from Table 6-8 (model the solutions in the style of book Examples 6-8, pp. 29-30).  Justify each step with laws.
+
+\vspace{-0.15in}
+\begin{center}
+    $[(p \vee q) \wedge (p \ra r) \wedge (q \ra r)] \ra r$
+\end{center}
+\vspace{-10pt}
+
+    \begin{solution}
+    \begin{align*}
+      [(p \vee q) &\wedge ((p \ra r) \wedge (q \ra r))] \ra r \\
+      &\equiv \neg[(p \vee q) \wedge \neg(p \vee r) \wedge \neg (q \vee r)] \vee r \tag{Table 7, rule 1, x3} \\
+      &\equiv [\neg(p \vee q) \vee \neg(\neg(p \vee r) \wedge \neg(q \vee r))] \vee r \tag{DeMorgan's} \\
+      & \equiv (\neg p \wedge \neg q) \vee (\neg \neg(p \vee r) \vee \neg \neg(q \vee r)) \vee r \tag{DeMorgan's, x2} \\
+      & \equiv (\neg p \wedge \neg q) \vee (p \vee r) \vee (q \vee r) \vee r \tag{Double Negation, x2} \\
+      & \equiv (\neg p \wedge \neg q) \vee p \vee q \vee r \vee r \vee r \tag{Commutative} \\
+      & \equiv (\neg p \wedge \neg q) \vee p \vee q \vee r \vee r \tag{Idempotent} \\
+      & \equiv (\neg p \wedge \neg q) \vee p \vee q \vee r \tag{Idempotent} \\
+      & \equiv p \vee (\neg p \wedge \neg q) \vee q \vee r \tag{Commutative} \\
+      & \equiv (p \vee \neg p) \wedge (p \vee \neg q) \vee q \vee r \tag{Distributive} \\
+      & \equiv (\mathbf{T} \wedge (p \vee \neg q) \vee q \vee r \tag{Negation} \\
+      & \equiv (p \vee \neg q) \vee q \vee r \tag{Identity} \\
+      & \equiv p \vee (\neg q \vee q) \vee r \tag{Associative} \\
+      & \equiv p \vee \mathbf{T} \vee r \tag{Negation} \\
+      & \equiv \mathbf{T} \vee r \tag{Domination} \\
+      & \equiv \mathbf{T} \tag{Domination}
+    \end{align*}
+
+    An alternative solution is:
+    \begin{align*}
+      [(p \vee q) &\wedge ((p \ra r) \wedge (q \ra r))] \ra r \\
+       &\equiv [(p \vee q) \wedge ((p \vee q) \ra r)] \ra r \tag{Table 7, rule 7} \\
+       &\equiv [(p \vee q) \wedge (\neg (p \vee q) \vee r)] \ra r \tag{Table 7, rule 1} \\
+       &\equiv [((p \vee q) \wedge \neg (p \vee q)) \vee ((p \vee q) \wedge r)] \ra r \tag{Distributive} \\
+       &\equiv [\mathbf{F} \vee ((p \vee q) \wedge r)] \ra r \tag{Negation} \\
+       & \equiv [((p \vee q) \wedge r) \vee \mathbf{F}] \ra r \tag{Commutative} \\
+       & \equiv [((p \vee q) \wedge r)] \ra r \tag{Identity} \\
+       & \equiv [(p \vee q) \wedge r] \ra r \tag{drop extra ()} \\
+       & \equiv \neg [(p \vee q) \wedge r] \vee r \tag{Table 7, rule 1} \\
+       & \equiv  [\neg (p \vee q) \vee \neg r] \vee r \tag{DeMorgans} \\
+       & \equiv  \neg (p \vee q) \vee [\neg r \vee r ] \tag{Associative} \\
+       & \equiv \neg (p \vee q) \vee [r \vee \neg r] \tag{Communtative} \\
+       & \equiv \neg (p \vee q) \vee \mathbf{T} \tag{Negation} \\
+       & \equiv \mathbf{T} \tag{Domination} 
+    \end{align*}
+    \end{solution}
+
+
+
+
+% cs2311-s12, HW1
+% \gquestion{18}{12}{a,b}
+\gquestion{15}{10}{a,c} {\color{red} Move question to HW6}.
+Prove the following logical equivalences using the
+equivalences from Table 6-8 (model the solutions in the style of
+book Examples 6-8, pp. 29-30).  Justify each step with laws.
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item $p \ra (q \vee r) \equiv (p \wedge \neg q) \ra r$
+    \item $\neg [ r \vee (q \wedge (\neg r \ra \neg p))] \equiv \neg r \wedge (p \vee \neg q) $
+    \item $ [ \neg p \wedge (p \vee q) ] \ra q \equiv \mathbf{T}$
+\end{enumerate}
+
+
+    \begin{solution}
+    
+    (a)
+    \begin{align*}
+        p &\ra (q \vee r) \equiv (p \wedge \neg q) \ra r \\
+            & \equiv \neg p \vee (q \vee r) \tag{Table 7, rule 1} \\
+            & \equiv (\neg p \vee q) \vee r) \tag{Associative} \\
+            & \equiv \neg (\neg p \vee q) \ra r \tag{Table 7, rule 1} \\
+            & \equiv (\neg \neg p \wedge \neg q) \ra r \tag{DeMorgan's} \\
+            & \equiv (p \wedge \neg q) \ra r \tag{Double Negation} 
+    \end{align*}
+An alternative solution is:
+    \begin{align*}
+        p &\ra (q \vee r) \equiv (p \wedge \neg q) \ra r \\
+        & \equiv (p \ra q) \vee (p \ra r) \tag{Table 7, rule 8} \\
+        & \equiv (\neg p \vee q) \vee (\neg p \vee r) \tag{Table 7, rule 1, x2} \\
+        & \equiv \neg p \vee q \vee \neg p \vee r \tag{drop parenthesis} \\
+        & \equiv \neg p \vee \neg p \vee q \vee r \tag{Communtative} \\
+        & \equiv \neg p \vee q \vee r \tag{Idempotent Law} \\
+        & \equiv (\neg p \vee q) \vee r \tag{add parenthesis} \\
+        & \equiv \neg \neg (\neg p \vee q) \vee r \tag{Double Negation} \\
+        & \equiv \neg (\neg \neg p \wedge \neg q) \vee r \tag{DeMorgans} \\
+        & \equiv \neg (p \wedge \neg q) \vee r \tag{Doulbe Negation} \\
+        & \equiv (p \wedge \neg q) \ra r \tag{Table 7, rule 1}
+    \end{align*}
+
+    (b)
+    \begin{align*} 
+      \neg [ r \vee (q & \wedge (\neg r \ra \neg p))] \equiv \neg r \wedge (p \vee \neg q) \\
+        & \equiv \neg [r \vee (q \wedge (p \ra r))] \tag{Table 7, rule 2} \\
+        & \equiv \neg [r \vee (q \wedge (\neg p \vee r))] \tag{Table 7, rule 1} \\
+        & \equiv \neg [r \vee (q \wedge \neg p) \vee (q \wedge r)] \tag{Distributive} \\
+        & \equiv \neg [r \vee (q \wedge r) \vee (q \wedge \neg p)] \tag{Commutative} \\
+        & \equiv \neg [r \vee (q \wedge \neg p)] \tag{Absorption} \\
+        & \equiv \neg [r \vee (\neg p \wedge q)] \tag{Commutative} \\
+        & \equiv \neg r \wedge \neg (\neg p \wedge q) \tag{DeMorgan's} \\
+        & \equiv \neg r \wedge (\neg \neg p \vee \neg q) \tag{DeMorgan's} \\
+        & \equiv \neg r \wedge (p \vee \neg q) \tag{Double Negation} 
+    \end{align*}
+An alternative solution is:
+    \begin{align*} 
+      \neg [ r \vee (q & \wedge (\neg r \ra \neg p))] \equiv \neg r \wedge (p \vee \neg q) \\
+      & \equiv [\neg r \wedge \neg (q  \wedge (\neg r \ra \neg p))] \tag{DeMorgans} \\
+      & \equiv [\neg r \wedge (\neg q \vee \neg (\neg r \ra \neg p))] \tag{DeMorgans} \\
+      & \equiv [\neg r \wedge (\neg q \vee (\neg r \wedge \neg \neg p))] \tag{Table 7, rule 5} \\
+      & \equiv [\neg r \wedge (\neg q \vee (\neg r \wedge p))] \tag{Double Negation} \\
+      & \equiv [\neg r \wedge ((\neg q \vee \neg r) \wedge (\neg q \vee p))] \tag{Distributive} \\
+      & \equiv [(\neg r \wedge (\neg q \vee \neg r)) \wedge (\neg q \vee p)] \tag{Associative} \\
+      & \equiv [(\neg r \wedge (\neg r \vee \neg q)) \wedge (\neg q \vee p)] \tag{Commutative} \\
+      & \equiv [\neg r \wedge (\neg q \vee p)] \tag{Absoption} \\
+      & \equiv [\neg r \wedge (p \vee \neg q)] \tag{Commutative} \\
+      & \equiv \neg r \wedge (p \vee \neg q) \tag{drop extra ()}
+    \end{align*}
+
+    (c)
+    There are many possible solutions; two are given.
+	\small
+    \begin{align*}
+        [ \neg p & \wedge (p \vee q) ] \ra q \\
+        & \equiv \neg [ \neg p \wedge (p \vee q) ] \vee q \tag{Table 7, rule 1} \\
+        & \equiv \neg \neg p \vee \neg (p \vee q) \vee q \tag{DeMorgan's law} \\
+        & \equiv p \vee \neg (p \vee q) \vee q \tag{Double Negation} \\
+        & \equiv p \vee q \vee \neg (p \vee q) \tag{Commutative} \\
+        & \equiv (p \vee q) \vee \neg (p \vee q) \tag{add in parenthesis}\\
+        & \equiv \mathbf{T} \tag{Negation} 
+    \end{align*}
+
+    \begin{align*}
+        [ \neg p & \wedge (p \vee q) ] \ra q \\
+        & \equiv \neg [ \neg p \wedge (p \vee q) ] \vee q \tag{Table 7, rule 1} \\
+        & \equiv \neg \neg p \vee \neg (p \vee q) \vee q \tag{DeMorgan's law} \\
+        & \equiv p \vee \neg (p \vee q) \vee q \tag{Double Negation} \\
+        & \equiv p \vee q \vee \neg (p \vee q) \tag{Commutative} \\
+        & \equiv p \vee q \vee (\neg p \wedge \neg q) \tag{DeMorgan's} \\
+        & \equiv p \vee (q \vee \neg p) \wedge (q \vee \neg q) \tag{Distributive} \\
+        & \equiv p \vee (q \vee \neg p) \wedge \mathbf{T} \tag{Negation} \\
+        & \equiv p \vee (q \vee \neg p) \tag{Identity} \\
+        & \equiv p \vee (\neg p \vee q) \tag{Commutative} \\
+        & \equiv (p \vee \neg p) \vee q \tag{Associative} \\
+        & \equiv \mathbf{T} \vee q \tag{Negation} \\
+        & \equiv \mathbf{T} \tag{Domination}
+    \end{align*}
+    \end{solution}
+
+
+\gquestion{10}{6}{a,d-f}  Consider the domain of discourse to be the following set $ \{ duck, monkey, walleye, dog \}$.  Let $F(x)$ be true when $x$ can fly, let $H(x)$ be true when $x$ has hair/fur, let $T(x)$ be true when $x$ has a tail, and let $S(x)$ be true if $x$ can swim. 
+
+\begin{enumerate}[label=(\alph*)]
+  \item (3 pt) Complete the following truth table
+
+\ifprintanswers
+	\begin{tabular}{|c|c|c|c|c|}
+        \hline
+          $x$ & $F(x)$ & $H(x)$ & $T(x)$ & \hspace*{0.15in} $S(x)$ \hspace*{0.15in} \\
+        \hline
+          % cat   & \textbf{F} & T & \textbf{T} & T \\
+        % \hline
+        % \hline
+          duck  & \textbf{T} & F & T & T \\
+        \hline
+          % horse & \textbf{F} & T & T & T \\
+        % \hline
+          monkey & \textbf{F} & \textbf{T} & T & T \\
+        \hline
+           walleye & F & \textbf{F} & T & \textbf{T} \\
+        \hline 
+           dog   & F & \textbf{T} & T & T \\
+        \hline
+      \end{tabular}
+\else 
+
+  \hspace*{0.5in}\begin{tabular}{|c|c|c|c|c|}
+    \hline
+      $x$ & $F(x)$ & $H(x)$ & $T(x)$ & \hspace*{0.1in}$S(x)$ \hspace*{0.1in}\\
+    \hline
+    %   cat   &  F & \hspace*{0.5in} & \hspace*{0.5in} & T \\
+    % \hline
+      duck  &  & F & T & T \\
+    \hline  
+    % \hline
+    %   horse &  & &  & T \\
+    % \hline
+      monkey &  & & T & T \\
+    \hline 
+      walleye & F &  & T &  \\
+    \hline
+      dog   & \hspace*{0.5in}  & & & T \\
+    \hline
+  \end{tabular}
+\fi
+    % \begin{solution}
+    %   \begin{tabular}{|c|c|c|c|c|}
+    %     \hline
+    %       $x$ & $F(x)$ & $H(x)$ & $L(x)$ & \hspace*{0.15in} $S(x)$ \hspace*{0.15in} \\
+    %     \hline
+    %       cat   & \textbf{F} & T & \textbf{T} & T \\
+    %     \hline
+    %       dog   & F & \textbf{T} & T & T \\
+    %     \hline
+    %       duck  & \textbf{T} & F & \textbf{F} & T \\
+    %     \hline
+    %       horse & \textbf{F} & T & T & T \\
+    %     \hline
+    %       snow monkey & \textbf{F} & \textbf{T} & T & T \\
+    %     \hline
+    %   \end{tabular}
+    % \end{solution}
+
+  \uplevel{ Express the following predicates, (b-d), using the universal quantifier:}
+  \item (1 pt)  \hspace*{0.15in}$F(duck) \wedge F(monkey) \wedge F(walleye) \wedge F(dog)$
+  \item (1 pt)  \hspace*{0.15in}$\neg T(duck) \wedge \neg T(monkey) \wedge \neg T(walleye) \wedge \neg T(dog) $
+  \item (1 pt)  \hspace*{0.15in}$S(duck) \vee S(monkey) \vee S(walleye) \vee S(dog)$
+    % \begin{align*}
+    %   (i)  & F(cat) \wedge F(dog) \wedge F(duck) \wedge F(horse) \\
+    %   (ii) & \neg L(cat) \wedge \neg L(dog) \wedge \neg L(duck) \wedge \neg L(horse) \\
+    %   (iii) & S(cat) \vee S(dog) \vee S(duck) \vee S(horse) 
+    % \end{align*}
+      \begin{solution}
+        (b) $\forall x\; F(x)$
+        \hspace*{0.5in} (c) $\forall x\; \neg T(x)$
+        \hspace*{0.5in} (d) $\neg \forall x\; \neg S(x)$ 
+      \end{solution}
+
+  \uplevel{ Determine the truth values of the following expressions }    
+  \item (1 pt) \hspace*{0.15in}  $\forall x\, S(x)$ 
+  \item (1 pt) \hspace*{0.15in} $\forall x\, (H(x) \ra T(x))$
+  \item (1 pt) \hspace*{0.15in} $\exists x\, (\neg H(x) \wedge F(x)) $
+  \item (1 pt) \hspace*{0.15in} $\exists x\, (F(x) \wedge T(x) \wedge (\exists y\, ((x \neq y)  \ra (\neg H(y) \vee \neg T(y)))))$
+    \begin{solution}
+      (e) True 
+      \hspace*{0.15in} (f) True 
+      \hspace*{0.15in} (g) True
+      \hspace*{0.15in} (h) False
+    \end{solution}
+
+\end{enumerate}
+
+% \gquestion{8}{4}{(a,c)} Rosen Ch 1.4 \#8  p. 53 
+%     \ifprintanswers
+%         \vspace{-12pt}
+%     \fi
+%   \begin{solution}
+%       \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%          \item[(a)] ``For every animal, if it is a rabbit then then that animal hops."  \\Or, ``Every rabbit hops."
+%           \item[(b)] ``For every animal, it is a rabbit and it hops." \\Or, ``Every animal is a rabbit and hops."
+%           \item[(c)] ``There exists an animal such that if it is a rabbit then it hops."
+%           \item[(d)] ``There exists an animal that is a rabbit and it hops." \\Or, ``Some rabbits hop." \\Or, ``Some hopping animals are rabbits."
+%       \end{itemize}
+%   \end{solution}
+
+
+\gquestion{5}{3}{a-c} Rosen Ch 1.4 \#24, p. 54 \\
+Use the following predicates:
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+  \item $C(x)$ be ``$x$ in your class''
+  \item $P(x)$ be ``$x$ has a cell phone''
+  \item $M(x)$ be ``$x$ has seen a foreign movie''
+  \item $S(x)$ be ``$x$ can swim''
+  \item $Q(x)$ be ``$x$ can solve quadratic equations''
+  \item $R(x)$ be ``$x$ wants to be rich''
+\end{itemize}
+  \begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[(a)] Everyone in your class has a cell phone.
+        $$ \forall x\; P(x) \hspace{2in} \forall x\; (C(x) \ra P(x))$$
+       \item[(b)] Somebody in your class has seen a foreign movie.
+       $$ \exists x\; M(x) \hspace{2in} \exists x\; (C(x) \wedge F(x))$$
+       \item[(c)] There is a person in your class who cannot swim.
+       $$ \exists x\; \neg S(x) \hspace{2in} \exists x\; (C(x) \wedge \neg S(x))$$
+        \item[(d)] All students in your class can solve quadratic equations
+        $$ \forall x\; Q(x) \hspace{2in} \forall x\; (C(x) \ra Q(x))$$
+        \item[(e)] Some student in your class does not want to be rich.
+        $$ \exists x\; \neg R(x) \hspace{2in} \exists x\; (C(x) \wedge \neg R(x))$$
+    \end{itemize}
+
+  \end{solution}
+
+
+\gquestion{3}{3}{all}\label{probA} Rosen Ch 1.4 \#28(c, d, e), p. 54 \\
+Use the following predicates:
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item $C(x)$ be ``$x$ is in the correct place"
+    \item $T(x)$ be ``$x$ is a tool"
+    \item $E(x)$ be ``$x$ is in excellent condition"
+\end{itemize}
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+  \begin{solution}
+      \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+  %        \item[(a)] $\exists x\; \neg C(x) $
+  %        \item[(b)] $\forall x\; (T(x) \ra (C(x) \wedge E(x))) $
+          \item[(c)] $\forall x\; (C(x) \wedge E(x)) $
+          \item[(d)] $\neg \exists x\; (C(x) \wedge E(x)) \equiv \forall x\; \neg (C(x) \wedge E(x)) \equiv \forall x\; (\neg C(x) \vee \neg E(x))$
+          \item[(e)] $\exists x\; (T(x) \wedge \neg C(x) \wedge E(x))$
+      \end{itemize}
+  \end{solution}
+
+
+
+\ugquestion{2} Translate the logical expressions into English sentences using the same predicates as problem \ref{probA}.
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+  topsep=0pt,partopsep=0pt]
+    \item $\forall x\; (E(x) \ra C(x))$ \hspace*{1in} (b) $\exists x\; (T(x) \wedge \neg E(x) \wedge \neg C(x))$ 
+    %\item $\forall x\; (P(x) \ra (I(x) \wedge \neg E(x)))$
+\end{enumerate}
+  \ifprintanswers
+        \vspace{-12pt}
+    \fi
+  \begin{solution}
+  \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+  topsep=0pt,partopsep=0pt]
+      \item Everything that is in excellent condition, is in its correct place.
+      \item There exists a tool that is not in excellent condition and is not in the correct place.
+    \end{enumerate}
+  \end{solution}
+
+
+\ugquestion{3} Rosen Ch 1.4 \# 38(a,d,e), p. 55
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+  \begin{solution}
+  % \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+  %        \item[(a)] Some system is open.
+  %        \item[(d)] Some system is unavailable.
+  %    \end{itemize}
+      \begin{tabular}{ll} 
+        (a) Some system is open. & (d) Some system is unavailable. \\
+        (e) No system is working.  Or, Every system is not working
+      \end{tabular}
+  \end{solution}
+
+
+\gquestion{3}{2}{b,c} Rosen Ch 1.4 \#42(a-c), p. 55\\
+Use the following predicates:
+  \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item $A(x)$ be ``User $x$ has access to an electronic mailbox"
+    \item $R(x,y)$ be ``Group member $x$ can access resource $y$"
+    \item $S(x,y)$ be ``System $x$ is in state $y$"
+  \end{itemize}
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+  \begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+      \item $\forall x\, A(x)$
+      \item $S(file system, locked) \ra  \forall x\, A(x, system mailbox)$
+      \item $S(firewall, diagnostic) \ra S(proxy server, diagnostic)$
+    \end{itemize}
+  \end{solution}
+
+
+\gquestion{3}{3}{all}\label{proba} For this problem, use the predicates: $F(x)$ is ``$x$ is a Freshman", $S(x)$ be ``$x$ is a student at MTU", $C(y)$ is ``$y$ is a CS course", and $T(x,y)$ is ``$x$ is taking $y$", where $x$ has the domain of all students at MTU and $y$ has the domain of all CS courses.
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+	topsep=0pt,partopsep=0pt]
+    \item Translate the logical expression into English: $\forall x\; (F(x) \ra T(x,CS1000))$.
+    \item Translate English into logic: ``Some freshman at MTU are taking CS1121."
+    \item Translate English into logic: ``Every freshman at MTU is taking a CS course."
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    	topsep=0pt,partopsep=0pt]
+        \item ``For every student $x$ at MTU, if $x$ is a freshman, then $x$ is taking CS1000."
+
+            Conversationally, ``All freshman at MTU take CS1000."
+        \item $\exists x\; (F(x) \wedge T(x,CS 1121))$
+        \item $\forall x\; (F(x) \ra \exists y\; T(x,y))$ or $\forall x\; \exists y\; (F(x) \ra T(x,y))$
+    \end{enumerate}
+\end{solution}
+
+
+\ugquestion{6} Repeat problem \ref{proba} with the domain of $x$ is all people and $y$ is all courses.
+%\item Translate the logical expression into English: $\forall x\; (F(x) \ra T(x,CS1000))$.
+%    \item Translate the English statement into logic: ``Some freshman at the College are taking CS1121."
+%    \item Translate the English statement into logic: ``Every freshman at the College is taking some CS course."
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    	topsep=0pt,partopsep=0pt]
+        \item  ``For every person $x$, if $x$ is a freshman then $x$ is taking CS1000."
+
+            Conversationally, ``All freshman take CS1000."
+        \item $\exists x\; (S(x) \wedge F(x) \wedge T(x,CS 1121))$
+        \item $\forall x\; ((S(x) \wedge F(x)) \ra \exists y (C(y) \wedge T(x,y)))$ or \\
+        $\forall x\; \exists y\; ((S(x) \wedge F(x)) \ra (C(y) \wedge T(x,y)))$
+    \end{enumerate}
+\end{solution}
+
+
+\bonusquestion[2] Using the same predicates as problem \ref{proba}, translate the following statement into logic assuming the domain of $x$ is all students at MTU and the domain of $y$ is all CS courses.
+``Some freshman at MTU is taking two CS courses."
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+\begin{solution}
+	$\exists x\; \exists y\; \exists z\;(F(x) \wedge T(x,y) \wedge T(x,z) \wedge (y \neq z))$
+\end{solution}
+
+
+% \gquestion{6}{4}{(b,e)} Rosen Ch 1.5 \#4(b,d,e), p. 64
+%     \ifprintanswers
+%         \vspace{-12pt}
+%     \fi
+%   \begin{solution}
+%       \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%   %        \item[(a)] There is a student in your class who has taken some computer science class at your school.
+%          \item[(b)] There is a student in your class who has taken every computer science class at your school.
+%   %        \item[(c)] Every student in your class has taken a computer science class at your school.
+%           \item[(d)] There is a computer science class at your school that every student in your class has taken.
+%           \item[(e)] Every computer science class at your school has been taken by a student in your class.
+%   %        \item[(f)] Every student in your class has taken every computer science class at your school.
+%       \end{itemize}
+%   \end{solution}
+
+
+\gquestion{5}{3}{c-e} Rosen Ch 1.5 \#10(a,c,d,e,i), p. 65
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+  \begin{solution}
+      \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+         \item[(a)] $\forall x\; F(x,Fred)$
+         % \item[(b)] $\forall y\; F(Evelyn, y)$
+          \item[(c)] $\forall x\; \exists y\; F(x,y)$
+         \item[(d)] $\neg \exists x\; \forall y\; F(x,y)$
+         \item[(e)] $ \forall y\; \exists x\; F(x,y)$
+          % \item[(f)] $\neg \exists x\; (F(x, Fred) \wedge F(x,Jerry))$
+  %        \item[(g)] $\exists x\; \exists y; (F(Nancy, x) \wedge F(Nancy, y) \wedge x \neq y \wedge \forall z\; (F(Nancy,z) \ra (x = z \vee y = z)))$
+  %        \item[(h)] $\exists y\; (\forall x\; F(x,y) \wedge \forall z\; (\forall x\; F(x,z) \ra z = y))$
+         \item[(i)] $\neg \exists x F(x,x)$
+  %        \item[(j)] $\exists x\; \exists y\; (x \neq y \wedge F(x,y) \wedge \forall z\; ((F(x,z) \wedge z \neq x) \ra z = y))$
+      \end{itemize}
+  \end{solution}
+
+
+\bonusquestion[4] Rosen Ch 1.5 \#10(h,j), p. 65
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+  \begin{solution}
+      \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+         \item[(h)] $\exists y\; (\forall x\; F(x,y) \wedge \forall z\; (\forall x\; F(x,z) \ra z = y))$
+         \item[(j)] $\exists x\; \exists y\; (x \neq y \wedge F(x,y) \wedge \forall z\; ((F(x,z) \wedge z \neq x) \ra z = y))$
+      \end{itemize}
+  \end{solution}
+
+
+% \gquestion{8}{4}{(d,e)} Rosen Ch 1.5 \#12(b,d,e,k), p. 65
+%     \ifprintanswers
+%         \vspace{-12pt}
+%     \fi
+%   \begin{solution}
+%   %    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%   %        \item[(a)] $\neg I(Jerry)$
+%   %        \item[(b)] $\neg C(Rachel, Chelsea)$
+%   %        \item[(c)] $\neg C(Jan, Sharon)$
+%   %        \item[(d)] $\neg \exists x\; C(x,Bob) \equiv \forall x\; \neg C(x,Bob)$
+%   %        \item[(e)] $\forall x\; (x \neq Joseph \lra C(x, Sanjay))$
+%   %        \item[(f)] $\exists x\; \neg I(x)$
+%   %        \item[(g)] $\neg \forall x\; I(x)$
+%   %        \item[(h)] $\exists x\; \forall y\; (x=y \lra I(y))$
+%   %        \item[(i)] $\exists x\; \forall y\l (x\neq y \lra I(y))$
+%   %        \item[(j)] $\forall x\; (I(x) \ra \exists y\; (x \neq y \wedge C(x,y)))$
+%   %        \item[(k)] $\exists x\; (I(x) \wedge \forall y\; (x \neq y \ra \neg C(x,y)))$
+%   %        \item[(l)] $\exists x\; \exists y\; (x \neq y \wedge \neg C(x,y))$
+%   %        \item[(m)] $\exists x\; \forall y\; C(x,y)$
+%   %        \item[(n)] $\exists x\; \exists y\; (x \neq y \wedge \forall z\; \neg (C(x,z) \wedge C(y,z)))$
+%   %        \item[(o)] $\exists x\; \exists y\; (x \neq y \wedge \forall z\; C(x,z) \vee C(y,z))$
+%   %    \end{itemize}
+%       \begin{tabular}{l}
+%         %(b) $\neg C(Rachel, Chelsea)$ & 
+%         (d) $\neg \exists x\; C(x,Bob) \equiv \forall x\; \neg C(x,Bob)$ \\
+%         (e) $\forall x\; (x \neq Joseph \lra C(x, Sanjay))$
+%         % (g) $\neg \forall x\; I(x)$ & (k) $\exists x\; (I(x) \wedge \forall y\; (x \neq y \ra \neg C(x,y)))$
+%         % (k) $\exists x\; (I(x) \wedge \forall y\; (x \neq y \ra \neg C(x,y)))$ \\
+%       \end{tabular}
+%   \end{solution}
+
+
+\gquestion{4}{2}{b,c} Rosen Ch 1.5 \# 28 (a, b,c,f), p. 67
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+  \begin{solution}
+  %    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+  %     \item[(b)] False, x can not be negative
+  %     \item[(c)] True, let x = 0
+  %     \item[(f)] False
+  %    \end{itemize}
+      \begin{tabular}{llll}
+        (a) True (let $y=x^2$) (b) False, x can't be negative & (c) True, let x = 0 & (f) False 
+      \end{tabular}
+  \end{solution}
+
+
+\gquestion{4}{2}{b} Rewrite the statements so that the negations appear only on predicates (that is, so that no negation is outside a quantifier or an expression involving logical connectives).
+  \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+      topsep=0pt,partopsep=0pt]
+      \item $\neg \forall x\; \exists y\; P(x,y)$
+      % \item $\neg \exists x\; (Q(x) \vee \exists y\; \neg P(x,y))$
+      \item $\neg \forall x\; (\exists y\; \forall z\; T(x,y,z) \ra \forall y\; \forall z\; U(x,y,z))$
+    \end{enumerate}
+    \ifprintanswers
+        \vspace{-12pt}
+    \fi
+  \begin{solution} Repeatedly apply DeMorgans law of quantifiers, DeMorgans law, Double Negation, and other logical equivalence laws.
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+        topsep=0pt,partopsep=0pt]
+        \item $\neg \forall x\; \exists y\; P(x,y)$ \\
+          $ \equiv \exists x\; \neg \exists y\; P(x,y)$ \\
+          $ \equiv \exists x\; \forall y\; \neg P(x,y)$ 
+          
+        % \item $\neg \exists x\; (Q(x) \vee \exists y\; \neg P(x,y))$ \\
+        %   $ \equiv \forall x\; \neg (Q(x) \vee \exists y\; \neg P(x,y))$ \\
+        %   $ \equiv \forall x\; (\neg Q(x) \wedge \neg \exists y\; \neg P(x,y))$ \\
+        %   $\equiv \forall x\; (\neg Q(x) \wedge \forall y\; \neg \neg P(x,y))$ \\
+        %   $ \equiv \forall x\; (\neg Q(x) \wedge \forall y\; P(x,y))$ 
+          
+        \item $\neg \forall x\; (\exists y\; \forall z\; T(x,y,z) \ra \forall y\; \forall z\; U(x,y,z))$ \\
+          $ \equiv \exists x\; \neg (\exists y\; \forall z\; T(x,y,z) \ra \forall y\; \forall z\; U(x,y,z))$ \\
+          $ \equiv \exists x\; (\exists y\; \forall z\; T(x,y,z) \wedge \neg \forall y\; \forall z\; U(x,y,z))$ \\
+          $ \equiv \exists x\; (\exists y\; \forall z\; T(x,y,z) \wedge \exists y\; \neg \forall z\; U(x,y,z))$ \\
+          $ \equiv \exists x\; (\exists y\; \forall z\; T(x,y,z) \wedge \exists y\; \exists z\; \neg U(x,y,z))$ \\
+      \end{enumerate}
+  \end{solution}
+
+
+\gquestion{6}{6}{all} {\color{red} Move question to HW7} \\
+Rosen Ch 1.6 \#6, p. 78.\\
+Let $r$ be the proposition ``It rains", let $f$ be ``It is foggy",
+    let $s$ be ``The sailing race will be held", let $l$ be ``The life
+    saving demonstration will go on", and let $t$ be ``The trophy will
+    be awarded".
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+% \begin{solution}
+%     The premises are: $(\neg r \vee \neg f) \rightarrow (s \wedge l)$, $s \rightarrow t$, $\neg t$. \\
+%     The conclusion we want is: $r$.
+
+%     \begin{tabular}{lll}
+%         Step    & \hspace{0.2in} & Reason \\
+%         \hline
+%         1. $\neg t$                 &       & Hypothesis (Premise, Given) \\
+%         2. $s \rightarrow t$        &       & Hypothesis (Premise, Given) \\
+%         3. $\neg s$                 &       & Modus tollens with (1) and (2) \\
+%         4. $(\neg r \vee \neg f) \rightarrow (s \wedge l)$  &   & Hypothesis (Premise, Given)  \\
+%         5. $(\neg(s \wedge l)) \rightarrow \neg(\neg r \vee \neg f)$    & & Contrapositive with (4) \\
+%         6. $(\neg s \vee \neg l) \rightarrow (\neg \neg r \wedge \neg \neg f)$ & & De Morgans law with (5) (x2) \\
+%         7. $(\neg s \vee \neg l) \rightarrow (r \wedge f)$  & & Double negation with (6) (x2) \\
+%         8. $\neg s \vee \neg l$     &       & Addition with (3) \\
+%         9. $r \wedge f$             &       & Modus ponens with (7) and (8) \\
+%         10. $r$                     &       & Simplification with (9)
+%     \end{tabular}
+
+%     \begin{tabular}{lll}
+%         Step   & \hspace{0.2in}     & Reason \\
+%         \hline
+%         1. $\neg t$                 &   & Hypothesis \\
+%         2. $s \ra t$                &   & Hypothesis \\
+%         3. $(\neg r \vee \neg f) \ra (s \wedge l)$  &   & Hypothesis \\
+%         4. $\neg s$                 &   & Modus tollens, (1), (2) \\
+%         5. $\neg (\neg r \vee \neg f) \vee (s \wedge l) $  & & Table 7, rule 1, (3) \\
+%         6. $(\neg \neg r \wedge \neg \neg f) \vee (s \wedge l)$  & & DeMorgans,  (5) \\
+%         7. $(r \wedge f) \vee (s \wedge l)$     & & Double Negation (x2), (6) \\
+%         8. $\neg s \vee \neg l$     &   & Additiona with (4) \\
+%         9. $\neg (s \wedge l)$      &   & DeMorgans, (8) \\
+%         10. $r \wedge f$            &   & Disjunctive Syllogism, (7), (9) \\
+%         11. $r$                     &   & Simplification, (10)
+%     \end{tabular}
+% \end{solution}
+
+
+\end{questions}
+\end{document}

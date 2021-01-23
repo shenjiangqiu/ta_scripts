@@ -1,0 +1,159 @@
+\documentclass[12pt,addpoints]{exam}
+% can include option [answers] to print out solutions, or command \printanswers
+%  can turn addpoint on and off with commands, \addpoints and \noaddpoints
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0.75in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Fall 2011}}{\textbf{HW 1 -
+Practice Problems}}{} \footrule \footer{}{Page \thepage\ of
+\numpages}{}
+
+\noindent \textbf{Instructions:} The following practice problems are
+not due and are not graded.  The solutions will be provided to allow
+for extra practice.
+
+
+\begin{questions}
+
+%\printanswers
+\question Determine which of the statements are propositions? What are the truth values of those that are propositions?
+    \begin{parts}
+    \part Beware of dog!
+    \part  8 - x = 3.
+    \part  z + 4 = 6 if z = 7.
+    \part Detroit is the capital of Michigan.
+    \end{parts}
+    \begin{solution}
+        \begin{parts}
+        \part Not a proposition, is a command.
+        \part Not a proposition.
+        \part Proposition, false.
+        \part Proposition, false.
+        \end{parts}
+    \end{solution}
+
+\question Let $p$ and $q$ be the propositions
+ \begin{itemize}
+    \item[$p$:] I played poker this week.
+    \item[$q$:] I lost my money on Tuesday.
+ \end{itemize}
+ Express each of these propositions as an English sentence.
+    \begin{parts}
+    \part $\neg p$
+    \part $p \wedge q$
+    \part $p \rightarrow \neg q$
+    \part $p \leftrightarrow q$
+    \end{parts}
+    \begin{solution}
+        \begin{parts}
+        \part It is not the case that I played poker this week.
+        \part I played poker this week and I lost my money on Tuesday.
+        \part If I played poker this week then I did not lose my money on Tuesday.
+        \part I played poker this week  if and only if I lost my money on Tuesday.
+        \end{parts}
+    \end{solution}
+
+\question Rosen Ch 1.1, \#10 (d,f), p. 13-14 \\
+
+
+\question Rosen Ch 1.1, \#22 (a,b,c,d), p. 14 \\
+
+\question State the converse, contrapositive, and inverse of each of the conditional statements.
+    \begin{parts}
+    \part If it snows tonight, then I will stay at home.
+    \part When I stay up late, it is necessary that I sleep until noon.
+    \end{parts}
+    \begin{solution}
+        \begin{parts}
+        \part \begin{itemize}
+            \item[Converse] I will stay at home tonight only if it snows.
+            \item[Contrapositive] If I don't stay at home tonight then it won't snow.
+            \item[Inverse] If it doesn't snow tonight, then I won't stay at home.
+        \end{itemize}
+        \part \begin{itemize}
+            \item[Converse] If I sleep until noon, then I stayed up late.
+            \item[Contrapositive] If I do not sleep until noon, then I did not stay up late.
+            \item[Inverse] If I don't stay up late, then I don't sleep until noon.
+        \end{itemize}
+        \end{parts}
+    \end{solution}
+
+% TODO Write solutions
+\question Give the truth tables for the following propositions. \\
+ \begin{tabular}{lll}
+    (a) $\neg p \wedge q$ & (b) $p \rightarrow \neg q$ & (c) $(q \rightarrow \neg p) \vee \neg (q \leftrightarrow p)$ \\
+    (d) $(p \oplus q) \wedge \neg (q \oplus p)$ & (e) $(p \vee q) \wedge \neg r$ & (f) $(p \rightarrow q) \rightarrow r$ \\
+    \multicolumn{3}{l}{(g) Which pairs of propositions (if any) are logically equivalent?} \\
+    \multicolumn{3}{l}{(h) Which propositions (if any) are tautologies? contradictions?} \\
+ \end{tabular}
+ \begin{solution}
+        \begin{tabular}{|cc|c|c|c|c|}
+    \hline
+         & & (a) & (b) & (c) & (d)  \\
+        $p$ & $q$ & $\neg p \wedge q$  & $p \rightarrow \neg q$
+        & $(q \rightarrow \neg p) \vee \neg (q \leftrightarrow p)$ & $(p \oplus q) \wedge \neg (q \oplus p)$ \\
+    \hline
+        T & T & F & F & F & F \\
+        T & F & F & T & T & F \\
+        F & T & T & T & T & F \\
+        F & F & F & T & T & F \\
+    \hline
+    \end{tabular}
+
+    \begin{tabular}{|ccc|c|c|}
+    \hline
+      & & & (e) & (f) \\
+     $p$ & $q$ & $r$ & $(p \vee q) \wedge \neg r$ & $(p \rightarrow q) \rightarrow r$ \\
+     \hline
+     T & T & T & F & T \\
+     T & T & F & T & F \\
+     T & F & T & F & T \\
+     T & F & F & T & T \\
+     F & T & T & F & T \\
+     F & T & F & T & F \\
+     F & F & T & F & T \\
+     F & F & F & F & F \\
+     \multicolumn{5}{|c|}{} \\
+     \multicolumn{5}{|l|}{(g) Proposition (b) and (c) are logically equivalent.} \\
+     \multicolumn{5}{|l|}{(h) There are no tautologies; (d) is a contradiction.} \\
+    \hline
+    \end{tabular}
+   \end{solution}
+
+% TODO write solutions
+\question There are 16 possible truth tables for propositions of two variables $p$ and $q$.  All sixteen possibilities are given in the table below (numbered 15, 14, \ldots, 0).  For example, the proposition $p \vee q$ is 14. What are the numbers of the truth tables for propositions:\\
+ \begin{tabular}{l}
+    (a) $\neg p \vee q$ \\
+    (b) $p \wedge \neg p \wedge q$ \\
+    (c) $\neg p \wedge q $ \\
+    (d) $p \rightarrow \neg q$ \\
+ \end{tabular}
+
+ What is the simplest proposition for the following entries: (e) 10, (f) 8, (g) 6? \\
+ \begin{tabular}{cc|cccc|cccc|cccc|cccc}
+    $p$ & $q$ & 15 & 14 & 13 & 12 & 11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 \\
+    \hline
+    T & T & T & T & T & T & T & T & T & T & F & F & F & F & F & F & F & F \\
+    T & F & T & T & T & T & F & F & F & F & T & T & T & T & F & F & F & F \\
+    F & T & T & T & F & F & T & T & F & F & T & T & F & F & T & T & F & F \\
+    F & F & T & F & T & F & T & F & T & F & T & F & T & F & T & F & T & F \\
+ \end{tabular}
+
+
+\question Show the proposition is a tautology using a truth table
+and logical equivalences.
+ $$[(p \rightarrow q) \wedge (q \rightarrow r)] \rightarrow (p \rightarrow r)$$
+
+
+\question Prove the following logical equivalences using the
+equivalences from Table 6-8 (model the solutions in the style of
+book Examples 6-8, pp. 29-30).  Justify each step with laws.
+    \begin{parts}
+    \part $(p \wedge \neg(q \vee \neg p)) \equiv p \wedge \neg q$
+    \part $p \rightarrow (\neg q \rightarrow r) \equiv \neg(q \vee r)
+    \rightarrow \neg p$
+    \end{parts}
+
+
+\end{questions}
+\end{document}

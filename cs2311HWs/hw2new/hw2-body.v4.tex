@@ -1,0 +1,595 @@
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{CS2311 - Spring 2021}}{\textbf{HW
+ 2  \ifprintanswers - Solutions \fi}}{\textbf{Due: ***. **/**/21}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+
+\ifprintanswers
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  Assignments should be typed and submitted as a PDF in Canvas.   
+
+\medskip
+\noindent Every student must write up their own solutions in their own manner.
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\else
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  
+
+\medskip
+\noindent Every student must write up their own solutions in their own manner.
+
+\medskip
+\noindent Please present your solutions in a clean, understandable
+manner.  Use the provided files that give mathematical notation in Word, Open Office, Google Docs, and \LaTeX. 
+
+\medskip
+\noindent Assignments should be typed and submitted as a PDF. 
+
+\medskip 
+\noindent  Do Not Crowd Your Answers
+
+\begin{tcolorbox}[colback=green!10,colframe=gray!10!green, title=Good Example]
+\begin{enumerate}[label=(\alph*),itemsep=2pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+	\item $p \vee q$ 
+	\item $(r \ra \neg p) \wedge \neg q$ 
+	\item $(\neg p \wedge q) \ra r$
+\end{enumerate}
+\end{tcolorbox}  
+
+\begin{tcolorbox}[colback=red!10,colframe=gray!10!red, title=Bad Example]
+ (a) $p \vee q$ (b) $(r \ra \neg p) \wedge \neg q$  (c) $(\neg p \wedge q) \ra r$
+\end{tcolorbox} 
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\fi
+
+\begin{questions}
+
+
+\section*{Sets}
+
+% Venn Diagrams 
+% http://mirror.hmc.edu/ctan/macros/latex/contrib/venndiagram/venndiagram.pdf
+
+\ugquestion{3} For each of the following sets, shade the corresponding region of the Venn diagram.
+\ifprintanswers
+    \vspace{-15pt}
+\else
+\begin{tabular}{ccc}
+	\begin{venndiagram2sets}
+	\end{venndiagram2sets}
+	& 
+	\begin{venndiagram2sets}
+	\end{venndiagram2sets}
+	&
+	\begin{venndiagram2sets}
+	\end{venndiagram2sets}
+	\\
+	(a) $\bar{A}$ & 
+	(b) $A \cap \bar{B}$ or $A - B$ &
+	(c) $\overline{(A \cup B)}$
+\end{tabular}
+\fi
+	\begin{EnvFullwidth}
+	\begin{solution}
+
+		\begin{tabular}{ccc}
+			\begin{venndiagram2sets}
+				\fillNotA
+			\end{venndiagram2sets}
+			& 
+			\begin{venndiagram2sets}
+				\fillANotB
+			\end{venndiagram2sets}
+			&
+			\begin{venndiagram2sets}
+				\fillNotAorB
+			\end{venndiagram2sets}
+			\\
+			(a) $\bar{A}$ & 
+			(b) $A \cap \bar{B}$ or $A - B$ &
+			(c) $\overline{(A \cup B)}$
+		\end{tabular}
+	\end{solution}
+	\end{EnvFullwidth}
+
+
+
+
+\gquestion{6}{4}{a,b} For each of the following sets, shade the corresponding region of the Venn diagram.
+\ifprintanswers
+    \vspace{-15pt}
+\else
+\begin{tabular}{ccc}
+	\begin{venndiagram3sets}
+	\end{venndiagram3sets}
+	& 
+	\begin{venndiagram3sets}
+	\end{venndiagram3sets}
+	& 
+	\begin{venndiagram3sets}
+	\end{venndiagram3sets}  
+	\\
+	(a) $(A \cap B) - C$ & 
+	(b) $(C - B) \cup (B - C)$ & 
+	(c) $(A - C) \cup ((B \cap C) - A)$ \\  
+\end{tabular}
+\fi
+	\begin{EnvFullwidth}
+	\begin{solution}
+	\begin{tabular}{ccc}
+		\begin{venndiagram3sets}
+			\fillACapBNotC
+		\end{venndiagram3sets}
+		& 
+		\begin{venndiagram3sets}
+			\fillCNotB \fillBNotC 
+		\end{venndiagram3sets} 
+		& 
+		\begin{venndiagram3sets}
+			\fillBCapCNotA \fillANotC
+		\end{venndiagram3sets} 
+		\\
+		(a) $(A \cap B) - C$ & 
+        (b) $(C - B) \cup (B - C)$ & 
+        (c) $(A - C) \cup ((B \cap C) - A)$ \\   
+	\end{tabular}
+	\end{solution}
+	\end{EnvFullwidth}
+
+
+
+\ugquestion{3} For each of the following sets, state what the  corresponding shaded region of the Venn diagram represents. 
+
+\begin{tabular}{ccc}
+	\begin{venndiagram3sets}
+		\fillANotB \fillANotC \fillBNotC
+	\end{venndiagram3sets}
+	& 
+	\input{venn1.tex}
+	& 
+	\input{venn2.tex} \\
+	\ifprintanswers
+		\small
+		\csol{(a) $(A - B) \cup (A - C) \cup (B - C)$  or} & 
+		\csol{(b) $B \cap C \cap \bar{A}$  } & 
+		\csol{(c) $ (A \cap B) \cup (B \cap C)$ }\\
+		\csol{$((A \cup B) - C) \cup ((A \cap C) - B)$ or } \\
+		\csol{$(A - B) \cup (B - C)$}
+	\fi 
+\end{tabular}
+
+
+
+\ugquestion{6} Show the following sets are equal,  $\overline{A \cup (B \cap C)} = (\overline{C} \cup
+    \overline{B}) \cap \overline{A}$, using
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+        topsep=0pt,partopsep=0pt]
+    \item set membership table
+    \item set identities
+\end{enumerate}
+	\ifprintanswers
+        \vspace{-10pt}
+    \fi
+    \begin{solution}
+    	\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+        topsep=0pt,partopsep=0pt]
+       	\item 
+        \scriptsize
+       	\begin{tabular}{|ccc|ccc|ccc|}
+       		$A$ & $B$ & $C$ & $B \cap C$ & $A \cup (B \cap C)$ & $\overline{A \cup (B \cap C)}$ & 
+       		  $\overline{A}$ & $\overline{B \cap C}$ &  $(\overline{C} \cup
+    \overline{B}) \cap \overline{A}$ \\
+       		\hline
+       		 1 & 1 & 1 &  1 & 1 & 0 &   0 & 0 & 0  \\
+       		 1 & 1 & 0 &  0 & 1 & 0 &   0 & 1 & 0  \\
+       		 1 & 0 & 1 &  0 & 1 & 0 &   0 & 1 & 0  \\
+       		 1 & 0 & 0 &  0 & 1 & 0 &   0 & 1 & 0  \\
+       		\hline
+       		 0 & 1 & 1 &  1 & 1 & 0 &   1 & 0 & 0  \\
+       		 0 & 1 & 0 &  0 & 0 & 1 &   1 & 1 & 1  \\
+       		 0 & 0 & 1 &  0 & 0 & 1 &   1 & 1 & 1  \\
+       		 0 & 0 & 0 &  0 & 0 & 1 &   1 & 1 & 1  \\
+       		\hline
+       	\end{tabular}
+
+        \normalsize
+       	\item 
+       	\begin{align*}
+		    \overline{A \cup (B \cap C)} &= \overline{A} \cap \overline{B \cap C} \tag{DeMorgan's set identities} \\
+		      &= \overline{A} \cap (\overline{B} \cup \overline{C}) \tag{DeMorgan's set identities} \\
+		      &= (\overline{B} \cup \overline{C}) \cap \overline{A} \tag{Commutative} \\
+		      &= (\overline{C} \cup \overline{B}) \cap \overline{A} \tag{Commutative}
+		\end{align*}
+	\end{enumerate}
+    \end{solution}
+
+
+\gquestion{4}{4}{all} Show the following sets are equal,  $A \cap (\overline{A} \cup B) = A \cap B$, using
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+        topsep=0pt,partopsep=0pt]
+    \item set membership table
+    \item set identities
+\end{enumerate}
+	\ifprintanswers
+		\vspace{-10pt}
+	\fi
+	\begin{solution}
+		\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+        topsep=0pt,partopsep=0pt]
+       	\item  
+        \scriptsize
+        \hspace{0.5in} \begin{tabular}{|ccc|cc|c|}
+            $A$ & $B$ & $\bar{A}$ & $\bar{A} \cup B$ & $A \cap (\bar{A} \cup B)$ 
+                & $A \cap B$ \\
+            \hline
+            1 & 1 & 0 &   1 & 1 &   1 \\
+            1 & 0 & 0 &   0 & 0 &   0 \\
+            0 & 1 & 1 &   1 & 0 &   0 \\
+            0 & 0 & 0 &   0 & 0 &   0 \\
+        \end{tabular}
+        \normalsize
+
+       	\item 
+		\begin{align*}
+			A \cap (\overline{A} \cup B) &= (A \cap \overline{A}) \cup (A \cap B) \tag{Distributive} \\
+			 &= \es \cup (A \cap B) \tag{Complement} \\
+			 &= (A \cap B) \cup \es  \tag{Commutative} \\
+			 &= A \cap B \tag{Identity}
+		\end{align*}
+	\end{enumerate}
+	\end{solution}
+
+
+
+
+
+\gquestion{8}{3}{d-f} Consider a collection of books in the library.  The universal set $U$ refers to all books in the library.  In addition, books are classified by their subject (each book may receive more than one classification) into the following sets: $F$ - fiction, $B$ - biography, $H$ - historical, $P$ - poetry, $N$ - non-fiction, $S$ - scientific, $E$ - English, $O$ - other language, $L$ - literary, $T$ - travel, $R$ - reference.  Each set is a subset of $U$. 
+
+Express each of the following statements using set expressions, e.g., set operators ($\cup$, $\cap$, -, $\overline{A}$, etc.), relations ($=$, $\s$, $\pss$), etc.: 
+
+    % \ifprintanswers
+    %     \vspace{-10pt}
+    % \else
+\begin{enumerate}[label=(\alph*),itemsep=1pt,parsep=0pt,
+        topsep=0pt,partopsep=0pt]
+    \item \ifprintanswers \csoln{$S \cap R$} \tab \fi The set of scientific references. 
+    \item \ifprintanswers \csoln{$F \cap N = \es$} \tab \fi No book is both fiction and non-fiction. 
+    \item \ifprintanswers \csoln{$S \cap L = \es$} \tab \fi A scientific book is not literary.
+    \item \ifprintanswers \csoln{$(H \cap F) - O$ } \tab \fi The set of historical fiction books excluding those in other languages. 
+    \item \ifprintanswers \csoln{$B \s H$ } \tab \fi  Any biography is also a historical book.
+    \item \ifprintanswers  \csoln{$\overline{R \cup L \cup P} = \es$ } \tab \fi All books are either reference, literary, or poetry. 
+    \item \ifprintanswers \csoln{ $T \s R$}  \tab \fi All travel books are reference books.
+    \item \ifprintanswers \csoln{$P \cap O \s L$} \tab \fi All poetry in other languages are literary works.
+\end{enumerate}
+	% \fi
+% \begin{solution}
+% \begin{minipage}{0.28\textwidth}
+% \begin{enumerate}[label=(\alph*),itemsep=2pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%     \item $S \cap R$ 
+%     \item $F \cap N = \es$
+%     \item $S \cap L = \es$ 
+%     \item $(H \cap F) - O$ 
+%     \item $B \s H$ 
+%     \item $\overline{R \cup L \cup P} = \es$
+%     \item $T \s R$ 
+%     \item $P \cap O \s L$
+% \end{enumerate}
+% \end{minipage}
+% %
+% % \begin{minipage}{0.7\textwidth}
+% % \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+% %         topsep=0pt,partopsep=0pt]
+% %     \item The set of scientific references. 
+% %     \item No book is both fiction and non-fiction. 
+% %     \item A scientific book is not literary.
+% %     \item The set of historical fiction books excluding those in other languages. 
+% %     \item Any biography is also a historical book.
+% %     \item All books are either reference, literary, or poetry. 
+% %     \item All travel books are reference books.
+% %     \item All poetry in other languages are literary works.
+% % \end{enumerate}
+% % \end{minipage}
+% \end{solution}
+
+
+
+\section*{Function}
+
+\gquestion{6}{6}{all} Let $S = \{a, b, c, d, e\}$ and $T = \{1, 2, 3, 4, 5, 6, 7, 8\}$. 
+Determine whether the following are functions (Yes / No).
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt
+]
+  \item \csol{Yes, a function \tab } 
+  	$f: S \ra T$, $f = \{(a,5), (b,4), (c,1), (d,3), (e,2)\}$
+  \item \csol{Not a function \tab } 
+  	$g: S \ra T$, $g = \{(a,4), (d,3), (c,3), (b,5)\}$
+  \item \csol{Not a function \tab } 
+  	$h: S \ra T$, $h = \{(a,7), (b,4), (c,1), (d,2), (e,3), (b,3) \}$
+  \item \csol{Yes, a function \tab } 
+  	$i: S \ra T$, $i = \{(a,2), (b,2), (c,1), (d,5), (e,8) \}$
+%   \item $i = \{(b,3), (d,4), (c,7), (a,1)\}$
+   \item \csol{Not a function \tab } 
+   	$j: \Z \ra \Z = \{ (x,y) \;|\; 3x + y^2 = 8 \}$
+   \item \csol{Yes, a function \tab } 
+   	$k: \R \ra \R = \{  (x, x^2) \;|\; x \in \R \}$
+\end{enumerate}
+ %   \ifprintanswers
+ %        \vspace{-5pt}
+ %   \fi
+	% \begin{solution}
+	% 	(a) Yes, a function \\ 
+	% 	(b) Not a function \\ 
+	% 	(c) Not a function \\ 
+	% 	(d) Yes, a function \\
+	% 	(e) Not a function \\
+	% 	(f) Yes, a function 
+	% \end{solution}
+
+
+
+\gquestion{4}{2}{a-b} Rosen, Ch 2.3.6 (a-d), p. 152. (p. 161 for 8th ed)
+   \ifprintanswers
+        \vspace{-15pt}
+   \fi
+	\begin{solution}
+	\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+	    \item[(a)] the domain is $\Z^+ \times \Z^+$, the range is $\Z^+$
+	    \item[(b)] the domain is $\Z^+$, the range is $\{1, 2, 3, 4, 5, 6, 7, 8,
+	9\}$
+		\item[(c)] the domain is the set of all bit strings, the range is $\Z$
+	    \item[(d)] the domain is $\Z^+$, the range is $\Z^+$
+	%     \item[(e)] The domain is the set of bit strings. The range is the set of
+	% strings of 1’s , i.e., {λ, 1, 11, 111, . . .} , where λ is the empty string
+	% (containing no symbols).
+	\end{itemize}
+	\end{solution}
+
+
+
+
+\ugquestion{8} Find these values:
+% \gquestion{8}{5}{a,b,d,e,g} Find these values: 
+\ifprintanswers
+	\vspace{-10pt}
+\else
+
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{llll}
+	(a) $\ds \left\lfloor 8.6 \right\rfloor$ & (b) $\ds \left\lceil 4.3 \right\rceil$ & 
+	 (c) $\ds \left\lfloor -3.6 \right\rfloor$  & (d) $\ds \left\lfloor 10.5\bar{3} \right\rfloor $\\
+	(e) $\ds \left\lceil -2.1 \right\rceil$  & (f) $\ds \left\lfloor \frac{-3}{4} \right\rfloor$ & 
+	 (g) $\ds \left\lceil \;\frac{13}{3}  + \left\lfloor \;\frac{-5}{4}\; \right\rfloor \; \right\rceil$ &
+	 (h) $\ds \left\lfloor \;3.2 - \left\lceil 10.4 \right\rceil \; \right\rfloor $\\
+\end{tabular}
+\fi
+\begin{solution}
+	\vspace{-5pt}
+	\begin{enumerate}[label=(\alph*),itemsep=3pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+		\item $\lfloor 8.6 \rfloor = 8$
+		\item $\lceil 4.3 \rceil = 5$
+		\item $\lfloor -3.6 \rfloor = -4$
+		\item $\lfloor 10.5\bar{3} \rfloor $ = 10
+		\item $\lceil -2.1 \rceil = -2$
+		\item $\lfloor \frac{-3}{4} \rfloor = -1$ 
+		\item $\lceil \frac{13}{3} + \lfloor \frac{-5}{4} \rfloor \rceil = 3$
+		\item $\lfloor 3.2 - \lceil 10.4 \rceil \rfloor = -8$
+	\end{enumerate}
+\end{solution}
+
+   % \ifprintanswers
+   %      \vspace{-10pt}
+   % \fi
+% \begin{solution}
+% \renewcommand{\arraystretch}{1.3}
+% 	\begin{tabular}{llll}
+% 		(a) $\lfloor 8.6 \rfloor = 8$ \hspace*{0.5in} 
+% 		& (b) $\lceil 4.3 \rceil = 5$ \hspace*{0.5in} &
+% 		(c) $\lfloor -3.6 \rfloor = -4$ 
+% 		& (d) $\lfloor 10.5\bar{3} \rfloor $ = 10\\
+% 		(e) $\lceil -2.1 \rceil = -2$ 
+% 		& (f) $\lfloor \frac{-3}{4} \rfloor = -1$ &
+% 		(g) $\lceil \frac{13}{3} + \lfloor \frac{-5}{4} \rfloor \rceil = 3$ & 
+% 		(h) $\lfloor 3.2 - \lceil 10.4 \rceil \rfloor = -7$   \\
+% 	\end{tabular}
+
+% \end{solution}
+
+
+
+\gquestion{14}{6}{c-e} Determine whether each of the following functions are (i) one-to-one and (ii) onto. 
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item \csol{ one-to-one \tab onto \tab } 
+        Rosen Ch 2.3.10(a), p. 162 (p. 162 for 8th ed)
+    \item \csol{ not one-to-one \tab not onto \tab }
+        Rosen Ch 2.3.10(b), p. 162 (p. 162 for 8th ed)
+    \item \csol{ not one-to-one \tab not onto \tab }
+    	$f: \Z \ra \Z$ where $f(x) = x^2 - 5x + 5$.
+    \item \csol{ one-to-one \tab not onto \tab }
+    	$g: \N \ra \N$ where $g(n) = n+1$
+    \item \csol{ not one-to-one \tab onto \tab }
+    	$h: \N \ra \N$ where $h(n) = \lfloor \frac{n}{2} \rfloor$
+    \item \csol{ not one-to-one \tab not onto \tab }
+    	$i: \Z \times \Z \ra \Z$ where $i(m,n) = 2n - 4m$
+    \item \csol{ not one-to-one \tab not onto \tab }
+    	$j: \R \ra \R$ where $j(x) = \sqrt{x}$
+\end{enumerate}
+%     \ifprintanswers
+%         \vspace{-10pt}
+%     \fi
+% \begin{solution}
+% \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+% topsep=0pt,partopsep=0pt]
+%     \item one-to-one, onto
+%     \item not one-to-one, not onto
+%     \item not one-to-one, not onto
+%     \item one-to-one, not onto 
+%     \item not one-to-one, onto 
+%     \item not one-to-one, not onto
+%     \item not one-to-one, not-onto
+% \end{enumerate}
+% \end{solution}
+
+
+
+
+\gquestion{4}{4}{all} Let $A$ and $B$ be finite sets, and $f$ be a function is $f: A \ra B$.  Determine which of the following statements are true. 
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item \csol{False }
+    	If $f: A \ra B$ is onto, then the domain and range are not only the same size, but the same set. 
+    \item \csol{True }
+    	If $f: A \ra B$ is both one-to-one and onto, then $A$ and $B$ have the same cardinality. 
+    \item \csol{True }
+    	If $f: A \ra B$ is one-to-one, then $|A| \leq |B|$.
+    \item \csol{True } 
+    	If $f: A \ra B$ is onto, then $|A| \geq |B|$.
+\end{enumerate}
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+% \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+% topsep=0pt,partopsep=0pt]
+%     \item False 
+%     \item True 
+%     \item True 
+%     \item True 
+% \end{enumerate}
+    % (a) False \hfill 
+    % (b) True \hfill 
+    % (c) True \hfill
+    % (d) True \hfill
+\end{solution}
+
+
+
+\gquestion{12}{8}{c-f} Let $A = \{a, b, c, d, e \}$ and $B = \{ a, b, d, f, g\}$.  Let $f : A \ra B$ and $g : B \ra B$ with 
+\begin{align*}
+    f &= \{(a, b), (b, d), (c, g), (d, a), (e, b) \} \text{  and} \\
+    g &= \{ (a, f), (b, d), (d, a), (f, g), (g, b) \}
+\end{align*}
+For each of the following compositions, define the function or explain why it is not defined.
+
+\begin{tabular}{p{0.5in}llll}
+  & (a) $f \circ g$ \hspace{0.3in} & (b) $g \circ f$ \hspace{0.3in} & (c) $f
+\circ f$ \hspace{0.3in} & (d) $g \circ g$
+\end{tabular}
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item[(e)] Find $f^{-1}$ if it exists. If it doesn't, explain why not.
+    \item[(f)] Find $g^{-1}$ if it exists. If it doesn't, explain why not.
+\end{itemize}
+   \ifprintanswers
+        \vspace{-5pt}
+   \fi
+	\begin{solution}
+	\begin{enumerate}[label=(\alph*),itemsep=3pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+		\item $f \circ g$ is not defined, the range of $g$ is not a subset of the domain of $f$
+		\item $g \circ f = \{ (a,d), (b,a), (c,b), (d,f), (e,d) \}$
+		\item $f \circ f$ is not defined, the range of $f$ is not a subset of the domain of $f$
+		\item $g \circ g = \{ (a,g), (b,a), (d,f), (f,b), (g,d) \}$
+		\item $f^{-1}$ does not exists, $f$ is not one-to-one and not onto
+		\item $g^{-1}$ does exist, $= \{ (f,a), (d,b), (a,d), (g,f), (b,g) \}$
+	\end{enumerate}
+	\end{solution}
+
+
+
+\ugquestion{8} Let $f$, $g$, and $h$ all be functions mapping from $A$ to $\mathbb{R}$ where $A = \{x \in \mathbb{R} \;|\; x >0 \}$,
+$$ f(x) = \frac{1}{x+1}, \qquad g(x) = \frac{x+1}{x}, \text{ and }\qquad h(x) =
+x-1. $$
+ Compute (a) $(f \circ g)(x)$, (b) $(g \circ f)(x)$, (c) $(h \circ g \circ f)(x)$, (d) $(f \circ g \circ h)(x)$
+    \ifprintanswers
+        \vspace{-5pt}
+   	\fi
+	\begin{solution}
+	\begin{enumerate}[label=(\alph*),itemsep=3pt,parsep=3pt,topsep=0pt,partopsep=0pt]
+	    \item $\ds (f \circ g)(x) = f(g(x)) 
+	      = f(\frac{x+1}{x}) 
+	      = \frac{1}{\left(\frac{x+1}{x}\right) + 1}$
+	    \item $\ds (g \circ f)(x) = g(f(x)) 
+	      = g(\frac{1}{x+1}) 
+	      = \frac{\left(\frac{1}{x+1}\right)+1}{\left(\frac{1}{x+1}\right)}$
+	    \item $\ds (h \circ g \circ f)(x) = h(g(f(x)))
+	      = h\left( g\left(\frac{1}{x+1} \right) \right)
+	      = h\left( \frac{\left(\frac{1}{x+1}\right)+1}{\left(\frac{1}{x+1}\right)} \right)
+	      = \frac{\left(\frac{1}{x+1}\right)+1}{\left(\frac{1}{x+1}\right)} - 1$
+	    \item $\ds (f \circ g \circ h)(x) = f(g(h(x))) 
+	      = f(g(x-1)) 
+	      = f\left(\frac{(x-1) +1}{(x-1)}\right) 
+	      = \frac{1}{\left(\frac{(x-1) +1}{(x-1)}\right) + 1}$
+	\end{enumerate}
+	\end{solution}
+
+
+
+\gquestion{6}{3}{a} 
+	\ifprintanswers
+		Let $P$, be a set of \textit{Patients} who have ever been admitted to the hospital at some time, $B$, be a set \textit{Beds} available for patients. 
+
+		The function \textit{currentBed} maps \textit{Patients} to \textit{Beds}. The function relates a patient to the bed that he/she is currently occupying in the hospital. 
+
+		The function \textit{date1stAdmitted} that maps \textit{Patients} to \textit{Dates}, relating a patient to the date he/she was first admitted to the hospital.
+        \vspace{-5pt}
+   	\else
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=3pt,topsep=0pt,partopsep=0pt]
+	\item A hospital maintains a set of \textit{Patients}, $P$, who have ever been admitted to the hospital at some time. (No patient is ever deleted from this set, even after they leave the hospital.) 
+
+	There is also a set \textit{Beds}, $B$, describing the beds available for patients. 
+
+	Consider the function \textit{currentBed} that maps \textit{Patients} to \textit{Beds}. The function relates a patient to the bed that he/she is currently occupying in the hospital. 
+	\begin{enumerate}
+		\item Is this function total?
+		\item Is the function one-to-one?
+		\item Is the function onto?
+	\end{enumerate}
+	Explain your answers.
+
+	\item Let \textit{Dates} be a set of dates. 
+
+	Consider the function \textit{date1stAdmitted} that maps \textit{Patients} to \textit{Dates}, relating a patient to the date he/she was first admitted to the hospital.
+	\begin{enumerate}
+		\item Is this function total?
+		\item Is the function one-to-one?
+		\item Is the function onto?
+	\end{enumerate}
+	Explain your answers.
+\end{enumerate}
+	\fi	
+\begin{solution}
+	\begin{enumerate}[label=(\alph*),itemsep=4pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+		\item function, \textit{currentBed} :  \textit{Patients} $\ra$ \textit{Beds} 
+		\begin{enumerate}
+			\item No, the function is not total; not every patient is currently occupying a bed.
+			\item Yes, no two patients may occupy the same bed. 
+			\item No, there may be beds that are not occupied.
+		\end{enumerate}
+
+		\item function \textit{date1stAdmitted} : \textit{Patients} $\ra$ \textit{Dates}
+		\begin{enumerate}
+			\item Yes, the function is total; every patient admitted to the hospital has a date of first admittance. 
+			\item No, the function is not one-to-one, multiple patients may be admitted on the same day. 
+			\item No, the function is not onto, there may be a day with no patients admitted. 
+		\end{enumerate}
+
+	\end{enumerate}
+	\end{solution}
+
+
+
+\section*{Bonus}
+
+\bonusquestion[1] For the following sets, state what the  corresponding shaded region of the Venn diagram represents. 
+
+\input{vennBonus}
+
+
+\csol{$(A - B) \cup (B \cap C)$ or  $(A \cap \overline{B}) \cup (B \cap C)$ }
+
+
+
+
+
+\end{questions}
+\end{document}

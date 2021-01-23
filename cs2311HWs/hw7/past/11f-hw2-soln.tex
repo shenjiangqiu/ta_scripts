@@ -1,0 +1,432 @@
+\documentclass[12pt,addpoints]{exam}
+% can include option [answers] to print out solutions, or command \printanswers
+%  can turn addpoint on and off with commands, \addpoints and \noaddpoints
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\setlength{\itemsep}{0pt} \setlength{\topsep}{0pt}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\xor}{\oplus}
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0.75in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Fall 2011}}{\textbf{HW
+2 - \numpoints$\;$ points}}{\textbf{Due: Wed. 9/14/11}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\noindent \textbf{Instructions:} All assignments are due at the
+\underline{beginning of class on the due date} specified.  Solutions will be
+handed out (or posted on-line) shortly thereafter.  Every student
+must write up their own solutions in their own manner.
+
+\noindent Please follow the format in the book when asked to produce
+truth tables (this will help in grading in order to avoid any
+errors).
+
+\noindent Please present your solutions in a clean, understandable
+manner; pages should be stapled before class, no ragged edges of
+paper.
+
+%\noindent The assignment has \totalpoints\ points.
+
+\begin{questions}
+\printanswers
+
+\question[10] Show the following statement is a tautology without using truth tables.
+\begin{center}
+    $[(p \vee q) \wedge (p \ra r) \wedge (q \ra r)] \ra r$
+\end{center}
+    \begin{solution}
+    \begin{align*}
+      [(p \vee q) &\wedge ((p \ra r) \wedge (q \ra r))] \ra r \\
+      &\equiv \neg[(p \vee q) \wedge \neg(p \vee r) \wedge \neg (q \vee r)] \vee r \tag{Table 7, rule 1, x3} \\
+      &\equiv [\neg(p \vee q) \vee \neg(\neg(p \vee r) \wedge \neg(q \vee r))] \vee r \tag{DeMorgan's} \\
+      & \equiv (\neg p \wedge \neg q) \vee (\neg \neg(p \vee r) \vee \neg \neg(q \vee r)) \vee r \tag{DeMorgan's, x2} \\
+      & \equiv (\neg p \wedge \neg q) \vee (p \vee r) \vee (q \vee r) \vee r \tag{Double Negation, x2} \\
+      & \equiv (\neg p \wedge \neg q) \vee p \vee q \vee r \vee r \vee r \tag{Commutative} \\
+      & \equiv (\neg p \wedge \neg q) \vee p \vee q \vee r \vee r \tag{Idempotent} \\
+      & \equiv (\neg p \wedge \neg q) \vee p \vee q \vee r \tag{Idempotent} \\
+      & \equiv p \vee (\neg p \wedge \neg q) \vee q \vee r \tag{Commutative} \\
+      & \equiv (p \vee \neg p) \wedge (p \vee \neg q) \vee q \vee r \tag{Distributive} \\
+      & \equiv (\mathbf{T} \wedge (p \vee \neg q) \vee q \vee r \tag{Negation} \\
+      & \equiv (p \vee \neg q) \vee q \vee r \tag{Identity} \\
+      & \equiv p \vee (\neg q \vee q) \vee r \tag{Associative} \\
+      & \equiv p \vee \mathbf{T} \vee r \tag{Negation} \\
+      & \equiv \mathbf{T} \vee r \tag{Domination} \\
+      & \equiv \mathbf{T} \tag{Domination}
+    \end{align*}
+    \end{solution}
+
+\question[4] Rosen Ch 1.4 \#8(a,d) p. 53
+% Translate these statements into English, where $R(x)$ is ``$x$ is a rabbit" and $H(x)$ is ``x hops" and the domain is all animals.
+%   \begin{parts}
+%   \part $\forall x (R(x) \ra H(x))$
+%   \part $\forall x (R(x) \wedge H(x))$
+%   \part $\exists x (R(x) \ra H(x))$
+%   \part $\exists x (R(x) \wedge H(x))$
+%   \end{parts}
+    \begin{solution}
+    \begin{itemize}
+        \item[(a)] ``For every animal, if it is a rabbit then then that animal hops."  \\Or, ``Every rabbit hops."
+%        \item[(b)] ``For every animal, it is a rabbit and it hops." \\Or, ``Every animal is a rabbit and hops."
+%        \item[(c)] ``There exists an animal such that if it is a rabbit then it hops."
+        \item[(d)] ``There exists an animal that is a rabbit and it hops." \\Or, ``Some rabbits hop." \\Or, ``Some hopping animals are rabbits."
+    \end{itemize}
+    \end{solution}
+
+
+\question[4] Rosen Ch 1.4 \#10(a,b) p.53
+%Let $C(x)$ be the statement ``$x$ has a cat", let $D(x)$ be the statement ``$x$ has a dog", and let $F(x)$ be the statement ``$x$ has a ferret." Express each of these statements in terms of $C(x)$, $D(x)$, and $F(x)$, quantifiers, and logical connectives. Let the domain consist of all students in your class.
+%\begin{parts}
+%    \part A student in your class has a cat, a dog, and a ferret.
+%    \part All students in your class have a cat, a dog, or a ferret.
+%    \part Some student in your class has a cat and a ferret, but not a dog.
+%    \part No student in your class has a cat, a dog, and a ferret.
+%    \part For each of the three animals, cats, dogs, and ferrets, there is a student in your class who has this animal as a pet.
+%\end{parts}
+    \begin{solution}
+    \begin{itemize}
+        \item[(a)] $\exists x\; (C(x) \wedge D(x) \wedge F(x))$
+        \item[(b)] $\forall x\; (C(x) \vee D(x) \vee F(x))$
+%        \item[(c)] $\exists x\; (C(x) \wedge F(x) \wedge \neg D(x))$
+%        \item[(d)] $\neg \exists x\; (C(x) \wedge D(x) \wedge F(x))$
+%        \item[(e)] $(\exists x\; C(x)) \wedge (\exists y\; D(y)) \wedge (\exists z\; F(z))$ \\Or, can use the same variable $(\exists x\; C(x)) \wedge (\exists x\; D(x)) \wedge (\exists x\; F(x))$
+    \end{itemize}
+    \end{solution}
+
+\question[4] Rosen Ch 1.4 \#12(a,b,d,e) p. 53
+%
+%Let $Q(x)$ be the statement ``x + 1 > 2x." If the domain consists of all integers, what are these truth values?
+%\begin{parts}
+%    \part $Q(0)$
+%    \part $Q(-1)$
+%    \part $Q(1)$
+%    \part $\exists x\; Q(x)$
+%    \part $\forall x\; Q(x)$
+%    \part $\exists x\; \neg Q(x)$
+%    \part $\forall x\; \neg Q(x)$
+%\end{parts}
+    \begin{solution}
+    \begin{itemize}
+        \item[(a)] T, since $0 + 1 > 2\cdot 0$.
+        \item[(b)] T, since $-1 + 1 > 2\cdot -1$.
+%        \item[(c)] F, since $1 + 1 \ngtr 2\cdot 1$.
+        \item[(d)] T, we know there is at least one $x$ that makes $Q(x)$ true.
+        \item[(e)] F, we know there is at least one $x$ that makes $Q(x)$ false.
+%        \item[(f)] T, we know there is at least one $x$ that makes $Q(x)$ false.
+%        \item[(g)] F, we know there is at least one $x$ that makes $Q(x)$ true.
+    \end{itemize}
+    \end{solution}
+
+\question[6] Rosen Ch 1.4 \#18(a,b,e) p. 53
+%
+%Suppose that the domain of the propositional function $P(x)$ consists of the integers -2, -1, 0, 1, 2.  Write out each of these propositions using disjunctions, conjunctions, and negations.
+%\begin{parts}
+%    \part $\exists x\; P(x)$
+%    \part $\forall x\; P(x)$
+%    \part $\exists x\; \neg P(x)$
+%    \part $\forall x\; \neg P(x)$
+%    \part $\neg \exists x\; P(x)$
+%    \part $\neg \forall x\; P(x)$
+%\end{parts}
+    \begin{solution}
+    \begin{itemize}
+        \item[(a)] $P(-2) \vee P(-1) \vee P(0) \vee P(1) \vee P(2)$
+        \item[(b)] $P(-2) \wedge P(-1) \wedge P(0) \wedge P(1) \wedge P(2)$
+%        \item[(c)] $\neg P(-2) \vee \neg P(-1) \vee \neg P(0) \vee \neg P(1) \vee \neg P(2)$
+%        \item[(d)] $\neg P(-2) \wedge \neg P(-1) \wedge \neg P(0) \wedge \neg P(1) \wedge \neg P(2)$
+        \item[(e)] $\neg (P(-2) \vee P(-1) \vee P(0) \vee P(1) \vee P(2))$
+%        \item[(f)] $\neg (P(-2) \wedge P(-1) \wedge P(0) \wedge P(1) \wedge P(2))$
+    \end{itemize}
+    \end{solution}
+
+
+\question[6] Rosen Ch 1.4 \# 24(a,b,c), p. 54. \\
+%Translate in two ways each of these statements into logical expressions using predicates, quantifiers, and logical connectives.  First, let the domain consist of the students in your class and second, let it consist of all people.
+%\begin{parts}
+%    \part Everyone in your class has a cellular phone.
+%    \part Somebody in your class has seen a foreign movie.
+%    \part There is a person in your class who cannot swim.
+%    \part All students in your class can solve quadratic equations.
+%    \part Some student in your class does not want to be rich.
+%\end{parts}
+Use the following predicates:
+\begin{itemize}
+    \item $C(x)$ be ``$x$ is in your class"
+    \item $P(x)$ be ``$x$ has a cell phone"
+    \item $M(x)$ be ``$x$ has seen a foreign movie"
+    \item $S(x)$ be ``$x$ can swim"
+\end{itemize}
+    \begin{solution}
+    \begin{itemize}
+        \item[(a)] Everyone in your class has a cell phone.
+        $$ \forall x\; P(x) \hspace{2in} \forall x\; (C(x) \ra P(x))$$
+        \item[(b)] Somebody in your class has seen a foreign movie.
+        $$ \exists x\; M(x) \hspace{2in} \exists x\; (C(x) \wedge F(x))$$
+        \item[(c)] There is a person in your class who cannot swim.
+        $$ \exists x\; \neg S(x) \hspace{2in} \exists x\; (C(x) \wedge \neg S(x))$$
+%        \item[(d)] All students in your class can solve quadratic equations
+%        $$ \forall x\; Q(x) \hspace{2in} \forall x\; (C(x) \ra Q(x))$$
+%        \item[(e)] Some student in your class does not want to be rich.
+%        $$ \exists x\; \neg R(x) \hspace{2in} \exists x\; (C(x) \wedge \neg R(x))$$
+    \end{itemize}
+    \end{solution}
+
+\question[6] Rosen Ch 1.4 \#28(a,b,c), p. 54.\\
+%Translate each of these statements into logical expressions using predicates, quantifiers, and logical connectives.
+%\begin{parts}
+%    \part Something is not in the correct place.
+%    \part All tools are in the correct place and in excellent condition.
+%    \part Everything is in the correct place and in excellent condition.
+%    \part Nothing is in the correct place and in excellent condition.
+%    \part One of your tools is not in the correct place, but it is in excellent condition.
+%\end{parts}
+Use the following predicates:
+\begin{itemize}
+    \item $C(x)$ be ``$x$ is in the correct place"
+    \item $T(x)$ be ``$x$ is a tool"
+    \item $E(x)$ be ``$x$ is in excellent condition"
+\end{itemize}
+    \begin{solution}
+    \begin{itemize}
+        \item[(a)] $\exists x\; \neg C(x) $
+        \item[(b)] $\forall x\; (T(x) \ra (C(x) \wedge E(x))) $
+        \item[(c)] $\forall x\; (C(x) \wedge E(x)) $
+%        \item[(d)] $\neg \exists x\; (C(x) \wedge E(x)) \equiv \forall x\; \neg (C(x) \wedge E(x)) \equiv \forall x\; (\neg C(x) \vee \neg E(x))$
+%        \item[(e)] $\exists x\; (T(x) \wedge \neg C(x) \wedge E(x))$
+    \end{itemize}
+    \end{solution}
+
+
+\question[6] Rosen Ch 1.5 \#4(a,b,c), p. 64.
+%Let $P(x,y)$ be the statement ``Student $x$ has taken class $y$," where the domain for $x$ consists of all students in your class and for $y$ consists of all computer science courses at your school. Express each of these quantifications in English.
+%\begin{parts}
+%    \part $\exists x\; \exists y\; P(x,y)$
+%    \part $\exists x\; \forall y\; P(x,y)$
+%    \part $\forall x\; \exists y\; P(x,y)$
+%    \part $\exists y\; \forall x\; P(x,y)$
+%    \part $\forall y\; \exists x\; P(x,y)$
+%    \part $\forall x\; \forall y\; P(x,y)$
+%\end{parts}
+    \begin{solution}
+    \begin{itemize}
+        \item[(a)] There is a student in your class who has taken some computer science class at your school.
+        \item[(b)] There is a student in your class who has taken every computer science class at your school.
+        \item[(c)] Every student in your class has taken a computer science class at your school.
+%        \item[(d)] There is a computer science class at your school that every student in your class has taken.
+%        \item[(e)] Every computer science class at your school has been taken by a student in your class.
+%        \item[(f)] Every student in your class has taken every computer science class at your school.
+    \end{itemize}
+    \end{solution}
+
+\question[8] Rosen Ch 1.5 \#10(a,b,d,e), p. 65.
+%Let $F(x,y)$ be the statement ``$x$ can fool $y$," where the domain consists of all people in the world. Use quantifiers to express each of these statements.
+%\begin{parts}
+%    \part Everybody can fool Fred.
+%    \part Evelyn can fool everybody.
+%    \part Everybody can fool somebody.
+%    \part There is no one who can fool everybody.
+%    \part Everyone can be fooled by somebody.
+%    \part No one can fool both Fred and Jerry.
+%    \part Nancy can fool exactly two people.
+%    \part There is exactly one person whom everybody can fool.
+%    \part No one can fool himself or herself.
+%    \part There is someone who can fool exactly one person besides himself or herself.
+%\end{parts}
+    \begin{solution}
+    \begin{itemize}
+        \item[(a)] $\forall x\; F(x,Fred)$
+        \item[(b)] $\forall y\; F(Evelyn, y)$
+%        \item[(c)] $\forall x\; \exists y\; F(x,y)$
+        \item[(d)] $\neg \exists x\; \forall y\; F(x,y)$
+        \item[(e)] $ \forall y\; \exists x\; F(x,y)$
+%        \item[(f)] $\neg \exists x\; (F(x, Fred) \wedge F(x,Jerry))$
+%        \item[(g)] $\exists x\; \exists y; (F(Nancy, x) \wedge F(Nancy, y) \wedge x \neq y \wedge \forall z\; (F(Nancy,z) \ra (x = z \vee y = z)))$
+%        \item[(h)] $\exists y\; (\forall x\; F(x,y) \wedge \forall z\; (\forall x\; F(x,z) \ra z = y))$
+%        \item[(i)] $\neg \exists x F(x,x)$
+%        \item[(j)] $\exists x\; \exists y\; (x \neq y \wedge F(x,y) \wedge \forall z\; ((F(x,z) \wedge z \neq x) \ra z = y))$
+    \end{itemize}
+    \end{solution}
+
+\question[9] Rosen Ch 1.5 \#12(a,b,c), p. 65.
+%Let $I(x)$ be the statement ``$x$ has an Internet connection" and $C(x,y)$ be the statement ``$x$ and $y$ have chatted over the Internet," where the domain for the variables $x$ and $y$ consists of all students in your class. Use quantifiers to express each of these statements.
+%\begin{parts}
+%    \part Jerry does not have an Internet connection.
+%    \part Rachel has not chatted over the Internet with Chelsea.
+%    \part Jan and Sharon have never chatted over the Internet.
+%    \part No one in the class has chatted with Bob.
+%    \part Sanjay has chatted with everyone except Joseph.
+%    \part Someone in your class does not have an Internet connection.
+%    \part Not everyone in your class has an Internet connection.
+%    \part Exactly one student in your class has an Internet connection.
+%    \part Everyone except one student in your class has an Internet connection.
+%    \part Everyone in your class with an Internet connection has chatted over the Internet with at least one other student in your class.
+%    \part Someone in your class has an Internet connection but has not chatted with anyone else in your class.
+%    \part There are two students in your class who have not chatted with each other over the Internet.
+%    \part There is a student in your class who has chatted with everyone in your class over the Internet.
+%    \part There are at least two students in your class who have not chatted with the same person in your class.
+%    \part There are two students in the class who between them have chatted with everyone else in the class.
+%\end{parts}
+    \begin{solution}
+    \begin{itemize}
+        \item[(a)] $\neg I(Jerry)$
+        \item[(b)] $\neg C(Rachel, Chelsea)$
+        \item[(c)] $\neg C(Jan, Sharon)$
+%        \item[(d)] $\neg \exists x\; C(x,Bob)$
+%        \item[(e)] $\forall x\; (x \neq Joseph \lra C(x, Sanjay))$
+%        \item[(f)] $\exists x\; \neg I(x)$
+%        \item[(g)] $\neg \forall x\; I(x)$
+%        \item[(h)] $\exists x\; \forall y\; (x=y \lra I(y))$
+%        \item[(i)] $\exists x\; \forall y\l (x\neq y \lra I(y))$
+%        \item[(j)] $\forall x\; (I(x) \ra \exists y\; (x \neq y \wedge C(x,y)))$
+%        \item[(k)] $\exists x\; (I(x) \wedge \forall y\; (x \neq y \ra \neg C(x,y)))$
+%        \item[(l)] $\exists x\; \exists y\; (x \neq y \wedge \neg C(x,y))$
+%        \item[(m)] $\exists x\; \forall y\; C(x,y)$
+%        \item[(n)] $\exists x\; \exists y\; (x \neq y \wedge \forall z\; \neg (C(x,z) \wedge C(y,z)))$
+%        \item[(o)] $\exists x\; \exists y\; (x \neq y \wedge \forall z\; C(x,z) \vee C(y,z))$
+    \end{itemize}
+    \end{solution}
+
+\question[5] Rosen Ch 1.5 \#26(a,b,c,d,e), p. 67.
+%Let $Q(x,y)$ be the statement ``$x + y = x - y$." If the domain for both variables consists of all integers, what are the truth values?
+%\begin{parts}
+%    \part $Q(1,1)$
+%    \part $Q(2,0)$
+%    \part $\forall y\; Q(1,y)$
+%    \part $\exists x\; Q(x,2)$
+%    \part $\exists x\; \exists y\; Q(x,y)$
+%    \part $\forall x\; \exists y\; Q(x,y)$
+%    \part $\exists y\; \forall x\; Q(x,y)$
+%    \part $\forall y\; \exists x\; Q(x,y)$
+%    \part $\forall x\; \forall y\; Q(x,y)$
+%\end{parts}
+    \begin{solution}
+    \begin{itemize}
+        \item[(a)] F, since $1 + 1 \neq 1 - 1$.
+        \item[(b)] T, since $2 + 0 = 2 - 0$.
+        \item[(c)] F, since many values of $y$ for which $1 + y \neq 1-y$.
+        \item[(d)] F, since no solution to $x + 2 = x - 2$.
+        \item[(e)] True, let $x = y = 0$.
+%        \item[(f)] True, let $y=0$ for each $x$.
+%        \item[(g)] True, let $y = 0$.
+%        \item[(h)] False, same as $d$.
+%        \item[(i)] False.
+    \end{itemize}
+    \end{solution}
+
+\question[6] Rosen Ch 1.5 \#28, p. 67.
+%Determine the truth value of each of these statements if the domain of each variable consists of all real numbers.
+%\begin{parts}
+%    \part $\forall x\; \exists y\; (x^2 = y)$
+%    \part $\forall x\; \exists y\; (x  = y^2)$
+%    \part $\exists x\; \forall y\; (xy = 0)$
+%    \part $\exists x\; \exists y\; (x + y \neq y + x)$
+%    \part $\forall x\; (x \neq 0 \ra \exists y\; (xy= 1))$
+%    \part $\exists x\; \forall y\; (y \neq 0 \ra xy = 1)$
+%    \part $\forall x\; \exists y\; (x + y = 1)$
+%    \part $\exists x\; \exists y\; (x + 2y = 2 \wedge 2x + 4y = 5)$
+%    \part $\forall x\; \exists y\; (x + y = 2 \wedge 2x - y = 1)$
+%    \part $\forall x\; \forall y\; \exists z\; (z = (x + y) / 2)$
+%\end{parts}
+    \begin{solution}
+    \begin{parts}
+        \part T, let $y = x^2$.
+        \part F, no value for $y$ if $x$ is negative.
+        \part T, let $x = 0$.
+        \part F, this is commutative law of addition always holds.
+        \part T, let $y = 1/x$.
+        \part F, the reciprocal depends on $y$.
+        \part T, let $y = 1-x$.
+        \part F, no solution to system of equations.
+        \part F, only one solution.
+        \part T, let $z = (x + y)/2$.
+    \end{parts}
+    \end{solution}
+
+\question[8] Rosen Ch 1.5 \#32, p. 67.
+%Express the negation of each of these statements so that all negation symbols immediately precede predicates.
+%\begin{parts}
+%    \part $\exists z\; \forall y\; \forall x\; T(x,y,z)$
+%    \part $\exists x\; \exists y\; P(x,y) \wedge \forall x\; \forall y\; Q(x,y)$
+%    \part $\exists x\; \exists y\; (Q(x,y) \lra Q(y,x))$
+%    \part $\forall y\; \exists x\; \exists z\; (T(x,y,z) \vee Q(x,y))$
+%\end{parts}
+    \begin{solution}
+    \begin{parts}
+        \part 
+        \begin{align*} 
+          \neg \exists z\; \forall y\; \forall x\; T(x,y,z) &\equiv \forall z\; \neg \forall y\; \forall x\; T(x,y,z) \\
+           & \equiv \forall z\; \exists y\; \neg \forall x\; T(x,y,z) \\
+           & \equiv \forall z\; \exists y\; \exists x\; \neg T(x,y,z)
+        \end{align*}
+        \part 
+        \begin{align*}
+            \neg (\exists x\; \exists y\; P(x,y) \wedge \forall x\; \forall y\; Q(x,y)) & \equiv (\neg \exists x\; \exists y\; P(x,y)) \vee (\neg \forall x\; \forall y\; Q(x,y)) \\
+            & \equiv (\forall x\; \neg \exists y\; P(x,y)) \vee (\exists x\; \neg \forall y\; Q(x,y)) \\ 
+            & \equiv \forall x\; \forall y\; \neg P(x,y) \vee \exists x\; \exists y\; \neg Q(x,y) 
+        \end{align*}
+        \part 
+        \begin{align*}
+            \neg \exists x\; \exists y\; (Q(x,y) \lra Q(y,x)) & \equiv \forall x\; \neg \exists y\; (Q(x,y) \lra Q(y,x)) \\
+            & \equiv \forall x\; \forall y\; \neg (Q(x,y) \lra Q(y,x)) \\
+            & \equiv \forall x\; \forall y\; (\neg Q(x,y) \lra Q(y,x)) 
+        \end{align*}
+        \part 
+        \begin{align*}
+            \neg \forall y\; \exists x\; \exists z\; (T(x,y,z) \vee Q(x,y)) & \equiv \exists y\; \neg \exists x\; \exists z\; (T(x,y,z) \vee Q(x,y)) \\
+            & \equiv \exists y\; \forall x\; \neg \exists z\; (T(x,y,z) \vee Q(x,y)) \\
+            & \equiv \exists y\; \forall x\; \forall z\; \neg (T(x,y,z) \vee Q(x,y)) \\
+            & \equiv \exists y\; \forall x\; \forall z\; (\neg T(x,y,z) \wedge \neg Q(x,y))
+        \end{align*}
+    \end{parts}
+    \end{solution}
+
+\question[10] Rosen Ch 1.6 \#6, p. 78.
+%Use the rules of inference to show that the hypotheses ``If it does not rain or if it is not foggy, then the sailing race will be held and the lifesaving demonstration will go on", ``If the sailing race is held, then the trophy will be awarded," and ``The trophy was not awarded" imply the conclusion ``It rained."
+    \begin{solution}
+    Let $r$ be the proposition ``It rains", let $f$ be ``It is foggy",
+    let $s$ be ``The sailing race will be held", let $l$ be ``The life
+    saving demonstration will go on", and let $t$ be ``The troply will
+    be awarded".
+
+    Then, the premises are: $(\neg r \vee \neg f) \rightarrow (s \wedge l)$, $s \rightarrow t$, $\neg t$. \\
+    The conclusion we want is: $r$.
+
+    \begin{tabular}{lll}
+        Step    & \hspace{0.2in} & Reason \\
+        1. $\neg t$                 &       & Hypothesis \\
+        2. $s \rightarrow t$        &       & Hypothesis \\
+        3. $\neg s$                 &       & Modus tollens with (1) and (2) \\
+        4. $(\neg r \vee \neg f) \rightarrow (s \wedge l)$  &   & Hypothesis \\
+        5. $(\neg(s \wedge l)) \rightarrow \neg(\neg r \vee \neg f)$    & & Contrapositive \\
+        6. $(\neg s \vee \neg l) \rightarrow (\neg \neg r \wedge \neg \neg f)$ & & De Morgans law with (5) (x2) \\
+        7. $(\neg s \vee \neg l) \rightarrow (r \wedge f)$  & & Double negation with (6) (x2) \\
+        8. $\neg s \vee \neg l$     &       & Addition with (3) \\
+        9. $r \wedge f$             &       & Modus ponens with (7) and (8) \\
+        10. $r$                     &       & Simplification with (9)
+    \end{tabular}
+    \end{solution}
+
+\question[8] Rosen Ch 1.6, \#10(a,b), p.79.
+%For each of these sets of premises, what relevant conclusion or conclusions can be drawn? Explain the rules of inference used to obtain each conclusion from the premises.
+%\begin{parts}
+%    \part ``If I play hockey, then I am sore the next day." ``I use the whirlpool if I am sore." ``I did not use the whirlpool."
+%    \part ``If I work, it is either sunny or partly sunny." ``I worked last Monday or I worked last Friday." ``It was not sunny on Tuesday." ``It was not partly sunny on Friday."
+%    \part ``All insects have six legs." ``Dragonflies are insects." ``Spiders do not have six legs." ``Spiders eat dragonflies."
+%    \part ``Every student has an Internet account." ``Homer does not have an Internet account."``Maggie has an Internet account"
+%    \part ``All foods that are healthy to eat do not taste good." ``Tofu is healthy to eat." ``You only eat what tastes good." ``You do not eat tofu" ``Cheeseburgers are not healthy to eat."
+%    \part ``I am either dreaming or hallucinating." ``I am not dreaming." ``If I am hallucinating, I see elephants running down the road."
+%\begin{parts}
+    \begin{solution}
+    \begin{itemize}
+        \item[(a)] Use modus tollens to conclude that ``I am not sore."  With this, you can use modus tollens again to conclude that ``I did not play hockey."
+        \item[(b)] There is nothing to conclude here.
+%        \item[(c)] 
+    \end{itemize}
+    \end{solution}
+
+\end{questions}
+\end{document} 

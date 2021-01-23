@@ -1,0 +1,344 @@
+\documentclass[12pt,addpoints]{exam}
+% can include option [answers] to print out solutions, or command \printanswers
+%  can turn addpoint on and off with commands, \addpoints and \noaddpoints
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage[top=0.75in,bottom=0.75in,left=0.9in,right=0.9in]{geometry}
+
+\setlength{\itemsep}{0pt} \setlength{\topsep}{0pt}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\xor}{\oplus}
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0.0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Spring 2012}}{\textbf{HW 1 -
+Practice Problems Solutions}}{} \footrule \footer{}{Page \thepage\ of
+\numpages}{}
+
+\noindent \textbf{Instructions:} The following practice problems are
+not due and are not graded.  The solutions will be provided to allow
+for extra practice.
+
+\begin{questions}
+\printanswers
+
+\question Determine which of the statements are propositions? What are the truth values of those that are propositions?
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item Beware of dog!
+    \item  8 - x = 3.
+    \item  z + 4 = 6 if z = 7.
+    \item Detroit is the capital of Michigan.
+    \item Open your books.
+    \item Who is the president?
+    \item z + 3 = 8.
+    \item 6 + 6 = 14.
+    \end{enumerate}
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution}
+        \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item Not a proposition, is a command.
+        \item Not a proposition.
+        \item Proposition, false.
+        \item Proposition, false.
+        \item not a proposition, is a command
+        \item not a proposition, is a question
+        \item not a proposition, depends on value of $z$
+        \item proposition, $F$
+        \end{enumerate}
+    \end{solution}
+
+\question Let $p$ and $q$ be the propositions
+ \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item[$p$:] I played poker this week.
+    \item[$q$:] I lost my money on Tuesday.
+ \end{itemize}
+ Express each of these propositions as an English sentence.
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item $\neg p$
+    \item $p \wedge q$
+    \item $p \rightarrow \neg q$
+    \item $p \leftrightarrow q$
+    \end{enumerate}
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution}
+        \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item It is not the case that I played poker this week.
+        \item I played poker this week and I lost my money on Tuesday.
+        \item If I played poker this week then I did not lose my money on Tuesday.
+        \item I played poker this week if and only if I lost my money on Tuesday.
+        \end{enumerate}
+    \end{solution}
+
+\question Rosen Ch 1.1, \#10 (d,f), p. 13-14
+% Let $p$ and $q$ be the propositions ``The election is decided" and ``The votes have been counted," respectively.  Express each of these compound propositions as an English sentence.
+% \begin{parts}
+%   \part $\neg p$
+%   \part $p \vee q$
+%   \part $\neg p \wedge q$
+%   \part $q \ra p$
+%   \part $\neg q \ra \neg p$
+%   \part $\neg p \ra \neg q$
+%   \part $p \lra q$
+%   \part $\neg q \vee (\neg p \wedge q)
+% \end{parts}
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution}
+        \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[(d)] $q \ra p$
+        If the votes have been counted then the election is decided.
+        \item[(f)] $\neg p \ra \neg q$
+        If the election is not decided then the votes have not been counted.
+        \end{itemize}
+    \end{solution}
+
+\question Rosen Ch 1.1, \#14 (a,b,c), p. 13-14
+% Let $p$, $q$, and $r$ be the propositions:
+% \begin{tabular}{p{0.5in}rl}
+%   & $p$ & You get an A on the final exam. \\
+%   & $q$ & You do every exercise in this book. \\
+%   & $r$ & You get an A in this class. \\
+% \end{tabular}
+% Write these propositions using $p$, $q$, and $r$ and logical
+% connectives (including negations).
+% \begin{parts}
+%   \part You get an A in this class, but you do not do every exercise in this
+%       book.
+%   \part You get an A on the final, you do every exercise in this book and you get an A in this class.
+%   \part To get an A in this class, it is necessary for you to get an A on the final.
+%   \part You get an A on the final, but you don't do every exercise in this book nevertheless, you get an A in this class.
+%   \part Getting an A on the final and doing every exercise in this book is sufficient for getting an A in this class.
+%   \part You will get an A in this class if and only if you either do every exercise in this book or you get an A on the final.
+% \end{parts}
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution} (a) $r \wedge \neg q$, \hspace{0.2in} (b) $p \wedge q \wedge r$, \hspace{0.2in} (c) $r \rightarrow p$
+%    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%        \item $r \wedge \neg q$
+%        \item $p \wedge q \wedge r$
+%        \item $r \rightarrow p$ % Q is necessary for P,  get an A on final is necessary for A in class
+%    \end{enumerate}
+    \end{solution}
+
+\question Rosen Ch 1.1, \#22 (a,b,c,d), p. 14
+% Write each of these statements in the form, ``if $p$, then $q$" in English.
+% \begin{parts}
+%   \part It is necessary to wash the boss's car to get promoted.
+%   \part Winds from the south imply a spring thaw.
+%   \part A sufficient condition for the warranty to be good is that you bought the computer less than a year ago.
+%   \part Willy gets caught whenever he cheats.
+%   \part You can access the website only if you pay a subscription fee.
+%   \part Getting elected follows from knowing the right people.
+% \end{parts}
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution}
+    \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item If you get promoted, then you wash the boss's car.
+        \item If the winds are from the south, then there is a spring thaw.
+        \item If you bought the computer less than a year ago, then the warranty is good.
+        \item If Willy cheats, then he gets caught.
+    \end{enumerate}
+    \end{solution}
+
+\question State the converse, contrapositive, and inverse of each of the conditional statements.
+    \begin{parts}
+    \part If it snows tonight, then I will stay at home.
+    \part When I stay up late, it is necessary that I sleep until noon.
+    %  q is necessary for p
+    % Converse: q \ra p, Contrapositive: \neg q \ra \neg p, Inverse: \neg p \ra \neg q
+    \end{parts}
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution}
+        \begin{parts}
+        \part
+        \begin{tabular}{ll}
+            Converse &  I will stay at home tonight only if it snows. \\
+            Contrapositive & If I don't stay at home tonight then it won't snow. \\
+            Inverse &  If it doesn't snow tonight, then I won't stay at home.
+        \end{tabular}
+        \part
+        \begin{tabular}{ll}
+            Converse &  If I sleep until noon, then I stayed up late. \\
+            Contrapositive &  If I do not sleep until noon, then I did not stay up late. \\
+            Inverse &  If I don't stay up late, then I don't sleep until noon.
+        \end{tabular}
+        \end{parts}
+    \end{solution}
+
+
+\question Give the truth tables for the following propositions. \\
+ \begin{tabular}{lll}
+    (a) $\neg p \wedge q$ & (b) $p \rightarrow \neg q$ & (c) $(q \rightarrow \neg p) \vee \neg (q \leftrightarrow p)$ \\
+    (d) $(p \oplus q) \wedge \neg (q \oplus p)$ & (e) $(p \vee q) \wedge \neg r$ & (f) $(p \rightarrow q) \rightarrow r$ \\
+    \multicolumn{3}{l}{(g) Which pairs of propositions (if any) are logically equivalent?} \\
+    \multicolumn{3}{l}{(h) Which propositions (if any) are tautologies? contradictions?} \\
+ \end{tabular}
+ \begin{solution}
+ \small
+        \begin{tabular}{|cc|c|c|c|c|}
+    \hline
+         & & (a) & (b) & (c) & (d)  \\
+        $p$ & $q$ & $\neg p \wedge q$  & $p \rightarrow \neg q$
+        & $(q \rightarrow \neg p) \vee \neg (q \leftrightarrow p)$ & $(p \oplus q) \wedge \neg (q \oplus p)$ \\
+    \hline
+        T & T & F & F & F & F \\
+        T & F & F & T & T & F \\
+        F & T & T & T & T & F \\
+        F & F & F & T & T & F \\
+    \hline
+    \end{tabular}
+
+    \begin{tabular}{|ccc|c|c|}
+    \hline
+      & & & (e) & (f) \\
+     $p$ & $q$ & $r$ & $(p \vee q) \wedge \neg r$ & $(p \rightarrow q) \rightarrow r$ \\
+     \hline
+     T & T & T & F & T \\
+     T & T & F & T & F \\
+     T & F & T & F & T \\
+     T & F & F & T & T \\
+     F & T & T & F & T \\
+     F & T & F & T & F \\
+     F & F & T & F & T \\
+     F & F & F & F & F \\
+    \hline
+    \end{tabular}
+    \begin{itemize}
+        \item[(g)] Proposition (b) and (c) are logically equivalent.
+        \item[(h)] There are no tautologies; (d) is a contradiction.
+    \end{itemize}
+   \end{solution}
+
+
+\question There are 16 possible truth tables for propositions of two variables $p$ and $q$.  All sixteen possibilities are given in the table below (numbered 15, 14, \ldots, 0).  For example, the proposition $p \vee q$ is 14. What are the numbers of the truth tables for propositions:\\
+ \begin{tabular}{l}
+    (a) $\neg p \vee q$ \\
+    (b) $p \wedge \neg p \wedge q$ \\
+    (c) $\neg p \wedge q $ \\
+    (d) $p \rightarrow \neg q$ \\
+ \end{tabular}
+
+ What is the simplest proposition for the following entries: (e) 10, (f) 8, (g) 6? \\
+ \begin{tabular}{cc|cccc|cccc|cccc|cccc}
+    $p$ & $q$ & 15 & 14 & 13 & 12 & 11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 \\
+    \hline
+    T & T & T & T & T & T & T & T & T & T & F & F & F & F & F & F & F & F \\
+    T & F & T & T & T & T & F & F & F & F & T & T & T & T & F & F & F & F \\
+    F & T & T & T & F & F & T & T & F & F & T & T & F & F & T & T & F & F \\
+    F & F & T & F & T & F & T & F & T & F & T & F & T & F & T & F & T & F \\
+ \end{tabular}
+    \begin{solution} (a) 11, \hspace{0.1in} (b) 0, \hspace{0.1in} (c) 2, \hspace{0.1in} (d) 7, \hspace{0.1in} (e) $q, \quad$ (f) $p \wedge q, \quad$ (g) $p \xor q$
+%    \begin{parts}
+%        \part 11
+%        \part 0
+%        \part 2
+%        \part 7
+%        \part $q$
+%        \part $ p \wedge q$
+%        \part $ p \xor q$
+%    \end{parts}
+    \end{solution}
+
+
+\question Show the proposition is a tautology using a truth table
+and logical equivalences.
+ \[ [(p \rightarrow q) \wedge (q \rightarrow r)] \rightarrow (p \rightarrow r) \]
+    \ifprintanswers
+        \vspace{-25pt}
+    \fi
+    \begin{solution}
+
+    \begin{tabular}{|c|c|c||ccccc|}
+        $p$ & $q$ & $r$ & $p \ra q$ & $q \ra r$ & $(p \ra q) \wedge (q \ra r)$ & $p \ra r$ &  \\
+        \hline
+        T & T & T & T & T & T & T & T \\
+        T & T & F & T & F & F & F & T \\
+        T & F & T & F & T & F & T & T \\
+        T & F & F & F & T & F & F & T \\
+        F & T & T & T & T & T & T & T \\
+        F & T & F & T & F & F & T & T \\
+        F & F & T & T & T & T & T & T \\
+        F & F & F & T & T & T & T & T \\
+    \end{tabular}
+
+    \begin{align*}
+    [(p \rightarrow q) &\wedge (q \rightarrow r)] \rightarrow (p \rightarrow r) \\
+     & \equiv \neg [ (\neg p \vee q) \wedge (\neg q \vee r)] \vee (\neg p \vee r) \tag{Table 7, rule 1, x4}\\
+     & \equiv [\neg (\neg p \vee q) \vee \neg (\neg q \vee r)] \vee (\neg p \vee r) \tag{DeMorgan's} \\
+     & \equiv [(\neg \neg p \wedge \neg q) \vee (\neg \neg q \wedge \neg r)] \vee (\neg p \vee r) \tag{DeMorgan's, x2} \\
+     & \equiv (p \wedge \neg q) \vee (q \wedge \neg r) \vee \neg p \vee r \tag{Double Negation, x2} \\
+     & \equiv \neg p \vee (p \wedge \neg q) \vee r \vee (q \wedge \neg r) \tag{Commutative} \\
+     & \equiv (\neg p \vee p) \wedge (\neg p \vee \neg q) \vee (r \vee q) \wedge (r \vee \neg r) \tag{Distributive, x2} \\
+     & \equiv \mathbf{T} \wedge (\neg p \vee \neg q) \vee (r \vee q) \wedge \mathbf{T} \tag{Negation, x2} \\
+     & \equiv \neg p \vee \neg q \vee r \vee q \tag{Identity, x2} \\
+     & \equiv \neg p \vee r \vee \neg q \vee q \tag{Commutative} \\
+     & \equiv \neg p \vee r \vee \mathbf{T} \tag{Negation} \\
+     & \equiv \neg p \vee \mathbf{T} \tag{Domination} \\
+     & \equiv \mathbf{T} \tag{Domination}
+     \end{align*}
+    \end{solution}
+
+
+\question Prove the following logical equivalences using the
+equivalences from Table 6-8 (model the solutions in the style of
+book Examples 6-8, pp. 29-30).  Justify each step with laws.
+    \begin{parts}
+    \part $(p \wedge \neg(q \vee \neg p)) \equiv p \wedge \neg q$
+    \part $p \rightarrow (\neg q \rightarrow r) \equiv \neg(q \vee r)
+    \rightarrow \neg p$
+    \part $\neg(\neg p \vee (p \wedge q)) \vee q \equiv q \vee p $
+    \end{parts}
+    \begin{solution}
+    \begin{parts}
+    \part  $(p \wedge \neg(q \vee \neg p)) \equiv p \wedge \neg q$
+    \begin{align*}
+      (p &\wedge \neg(q \vee \neg p)) \\
+      & \equiv p \wedge (\neg q \wedge \neg \neg p) \tag{DeMorgan's} \\
+      & \equiv p \wedge \neg q \wedge p \tag{Double Negation} \\
+      & \equiv p \wedge p \wedge \neg q \tag{Commutative} \\
+      & \equiv p \wedge \neg q \tag{Idempotent}
+    \end{align*}
+    \part $p \rightarrow (\neg q \rightarrow r) \equiv \neg(q \vee r)
+    \rightarrow \neg p$
+    \begin{align*}
+      p & \rightarrow (\neg q \rightarrow r) \\
+      & \equiv p \ra (\neg \neg q \vee r) \tag{Table 7, rule 1} \\
+      & \equiv p \ra (q \vee r) \tag{Double Negation} \\
+      & \equiv \neg (q \vee r) \ra \neg p \tag{Table 7, rule 2} \\
+    \end{align*}
+    \part $\neg(\neg p \vee (p \wedge q)) \vee q \equiv q \vee p $
+    \begin{align*}
+    \neg(\neg p & \vee (p \wedge q)) \vee q \\
+     & \equiv (\neg \neg p \wedge \neg (p \wedge q)) \vee q \tag{DeMorgan's} \\
+     & \equiv (p \wedge \neg (p \wedge q)) \vee q \tag{Double Negation}\\
+     & \equiv (p \wedge (\neg p \vee \neg q)) \vee q \tag{DeMorgan's}\\
+     & \equiv (p \wedge \neg p) \vee (p \wedge \neg q) \vee q \tag{Distributive}\\
+     & \equiv \mathbf{F} \vee (p \wedge \neg q) \vee q \tag{Negation}\\
+     & \equiv (p \wedge \neg q) \vee q \tag{Identity}\\
+     & \equiv q \vee (p \wedge \neg q) \tag{Commutative}\\
+     & \equiv (q \vee p) \wedge (q \vee \neg q) \tag{Distributive}\\
+     & \equiv (q \vee p) \wedge \mathbf{T} \tag{Negation}\\
+     & \equiv  q \vee p \tag{Identity} \\
+     & \equiv p \vee q \tag{Commutative}
+     \end{align*}
+    \end{parts}
+    \end{solution}
+
+
+\end{questions}
+\end{document}

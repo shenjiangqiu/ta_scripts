@@ -1,0 +1,33 @@
+\begin{tikzpicture}[scale=0.8]
+    \tikzset{VertexStyle/.style = {shape = circle,
+                                    color = black,
+                                    inner sep=1pt,
+                                    minimum size = 8 pt,
+                                    font=\scriptsize\sffamily,
+                                    draw}}
+    %\grEmptyGrid[RA=1.5,RB=1.5]{3}{3}
+    \SetGraphUnit{2}
+    %\GraphInit[vstyle=Welsh]
+    \Vertex[LabelOut,Lpos=-120]{z}
+    \NOEA[LabelOut,Lpos=45](z){v}
+    \SOEA[LabelOut,Lpos=-90](z){x}
+    \EA[LabelOut,Lpos=0](v){y}
+    \EA[LabelOut,Lpos=0](x){w}
+    
+    \tikzset{EdgeStyle/.style = {->}}
+    \Edge[style=bend right](v)(y)
+    \Edge[style=bend left](v)(y)
+    \Edge[style=bend right](y)(w)
+    \Edge[style=bend left](y)(w)
+    \Edge[style=bend left](x)(w)
+    \Edge[style=bend left](w)(x)
+    \Edge[style=bend right](w)(z)
+    \Edge[style=bend right](x)(z)
+    \Edge[style=bend left](x)(z)
+    \Edge(z)(v)
+    \tikzset{every loop/.style={min distance=10mm,in=-135,out=135,looseness=10}}
+    \path[->] (v) edge [loop above] node {} ();
+    \path[->] (z) edge [loop left] node {} ();
+    % \Loop(o)
+
+\end{tikzpicture}

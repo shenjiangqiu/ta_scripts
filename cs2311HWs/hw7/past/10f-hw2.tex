@@ -1,0 +1,287 @@
+\documentclass[12pt]{exam}
+% can include option [answers] to print out solutions, or command \printanswers
+%  can turn addpoint on and off with commands, \addpoints and \noaddpoints
+
+\usepackage{amsthm}
+\usepackage{amsmath, amssymb}
+
+\usepackage[normalmargins,normalsections,normalindent,normalleading]{savetrees}
+
+% Tight lists
+%\usepackage{mdwlist} - then use "starred" versions of itemize, enumerate, description
+%  this still has spacing above and below.
+
+\newenvironment{my_parts}{
+\begin{parts}
+    \setlength{\itemsep}{1pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}
+}{\end{parts}}
+
+\newenvironment{my_item}{
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+% or can include lines
+%   \begin{parts}
+%     \itemsep 1pt
+%     \parskip 0pt
+%     \item One
+%     ...
+%   \end{parts}
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0.75in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Fall 2010}}{\textbf{HW
+2}}{\textbf{Due: Fri. 9/17/10}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\addpoints
+
+\noindent \textbf{Instructions:} All assignments are due at the
+beginning of class on the due date specified.  Solutions will be
+handed out (or posted on-line) shortly thereafter.  Every student
+must write up their own solutions in their own manner.
+
+%\noindent Please follow the format in the book when asked to produce
+%truth tables (this will help in grading in order to avoid any
+%errors).
+
+\noindent The assignment has \numpoints\ points.
+
+\begin{questions}
+\printanswers
+
+\question[8] Express these statements using quantifiers.
+    \begin{my_parts}
+        \part Every student in this class has taken exactly two mathematics classes at this school.
+        \part No one has climbed every mountain in the Himalayas
+    \end{my_parts}
+    \begin{solution}
+    \begin{my_parts}
+        \part Let $T(a,b)$ be ``$a$ took class $b$ at this school" \\
+        The domain of $s$ is all students in this class, the domain of $x$, $y$, and $z$ are all mathematics courses in this school. \\
+        $\forall s\; \exists x\; \exists y\; (T(s, x) \wedge T(s, y) \wedge x\neq y \wedge \forall z\; \neg(T(s,z) \wedge x\neq z \wedge y\neq z))$
+        \part Let the domain of $x$ be all people and $y$ be all Himalayan mountains where where $C(x,y)$ is the statement ``$x$ climbed Himalayan mountain $y$" \\
+        $\neg \exists x\; \forall y\; C(x,y)$
+    \end{my_parts}
+    \end{solution}
+
+
+\question[9] Rosen Ch 1.4, \#4(a,c,e), p. 58
+    \begin{solution}
+    \begin{my_item}
+        \item[(a)] $\exists x\; \exists y\; P(x,y)$ - ``There is a
+        student in your class who has taken some computer science
+        course at your school."
+        \item[(c)] $\forall x\; \exists y\; P(x,y)$ - ``Every student in
+        your class has taken a computer science course at your
+        school."
+        \item[(e)] $\forall y\; \exists x\; P(x,y)$ - ``Every computer
+        science course at your school has been taken by at least one
+        student in your class."
+    \end{my_item}
+    \end{solution}
+
+\question[9] Rosen Ch 1.4, \#10(a,c,e), p. 59
+    \begin{solution}
+    \begin{my_item}
+        \item[(a)] $\forall x\; F(x, Fred)$
+        \item[(c)] $\forall x\; \exists y\; F(x,y)$
+        \item[(e)] $\forall y\; \exists x\; F(x,y)$
+    \end{my_item}
+    \end{solution}
+
+
+\question[6] Rosen Ch 1.4, \#24(a,b), p. 61
+    \begin{solution}
+    \begin{my_parts}
+        \part $\exists x\; \forall y \; (x + y = y)$ - ``There is an
+        additive identity for real numbers.  That is, there exists a
+        number $x$ that can be added to all numbers $y$ such that $x
+        + y = y$."
+        \part $\forall x\; \forall y\; (((x \geq 0) \wedge (y < 0))
+        \rightarrow (x - y > 0))$ - ``The difference between a
+        positive real number and a negative real number is a
+        positive real number."
+    \end{my_parts}
+    \end{solution}
+
+
+\question[9] Rosen Ch 1.4, \#26(a,c,e), p. 61
+    \begin{solution}
+    \begin{my_item}
+        \item[(a)]  False
+        \item[(c)]  False, when $y=1$, $x + 1 - x-1 \equiv x + 2 =
+        x$ for no values of $x$.
+        \item[(e)] True
+    \end{my_item}
+    \end{solution}
+
+
+\question[9] Rosen Ch 1.4, \#28(b,d,f), p. 61
+    \begin{solution}
+    \begin{my_item}
+        \item[(b)] False, when $x=3$ there is no natural number such that $x = y^2$.
+        \item[(d)] False, for every choice of $x$ and $y$.
+        \item[(f)] False, when $y=3$ there i no $x$ such that $3x = 1$.
+    \end{my_item}
+    \end{solution}
+
+
+\question[9] Rosen Ch 1.4, \#32(a,b,c), p. 61
+    \begin{solution}
+    \begin{my_parts}
+        \part\begin{align*}
+            \neg & \exists z\; \forall y\; \forall x\; T(x,y,z) \\
+            & \equiv \forall z\; \neg \forall y\; \forall x\;
+            T(x,y,z) \\
+            & \equiv \forall z\; \exists y\; \neg \forall x\;
+            T(x,y,z) \\
+            & \equiv \forall z\; \exists y\; \exists x\; \neg
+            T(x,y,z)
+        \end{align*}
+        \part        \begin{align*}
+            \neg &( \exists x\; \exists y\; P(x, y) \wedge \forall
+            x\; \forall y\; Q(x,y) ) \\
+            & \equiv \neg (\exists x\; \exists y\; P(x,y)) \vee \neg
+            (\forall x\; \forall y\; Q(x,y)) \\
+            & \equiv (\forall x\; \neg \exists y\; P(x,y)) \vee (\exists
+            x\; \neg \forall y\; Q(x,y)) \\
+            & \equiv (\forall x\; \forall y\; \neg P(x,y)) \vee (\exists
+            x\; \exists y\; \neg Q(x,y)) \\
+        \end{align*}
+        \part        \begin{align*}
+            \neg & (\exists x\; \exists y\; (Q(x,y) \leftrightarrow
+            Q(y,x)) \\
+            & \equiv \forall x\; \neg \exists y\; (Q(x,y) \leftrightarrow
+            Q(y,x)) \\
+            & \equiv \forall x\; \forall y\; \neg (Q(x,y)
+            \leftrightarrow Q(y,x)) \\
+            & \equiv \forall x\; \forall y\; (Q(x,y)
+            \leftrightarrow \neg Q(y,x)) \\
+        \end{align*}
+    \end{my_parts}
+    \end{solution}
+
+
+\question[9] Rosen Ch 1.5, \#6, p.72
+    \begin{solution}
+    Let $r$ be the proposition ``It rains", let $f$ be ``It is foggy",
+    let $s$ be ``The sailing race will be held", let $l$ be ``The life
+    saving demonstration will go on", and let $t$ be ``The troply will
+    be awarded".
+
+    Then, the premises are: $(\neg r \vee \neg f) \rightarrow (s \wedge l)$, $s \rightarrow t$, $\neg t$. \\
+    The conclusion we want is: $r$.
+
+    \begin{tabular}{lll}
+        Step    & \hspace{0.2in} & Reason \\
+        1. $\neg t$                 &       & Hypothesis \\
+        2. $s \rightarrow t$        &       & Hypothesis \\
+        3. $\neg s$                 &       & Modus tollens with (1) and (2) \\
+        4. $(\neg r \vee \neg f) \rightarrow (s \wedge l)$  &   & Hypothesis \\
+        5. $(\neg(s \wedge l)) \rightarrow \neg(\neg r \vee \neg f)$    & & Contrapositive \\
+        6. $(\neg s \vee \neg l) \rightarrow (\neg \neg r \wedge \neg \neg f)$ & & De Morgans law with (5) (x2) \\
+        7. $(\neg s \vee \neg l) \rightarrow (r \wedge f)$  & & Double negation with (6) (x2) \\
+        8. $\neg s \vee \neg l$     &       & Addition with (3) \\
+        9. $r \wedge f$             &       & Modus ponens with (7) and (8) \\
+        10. $r$                     &       & Simplification with (9)
+    \end{tabular}
+    \end{solution}
+
+
+\question[8] Rosen Ch 1.5, \#10(b,d), p.73
+    \begin{solution}
+    \textbf{(b):} Let the domain of $x$ be the days from Monday through Sunday.  Let $w(x)$ be ``I work on $x$", let $s(x)$ be ``It is sunny on $x$", let $p(x)$ be ``It is partly sunny on $x$."  The premises can be expressed as:
+    \begin{itemize}
+        \item[1.] $\forall x\; (w(x) \rightarrow (s(x) \vee p(x)))$
+        \item[2.] $w(Monday) \vee w(Friday)$
+        \item[3.] $\neg s(Tuesday)$
+        \item[4.] $\neg p(Friday)$
+    \end{itemize}
+    \smallskip
+    To draw conclusions based on statement 1, statements 2, 3, and 4 should either try to make the hypothesis of statement 1 true, or make the conclusion false.  We do not know whether either side is true or false, so no conclusion can be drawn from these premises.  To draw any conclusions based on statement 2, statement 3 and 4 should make one part in statement 2 false, but they do not.  Therefore, no conclusions.
+
+    \medskip
+    \textbf{(d):} Let $s(x)$ be ``$x$ is a student", $c(x)$ be ``$x$ has an Internet account".  The premises are:
+    \begin{itemize}
+        \item[1.] $\forall x\; (s(x) \rightarrow c(x))$
+        \item[2.] $\neg c(Homer)$
+        \item[3.] $c(Marge)$
+    \end{itemize}
+    \smallskip
+    From statement 1 and 2, applying univeral generalization and modus tollens, we can conclude that $\neg s(Homer)$, that is ``Homer is not a student."
+
+    From statement 1 and 3, we can not draw any conclusions since c(Maggie) is true and in the conclusion of the conditional of statement 1.
+    \end{solution}
+
+
+\question[8] Rosen Ch 1.5, \#14(a,c), p.73
+\begin{solution}
+\begin{quote}
+    \textbf{(a):} Let $c(x)$ be ``$x$ is in this class", $r(x)$ be ``$x$ owns a red convertible", $t(x)$ be ``$x$ has gotten a speeding ticket."  The premises are:
+    \begin{itemize}
+        \item[1.] $c(Linda)$
+        \item[2.] $r(Linda)$
+        \item[3.] $\forall x\; (r(x) \rightarrow t(x))$
+    \end{itemize}
+    To conclude: $\exists x\; (c(x) \wedge t(x))$
+
+    \smallskip
+    \begin{tabular}{lll}
+        Step        & \hspace{0.2in} & Reason \\
+        1. $\forall x\; (r(x) \rightarrow t(x))$    &   & Hypothesis \\
+        2. $r(Linda) \rightarrow t(Linda)$          &   & Universal Instantiation \\
+        3. $r(Linda)$                               &   & Hypothesis \\
+        4. $t(Linda)$                               &   & Modus ponens using (2) and (3) \\
+        5. $c(Linda)$                               &   & Hypothesis \\
+        6. $c(Linda) \wedge t(Linda)$               &   & Conjunction with (4) and (5) \\
+        7. $\exists x\; (c(x) \wedge t(x))$         &   & Existential generalizaion \\
+    \end{tabular}
+
+    \medskip
+    \textbf{(c):} Let $s(x)$ be ``$x$ is a movie produced by Sayles", $c(x)$ be ``$x$ is a movie about coal miners", and $w(x)$ be ``movie $x$ is wonderful."  The premises are:
+    \begin{itemize}
+        \item[1.] $\forall x\; (s(x) \rightarrow w(x))$
+        \item[2.] $\exists x\; (s(x) \wedge c(x))$
+    \end{itemize}
+    The conclusion is: $\exists x\; (c(x) \wedge w(x))$
+
+    \smallskip
+    \begin{tabular}{lll}
+        Step        & \hspace{0.2in} & Reason \\
+        1. $\exists x\; (s(x) \wedge c(x))$  &   & Hypothesis \\
+        2. $s(y) \wedge c(y)$               &   & Exis. Inst. with (1) \\
+        3. $s(y)$                           &   & Simplification with (2) \\
+        4. $\forall x\; (s(x) \rightarrow w(x))$ &  & Hypothesis \\
+        5. $s(y) \rightarrow w(y)$          & & Univ. Inst. with (4) \\
+        6. $w(y)$                           & & Modus ponens with (3) and (5) \\
+        7. $c(y)$                           & & Simplification using (2) \\
+        8. $w(y) \wedge c(y)$               & & Conjunction with (6) and (7) \\
+        9. $\exists x\; (c(x) \wedge w(x))$ &   & Exis. generalization with (8) \\
+    \end{tabular}
+\end{quote}
+\end{solution}
+
+
+\question[8] Rosen Ch 1.5, \#16(a,c), p.73-4
+    \begin{solution}
+    \begin{my_item}
+        \item[(a)] Correct, using universal instantiation and modus tollens.
+        \item[(c)] Incorrect, the same as part b.
+    \end{my_item}
+    \end{solution}
+
+\question[8] Rosen Ch 1.5, \#24, p.74
+    \begin{solution}
+    The errors are in step 3, 5, and 7.  For steps 3 and 5, simplification
+    involves knowing the conjunction not the disjunction.
+    \end{solution}
+
+
+\end{questions}
+\end{document}

@@ -1,0 +1,223 @@
+\documentclass[12pt]{exam}
+% can include option [answers] to print out solutions, or command \printanswers
+%  can turn addpoint on and off with commands, \addpoints and \noaddpoints
+
+\usepackage{amsthm}
+\usepackage{amsmath, amssymb}
+
+\usepackage[normalmargins,normalsections,normalindent,normalleading]{savetrees}
+
+\newenvironment{my_parts}{
+\begin{parts}
+    \setlength{\itemsep}{1pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}
+}{\end{parts}}
+
+\newenvironment{my_item}{
+\begin{itemize}
+    \setlength{\itemsep}{1pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0.75in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Fall 2010}}{\textbf{HW 2 -
+Practice Problems}}{} \footrule \footer{}{Page \thepage\ of
+\numpages}{}
+
+\noindent \textbf{Instructions:} The following practice problems are
+not due and are not graded.  The solutions will be provided to allow
+for extra practice.
+
+
+\begin{questions}
+
+\printanswers
+
+\question Find a counterexample, if possible, to these statements,
+where the domain of discourse for all variables is the integers.
+    \begin{my_parts}
+        \part $\forall x\; \forall y\; (x^2 = y^2 \rightarrow x = y)$
+        \part $\forall x\; \exists y\; (y^2 = x)$
+        \part $\forall x\; \forall y\; (xy \geq x)$
+    \end{my_parts}
+    \begin{solution}
+    \begin{my_parts}
+        \part $x = 2$, $y= -2$
+        \part $x = -4$
+        \part $x = 17$, $y=-1$
+    \end{my_parts}
+    \end{solution}
+
+\question Rosen Ch 1.4, \#4(b,d,f), p. 58
+    \begin{solution}
+    \begin{my_item}
+        \item[(b)] $\exists x\; \forall y\; P(x,y)$ - ``There is a
+        student in your class who has taken every computer science
+        course at your school."
+        \item[(d)] $\exists y\; \forall x\; P(x,y)$ - ``There is a
+        computer science course at your school that has been taken
+        by at least one student in your class."
+        \item[(f)] $\forall x\; \forall y\; P(x,y)$ - ``Every
+        student in your class has taken every computer science
+        course at your school."
+    \end{my_item}
+    \end{solution}
+
+\question Rosen Ch 1.4, \#10(b,d,i), p. 59
+    \begin{solution}
+    \begin{my_item}
+        \item[(b)] $\forall x\; F(Evelyn, x)$
+        \item[(d)] $\neg \exists x\; \forall y\; F(x,y)$
+        \item[(i)] $\neg \exists x\; F(x,x)$ \\
+    \end{my_item}
+    \end{solution}
+
+\question Rosen Ch 1.4, \#25(a,b), p. 61
+    \begin{solution}
+    \begin{my_parts}
+        \part $\exists x\; \forall y \; (x \cdot y = y)$ - ``There is a
+        multiplicative identity for real numbers.  That is, there exists a
+        number $x$ that can be multiplied with all numbers $y$ such that $x
+        \cdot y = y$."
+        \part $\forall x\; \forall y\; (((x < 0) \wedge (y < 0))
+        \rightarrow (x \cdot y > 0))$ - ``The product of two negative real
+        numbers is always a positive real number."
+    \end{my_parts}
+    \end{solution}
+
+
+\question Rosen Ch 1.4, \#26(b,d,f), p. 61
+    \begin{solution}
+    \begin{my_item}
+        \item[(b)] True
+        \item[(d)] False, when $y=2$ rewrite the statement as $x + 2 = x - 2 \equiv x+4 = x$ where for no value of $x$ this statement holds.
+        \item[(f)] True, choose $y=0$.
+    \end{my_item}
+    \end{solution}
+
+
+\question Rosen Ch 1.4, \#28(a,c,e), p. 61
+    \begin{solution}
+    \begin{my_item}
+        \item[(a)] True
+        \item[(c)] True
+        \item[(e)] True
+    \end{my_item}
+    \end{solution}
+
+
+\question Rosen Ch 1.4, \#30(a,c,e), p. 61
+    \begin{solution}
+
+    \begin{tabular}{ll}
+        \multicolumn{2}{l}{(a) $\neg \exists y \exists x\; P(x,y)$} \\
+        \hspace{0.5in} & $\equiv \forall y\; \neg \exists x\; P(x,y)$ \\
+          & $\equiv \forall y\; \forall x\; \neg P(x,y)$ \\
+    \hline
+        \multicolumn{2}{l}{(c) $\neg \exists y (Q(y) \wedge \forall x \neg R(x,y))$} \\
+            & $\equiv \forall y \neg (Q(y) \wedge \forall x \neg R(x,y))$ \\
+            & $\equiv \forall y \neg Q(y) \vee \neg \forall x \neg R(x,y)$ \\
+            & $\equiv \forall y \neg Q(y) \vee \exists x \neg \neg R(x,y)$ \\
+            & $\equiv \forall y \neg Q(y) \vee \exists x R(x,y)$ \\
+    \hline
+        \multicolumn{2}{l}{(e) $\neg \exists y (\forall x \exists z T(x,y,z) \vee \exists x \forall z U(x,y,z))$} \\
+            & $\equiv \forall y \neg (\forall x \exists z T(x,y,z) \vee \exists x \forall z U(x,y,z))$ \\
+            & $\equiv \forall y (\neg \forall x \exists z T(x,y,z) \wedge \neg \exists x \forall z U(x,y,z))$ \\
+            & $\equiv \forall y (\exists x \neg \exists z T(x,y,z) \wedge \forall x \neg \forall z U(x,y,z))$ \\
+            & $\equiv \forall y (\exists x \forall z \neg T(x,y,z) \wedge \forall x \exists z \neg U(x,y,z))$ \\
+    \end{tabular}
+    \end{solution}
+
+
+\question Rosen Ch 1.5, \#10(e,f), p.73
+    \begin{solution}
+    \textbf{(e):} Let $h(x)$ be ``$x$ is healthy to eat", $t(x)$ be ``$x$ tastes good", $e(x)$ be ``You eat $x$".  Then the premises are:
+    \begin{itemize}
+        \item[1.] $\forall x\; (h(x) \rightarrow \neg t(x))$
+        \item[2.] $h(tofu)$
+        \item[3.] $\forall x\; (e(x) \rightarrow t(x))$
+        \item[4.] $\neg e(tofu)$
+        \item[5.] $\neg h(cheeseburger)$
+    \end{itemize}
+
+    \smallskip
+    We can apply universal generalization and modus ponens on statement 1 and statement 2.  The conclusion is $\neg t(tofu)$ which means ``tofu does not taste good."
+
+    From statement 3 and $\neg t(tofu)$, applying universal generalization and modus tollens, we draw the same conclusion $\neg e(tofu)$ as statement 4.
+
+    No conclusion can be drawn about cheeseburgers.
+
+    \medskip
+    \textbf{(f):} Let $d$ be ``I am dreaming", $h(x)$ be ``I am hallucinating", $e$ be ``I see elephants running down
+    the road."
+    \begin{itemize}
+        \item[1.] $d \vee h$
+        \item[2.] $\neg d$
+        \item[3.] $h \rightarrow e$
+    \end{itemize}
+
+    \smallskip
+    From statement 1 and 2, using disjunctive syllogism we can
+    conclude $h$. From this and statement 3, with modus ponens we
+    can conclude $e$, ``I see elephants running down the road."
+    \end{solution}
+
+
+\question Rosen Ch 1.5, \#14(b,d), p.73
+    \begin{solution}
+    \textbf{(b):} Let $r(x)$ be ``$x$ is one of the five roommates", $d(x)$ be ``$x$ has taken a course in discrete math", and $a(x)$ be ``$x$ can take a course in algorithms." The premises are:
+    \begin{itemize}
+        \item[1.] $\forall x\;(r(x) \rightarrow d(x))$
+        \item[2.] $\forall x\;(d(x) \rightarrow a(x))$
+    \end{itemize}
+    The conclusion is: $\forall x\;(r(x) \rightarrow a(x))$.  Let $y$ be an arbitrary person.
+
+    \smallskip
+    \begin{tabular}{lll}
+        Step        & \hspace{0.2in} & Reason \\
+        1. $\forall x\;(r(x) \rightarrow d(x))$     &   & Hypothesis \\
+        2. $r(y) \rightarrow d(y)$                  & & Univ. Inst. with (1) \\
+        3. $\forall x\; (d(x) \rightarrow a(x))$    &   & Hypothesis \\
+        4. $d(u) \rightarrow a(y)$                  &   & Univ. Inst. with (3) \\
+        5. $r(y) \rightarrow a(y)$                  &   & Hyp. syl. with (2) and (4) \\
+        6. $\forall x\;(r(x) \rightarrow a(x))$     &   & Univ. Generalization with (5) \\
+    \end{tabular}
+
+    \medskip
+    \textbf{(d):} Let $c(x)$ be ``$x$ is in this class", $f(x)$ be ``$x$ has been to France", $l(x)$ be ``$x$ has visited the Louvre." The premises are:
+    \begin{itemize}
+        \item[1.] $\exists x\;(c(x) \wedge f(x))$
+        \item[2.] $\forall x\;(f(x) \rightarrow l(x))$
+    \end{itemize}
+    The conclusion is: $\exists x\; (c(x) \wedge l(x))$
+    Let $y$ be an arbitrary person.
+
+    \smallskip
+    \begin{tabular}{lll}
+        Step        & \hspace{0.2in} & Reason \\
+        1. $\exists x\;(c(x) \wedge f(x))$      & & Hypothesis \\
+        2. $c(y) \wedge f(y)$                   & & Exis. Inst. \\
+        3. $f(y)$                               & & Simplification with (2) \\
+        4. $c(y)$                               & & Simplification with (2) \\
+        5. $\forall x\;(f(x) \rightarrow l(x))$ & & Hypothesis \\
+        6. $f(y) \rightarrow l(y)$              & & Univ. Inst. \\
+        7. $l(y)$                               & & Modus ponens using (3) and (6) \\
+        8. $c(y) \wedge l(y)$                   & & Conjuntion with (7) and (4) \\
+        9. $\exists x\; (c(x) \wedge l(x))$     & & Exis. Gen. \\
+    \end{tabular}
+    \end{solution}
+
+
+\question Rosen Ch 1.5, \#16(b,d), p.73-4
+    \begin{solution}
+    \begin{my_item}
+        \item[(b)] Incorrect, after applying universal instantiation it uses the fallacy of denying the hypothesis.
+        \item[(d)] Correct, using universal instantiation and modus ponens.
+    \end{my_item}
+    \end{solution}
+
+\end{questions}
+\end{document}

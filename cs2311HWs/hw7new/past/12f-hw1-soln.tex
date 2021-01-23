@@ -1,0 +1,337 @@
+\documentclass[12pt,addpoints]{exam}
+% can include option [answers] to print out solutions, or command \printanswers
+%  can turn addpoint on and off with commands, \addpoints and \noaddpoints
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage[top=0.75in,bottom=0.75in,left=0.9in,right=0.9in]{geometry}
+
+\setlength{\itemsep}{0pt} \setlength{\topsep}{0pt}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\xor}{\oplus}
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Fall 2012}}{\textbf{HW
+1 - \numpoints$\;$ points - Solutions}}{\textbf{Due: Wed. 9/12/12}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+%\noindent \textbf{Instructions:} All assignments are due \underline{by 5pm on %the due date} specified.  There will be a box in the CS department office where %assignments may be turned in.  Solutions will be handed out (or posted on-line) %shortly thereafter.  Every student
+% must write up their own solutions in their own manner.
+
+%\smallskip
+%\noindent Please follow the format in the book when asked to produce
+%truth tables (this will help in grading in order to avoid any
+%errors).
+
+%\smallskip
+%\noindent Please present your solutions in a clean, understandable
+%manner; pages should be stapled before class, no ragged edges of
+%paper.
+
+
+\begin{questions}
+\printanswers
+
+\question[4] Determine which of the statements are propositions? What are the truth values of those that are propositions?
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution}
+        \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+        topsep=0pt,partopsep=0pt]
+        	\item 8 is even. \hspace{1.6in} proposition, $T$
+        	\item $z - 5 > 2$. \hspace{1.55in} not a proposition, depends on $z$
+        	\item Who won the World Series? \hspace{0.27in} not a proposition, question
+        	\item 4 + 3 = 8. \hspace{1.5in} proposition, $F$
+        \end{enumerate}
+    \end{solution}
+
+
+\question[9] Rosen Ch 1.1, \#10 (a,b,c), p. 13 
+	\ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution}
+    	\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+    	topsep=0pt,partopsep=0pt]
+    		\item It is not the case that the election is decided. \textbf{OR} \\The election is not decided.
+    		\item The election is decided, or the votes have been counted.
+    		\item It is not the case that the election is decided and the votes have been counted. \textbf{OR} The election is not decided, and the votes have been counted.
+    	\end{enumerate}
+    \end{solution}
+
+
+\question[6] Rosen Ch 1.1 \#14 (b,e,f), p. 13-14
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution}
+    	(b) $p \wedge q \wedge r$ \hfill (e) $(p \wedge q) \ra r$ \hfill (f) $r \lra (q \vee p)$
+    \end{solution}
+%        \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%            \item[(b)] $p \wedge q \wedge r$
+%            \item[(e)] $(p \wedge q) \ra r$
+%            \item[(f)] $r \lra (q \vee p)$
+%        \end{itemize}
+    
+
+\question[9] Rosen Ch 1.1 \#22 (d,e,f), p. 14
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution}
+    	\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    		\item[(d)] If Willy cheats, then he gets caught.
+    		\item[(e)] If you access the website, then you must pay a subscription fee.
+    		\item[(f)] If you know the right people, then you will get elected.
+		\end{itemize}
+	\end{solution}
+	
+
+\question[4] Rosen Ch 1.1 \#26 (b,d), p. 15
+%            \item[(a)] You will get an A in this course if and only if you learn how to solve discrete mathematics problems.
+%            \item[(c)] It rains if and only if it is a weekend day.
+%        \end{itemize}
+%    \end{solution}
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution}
+        \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        	\item[(b)] You will be informed if and only if you read the newspaper every day. \textbf{OR} \\ You read the newspaper every day if and only if you will be informed.
+        	\item[(d)] You can see the wizard if and only if he is not in.
+        \end{itemize}
+    \end{solution}
+
+
+\question[6] Rosen Ch 1.1 \# 28 (a,c), p. 15
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution}
+        \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        	\item[(a)] Converse: If I stay home, then it will snow tonight. \\
+        		Contrapositive: If I do not stay at home, then it will not snow tonight. \\
+        		Inverse: If it does not snow tonight, then I will not stay home.
+        	\item[(c)] Converse: If I sleep until noon, then I stayed up late. \\
+        		Contrapositive: If I do not sleep until noon, then I did not stay up late. \\
+        		Inverse: If I don't stay up late, then I don't sleep until noon.
+        \end{itemize}
+    \end{solution}
+
+
+\question[2] Rosen Ch 1.1 \#30 (b,d), p. 15
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution} (b) 8;  (d) 32
+    \end{solution}
+
+
+
+\question[20]\label{tt} Construct a truth table for each compound proposition.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+    \footnotesize
+    \begin{center}
+    \begin{tabular}{ll}
+       (a) $p \lra \neg p$  & (b) $p \ra \neg p$ \\
+       (c) $(p \vee \neg q) \ra (p \wedge q)$ & (d) $ (p \lra \neg q) \xor (p \wedge \neg q)$ \\
+       (e) %$(p \vee q) \wedge r$  & (f) 
+       $(p \vee q) \wedge (\neg p \vee r) \wedge (q \vee \neg r)$
+    \end{tabular}
+    \end{center}
+    \normalsize
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution}
+    \footnotesize
+        \begin{tabular}{c|c||c}
+            \multicolumn{3}{l}{ (a) } \\
+            $p$ & $\neg p$ & $p \lra \neg p$ \\
+         \hline
+            T & F & F \\
+            F & T & F \\
+         \end{tabular} \hspace{1in}
+         \begin{tabular}{c|c||c}
+            \multicolumn{3}{l}{ (b) } \\
+            $p$ & $\neg p$ & $p \ra \neg p$ \\
+         \hline
+            T & F & F \\
+            F & T & T \\
+         \end{tabular}
+
+        \smallskip
+        \begin{tabular}{c|c|c||c|c|c}
+            \multicolumn{5}{l}{ (c) } & $(p \vee \neg q) \ra $ \\
+            $p$ & $q$ & $\neg q$ & $p \vee \neg q$ & $p \wedge q$ & $(p \wedge q)$ \\
+         \hline
+            T & T & F & T & T & T \\
+            T & F & T & T & F & F \\
+            F & T & F & F & F & T \\
+            F & F & T & T & F & F \\
+        \end{tabular} \hspace{0.5in}
+        \begin{tabular}{c|c|c||c|c|c|c} %$ (p \lra \neg q)\xor (p\wedge \neg q)$
+            \multicolumn{5}{l}{(d)} & $(p \lra \neg q) \xor$ \\
+            $p$ & $q$ & $\neg q$ & $p \lra \neg q$ & $p \wedge \neg q$ & $ (p \wedge \neg q)$ \\
+         \hline
+            T & T & F & F & F  & F \\
+            T & F & T & T & T  & F \\
+            F & T & F & T & F  & T \\
+            F & F & T & F & F  & F \\
+        \end{tabular}
+
+        \smallskip
+        % $(p \vee q) \wedge (\neg p \vee r) \wedge (q \vee \neg r$
+        \begin{tabular}{c|c|c|c|c||c|c|c|c}
+            \multicolumn{4}{l}{(e)} & \\
+            $p$ & $q$ & $r$ & $\neg p$ & $\neg r$ & $p \vee q$ & $\neg p \vee r$ & $q \vee \neg r$ & (e) \\
+         \hline
+            T & T & T & F & F & T & T & T & T \\
+            T & T & F & F & T & T & F & T & F \\
+            T & F & T & F & F & T & T & F & F \\
+            T & F & F & F & T & T & F & T & F \\
+          \hline
+            F & T & T & T & F & T & T & T & T \\
+            F & T & F & T & T & T & T & T & T \\
+            F & F & T & T & F & F & T & F & F \\
+            F & F & F & T & T & F & T & T & F
+         \end{tabular} \hspace{0.4in}
+    \end{solution}
+
+
+\question[3] List those expressions from problem \ref{tt} that are tautologies, contradictions, and contingencies?
+    \ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution}
+       Tautology: none;
+       Contradiction: (a);
+       Contingency: (b), (c), (d), (e)
+    \end{solution}
+
+
+\question[8] There are 16 possible truth tables for propositions of two variables $p$ and $q$.
+ All sixteen possibilities are given in the table below (numbered 15, 14, \ldots, 0).
+ For example, the proposition $p \vee q$ is 14. What are the numbers of the truth
+ tables for propositions:
+     \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{center}
+ \begin{tabular}{ll}
+    (a) $(p \wedge \neg q) \ra (\neg p \vee q)$ \quad &  (b) $p \vee (\neg q \wedge p)$ \\
+    (c) $p \oplus \neg q $ \quad \quad& (d) $(\neg p \ra q) \wedge (\neg q \vee p)$ \\
+ \end{tabular}
+
+ \footnotesize
+ \begin{tabular}{cc|cccc|cccc|cccc|cccc}
+    $p$ & $q$ & 15 & 14 & 13 & 12 & 11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1 & 0 \\
+    \hline
+    T & T & T & T & T & T & T & T & T & T & F & F & F & F & F & F & F & F \\
+    T & F & T & T & T & T & F & F & F & F & T & T & T & T & F & F & F & F \\
+    F & T & T & T & F & F & T & T & F & F & T & T & F & F & T & T & F & F \\
+    F & F & T & F & T & F & T & F & T & F & T & F & T & F & T & F & T & F \\
+ \end{tabular}
+ \end{center}
+ \normalsize
+     \ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution} (a) 11, (b) 12, (c) 9, (d) 12
+    \end{solution}
+
+
+
+\question[10] Prove the following statement is a tautology without using truth tables (use the logical equivalences from Table 6-8 of the book).  Justify each step with the law used.  Model the solutions in the style of Examples 6-8, pp. 29-30 of the book.
+\[ [ p \wedge (p \ra q) ] \ra q \]
+    \ifprintanswers
+        \vspace{-40pt}
+    \fi
+\begin{solution}  There are many possible solutions; two are given.
+\small
+	\begin{align*}
+	[p \wedge (p \ra q)] \ra q \\
+	 & \equiv \neg [p \wedge (\neg p \vee q)] \vee q \tag{Table7.1, x2} \\
+	 & \equiv [\neg p \vee \neg (\neg p \vee q)] \vee q \tag{DeMorgan's} \\
+	 & \equiv [\neg p \vee (\neg \neg p \wedge \neg q)] \vee q \tag{DeMorgan's} \\
+	 & \equiv [\neg p \vee (p \wedge \neg q)] \vee q \tag{Double Negation} \\
+	 & \equiv [(\neg p \vee p) \wedge (\neg p \vee \neg q)] \vee q \tag{Distributive} \\
+	 & \equiv [\mathbf{T} \wedge (\neg p \vee \neg q)] \vee q \tag{Negation} \\
+	 & \equiv [(\neg p \vee \neg q) \wedge \mathbf{T}] \vee q \tag{Commutative} \\
+	 & \equiv (\neg p \vee \neg q) \vee q \tag{Identity} \\
+	 & \equiv \neg p \vee (\neg q \vee q) \tag{Associative} \\
+	 & \equiv \neg p \vee \mathbf{T} \tag{Negation} \\
+	 & \equiv \mathbf{T} \tag{Domination}
+	 \end{align*}
+	\textbf{OR}
+	\begin{align*}
+	& [p \wedge (p \ra q)] \ra q  \\
+	& \equiv [p \wedge (\neg p \vee q)] \ra q \tag{Table 7, rule1} \\
+	& \equiv [(p \wedge \neg p) \vee (p \wedge q)] \ra q \tag{Distributive} \\
+	& \equiv [\mathbf{F} \vee (p \wedge q)] \ra q \tag{Negation} \\
+	& \equiv [(p \wedge q) \vee \mathbf{F}] \ra q \tag{Commutative} \\
+	& \equiv (p \wedge q) \ra q \tag{Identity} \\
+	& \equiv \neg (p \wedge q) \vee q \tag{Table 7, rule 1} \\
+	& \equiv (\neg p \vee \neg q) \vee q \tag{DeMorgan's} \\
+	& \equiv \neg p \vee (\neg q \vee q) \tag{Associative} \\
+	& \equiv \neg p \vee \mathbf{T} \tag{Negation} \\
+	& \equiv \mathbf{T} \tag{Domination}
+	\end{align*}
+\end{solution}
+
+
+\question[8] Prove the following logical equivalence using the
+equivalence laws from Table 6-8 (model the solutions in the style of
+book Examples 6-8, pp. 29-30).  Justify each step with laws.
+\[\neg [ r \vee (q \wedge (\neg r \ra \neg p))] \equiv \neg r \wedge (p \vee \neg q) \]
+    \ifprintanswers
+        \vspace{-30pt}
+    \fi
+    \begin{solution}
+    \begin{align*}
+      \neg [ r \vee (q & \wedge (\neg r \ra \neg p))] \equiv \neg r \wedge (p \vee \neg q) \\
+        & \equiv \neg [r \vee (q \wedge (p \ra r))] \tag{Table 7, rule 2} \\
+        & \equiv \neg [r \vee (q \wedge (\neg p \vee r))] \tag{Table 7, rule 1} \\
+        & \equiv \neg [r \vee (q \wedge \neg p) \vee (q \wedge r)] \tag{Distributive} \\
+        & \equiv \neg [r \vee (q \wedge r) \vee (q \wedge \neg p)] \tag{Commutative} \\
+        & \equiv \neg [r \vee (q \wedge \neg p)] \tag{Absorption} \\
+        & \equiv \neg [r \vee (\neg p \wedge q)] \tag{Commutative} \\
+        & \equiv \neg r \wedge \neg (\neg p \wedge q) \tag{DeMorgan's} \\
+        & \equiv \neg r \wedge (\neg \neg p \vee \neg q) \tag{DeMorgan's} \\
+        & \equiv \neg r \wedge (p \vee \neg q) \tag{Double Negation}
+    \end{align*}
+    \end{solution}
+    
+    
+\question[3] Express the following statement using only the connectives $\neg$ and $\wedge$:
+\[ p \ra (\neg q \wedge r) \]
+    \ifprintanswers
+        \vspace{-30pt}
+    \fi
+	\begin{solution}
+		\[p \ra (\neg q \wedge r) \equiv \neg p \vee (\neg q \wedge r) \equiv \neg (p \wedge \neg (\neg q \wedge r))\]
+	\end{solution}
+	
+
+
+\bonusquestion[2] Give a compound proposition with three variables $p$, $q$, and $r$ that is
+true when at most one of the three variables is true, and false otherwise.
+    \begin{solution}
+    \begin{align*}
+    (p \wedge \neg q \wedge \neg r) \vee (\neg p \wedge q \wedge \neg r)
+      \vee (\neg p \wedge \neg q \wedge r) \vee (\neg p \wedge \neg q \wedge \neg r) \\
+    \text{OR} \\
+    (p \wedge \neg q \wedge \neg r) \vee (\neg p \wedge q \wedge \neg r)
+      \vee (\neg p \wedge \neg q \wedge r) 
+    \end{align*}
+    \end{solution}
+\end{questions}
+\end{document}

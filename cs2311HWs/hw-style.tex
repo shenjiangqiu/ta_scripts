@@ -1,0 +1,73 @@
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{epsfig,graphicx}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[top=0.85in,bottom=0.85in,left=0.9in,right=0.9in]{geometry}
+\usepackage{xspace}
+\usepackage{tikz}
+\usetikzlibrary{topaths}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{trees}
+\usepackage{tkz-berge}
+\usepackage{venndiagram}
+\usepackage{adjustbox}
+\usepackage{hyperref}
+\usepackage{forest}
+\usepackage{soul}
+\usepackage{tcolorbox}
+\usepackage{tabto}
+
+
+\setstcolor{red}
+
+\setlength{\itemsep}{0pt} \setlength{\topsep}{0pt}
+\setlength{\itemsep}{0pt} \setlength{\topsep}{0pt}
+
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\xor}{\oplus}
+\newcommand{\es}{\emptyset}
+\newcommand{\s}{\subseteq}
+\newcommand{\pss}{\subset}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Zp}{\mathbb{Z}^+}
+\newcommand{\Zn}{\mathbb{Z}^-}
+\newcommand{\R}{\mathbb{R}}
+
+
+\newcommand{\gquestion}[3]{\ifprintanswers \question[#2] \textbf{Graded (#3)} \else \question[#1] \fi}
+\newcommand{\ugquestion}[1]{\ifprintanswers \question \textbf{Ungraded}\else \question[#1] \fi}
+\newcommand{\gquest}[2]{\ifprintanswers \question[#2] \textbf{Graded} \else \question[#1] \fi}
+
+\unframedsolutions
+\renewcommand{\solutiontitle}{\xspace}
+\SolutionEmphasis{\color{blue}}
+
+\newcommand{\ssol}[1]{\ifprintanswers \textbf{Soln.} {\textcolor{blue}{#1}}\xspace \fi}
+
+\newcommand{\csol}[1]{\ifprintanswers {\textcolor{blue}{#1}} \xspace \fi}
+\newcommand{\csoln}[1]{\textcolor{blue}{#1} \xspace}
+% Homework Specific Commands
+
+\newcommand{\emr}[1]{\textcolor{red}{#1}}
+
+\newcommand{\ds}{\displaystyle}
+
+\newcommand{\us}[2]{\underset{#1}{#2}}
+\newcommand{\uls}[1]{\underline{\;#1\;}}
+\newcommand{\nuls}[1]{\;\textcolor{OliveGreen}{#1}\;}
+
+\newcommand{\Sol}[1]{\textbf{#1}\xspace}
+\newcommand{\Solm}[1]{$\mathbf{#1}$\xspace}
+\newcommand{\Sole}[1]{\mathbf{#1}\xspace}
+
+\newcommand{\Ht}{\heartsuit}
+\newcommand{\D}{\diamondsuit}
+\newcommand{\C}{\clubsuit}
+\newcommand{\Sp}{\spadesuit}
+
+\TabPositions{1.2in,2in}

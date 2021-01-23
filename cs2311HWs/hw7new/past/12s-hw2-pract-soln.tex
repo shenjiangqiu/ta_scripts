@@ -1,0 +1,306 @@
+\documentclass[12pt,addpoints]{exam}
+% can include option [answers] to print out solutions, or command \printanswers
+%  can turn addpoint on and off with commands, \addpoints and \noaddpoints
+
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage[top=0.75in,bottom=0.75in,left=0.9in,right=0.9in]{geometry}
+
+\setlength{\itemsep}{0pt} \setlength{\topsep}{0pt}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\lra}{\leftrightarrow}
+\newcommand{\xor}{\oplus}
+
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{cs2311 - Spring 2012}}{\textbf{HW
+2 - Practice Problems Solutions}}{} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\noindent \textbf{Instructions:} The following practice problems are
+not due and are not graded.  The solutions will be provided to allow
+for extra practice.
+
+
+\begin{questions}
+\printanswers
+
+\question Rosen Ch 1.4 \#8 (b,c,d) p. 53
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%        \item[(a)] ``For every animal, if it is a rabbit then then that animal hops."  \\Or, ``Every rabbit hops."
+        \item[(b)] ``For every animal, it is a rabbit and it hops." \\Or, ``Every animal is a rabbit and hops."
+        \item[(c)] ``There exists an animal such that if it is a rabbit then it hops."
+        \item[(d)] ``There exists an animal that is a rabbit and it hops." \\Or, ``Some rabbits hop." \\Or, ``Some hopping animals are rabbits."
+    \end{itemize}
+\end{solution}
+
+
+\question Rosen Ch 1.4 \#10(a,c,d) p.53
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[(a)] $\exists x\; (C(x) \wedge D(x) \wedge F(x))$
+%        \item[(b)] $\forall x\; (C(x) \vee D(x) \vee F(x))$
+        \item[(c)] $\exists x\; (C(x) \wedge F(x) \wedge \neg D(x))$
+        \item[(d)] $\neg \exists x\; (C(x) \wedge D(x) \wedge F(x))$
+%        \item[(e)] $(\exists x\; C(x)) \wedge (\exists y\; D(y)) \wedge (\exists z\; F(z))$ \\Or, can use the same variable $(\exists x\; C(x)) \wedge (\exists x\; D(x)) \wedge (\exists x\; F(x))$
+    \end{itemize}
+\end{solution}
+
+
+\question Rosen Ch 1.4 \#12(a,c,f) p. 53
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[(a)] T, since $0 + 1 > 2\cdot 0$.
+%        \item[(b)] T, since $-1 + 1 > 2\cdot -1$.
+        \item[(c)] F, since $1 + 1 \ngtr 2\cdot 1$.
+%        \item[(d)] T, we know there is at least one $x$ that makes $Q(x)$ true.
+%        \item[(e)] F, we know there is at least one $x$ that makes $Q(x)$ false.
+        \item[(f)] T, we know there is at least one $x$ that makes $Q(x)$ false.
+%        \item[(g)] F, we know there is at least one $x$ that makes $Q(x)$ true.
+    \end{itemize}
+\end{solution}
+
+
+\question Rosen Ch 1.4 \#18(c,d,f) p. 53
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%        \item[(a)] $P(-2) \vee P(-1) \vee P(0) \vee P(1) \vee P(2)$
+%        \item[(b)] $P(-2) \wedge P(-1) \wedge P(0) \wedge P(1) \wedge P(2)$
+        \item[(c)] $\neg P(-2) \vee \neg P(-1) \vee \neg P(0) \vee \neg P(1) \vee \neg P(2)$
+        \item[(d)] $\neg P(-2) \wedge \neg P(-1) \wedge \neg P(0) \wedge \neg P(1) \wedge \neg P(2)$
+%        \item[(e)] $\neg (P(-2) \vee P(-1) \vee P(0) \vee P(1) \vee P(2))$
+        \item[(f)] $\neg (P(-2) \wedge P(-1) \wedge P(0) \wedge P(1) \wedge P(2))$
+    \end{itemize}
+\end{solution}
+
+
+\question Rosen Ch 1.4 \# 24(a,d,e), p. 54 \\
+Use the following predicates:
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item $C(x)$ be ``$x$ is in your class"
+    \item $P(x)$ be ``$x$ has a cell phone"
+    \item $M(x)$ be ``$x$ has seen a foreign movie"
+    \item $S(x)$ be ``$x$ can swim"
+\end{itemize}
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[(a)] Everyone in your class has a cell phone.
+        $$ \forall x\; P(x) \hspace{2in} \forall x\; (C(x) \ra P(x))$$
+%        \item[(b)] Somebody in your class has seen a foreign movie.
+%        $$ \exists x\; M(x) \hspace{2in} \exists x\; (C(x) \wedge F(x))$$
+%        \item[(c)] There is a person in your class who cannot swim.
+%        $$ \exists x\; \neg S(x) \hspace{2in} \exists x\; (C(x) \wedge \neg S(x))$$
+        \item[(d)] All students in your class can solve quadratic equations
+        $$ \forall x\; Q(x) \hspace{2in} \forall x\; (C(x) \ra Q(x))$$
+        \item[(e)] Some student in your class does not want to be rich.
+        $$ \exists x\; \neg R(x) \hspace{2in} \exists x\; (C(x) \wedge \neg R(x))$$
+    \end{itemize}
+\end{solution}
+
+
+\question Rosen Ch 1.4 \#28(c,d,e), p. 54 \\
+Use the following predicates:
+\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+    \item $C(x)$ be ``$x$ is in the correct place"
+    \item $T(x)$ be ``$x$ is a tool"
+    \item $E(x)$ be ``$x$ is in excellent condition"
+\end{itemize}
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%        \item[(a)] $\exists x\; \neg C(x) $
+%        \item[(b)] $\forall x\; (T(x) \ra (C(x) \wedge E(x))) $
+        \item[(c)] $\forall x\; (C(x) \wedge E(x)) $
+        \item[(d)] $\neg \exists x\; (C(x) \wedge E(x)) \equiv \forall x\; \neg (C(x) \wedge E(x)) \equiv \forall x\; (\neg C(x) \vee \neg E(x))$
+        \item[(e)] $\exists x\; (T(x) \wedge \neg C(x) \wedge E(x))$
+    \end{itemize}
+\end{solution}
+
+
+\question Rosen Ch 1.5 \#4(b,d,e), p. 64
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%        \item[(a)] There is a student in your class who has taken some computer science class at your school.
+       \item[(b)] There is a student in your class who has taken every computer science class at your school.
+%        \item[(c)] Every student in your class has taken a computer science class at your school.
+        \item[(d)] There is a computer science class at your school that every student in your class has taken.
+        \item[(e)] Every computer science class at your school has been taken by a student in your class.
+%        \item[(f)] Every student in your class has taken every computer science class at your school.
+    \end{itemize}
+\end{solution}
+
+
+\question Rosen Ch 1.5 \#10(c,f), p. 65
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%        \item[(a)] $\forall x\; F(x,Fred)$
+%        \item[(b)] $\forall y\; F(Evelyn, y)$
+        \item[(c)] $\forall x\; \exists y\; F(x,y)$
+%        \item[(d)] $\neg \exists x\; \forall y\; F(x,y)$
+%        \item[(e)] $ \forall y\; \exists x\; F(x,y)$
+        \item[(f)] $\neg \exists x\; (F(x, Fred) \wedge F(x,Jerry))$
+%        \item[(g)] $\exists x\; \exists y; (F(Nancy, x) \wedge F(Nancy, y) \wedge x \neq y \wedge \forall z\; (F(Nancy,z) \ra (x = z \vee y = z)))$
+%        \item[(h)] $\exists y\; (\forall x\; F(x,y) \wedge \forall z\; (\forall x\; F(x,z) \ra z = y))$
+%        \item[(i)] $\neg \exists x F(x,x)$
+%        \item[(j)] $\exists x\; \exists y\; (x \neq y \wedge F(x,y) \wedge \forall z\; ((F(x,z) \wedge z \neq x) \ra z = y))$
+    \end{itemize}
+\end{solution}
+
+
+\question[4] Rosen Ch 1.5 \#20(a,d), p. 67 \\
+Statements about whether a number $x$ is positive and negative can be made as $(x > 0)$ and $(x < 0)$ respectively and the absolute value of $x$ is $|x|$.  Use this notation throughout this problem.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[(a)] $\forall x\; \forall y\; (((x < 0) \wedge (y < 0)) \ra (xy > 0))$
+        \item[(d)] $\forall x\; \forall y\; (|x + y| \leq |x| + |y|)$
+    \end{itemize}
+\end{solution}
+
+
+\question Rosen Ch 1.5 \#25(a,b), p. 67
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[(a)] There exists a real number such that it can be added to any real number $y$ such that it equals $y$.
+        \item[(b)] For all real numbers, if $x$ is positive and $y$ is negative then the difference of $x$ and $y$ is positive.
+    \end{itemize}
+\end{solution}
+
+
+\question Rosen Ch 1.5 \#26(d,f,g), p. 67
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%        \item[(a)] F, since $1 + 1 \neq 1 - 1$.
+%        \item[(b)] T, since $2 + 0 = 2 - 0$.
+%        \item[(c)] F, since many values of $y$ for which $1 + y \neq 1-y$.
+        \item[(d)] F, since no solution to $x + 2 = x - 2$.
+%        \item[(e)] True, let $x = y = 0$.
+        \item[(f)] True, let $y=0$ for each $x$.
+        \item[(g)] True, let $y = 0$.
+%        \item[(h)] False, same as $d$.
+%        \item[(i)] False.
+    \end{itemize}
+\end{solution}
+
+
+\question Rosen Ch 1.5, \#30(a,c), p. 67
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+        \item[(a)]
+        \begin{align*}
+          \neg \exists y\; \exists x\; P(x,y) & \equiv \forall y\; \neg \exists x\; P(x,y) \\
+          & \equiv \forall y\; \forall x\; \neg P(x,y)
+        \end{align*}
+%        \item[(b)]
+%        \begin{align*}
+%          \neg \forall x\; \exists y\; P(x,y) & \equiv \exists x\; \neg \exists y\; P(x,y) \\
+%          & \equiv \exists x\; \forall y\; \neg P(x,y)
+%        \end{align*}
+        \item[(c)]
+        \vspace{-15pt}
+        \begin{align*}
+          \neg \exists y\; (Q(y) \wedge \forall x\; \neg R(x,y)) & \equiv \forall y\; \neg(Q(y) \wedge \forall x\; \neg R(x,y)) \\
+          & \equiv \forall y\; (\neg Q(y) \vee \neg \forall x\; \neg R(x,y)) \\
+          & \equiv \forall y\; (\neg Q(y) \vee \exists x\; \neg \neg R(x,y))\\
+          & \equiv \forall y\; (\neg Q(y) \vee \exists x\; R(x,y))
+        \end{align*}
+%        \item[(d)]
+%        \begin{align*}
+%          \neg \exists y\; (\exists x\; R(x,y) \vee \forall x\; S(x,y)) & \equiv \forall y\; \neg (\exists x\; R(x,y) \vee \forall x\; S(x,y)) \\
+%          & \equiv \forall y\; (\neg \exists x\; R(x,y) \wedge \neg \forall x\; S(x,y)) \\
+%          & \equiv \forall y\; (\forall x\; \neg R(x,y) \wedge \exists x\; \neg S(x,y))
+%        \end{align*}
+%        \item[(e)] \small
+%        \vspace{-15pt}
+%        \begin{align*}
+%          \neg \exists y\; (\forall x\; \exists z\; T(x,y,z) \vee \exists x\; \forall z\; U(x,y,z)) & \equiv \forall y\; \neg (\forall x; \exists z\; T(x,y,z) \vee \exists x\; \forall z\; U(x,y,z)) \\
+%          & \equiv \forall y\; (\neg \forall x; \exists z\; T(x,y,z) \wedge \neg \exists x\; \forall z\; U(x,y,z)) \\
+%          & \equiv \forall y\; (\exists x\; \neg \exists z\; T(x,y,z) \wedge \forall x\; \neg \forall z\; U(x,y,z)) \\
+%          & \equiv \forall y\; (\exists x\; \forall z\; \neg T(x,y,z) \wedge \forall x\; \exists z\; \neg U(x,y,z))
+%        \end{align*}
+        \end{itemize}
+\end{solution}
+
+
+\question Rosen Ch 1.6, \#10(e,f), p.79 
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+    \begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%        \item[(a)] Use modus tollens to conclude that ``I am not sore."  With this, you can use modus tollens again to conclude that ``I did not play hockey."
+%        \item[(b)] There is nothing to conclude here.
+        \item[(e)]  By Universal instantiation and modus ponens, ``Tofu does not taste good." The fourth hypothesis follows from the first three by modus tollens.  No conclusions can be drawn about cheeseburgers.
+        \item[(f)] The conclusion ``I am hallucinating," follows from the first two hypotheses using disjunctive syllogism.  Then, ``I see elephants running down the road," follows by modus ponens.
+    \end{itemize}
+\end{solution}
+    
+
+\question[10] Rosen Ch 1.6 \#6, p. 78.
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+\begin{solution}
+Let $r$ be the proposition ``It rains", let $f$ be ``It is foggy",
+    let $s$ be ``The sailing race will be held", let $l$ be ``The life
+    saving demonstration will go on", and let $t$ be ``The trophy will
+    be awarded".
+
+    Then, the premises are: $(\neg r \vee \neg f) \rightarrow (s \wedge l)$, $s \rightarrow t$, $\neg t$. \\
+    The conclusion we want is: $r$.
+
+    \begin{tabular}{lll}
+        Step    & \hspace{0.2in} & Reason \\
+        1. $\neg t$                 &       & Hypothesis \\
+        2. $s \rightarrow t$        &       & Hypothesis \\
+        3. $\neg s$                 &       & Modus tollens with (1) and (2) \\
+        4. $(\neg r \vee \neg f) \rightarrow (s \wedge l)$  &   & Hypothesis \\
+        5. $(\neg(s \wedge l)) \rightarrow \neg(\neg r \vee \neg f)$    & & Contrapositive \\
+        6. $(\neg s \vee \neg l) \rightarrow (\neg \neg r \wedge \neg \neg f)$ & & De Morgans law with (5) (x2) \\
+        7. $(\neg s \vee \neg l) \rightarrow (r \wedge f)$  & & Double negation with (6) (x2) \\
+        8. $\neg s \vee \neg l$     &       & Addition with (3) \\
+        9. $r \wedge f$             &       & Modus ponens with (7) and (8) \\
+        10. $r$                     &       & Simplification with (9)
+    \end{tabular}
+\end{solution}
+    
+\end{questions}
+\end{document}

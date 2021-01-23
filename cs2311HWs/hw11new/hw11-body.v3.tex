@@ -1,0 +1,555 @@
+\begin{document}
+\extrawidth{0.5in} \extrafootheight{-0in} \pagestyle{headandfoot}
+\headrule \header{\textbf{CS2311 - Spring 2020}}{\textbf{HW
+ 11 \ifprintanswers - Solutions \fi}}{\textbf{Due: Sun. 04/26/20}} \footrule \footer{}{Page \thepage\
+of \numpages}{}
+
+\ifprintanswers
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  Assignments should be typed and submitted as a PDF.  Every student must write up their own solutions in their own manner.
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a subset will be graded} (which will be graded is not known to you ahead of time). 
+\else
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.  Every student must write up their own solutions in their own manner.
+
+\noindent Please present your solutions in a clean, understandable manner.  Use
+the provided files that give mathematical notation in Word, Open Office, Google
+Docs, and \LaTeX. 
+
+\noindent Assignments should be typed and submitted as a PDF.   
+
+\noindent You should \underline{complete all problems}, but \underline{only a
+subset will be graded} (which will be graded is not known to you ahead of
+time).  
+\fi
+
+\begin{questions}
+
+\section*{Counting}
+
+
+
+\gquestion{6}{4}{a,c} How many different functions are there from a set with 4 elements to sets with the following numbers of elements: (a) 2? (b) 8? (c) How many different functions are there from a set with 8 elements to a set with 5 elements? 
+  \ifprintanswers
+    \vspace{-10pt}
+  \fi
+  \begin{solution}
+    % How many different functions are there from a set with 10
+    % elements to sets with the following numbers of elements?\\
+    The general solution to problems of this type is if a
+    function maps a finite set of $n$ elements to a finite
+    set of $m$ elements, then there are $m^n$ different
+    functions.
+    \begin{itemize}[itemsep=0pt, topsep=0pt]
+        \item[(a)] there are \Solm{2^{4} = 16} such functions
+        \item[(b)] there are \Solm{8^{4} = 4096} such functions
+        \item[(c)] \Solm{5^{8} = 390625} functions
+    \end{itemize}
+\end{solution}
+
+
+% \ugquestion{4} Rosen, Ch 6.1 \# 34(a,c), p. 397.
+%   \ifprintanswers
+%     \vspace{-10pt}
+%   \fi
+%     \begin{solution}
+%         How many different functions are there from a set with 10
+%         elements to sets with the following numbers of elements?\\
+%         The general solution to problems of this type is if a
+%         function maps a finite set of $n$ elements to a finite
+%         set of $m$ elements, then there are $m^n$ different
+%         functions.
+%         \begin{itemize}[itemsep=0pt, topsep=0pt]
+%             \item[(a)] 2, there are $\mathbf{2^{10}} = 1024$ such functions
+%             \item[(c)] 4, there are $\mathbf{4^{10}} = 1048576$ such functions.
+%         \end{itemize}
+%     \end{solution}
+
+
+
+\ugquestion{4} Every US coin is stamped with the year it was minted. 
+\begin{enumerate}[label=(\alph*), itemsep=0pt, topsep=0pt]
+  \item How many coins do you need to have in your pocket to be assured that at least two have the same last digit?
+    \begin{solution}
+      There are 10 possibilities for the last digit.  By generalized pigeonhole principle $ \left\lceil \frac{N}{10} \right\rceil = 2$, therefore \Solm{11} coins must be selected.
+    \end{solution}  
+  \item How many do you need to be assured that at least two have the same first digit?
+    \begin{solution}
+      There are 2 possibilities for the first digit (1 or 2).  By generalized pigeonhole principle $ \left\lceil \frac{N}{2} \right\rceil = 2$, therefore \Solm{3} coins must be selected.
+    \end{solution}
+\end{enumerate}
+
+
+
+\ugquestion{6} Consider a bowl with 10 red chips, 10 blue chips, 10 green chips, and 10 yellow chips.  
+\begin{parts}
+  \part How many chips must be selected to ensure that at least 3 chips have the same color?
+    \begin{solution}
+      By pigeonhole principle, $\lceil \frac{N}{4} \rceil \geq 3$.  The minimum value for $N$ is $\Sole{9}$.
+    \end{solution}
+  \part How many chips must be selected to ensure that at least 3 chips are green?
+    \begin{solution}
+      Worst case scenario, first select all blue, then all red, then yellow.  To ensure 3 green chips, then $3\cdot10 + 3 = 33$ chips must be selected.
+    \end{solution}
+\end{parts}
+
+
+
+\gquestion{4}{2}{a} The game TENZI comes with 40 six-sided dice.  (a) If you roll all 40 dice, show that there will be at least seven dice that land on the same number. (b) How many dice do you need to roll before you were guaranteed that four of them would all match or be all different? 
+  \ifprintanswers
+    \vspace{-10pt}
+  \fi
+  \begin{solution}
+    (a) Use pigeonhole principle.  Suppose each number only came up 6 or fewer times; there are at most six 1's, six 2's, etc. Then, there are a total of 36 dice, so all 40 dice must not have been rolled.  Consequently, if all 40 dice are rolled there will be at least seven dice that land on the same number.  $\ds \lceil \frac{40}{6} \rceil = \lceil 6.\bar{6} \rceil = \mathbf{7}$.
+
+    (b) When you roll \textbf{10 dice}, you will always get four matching or all being different. 
+  \end{solution}
+
+
+\ugquestion{3} Let $S = \{1, 3, 5, 7, 9, 11, 13, 15\}$. How many numbers must be selected from $S$ so that at least one pair add up to 16?
+    \ifprintanswers
+        \vspace{-10pt}
+    \fi
+    \begin{solution}
+    % How many numbers must be selected from the set
+    % $\{1, 3, 5, 7, 9, 11, 13, 15\}$ to guarantee that at least one
+    % pair of these numbers add up to 16? \\
+    Claim 5 numbers must be selected from the set
+    $\{1, 3, 5, 7, 9, 11, 13, 15\}$ to guarantee that at least one
+    pair of these numbers add up to 16. \\
+    %Show two things: (1) four numbers does not work and
+    % (2) any subset of five numbers does work.
+    From inspection, note that there are four possible pairs that add
+    up to 16, that is $\{1, 15\}$, $\{3, 13\}$, $\{5, 11\}$ and
+    $\{7, 9\}$.  If five numbers are selected then at least two
+    numbers must fall within one of the four subsets listed by
+    pigeonhole principle.  Therefore, when \textbf{5} numbers are selected
+    there must be a pair that adds up to 16.
+    \end{solution}
+
+
+
+% \ugquestion{3} How many ways are there to seat four of a group of 10 people around a circular table where two seatings are considered the same when everyone has the same immediate left and immediate right neighbor? 
+%   \ifprintanswers
+%     \vspace{-10pt}
+%   \fi 
+%   \begin{solution}
+%   There are $10\cdot 9 \cdot 8 \cdot 7$ different arrangements of the people.  However, these arrangements will double count seatings, therefore, there are $\Sole{ 5040 / 4 = 1260}$ seatings. 
+%   \end{solution}
+
+\gquestion{7}{3}{a} Seating arrangements:
+\begin{parts}
+  % supplemental problems, #36, p. 442
+  \part (3pts) How many ways are there to arrange 8 people at a round table?  Two arrangements are called the same if one can be obtained from another by rotation.
+  \ifprintanswers
+    \vspace{-5pt}
+  \fi
+  \begin{solution}
+  Assume the first person $A$ sits in the seat at the 12 o'clock position.  Then there are $P(7,7)$ ways to seat the remaining people, reading clockwise from the first person.
+  $\Sole{P(7,7) = 7! = 5040}$
+  \end{solution}
+
+  % supplemental problems, #44, p. 442
+  \part (4pts) How many ways are there to seat 6 CS majors and 8 ME majors in a row of chairs so that no two CS majors are seated next to each other.
+  \ifprintanswers
+    \vspace{-5pt}
+  \fi
+  \begin{solution}
+  First, consider the ME majors; there are $P(8,8) = 8!$ ways to order them.  There are 9 spaces between the ME majors in the arrangement (including the ends), where the CS majors can sit.  Choose the gaps where the CS majors will be placed, $P(9,6) = \frac{9!}{3!}$.  
+  In total, by product rules, there are $\Sole{ 8! \cdot \frac{9!}{3!} = 2,438,553,600} $ arrangements
+  \end{solution}
+\end{parts}
+
+
+
+\gquest{3}{3} Suppose a password is four characters long with the following restrictions.  It must contain exactly two instances of one symbol from the set $\{ @, \%, \#, \$ \}$, where these two identical characters can appear anywhere in the string.  The remaining characters are from the sets $\{a..z \}$  or $\{ 0..9 \}$.  Determine the number of possible passwords.
+  \ifprintanswers
+        \vspace{-10pt}
+    \fi
+    \begin{solution}
+      Choose position of symbols: @@\_\_ @\_@\_ @\_\_@ \_@@\_ \_@\_@ \_\_@@, 6 options \\
+      Choose other 2 characters: (26+10)*(26+10), 36 options \\
+      Replace @ with other symbols: \\
+        6*36*36 + 6*36*36 + 6*36*36 + 6*36*36 = $\Sole{4*6*36*36 = 31104}$
+    \end{solution}
+
+
+
+
+\gquestion{15}{6}{d,f-g} Consider strings of length 10 consisting of letters from the English alphabet (only uppercase letters will be used).  How many strings could be created 
+\begin{parts}
+  % (a)
+  \part (1 pt) if letters can be repeated?
+  \ifprintanswers
+        \vspace{-5pt}
+    \fi
+  \begin{solution}
+    26 choices at each of the 10 positions, $26\cdot 26\cdot 26 \ldots 26 = \Sole{26^{10} = 141,167,095,653,376}$
+  \end{solution}
+  % (b)
+  \part (1 pt) if letters can not be repeated?
+  \ifprintanswers
+        \vspace{-5pt}
+    \fi
+  \begin{solution}
+    26 choices for letter 1, 25 choices for letter 2, 24 for letter 3, etc. $26\cdot 25\cdot \ldots \cdot 17 = \ds \Sole{ \frac{26!}{16!} = P(26,10) = 19,275,223,968,000} $
+  \end{solution}
+  % (c) 
+  \part (1 pt) that start with $AA$, if letters can be repeated?
+  \ifprintanswers
+        \vspace{-5pt}
+    \fi
+  \begin{solution}
+    $\nuls{A} \nuls{A} \uls{26} \cdot \uls{26} \cdot \uls{26} \cdot \uls{26} 
+      \cdot \uls{26} \cdot \uls{26} \cdot \uls{26} \cdot \uls{26} = \Sole{  26^8 = 208,827,064,576}$
+  \end{solution}
+  % (d)
+  \part (2 pt) that start with $AA$, if no other letters can be repeated?
+  \ifprintanswers
+        \vspace{-5pt}
+    \fi
+  \begin{solution}
+    $\nuls{A} \nuls{A} \uls{25} \cdot \uls{24} \cdot \uls{23} \cdot \uls{22} 
+      \cdot \uls{21} \cdot \uls{20} \cdot \uls{19} \cdot \uls{18} = \Sole{ \ds \frac{25!}{17!} = P(25,8) = 43,609,104,000}$
+  \end{solution}
+  % (e)
+  \part (2 pt) that start and end with $AB$, if letters can be repeated?
+  \ifprintanswers
+        \vspace{-5pt}
+    \fi
+  \begin{solution}
+    $ \nuls{A} \nuls{B} \uls{26} \cdot \uls{26} \cdot \uls{26} \cdot \uls{26} 
+      \cdot \uls{26} \cdot \uls{26} \nuls{A} \uls{B} = 
+      \Sole{26^6  = 308,915,776}$
+  \end{solution}
+  % (f)
+  \part (2 pt) that start or end with $ABC$, if letters can be repeated?
+  \ifprintanswers
+        \vspace{-5pt}
+    \fi
+  \begin{solution}
+    Start with ABC: $\nuls{A} \nuls{B} \nuls{C} \uls{26} \cdot \uls{26} \cdot
+      \uls{26} \cdot \uls{26} \cdot \uls{26} \cdot \uls{26} \cdot \uls{26} = 26^7$ \\[2pt]
+    End with ABC: $\uls{26} \cdot \uls{26} \cdot \uls{26} \cdot \uls{26} \cdot \uls{26} \cdot
+      \uls{26} \cdot \uls{26} \nuls{A} \nuls{B} \nuls{C} = 26^7$ \\[2pt]
+    Start and end with ABC: $\nuls{A} \nuls{B} \nuls{C} \uls{26} \cdot \uls{26} \cdot 
+      \uls{26} \cdot \uls{26} \nuls{A} \nuls{B} \nuls{C} = 26^4$ \\[4pt]
+    Total: $\Sole{ 26^7 + 26^7 - 26^4 = 16,063,163,376 }$
+  \end{solution}
+  % (g)
+  \part (2 pt) that contain the letter $A$? (\textit{Hint: use strategy of complements})
+  \ifprintanswers
+        \vspace{-5pt}
+    \fi
+    \begin{solution}
+      All strings - those that do not contain the letter $A$ \\
+      $\Sole{ 26^{10} - 25^{10} = 45,799,664,012,751}$
+    \end{solution}
+  % (h)
+  \part (2 pt) that contain the letters $Y$ and $Z$?
+    \ifprintanswers
+        \vspace{-5pt}
+    \fi
+    \begin{solution}
+      $25^{10}$ do not contain $Y$, $25^{10}$ do not contain $Z$,  $24^{10}$ do not contain $Y$ and $Z$. \\
+      $ \Sole{ 26^{10} - (25^{10} + 25^{10} - 24^{10}) = 13,835,613,337,502 }$
+    \end{solution}
+  % (i) 
+  \part (2 pt) that contain $B$ and $C$ in consecutive positions as $BC$, with no repetition of letters?
+    \ifprintanswers
+        \vspace{-5pt}
+    \fi
+    \begin{solution}
+      Choose a position for $B$ - there are 9 such positions (1-9), $C$ must follow it directly. 
+      The remaining positions can be filled in $P(24,8)$ ways, there total strings are:
+      $ \Sole{9 \cdot P(24,8)} $ 
+
+      $\Sole{ = 9\cdot \frac{24!}{16!} = 266,887,716,480 }$
+    \end{solution}
+\end{parts}
+
+
+
+\gquestion{6}{4}{a,b} How many bit strings of length 8 have
+\begin{parts}
+  \part (2 pt) exactly 3 zeros? 
+  \ifprintanswers
+        \vspace{-5pt}
+    \fi
+    \begin{solution}
+      \[\Sole{ C(8,3) =  \binom{8}{3} = \frac{8!}{3!5!} = 56 } \]
+    \end{solution}
+
+    \part (2 pt) at least three 1s?
+    \ifprintanswers
+        \vspace{-5pt}
+    \fi
+    \begin{solution}
+      \[ \Sole{ 2^8 - \left[ \binom{8}{0} + \binom{8}{1} + \binom{8}{2} \right]  = 219} \]
+    \end{solution}
+
+    \part (2 pt) at least 6 1s?
+    \ifprintanswers
+        \vspace{-5pt}
+    \fi
+    \begin{solution}
+      \[ \Sole{ \binom{8}{6} + \binom{8}{7} + \binom{8}{8} = 37} \]
+    \end{solution}
+\end{parts}
+
+
+
+\gquestion{8}{5}{a,c} Consider the standard deck of 52 playing cards. \\
+How many 5-card hands 
+% \begin{enumerate}[label=(\alph*),itemsep=0pt,topsep=0pt]
+%   \item 
+% \end{enumerate}
+\begin{parts}
+  \part (2 pt) contain exactly one ace? 
+  \begin{solution}
+    $\ds \Sole{ \binom{4}{1}\binom{48}{4} = 778,320 } $
+  \end{solution}
+  \part (3 pt) contain at least one ace?
+  \begin{solution}
+    $\ds \Sole{ \binom{4}{1}\binom{48}{4} + \binom{4}{2}\binom{48}{3} 
+      + \binom{4}{3}\binom{48}{2} + \binom{4}{4}\binom{48}{1} = 886656 }  $
+  \end{solution}
+  \part (3 pt) contain 4 cards of the same value?
+  \begin{solution}
+    $\ds \Sole{ \binom{13}{1}\binom{48}{1} = 624 } $
+  \end{solution}
+\end{parts}
+
+
+\gquestion{11}{11}{a-d}  A bowl contains Skittles with at least 100 of each color: red, purple, orange, yellow and green. Consider Skittles of the same color to be identical. 
+\begin{parts}
+  \part (2pts) How many different handfuls of candies can be formed containing 16 Skittles. 
+  \ifprintanswers
+    \vspace{-5pt}
+  \fi
+  \begin{solution}
+  This is a multisubsets or resource allocation problem, where the number of each color of candy sums to the total selected, 16.
+  $\quad \quad {\color{purple} p} + {\color{green} g} + 
+    {\color{orange} o} + {\color{yellow} y} + {\color{red} r} = 16 $
+
+  $\Sole{ \ds \left( \binom{5}{16} \right) = \binom{5 + 16 - 1}{5-1} = \binom{20}{4}  = \frac{20!}{4!\,16!} = 4845 }$
+  \end{solution}
+
+  \part (3pts) How many different handfuls of candies can be formed containing 20 Skittles that have at least 1 of each color. 
+  \ifprintanswers
+    \vspace{-5pt}
+  \fi
+  \begin{solution}
+  The restriction means that you immediately select one of each color, leaving 20-5 = 15 remaining choices.
+  $ p + g + o + y + r = 15$
+
+  $ \Sole{ \ds \left( \binom{5}{15} \right) = \binom{5 + 15 - 1}{5 - 1} = \binom{19}{4} = \frac{19!}{4!\,15!}  = 3876} $
+  \end{solution}
+
+  \part (3pts) How many different handfuls of candies can be formed containing 20 Skittles with exactly 3 red candies and at least 4 purple candies.
+  \ifprintanswers
+    \vspace{-5pt}
+  \fi
+  \begin{solution}
+  Change the equation to be solved.  Exactly 3 red candies are needed, so select those first, 20 - 3 = 17 other selections remain.  \\
+  There, has to be at least 4 purple candies, so 4 additional selections are made leaving, 17 - 4 = 13 choices $p + g + o + y = 13$.
+
+  Solve with multisubsets: $ \Sole{ \ds \left( \binom{4}{13} \right) = \binom{4 + 13 -1}{4-1} = \binom{16}{3} = \frac{16!}{3!\,13!} = 560 } $
+  \end{solution}
+
+  \part (3pts) How many different handfuls of 20 Skittles can be formed with no more than 4 yellow candies?
+  \ifprintanswers
+    \vspace{-5pt}
+  \fi
+  \begin{solution}
+  First, find the number of ways to choose with at least 5 yellow candies: solve: $p + g + o + y + r = 20-5 = 15$
+  $ \left( \binom{5}{15} \right) = \binom{5+15-1}{5-1} = \binom{19}{4}  $
+
+  The number of ways to select candies with no restriction is: $ \left( \binom{5}{20} \right) = \binom{5 + 20 -1}{5-1} = \binom{24}{4} $
+
+  The number of different handfuls with no more than 5 yellow: $\ds \Sole{ \binom{24}{4} - \binom{19}{4}  = 6750}$
+  \end{solution}
+
+  \bonuspart[2] How many different handfuls of 16 Skittles have at least 2 red, purple, and green candy, at least 3 yellow candies, and no more than 2 orange candies. 
+  \ifprintanswers
+    \vspace{-5pt}
+  \fi
+  \begin{solution}
+  First, consider the lower bound restrictions.  The required candies are 2 + 2 + 2 + 3 = 9.  Therefore, there are 5 left to be selected.  With no restrictions there are $\binom{5 + 5 -1}{5-1} = \binom{9}{4}$ ways to select the candy. 
+
+  Consider the restriction on orange candy, select at least 3 orange candy: 
+  $\left( \binom{5}{2}  \right) = \binom{5 + 2 - 1}{5-1} = \binom{6}{4}$.
+
+  Therefore, the number of different selections is: $\ds \Sole{ \binom{9}{4} - \binom{6}{4} = 111 } $
+  \end{solution}
+\end{parts}
+
+
+\gquestion{4}{2}{b} Consider the following words:
+\begin{parts}
+  \part (2 pt) How many ways are there to arrange the letters in the word: ``prosopopopeia'' (a figure of speech in which an imaginary or absent person is speaking or acting).
+  \ifprintanswers
+    \vspace{-5pt}
+  \fi
+  \begin{solution}
+  There are 13 letters, (4-p, 1-r, 4-o, 1-s, 1-e, 1-i, 1-a).  \\
+  Permutation with indistinguishable objects: 
+
+  $\ds \Sole{
+  \binom{13}{4} \binom{9}{4} \binom{5}{1} \binom{4}{1} \binom{3}{1} \binom{2}{1} \binom{1}{1} =  \frac{13!}{4! 4! 1! 1! 1! 1! 1! } }$ $\Sole{= 10810800}$
+  \end{solution}
+
+  % \part (2 pt) How many ways are there to arrange the letters in the word: ``schusssicher'' (german word meaning bullet proof).
+  % \ifprintanswers
+  %   \vspace{-5pt}
+  % \fi
+  % \begin{solution}
+  % There are 12 letters (4-s, 2-c, 2-h, 1-u, 1-i, 1-e, 1-r). \\
+  % Permutation with indistinguishable objects: $\Sole{ \frac{12!}{4! 2! 2! 1! 1! 1! 1!} }$
+  % \end{solution}
+
+  \part (2 pt) How many ways are there to arrange the letters in the word: ``kartoffelpuffer" (german for potato pancakes or hash brown). 
+  \ifprintanswers
+        \vspace{-5pt}
+    \fi
+    \begin{solution}
+    There are 15 letters total (k-1, a-1, r-2, t-1, o-1, f-4, e-2, l-1, p-1, u-1).  %Permutation with indistinguishible objects: 
+
+    $\ds \binom{15}{4} \binom{11}{2} \binom{9}{2} \binom{8}{1} \binom{7}{1} \binom{6}{1} \binom{5}{1} \binom{4}{1} \binom{3}{1} \binom{2}{1} \binom{1}{1} = 
+    \Sole{ \frac{15!}{4!2!2!1!1!1!1!1!1!1!} } = 1.0897 \times 10^{11}$
+    \end{solution}
+
+
+  \bonuspart[2] For the word, ``seeress'', how many strings with 5 or more characters can be formed?
+  \ifprintanswers
+    \vspace{-5pt}
+  \fi
+  \begin{solution}
+  First compute the strings of length 7:  $\frac{7!}{3!3!1!} = 140$ \\
+  For strings of length 6, there are three options: \\
+    - omit the R :  $\frac{6!}{3!3!} = 20$ \\
+    - omit an E:  $\frac{6!}{3!2!1!} = 60$ \\
+    - omit an S:  $\frac{6!}{3!2!1!} = 60 $ \\
+    Total = 140 \\[2pt]
+  For strings of length 5, there are   options: \\
+   - omit two Es: $\frac{5!}{3!1!1!} = 20$ \\
+   - omit two Ss: $\frac{5!}{3!1!1!} = 20$ \\
+   - omit one E and one S: $\frac{5!}{2!2!1!} = 30$ \\
+   - omit one R and one E: $\frac{5!}{3!2!} = 10 $ \\
+   - omit one R and one S: $\frac{5!}{3!2!} = 10 $ \\
+   Total = 90 \\
+   All together there are $\Sole{ 140 + 140 + 90 = 370}$ strings.
+
+  \end{solution}
+\end{parts}
+
+
+
+\section*{Bonus Questions} 
+
+
+\bonusquestion[10] Powerball Example \\
+Consider a lottery game, SuperDuperBall, that is similar to Powerball or MegaMillions.
+The format is to draw five white balls from a set of balls labeled from 1 to 60
+ and pick a sixth green (superduperball) from a set of balls labeled 1 to 45.  To win the
+jackpot, the first five numbers must match the number of the white
+balls (in any order), and the sixth number must match the green
+superduperball.  Consider a number of different counting problems.
+\begin{parts}
+  \part (1 pt) What are the number of ways to select a single white or single green ball. 
+  \ifprintanswers
+        \vspace{-5pt}
+    \fi
+    \begin{solution}
+      Use sum rule: $\Sole{60 + 45 = 105}$.
+    \end{solution}
+
+    \part (1 pt) The white and green balls are in separate containers.  What are the number of ways to select both a single white or single green ball. 
+    \ifprintanswers
+        \vspace{-5pt}
+    \fi
+    \begin{solution}
+      Use product rule: $\Sole{ 60 * 45 = 2,700}$
+    \end{solution}
+
+    \part (2 pts) Consider selecting the 5 white balls from the single container, where the order the balls appears does not matter.  What are the number of ways 5 white balls can be selected?
+    \ifprintanswers
+        \vspace{-5pt}
+    \fi
+    \begin{solution}
+      $\ds \Sole{ C(60,5) = \binom{60}{5} = \frac{60!}{5!55!} = 5461512 }$
+    \end{solution}
+
+    \part (2 pts) The 5 white balls continue to be selected from a single container, now the green ball is also selected from its own container.  To win a player must match the white balls (order does not matter) and the green superduperball.  Determine the number of different patterns that could win?
+    \ifprintanswers
+        \vspace{-5pt}
+    \fi
+    \begin{solution}
+      $ \ds \Sole{ C(60,5) * C(45,1) = \binom{60}{5} \binom{45}{1} = 245768040 } $
+    \end{solution}
+
+    \part (2 pts) Now consider that order does mater for the white balls.  What is the number of ways to select the white balls only?
+    \ifprintanswers
+        \vspace{-5pt}
+    \fi
+    \begin{solution}
+      $ \ds \Sole{ P(60,5) = \frac{60!}{55!} = 655381440 }$
+    \end{solution}
+
+   \part (2 pts) For the Superduperball lottery all 5 white balls must match (order matters) and the green superduperball is selected last. How many ways are there to select numbers for a ticket?
+   \ifprintanswers
+        \vspace{-15pt}
+    \fi
+    \begin{solution}
+      $ \ds \Sole{ P(60,5) * C(45,1) = \frac{60!}{55!} * 45 = 29492164800 }$
+    \end{solution}
+\end{parts}
+
+
+
+\bonusquestion[6] Consider the card game Euchre.  Euchre is a trick game involving 4 players and a 24 card deck (the 9, 10, J, Q, K, and A of each suit).  You do not need to understand how the card game is played to answer the following questions, you will just use information about the cards to include and count in a hand. Let's ignore the bidding process, and consider that a suit of cards is selected to be trump. The order of precedence in the trump cards of Euchre are: \\
+  \[ \text{Jack of Trump Suit}, \quad \text{Jack of same color as Trump Suit}, \quad \text{Ace}, \quad \text{King}, \quad \text{Queen}, \quad 10, \quad 9  \]
+  where the Jack of the trump suit is known as the Right Bower and the Jack of the same color as trump suit is known as the Left Bower. \\
+  For instance, if trump is hearts, then the set of cards considered ``trump" ordered from highest to lowest trump is 
+    \[ J\Ht, J\D, A\Ht, K\Ht, Q\Ht, 10\Ht, 9\Ht. \]
+
+  \begin{parts}
+      \part (1 pts) How many different 5-card hands are possible in Euchre?
+      \ifprintanswers
+          \vspace{-5pt}
+      \fi
+      \begin{solution}
+        $ \ds \Sole{ C(24,5) = \binom{24}{5} = 42,504 } $
+      \end{solution}
+
+      \part (1 pts) Suppose hearts are trump, how many different hands can be selected with each card being a trump card?
+      \ifprintanswers
+          \vspace{-5pt}
+      \fi
+      \begin{solution}
+        $\ds \Sole{ C(7,5) = \binom{7}{5} =  21 } $
+      \end{solution}
+
+      \part (2 pts) When a player has the Right and Left Bower and the Ace of the trump suit, they are guaranteed to win the trick.  Suppose diamonds are trump, how many hands have this property?
+      \ifprintanswers
+          \vspace{-5pt}
+      \fi
+      \begin{solution}
+        The hand must contain $J\D$, $J\Ht$, and $A\D$, there are 21 remaining cards to select from: \\
+        $\ds  \Sole{ C(21,2) = \binom{21}{2} = 210 } $
+      \end{solution}
+
+      \part (2 pts) A farmer's hand refers to a hand with no face-cards or aces (that is, only 9s and 10s).  How many ways may a farmer's hand be dealt?
+      \ifprintanswers
+          \vspace{-5pt}
+      \fi
+      \begin{solution}
+        only choose 9s and 10s of which there are 8. \\
+        $ \ds \Sole{ C(8,5) = \binom{8}{5} = \frac{8!}{5!3!} = 56 } $
+      \end{solution}
+    \end{parts}
+
+
+
+\end{questions}
+\end{document}
