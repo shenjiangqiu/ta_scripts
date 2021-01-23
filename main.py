@@ -56,9 +56,8 @@ manner.  Use the provided files that give mathematical notation in Word, Open Of
 subset will be graded} (which will be graded is not known to you ahead of
 time). 
 \fi''')
-    txt, num = re.subn(r'\\ifprintanswers\n(.*\n)*\\fi', new_context, txt, flags=re.M)
-    assert num > 0
-    print("num=", num)
+    txt = re.sub(r'\\ifprintanswers\n(.*\n)*\\fi', new_context, txt, flags=re.M)
+    print(txt)
     # txt = re.sub(r"Due: ...\. \d{2}/\d{2}/\d{4}", r"Due: \*\*\*\. \*\*/\*\*/2021")
     return txt
 
@@ -139,7 +138,7 @@ if __name__ == '__main__':
 
         new_file = "cs2311HWs/{}/{}".format(new_names[i], body_file_name)
         old_txt = change_date(old_txt)
-        old_txt + change_description(old_txt)
+        old_txt = change_description(old_txt)
         # print(old_txt)
 
         atxtfile = open(atxt_names[i]).read()
