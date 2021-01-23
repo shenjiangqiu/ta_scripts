@@ -4,38 +4,358 @@
  2  \ifprintanswers - Solutions \fi}}{\textbf{Due: ***. **/**/21}} \footrule \footer{}{Page \thepage\
 of \numpages}{}
 
+\ifprintanswers
+\noindent \textbf{Instructions:} All assignments are due \underline{by
+\textbf{midnight} on the due date} specified.  Assignments should be typed or
+scanned and submitted as a PDF in Canvas.
 
-\ifprintanswers\
-\noindent\ \textbf\{Instructions:\}\ All\ assignments\ are\ due\ \underline\{by\
-\textbf\{midnight\}\ on\ the\ due\ date\}\ specified\.\ \ Assignments\ should\ be\ typed\ or\
-scanned\ and\ submitted\ as\ a\ PDF\ in\ Canvas\.\ \ \ \
-\
-\medskip\
-\noindent\ Every\ student\ or\ student\ group\ must\ write\ up\ their\ own\ solutions\ in\
-their\ own\ manner\.\
-\
-\medskip\
-\noindent\ You\ should\ \underline\{complete\ all\ problems\},\ but\ \underline\{only\ a\
-subset\ will\ be\ graded\}\ \(which\ will\ be\ graded\ is\ not\ known\ to\ you\ ahead\ of\
-time\)\.\ \
-\else\
-\noindent\ \textbf\{Instructions:\}\ All\ assignments\ are\ due\ \underline\{by\ \textbf\{midnight\}\ on\ the\ due\ date\}\ specified\.\ \ \
-\
-\medskip\
-\noindent\ Every\ student\ or\ student\ group\ \ must\ write\ up\ their\ own\ solutions\ in\
-their\ own\ manner\.\
-\
-\medskip\
-\noindent\ Please\ present\ your\ solutions\ in\ a\ clean,\ understandable\
-manner\.\ \ Use\ the\ provided\ files\ that\ give\ mathematical\ notation\ in\ Word,\ Open\ Office,\ Google\ Docs,\ and\ \LaTeX\.\ \
-\
-\medskip\
-\noindent\ Assignments\ should\ be\ typed\ or\ scanned\ and\ submitted\ as\ a\ PDF\.\ \ \ \
-\
-\medskip\
-\noindent\ You\ should\ \underline\{complete\ all\ problems\},\ but\ \underline\{only\ a\
-subset\ will\ be\ graded\}\ \(which\ will\ be\ graded\ is\ not\ known\ to\ you\ ahead\ of\
-time\)\.\ \
+\medskip
+\noindent Every student or student group must write up their own solutions in
+their own manner.
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a
+subset will be graded} (which will be graded is not known to you ahead of
+time).
+\else
+\noindent \textbf{Instructions:} All assignments are due \underline{by \textbf{midnight} on the due date} specified.
+
+\medskip
+\noindent Every student or student group  must write up their own solutions in
+their own manner.
+
+\medskip
+\noindent Please present your solutions in a clean, understandable
+manner.  Use the provided files that give mathematical notation in Word, Open Office, Google Docs, and \LaTeX.
+
+\medskip
+\noindent Assignments should be typed or scanned and submitted as a PDF.
+
+\medskip
+\noindent You should \underline{complete all problems}, but \underline{only a
+subset will be graded} (which will be graded is not known to you ahead of
+time).
+\fi
+
+\begin{questions}
+
+
+\section*{Sets}
+
+% Venn Diagrams 
+% http://mirror.hmc.edu/ctan/macros/latex/contrib/venndiagram/venndiagram.pdf
+
+\ugquestion{3} For each of the following sets, shade the corresponding region of the Venn diagram.
+\ifprintanswers
+    \vspace{-15pt}
+\else
+\begin{tabular}{ccc}
+	\begin{venndiagram2sets}
+	\end{venndiagram2sets}
+	& 
+	\begin{venndiagram2sets}
+	\end{venndiagram2sets}
+	&
+	\begin{venndiagram2sets}
+	\end{venndiagram2sets}
+	\\
+	(a) $\bar{A}$ & 
+	(b) $A \cap \bar{B}$ or $A - B$ &
+	(c) $\overline{(A \cup B)}$
+\end{tabular}
+\fi
+	\begin{EnvFullwidth}
+	\begin{solution}
+
+		\begin{tabular}{ccc}
+			\begin{venndiagram2sets}
+				\fillNotA
+			\end{venndiagram2sets}
+			& 
+			\begin{venndiagram2sets}
+				\fillANotB
+			\end{venndiagram2sets}
+			&
+			\begin{venndiagram2sets}
+				\fillNotAorB
+			\end{venndiagram2sets}
+			\\
+			(a) $\bar{A}$ & 
+			(b) $A \cap \bar{B}$ or $A - B$ &
+			(c) $\overline{(A \cup B)}$
+		\end{tabular}
+	\end{solution}
+	\end{EnvFullwidth}
+
+
+
+
+\gquestion{6}{4}{a,b} For each of the following sets, shade the corresponding region of the Venn diagram.
+\ifprintanswers
+    \vspace{-15pt}
+\else
+\begin{tabular}{ccc}
+	\begin{venndiagram3sets}
+	\end{venndiagram3sets}
+	& 
+	\begin{venndiagram3sets}
+	\end{venndiagram3sets}
+	& 
+	\begin{venndiagram3sets}
+	\end{venndiagram3sets}  
+	\\
+	(a) $(A \cap B) - C$ & 
+	(b) $(C - B) \cup (B - C)$ & 
+	(c) $(A - C) \cup ((B \cap C) - A)$ \\  
+\end{tabular}
+\fi
+	\begin{EnvFullwidth}
+	\begin{solution}
+	\begin{tabular}{ccc}
+		\begin{venndiagram3sets}
+			\fillACapBNotC
+		\end{venndiagram3sets}
+		& 
+		\begin{venndiagram3sets}
+			\fillCNotB \fillBNotC 
+		\end{venndiagram3sets} 
+		& 
+		\begin{venndiagram3sets}
+			\fillBCapCNotA \fillANotC
+		\end{venndiagram3sets} 
+		\\
+		(a) $(A \cap B) - C$ & 
+        (b) $(C - B) \cup (B - C)$ & 
+        (c) $(A - C) \cup ((B \cap C) - A)$ \\   
+	\end{tabular}
+	\end{solution}
+	\end{EnvFullwidth}
+
+
+
+\ugquestion{3} For each of the following sets, state what the  corresponding shaded region of the Venn diagram represents. 
+
+\begin{tabular}{ccc}
+	\begin{venndiagram3sets}
+		\fillANotB \fillANotC \fillBNotC
+	\end{venndiagram3sets}
+	& 
+	\input{venn1.tex}
+	& 
+	\input{venn2.tex} \\
+	\ifprintanswers
+		\small
+		\csol{(a) $(A - B) \cup (A - C) \cup (B - C)$  or} & 
+		\csol{(b) $B \cap C \cap \bar{A}$  } & 
+		\csol{(c) $ (A \cap B) \cup (B \cap C)$ }\\
+		\csol{$((A \cup B) - C) \cup ((A \cap C) - B)$ or } \\
+		\csol{$(A - B) \cup (B - C)$}
+	\fi 
+\end{tabular}
+
+
+
+\ugquestion{6} Show the following sets are equal,  $\overline{A \cup (B \cap C)} = (\overline{C} \cup
+    \overline{B}) \cap \overline{A}$, using
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+        topsep=0pt,partopsep=0pt]
+    \item set membership table
+    \item set identities
+\end{enumerate}
+	\ifprintanswers
+        \vspace{-10pt}
+    \fi
+    \begin{solution}
+    	\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+        topsep=0pt,partopsep=0pt]
+       	\item 
+        \scriptsize
+       	\begin{tabular}{|ccc|ccc|ccc|}
+       		$A$ & $B$ & $C$ & $B \cap C$ & $A \cup (B \cap C)$ & $\overline{A \cup (B \cap C)}$ & 
+       		  $\overline{A}$ & $\overline{B \cap C}$ &  $(\overline{C} \cup
+    \overline{B}) \cap \overline{A}$ \\
+       		\hline
+       		 1 & 1 & 1 &  1 & 1 & 0 &   0 & 0 & 0  \\
+       		 1 & 1 & 0 &  0 & 1 & 0 &   0 & 1 & 0  \\
+       		 1 & 0 & 1 &  0 & 1 & 0 &   0 & 1 & 0  \\
+       		 1 & 0 & 0 &  0 & 1 & 0 &   0 & 1 & 0  \\
+       		\hline
+       		 0 & 1 & 1 &  1 & 1 & 0 &   1 & 0 & 0  \\
+       		 0 & 1 & 0 &  0 & 0 & 1 &   1 & 1 & 1  \\
+       		 0 & 0 & 1 &  0 & 0 & 1 &   1 & 1 & 1  \\
+       		 0 & 0 & 0 &  0 & 0 & 1 &   1 & 1 & 1  \\
+       		\hline
+       	\end{tabular}
+
+        \normalsize
+       	\item 
+       	\begin{align*}
+		    \overline{A \cup (B \cap C)} &= \overline{A} \cap \overline{B \cap C} \tag{DeMorgan's set identities} \\
+		      &= \overline{A} \cap (\overline{B} \cup \overline{C}) \tag{DeMorgan's set identities} \\
+		      &= (\overline{B} \cup \overline{C}) \cap \overline{A} \tag{Commutative} \\
+		      &= (\overline{C} \cup \overline{B}) \cap \overline{A} \tag{Commutative}
+		\end{align*}
+	\end{enumerate}
+    \end{solution}
+
+
+\gquestion{4}{4}{all} Show the following sets are equal,  $A \cap (\overline{A} \cup B) = A \cap B$, using
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+        topsep=0pt,partopsep=0pt]
+    \item set membership table
+    \item set identities
+\end{enumerate}
+	\ifprintanswers
+		\vspace{-10pt}
+	\fi
+	\begin{solution}
+		\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+        topsep=0pt,partopsep=0pt]
+       	\item  
+        \scriptsize
+        \hspace{0.5in} \begin{tabular}{|ccc|cc|c|}
+            $A$ & $B$ & $\bar{A}$ & $\bar{A} \cup B$ & $A \cap (\bar{A} \cup B)$ 
+                & $A \cap B$ \\
+            \hline
+            1 & 1 & 0 &   1 & 1 &   1 \\
+            1 & 0 & 0 &   0 & 0 &   0 \\
+            0 & 1 & 1 &   1 & 0 &   0 \\
+            0 & 0 & 0 &   0 & 0 &   0 \\
+        \end{tabular}
+        \normalsize
+
+       	\item 
+		\begin{align*}
+			A \cap (\overline{A} \cup B) &= (A \cap \overline{A}) \cup (A \cap B) \tag{Distributive} \\
+			 &= \es \cup (A \cap B) \tag{Complement} \\
+			 &= (A \cap B) \cup \es  \tag{Commutative} \\
+			 &= A \cap B \tag{Identity}
+		\end{align*}
+	\end{enumerate}
+	\end{solution}
+
+
+
+
+
+\gquestion{8}{3}{d-f} Consider a collection of books in the library.  The universal set $U$ refers to all books in the library.  In addition, books are classified by their subject (each book may receive more than one classification) into the following sets: $F$ - fiction, $B$ - biography, $H$ - historical, $P$ - poetry, $N$ - non-fiction, $S$ - scientific, $E$ - English, $O$ - other language, $L$ - literary, $T$ - travel, $R$ - reference.  Each set is a subset of $U$. 
+
+Express each of the following statements using set expressions, e.g., set operators ($\cup$, $\cap$, -, $\overline{A}$, etc.), relations ($=$, $\s$, $\pss$), etc.: 
+
+    % \ifprintanswers
+    %     \vspace{-10pt}
+    % \else
+\begin{enumerate}[label=(\alph*),itemsep=1pt,parsep=0pt,
+        topsep=0pt,partopsep=0pt]
+    \item \ifprintanswers \csoln{$S \cap R$} \tab \fi The set of scientific references. 
+    \item \ifprintanswers \csoln{$F \cap N = \es$} \tab \fi No book is both fiction and non-fiction. 
+    \item \ifprintanswers \csoln{$S \cap L = \es$} \tab \fi A scientific book is not literary.
+    \item \ifprintanswers \csoln{$(H \cap F) - O$ } \tab \fi The set of historical fiction books excluding those in other languages. 
+    \item \ifprintanswers \csoln{$B \s H$ } \tab \fi  Any biography is also a historical book.
+    \item \ifprintanswers  \csoln{$\overline{R \cup L \cup P} = \es$ } \tab \fi All books are either reference, literary, or poetry. 
+    \item \ifprintanswers \csoln{ $T \s R$}  \tab \fi All travel books are reference books.
+    \item \ifprintanswers \csoln{$P \cap O \s L$} \tab \fi All poetry in other languages are literary works.
+\end{enumerate}
+	% \fi
+% \begin{solution}
+% \begin{minipage}{0.28\textwidth}
+% \begin{enumerate}[label=(\alph*),itemsep=2pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+%     \item $S \cap R$ 
+%     \item $F \cap N = \es$
+%     \item $S \cap L = \es$ 
+%     \item $(H \cap F) - O$ 
+%     \item $B \s H$ 
+%     \item $\overline{R \cup L \cup P} = \es$
+%     \item $T \s R$ 
+%     \item $P \cap O \s L$
+% \end{enumerate}
+% \end{minipage}
+% %
+% % \begin{minipage}{0.7\textwidth}
+% % \begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,
+% %         topsep=0pt,partopsep=0pt]
+% %     \item The set of scientific references. 
+% %     \item No book is both fiction and non-fiction. 
+% %     \item A scientific book is not literary.
+% %     \item The set of historical fiction books excluding those in other languages. 
+% %     \item Any biography is also a historical book.
+% %     \item All books are either reference, literary, or poetry. 
+% %     \item All travel books are reference books.
+% %     \item All poetry in other languages are literary works.
+% % \end{enumerate}
+% % \end{minipage}
+% \end{solution}
+
+
+
+\section*{Function}
+
+\gquestion{6}{6}{all} Let $S = \{a, b, c, d, e\}$ and $T = \{1, 2, 3, 4, 5, 6, 7, 8\}$. 
+Determine whether the following are functions (Yes / No).
+\begin{enumerate}[label=(\alph*),itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt
+]
+  \item \csol{Yes, a function \tab } 
+  	$f: S \ra T$, $f = \{(a,5), (b,4), (c,1), (d,3), (e,2)\}$
+  \item \csol{Not a function \tab } 
+  	$g: S \ra T$, $g = \{(a,4), (d,3), (c,3), (b,5)\}$
+  \item \csol{Not a function \tab } 
+  	$h: S \ra T$, $h = \{(a,7), (b,4), (c,1), (d,2), (e,3), (b,3) \}$
+  \item \csol{Yes, a function \tab } 
+  	$i: S \ra T$, $i = \{(a,2), (b,2), (c,1), (d,5), (e,8) \}$
+%   \item $i = \{(b,3), (d,4), (c,7), (a,1)\}$
+   \item \csol{Not a function \tab } 
+   	$j: \Z \ra \Z = \{ (x,y) \;|\; 3x + y^2 = 8 \}$
+   \item \csol{Yes, a function \tab } 
+   	$k: \R \ra \R = \{  (x, x^2) \;|\; x \in \R \}$
+\end{enumerate}
+ %   \ifprintanswers
+ %        \vspace{-5pt}
+ %   \fi
+	% \begin{solution}
+	% 	(a) Yes, a function \\ 
+	% 	(b) Not a function \\ 
+	% 	(c) Not a function \\ 
+	% 	(d) Yes, a function \\
+	% 	(e) Not a function \\
+	% 	(f) Yes, a function 
+	% \end{solution}
+
+
+
+\gquestion{4}{2}{a-b} Rosen, Ch 2.3.6 (a-d), p. 152. (p. 161 for 8th ed)
+   \ifprintanswers
+        \vspace{-15pt}
+   \fi
+	\begin{solution}
+	\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+	    \item[(a)] the domain is $\Z^+ \times \Z^+$, the range is $\Z^+$
+	    \item[(b)] the domain is $\Z^+$, the range is $\{1, 2, 3, 4, 5, 6, 7, 8,
+	9\}$
+		\item[(c)] the domain is the set of all bit strings, the range is $\Z$
+	    \item[(d)] the domain is $\Z^+$, the range is $\Z^+$
+	%     \item[(e)] The domain is the set of bit strings. The range is the set of
+	% strings of 1’s , i.e., {λ, 1, 11, 111, . . .} , where λ is the empty string
+	% (containing no symbols).
+	\end{itemize}
+	\end{solution}
+
+
+
+
+\ugquestion{8} Find these values:
+% \gquestion{8}{5}{a,b,d,e,g} Find these values: 
+\ifprintanswers
+	\vspace{-10pt}
+\else
+
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{llll}
+	(a) $\ds \left\lfloor 8.6 \right\rfloor$ & (b) $\ds \left\lceil 4.3 \right\rceil$ & 
+	 (c) $\ds \left\lfloor -3.6 \right\rfloor$  & (d) $\ds \left\lfloor 10.5\bar{3} \right\rfloor $\\
+	(e) $\ds \left\lceil -2.1 \right\rceil$  & (f) $\ds \left\lfloor \frac{-3}{4} \right\rfloor$ & 
+	 (g) $\ds \left\lceil \;\frac{13}{3}  + \left\lfloor \;\frac{-5}{4}\; \right\rfloor \; \right\rceil$ &
+	 (h) $\ds \left\lfloor \;3.2 - \left\lceil 10.4 \right\rceil \; \right\rfloor $\\
+\end{tabular}
 \fi
 \begin{solution}
 	\vspace{-5pt}

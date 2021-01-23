@@ -24,7 +24,7 @@ def change_description(txt):
     """
     :type txt: str
     """
-    new_context = re.escape(r'''\ifprintanswers
+    new_context = r'''\ifprintanswers
 \noindent \textbf{Instructions:} All assignments are due \underline{by
 \textbf{midnight} on the due date} specified.  Assignments should be typed or
 scanned and submitted as a PDF in Canvas.   
@@ -55,9 +55,9 @@ manner.  Use the provided files that give mathematical notation in Word, Open Of
 \noindent You should \underline{complete all problems}, but \underline{only a
 subset will be graded} (which will be graded is not known to you ahead of
 time). 
-\fi''')
+\fi'''
     txt = re.sub(r'\\ifprintanswers\n(.*\n)*\\fi', new_context, txt, flags=re.M)
-    print(txt)
+    #print(txt)
     # txt = re.sub(r"Due: ...\. \d{2}/\d{2}/\d{4}", r"Due: \*\*\*\. \*\*/\*\*/2021")
     return txt
 
@@ -138,7 +138,7 @@ if __name__ == '__main__':
 
         new_file = "cs2311HWs/{}/{}".format(new_names[i], body_file_name)
         old_txt = change_date(old_txt)
-        old_txt = change_description(old_txt)
+        #old_txt = change_description(old_txt)
         # print(old_txt)
 
         atxtfile = open(atxt_names[i]).read()
@@ -149,7 +149,7 @@ if __name__ == '__main__':
         f.write(old_txt)
         from pdflatex import PDFLaTeX
 
-        # pdfl = PDFLaTeX.from_texfile(new_file)
-        # pdf, log, completed_process = pdfl.create_pdf(keep_pdf_file=True, keep_log_file=False)
+        pdfl = PDFLaTeX.from_texfile(new_file)
+        pdf, log, completed_process = pdfl.create_pdf(keep_pdf_file=True, keep_log_file=False)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
